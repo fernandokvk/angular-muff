@@ -30,6 +30,12 @@ Instalação
 ```sh
 npm install -g @angular/cli
 ```
+
+Dependências
+```sh
+npm install
+```
+
 Inicializando o projeto
 
 ```sh
