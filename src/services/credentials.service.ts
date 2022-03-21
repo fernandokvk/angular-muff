@@ -28,19 +28,23 @@ export class CredentialsService {
     };
   }
 
-  searchCredentials(user: string): Observable<Credential> {
+  searchCredentials(user: string): Observable<Credential[]> {
 
-    user = user.trim();
-
-    const options = user ? { params: new HttpParams().set('login', user) } : {};
-
-    return this.httpClient.get<Credential>(this.url, options).pipe(
+/*    return this.httpClient.get<Credential>(this.url, options).pipe(
 
       tap(_ => console.log("oab")),
       catchError(this.handleError<Credential>('search', []))
 
-    );
+    );*/
+    user = user.trim();
+
+    const options = user ? { params: new HttpParams().set('login', user) } : {};
+
+    return this.httpClient.get<Credential[]>(this.url, options)
+
   }
+
+
 
 
 

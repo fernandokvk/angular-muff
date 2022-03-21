@@ -4,7 +4,7 @@
       "id": "1",
       "email": "admin@admin.com",
       "login": "admin",
-      "password": 123,
+      "password": "123",
       "name": "muff",
       "surname": "ondor"
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "email": "mcintoshcarroll@comtract.com",
       "login": "Lewis0",
-      "password": 983915,
+      "password": "983915",
       "name": "Rosella",
       "surname": "Dodson"
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "email": "roselladodson@comtract.com",
       "login": "Patrica3",
-      "password": 665464,
+      "password": "665464",
       "name": "Deanna",
       "surname": "Patterson"
     },
@@ -28,7 +28,7 @@
       "id": "4",
       "email": "deannapatterson@comtract.com",
       "login": "Leonard10",
-      "password": 761048,
+      "password": "761048",
       "name": "Rios",
       "surname": "Herrera"
     },
@@ -36,7 +36,7 @@
       "id": "5",
       "email": "riosherrera@comtract.com",
       "login": "Nadine7",
-      "password": 641645,
+      "password": "641645",
       "name": "Curtis",
       "surname": "Bradshaw"
     },
@@ -44,7 +44,7 @@
       "id": "6",
       "email": "curtisbradshaw@comtract.com",
       "login": "Lena1",
-      "password": 856603,
+      "password": "856603",
       "name": "Reese",
       "surname": "Beck"
     },
@@ -52,7 +52,7 @@
       "id": "7",
       "email": "reesebeck@comtract.com",
       "login": "Ballard4",
-      "password": 582883,
+      "password": "582883",
       "name": "Lavonne",
       "surname": "Hull"
     },
@@ -60,7 +60,7 @@
       "id": "8",
       "email": "lavonnehull@comtract.com",
       "login": "Gilbert7",
-      "password": 699895,
+      "password": "699895",
       "name": "Padilla",
       "surname": "Alvarez"
     },
@@ -68,7 +68,7 @@
       "id": "9",
       "email": "padillaalvarez@comtract.com",
       "login": "Susanne5",
-      "password": 327191,
+      "password": "327191",
       "name": "Reyes",
       "surname": "Tyler"
     }

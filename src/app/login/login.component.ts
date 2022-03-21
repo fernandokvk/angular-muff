@@ -1,19 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {CredentialsService} from "../../services/credentials.service";
 import {Router} from "@angular/router";
 import {Credential} from "../../models/credential.model";
-import {Observable, Observer} from "rxjs";
+import {map, Observable, Observer, tap} from "rxjs";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   login: string = "";
   password: string = "";
-  session: Credential | undefined;
+  session: Credential[] | undefined;
 
 
 
@@ -24,14 +25,25 @@ export class LoginComponent implements OnInit {
   }
 
   logMeIn() {
-    var teste;
-    teste = this.credentialService.searchCredentials(this.login).subscribe(_ => _.password);
+    var credentialsObserver: Observable<Credential[]>;
 
-    console.log(teste);
-
-
+    credentialsObserver = this.credentialService.searchCredentials(this.login);
+    credentialsObserver.subscribe(
+      (data: Credential[]) => {
+        if (data.pop()?.password == this.password){
+          this.router.navigateByUrl('home');
+        } else {
+          this.incorrectPassword();
+        }
+      }, (error) => console.log(error)
+    //  Servidor offline
+    )
   }
 
+  incorrectPassword(){
+    console.log("incorrect password");
+  //  mostrar card
+  }
   cadastrarNovoUsuario() {
 
     this.router.navigateByUrl('newUser')
