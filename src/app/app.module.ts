@@ -11,11 +11,15 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './home/home.component';
 import {registerLocaleData} from "@angular/common";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 //-----
 import localePt from '@angular/common/locales/pt'
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { NewUserComponent } from './new-user/new-user.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatInputModule} from "@angular/material/input";
+import {MatHeaderCell, MatTableModule} from "@angular/material/table";
 
 
 registerLocaleData(localePt, 'pt');
@@ -36,7 +40,10 @@ registerLocaleData(localePt, 'pt');
     MatCardModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatTableModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},

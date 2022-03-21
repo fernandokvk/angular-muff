@@ -3,6 +3,7 @@ import {CredentialsService} from "../../services/credentials.service";
 import {Router} from "@angular/router";
 import {Credential} from "../../models/credential.model";
 import {map, Observable, Observer, tap} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,9 @@ export class LoginComponent implements OnInit {
 
   login: string = "";
   password: string = "";
-  session: Credential[] | undefined;
+  hide = true;
 
-
-
-  constructor(private credentialService: CredentialsService, private router: Router) {
-  }
-
-  ngOnInit(): void {
+  constructor(private credentialService: CredentialsService, private router: Router, private _snackBar: MatSnackBar) {
   }
 
   logMeIn() {
@@ -33,19 +29,17 @@ export class LoginComponent implements OnInit {
         if (data.pop()?.password == this.password){
           this.router.navigateByUrl('home');
         } else {
-          this.incorrectPassword();
+          this._snackBar.open("Informações incorretas", "Fechar");
         }
       }, (error) => console.log(error)
     //  Servidor offline
     )
   }
 
-  incorrectPassword(){
-    console.log("incorrect password");
-  //  mostrar card
-  }
   cadastrarNovoUsuario() {
-
     this.router.navigateByUrl('newUser')
+  }
+
+  ngOnInit(): void {
   }
 }

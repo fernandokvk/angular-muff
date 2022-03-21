@@ -17,7 +17,6 @@
 }
 
 .formulario {
-  background-color: white;
   padding: 20px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -27,65 +26,61 @@
   text-align: right;
   font-style: italic;
   color: cornflowerblue;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 15px;
 
 }
 
 .form-field {
 
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  //color: var(--primary);
-  color: var(--borders);
+  font-size: 16px;
 
   &__label {
-    color: inherit;
-    margin-bottom: 4px;
-    font-size: 18px;
+    font-size: 24px;
   }
 
-  &__input {
-    padding: 8px;
-    border-radius: 4px;
-
-    outline-color: var(--primary-color);
-    border: 1px solid;
-
-  }
 }
 
 .botao-wrapper {
   display: flex;
 }
 
+
+/* Grow */
 .botao {
   flex: 1;
   font-size: 16px;
   padding: 2px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
 
   &__cadastrar {
     @extend .botao;
     margin-right: 30px;
-    margin-left: 0px;
+    margin-left: 10px;
   }
 
   &__entrar {
     @extend .botao;
-    margin-right: 0px;
+    margin-right: 10px;
     margin-left: 30px;
   }
-
-  &:hover {
-    box-shadow: 1px 1px var(--secondary), 2px 2px var(--secondary), 3px 3px var(--secondary);
-    transform: translateX(-3px);
-    opacity: 0.9;
-
-  }
 }
+
+.botao:hover,
+.botao:focus,
+.botao:active {
+  transform: scale(1.1);
+}
+
 
