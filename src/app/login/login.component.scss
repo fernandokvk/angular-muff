@@ -11,8 +11,9 @@
   bold: true;
   font-size: 30px;
   text-align: center;
-  align-items: center;
   font-family: "Ubuntu Light";
+  color: var(--muff-accent);
+  align-items: center;
   text-transform: capitalize;
 }
 
@@ -22,7 +23,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.esqueci-senha{
+.esqueci-senha {
   text-align: right;
   font-style: italic;
   color: cornflowerblue;
@@ -48,8 +49,6 @@
   display: flex;
 }
 
-
-/* Grow */
 .botao {
   flex: 1;
   font-size: 16px;
