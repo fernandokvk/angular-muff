@@ -1,0 +1,30 @@
+<section class="container">
+
+  <img class="logo" src="assets/muff-logo-3.png">
+  <h1 class="titulo">Muffondor</h1>
+
+  <form class="formulario">
+
+    <div class="form-field">
+      <mat-label class="form-field__label">Login</mat-label>
+      <input class="form-field__input" type="text" [(ngModel)]="login" name="login" matInput>
+    </div>
+
+    <div class="form-field">
+      <mat-label class="form-field__label">Senha</mat-label>
+      <input class="form-field__input" type="text" [(ngModel)]="password" name="password" matInput>
+    </div>
+
+    <div class="esqueci-senha">
+      <a href="http://www.google.com">Esqueci minha senha</a>
+    </div>
+
+    <div class="botao-wrapper">
+      <button (click)="cadastrarNovoUsuario()" class="botao__cadastrar" mat-raised-button color="accent">Cadastrar</button>
+      <button (click)="logMeIn()" class="botao__entrar"mat-raised-button color="accent" type="submit">Entrar</button>
+    </div>
+
+  </form>
+
+</section>
+
