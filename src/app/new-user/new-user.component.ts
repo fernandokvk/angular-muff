@@ -1,7 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-new-user',
@@ -10,51 +17,57 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class NewUserComponent implements OnInit {
   hide = true;
-  nome: string = '';
-  sobrenome: string = '';
-  password: string = '';
-  confirmedPassword: string = '';
-  email: string = '';
-  endereco: string = '';
-  cep: string = '';
-  cpf: string = '';
-  telefone: string = '';
-  isChecked: boolean = false;
+  nome = new FormControl('', [Validators.required]);
+  sobrenome = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  endereco = new FormControl('', [Validators.required]);
+  cep = new FormControl('', [Validators.required, Validators.min(8)]);
+  cpf = new FormControl('', [Validators.required]);
+  telefone = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
+  confirmedPassword = new FormControl('', [Validators.required]);
+  checkbox = new FormControl('', Validators.requiredTrue);
 
   novoUsuario: object = {};
-  usuarioForm: FormGroup = new FormGroup({
-    nome: new FormControl(this.nome, [Validators.required]),
-    asobrenome: new FormControl(this.sobrenome, [Validators.required]),
-    email: new FormControl(this.email, [Validators.required, Validators.email,]),
-    endereco: new FormControl(this.endereco, [Validators.required]),
-    cep: new FormControl(this.cep, [Validators.required, Validators.min(8)]),
-    cpf: new FormControl(this.cpf, [Validators.required]),
-    telefone: new FormControl(this.telefone, [Validators.required]),
-    senha: new FormControl(this.password, [Validators.required]),
-    checkbox: new FormControl('', Validators.requiredTrue),
-  });
+  usuarioForm!: FormGroup;
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
-  }
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  /** A hero's name can't match the given regular expression */
+  passwordValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      let passwordMatch = false;
+      if (this.password.value == this.confirmedPassword.value)
+        passwordMatch = true;
+      return !passwordMatch ? { passwordValidator: true } : null;
+    };
   }
 
   cadastrar() {
-    if (!(this.password === this.confirmedPassword)) {
+    if (!(this.password.value === this.confirmedPassword.value)) {
       this._snackBar.open('As senhas nao são iguais', 'Fechar');
-    }
-    if (
-      this.isChecked &&
-      this.usuarioForm.errors == null &&
-      this.password === this.confirmedPassword
+    } else if (
+      !(
+        this.nome.errors != null &&
+        this.password.errors != null &&
+        this.email.errors != null &&
+        this.cpf.errors != null &&
+        this.confirmedPassword.errors != null &&
+        this.checkbox.errors != null &&
+        this.sobrenome.errors != null &&
+        this.cep.errors != null &&
+        this.endereco.errors != null &&
+        this.telefone.errors != null
+      )
     ) {
       this.novoUsuario = {
-        email: this.email,
-        login: this.nome,
-        password: this.password,
-        name: this.nome,
-        surname: this.sobrenome,
+        email: this.email.value,
+        login: this.nome.value,
+        password: this.password.value,
+        name: this.nome.value,
+        surname: this.sobrenome.value,
       };
 
       this.http
@@ -73,3 +86,4 @@ export class NewUserComponent implements OnInit {
     }
   }
 }
+
