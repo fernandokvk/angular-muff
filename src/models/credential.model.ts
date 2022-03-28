@@ -5,4 +5,7 @@ export interface Credential {
   password: string;
   name: string;
   surname: string;
+  endereco: string;
+  cep: string;
+  telefone: string;
 }

@@ -15,10 +15,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 //-----
 import localePt from '@angular/common/locales/pt';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewUserComponent } from './new-user/new-user.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 registerLocaleData(localePt, 'pt');
 
@@ -37,6 +39,9 @@ registerLocaleData(localePt, 'pt');
     MatSnackBarModule,
     MatInputModule,
     MatTableModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

@@ -1,1 +1,102 @@
-<p>new-user works!</p>
+
+  <form class="formulario" (ngSubmit)="cadastrar()">
+
+    <div class="form-field__side">
+      <mat-form-field class="form-field__side__esq" floatLabel="always" color="accent" appearance="outline">
+        <mat-label class="form-field__label">Nome</mat-label>
+        <input matInput formControlName="nome" class="" [(ngModel)]="nome" name="nome">
+        <mat-error *ngIf="nome.errors?.['required']">
+          É necessário inserir o nome
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field__side__dir" floatLabel="always" color="accent" appearance="outline">
+        <mat-label class="form-field__label">Sobrenome</mat-label>
+        <input matInput [formControl]="formControl" class="" [(ngModel)]="sobrenome" name="sobrenome">
+        <mat-error *ngIf="formControl.hasError('required')">
+          É necessário inserir o sobrenome
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-field__side">
+      <mat-form-field class="form-field__side__esq" floatLabel="always" color="accent" appearance="outline">
+        <mat-label class="form-field__label">CEP</mat-label>
+        <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="cep"  name="cep">
+        <mat-error *ngIf="formControl.hasError('required')">
+          É necessário inserir o CEP
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field__side__dir" floatLabel="always" color="accent" appearance="outline">
+        <mat-label class="form-field__label">Endereço</mat-label>
+        <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="endereco" name="endereco" >
+        <mat-error *ngIf="formControl.hasError('required')">
+          É necessário inserir um endereço
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+
+
+    <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
+      <mat-label class="form-field__label">Telefone</mat-label>
+      <input matInput type="tel" [formControl]="formControl" class="form-field__input" [(ngModel)]="telefone"  name="telefone">
+      <mat-error *ngIf="formControl.hasError('required')">
+        É necessário inserir um telefone
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
+      <mat-label class="form-field__label">E-mail</mat-label>
+      <input type="email" matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="email" name="email" >
+      <mat-error *ngIf="formControl.hasError('required')">
+        É necessário inserir um e-mail
+      </mat-error>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
+      <mat-label class="form-field__label">Senha</mat-label>
+      <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" name="password">
+      <mat-error *ngIf="formControl.hasError('required')">
+        É necessário inserir uma senha
+      </mat-error>
+      <button mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
+      <mat-label class="form-field__label">Confirme a senha</mat-label>
+      <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="confirmedPassword"  [type]="hide ? 'password' : 'text'" name="confirmedPassword">
+      <mat-error *ngIf="formControl.hasError('required')">
+        É necessário confirmar a senha
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill" >
+      <mat-label class="form-field__termos-label">Termos e condições de uso</mat-label>
+      <textarea class="form-field__termos"matInput readonly="readonly">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis urna rutrum dolor euismod, a interdum eros eleifend. Fusce bibendum magna non volutpat molestie. Quisque maximus feugiat nulla, a pharetra massa lobortis sit amet. Cras auctor lectus a felis ultricies fringilla. Donec a metus ultricies, congue risus id, finibus lorem. Nullam vitae massa a leo iaculis gravida. Integer sit amet blandit ex, vitae sollicitudin velit. Aenean tortor eros, bibendum quis ex sed, elementum imperdiet dolor. Nullam at velit fermentum, bibendum turpis quis, commodo ex. Phasellus diam erat, finibus sit amet eleifend ut, fringilla id tellus. Mauris et velit vestibulum, semper arcu vitae, tempus ante. Phasellus imperdiet euismod nibh vel volutpat. Proin consectetur turpis diam, id ullamcorper eros elementum sit amet. Nam convallis, tellus eu gravida dapibus, ex nibh rhoncus leo, sed posuere erat risus at mi. Phasellus tincidunt arcu ac enim congue vulputate. Etiam dictum magna sed gravida commodo.
+        Sed id justo bibendum, venenatis orci sit amet, facilisis metus. Fusce vehicula ut odio vel ornare. Nulla auctor diam quis mauris auctor, sit amet accumsan erat viverra. Duis volutpat sodales lectus vitae dictum. Quisque lobortis orci id tellus semper condimentum. Morbi at magna pulvinar, blandit est molestie, volutpat risus. Curabitur lacinia enim vitae augue fermentum, eu elementum velit fringilla. In gravida ipsum purus, sit amet faucibus justo aliquet eget. Praesent semper massa sit amet nisi tincidunt fringilla.
+        Aliquam nisl erat, sollicitudin id consectetur nec, auctor at augue. Nulla eu malesuada dui. Mauris tristique felis placerat turpis semper, at vehicula libero luctus. Ut ullamcorper massa ut lorem aliquam interdum. Pellentesque fringilla efficitur imperdiet. Nunc pellentesque congue volutpat. Nunc ut tincidunt nibh. Nullam iaculis convallis tellus et scelerisque. Sed ullamcorper ac ante non sagittis. Aenean eu est dictum, facilisis lectus et, tempor ante. Donec venenatis risus mauris. Sed commodo, massa non congue dignissim, ex enim pharetra diam, gravida congue sem elit sit amet velit. Proin vitae ornare mauris, vel feugiat dui. Duis in luctus libero, a tristique quam.
+    </textarea>
+    </mat-form-field>
+
+    <div>
+        <mat-checkbox class="checkbox" [checked]="isChecked">Li e aceito os termos de uso</mat-checkbox>
+    </div>
+
+
+    <div class="botao-wrapper">
+      <button class="botao" mat-raised-button color="accent" type="submit">Cadastrar</button>
+    </div>
+
+  </form>
+
+
+
+
+

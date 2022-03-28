@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Credential } from '../../models/credential.model';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {ActiveSessionService} from "../active-session.service";
+import { ActiveSessionService } from '../active-session.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +14,7 @@ import {ActiveSessionService} from "../active-session.service";
 export class LoginComponent implements OnInit {
   login: string = '';
   password: string = '';
+
   hide = true;
 
   constructor(
@@ -30,11 +31,9 @@ export class LoginComponent implements OnInit {
     credentialsObserver.subscribe(
       (data: Credential[]) => {
         if (data[0].password == this.password) {
-
           this.activeSession.credential = data.pop();
           this.activeSession.setInfo();
           this.router.navigateByUrl('home');
-
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');
         }
