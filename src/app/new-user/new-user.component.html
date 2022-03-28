@@ -1,19 +1,19 @@
 
-  <form class="formulario" (ngSubmit)="cadastrar()">
+  <form class="formulario" [formGroup]="usuarioForm" (ngSubmit)="cadastrar()">
 
     <div class="form-field__side">
       <mat-form-field class="form-field__side__esq" floatLabel="always" color="accent" appearance="outline">
         <mat-label class="form-field__label">Nome</mat-label>
-        <input matInput formControlName="nome" class="" [(ngModel)]="nome" name="nome">
-        <mat-error *ngIf="nome.errors?.['required']">
+        <input matInput [formControlName]="nome" [(ngModel)]="nome" name="nome">
+        <mat-error *ngIf="usuarioForm.get('nome').hasError('required')">
           É necessário inserir o nome
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field__side__dir" floatLabel="always" color="accent" appearance="outline">
         <mat-label class="form-field__label">Sobrenome</mat-label>
-        <input matInput [formControl]="formControl" class="" [(ngModel)]="sobrenome" name="sobrenome">
-        <mat-error *ngIf="formControl.hasError('required')">
+        <input matInput [formControlName]="sobrenome" class="" [(ngModel)]="sobrenome" name="sobrenome">
+        <mat-error *ngIf="usuarioForm.get('sobrenome').hasError('required')">
           É necessário inserir o sobrenome
         </mat-error>
       </mat-form-field>
@@ -22,16 +22,16 @@
     <div class="form-field__side">
       <mat-form-field class="form-field__side__esq" floatLabel="always" color="accent" appearance="outline">
         <mat-label class="form-field__label">CEP</mat-label>
-        <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="cep"  name="cep">
-        <mat-error *ngIf="formControl.hasError('required')">
+        <input matInput [formControlName]="cep" class="form-field__input" [(ngModel)]="cep"  name="cep">
+        <mat-error *ngIf="cep.hasError('required')">
           É necessário inserir o CEP
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field__side__dir" floatLabel="always" color="accent" appearance="outline">
         <mat-label class="form-field__label">Endereço</mat-label>
-        <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="endereco" name="endereco" >
-        <mat-error *ngIf="formControl.hasError('required')">
+        <input matInput [formControlName]="endereco" class="form-field__input" [(ngModel)]="endereco" name="endereco" >
+        <mat-error *ngIf="endereco.hasError('required')">
           É necessário inserir um endereço
         </mat-error>
       </mat-form-field>
@@ -42,16 +42,16 @@
 
     <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
       <mat-label class="form-field__label">Telefone</mat-label>
-      <input matInput type="tel" [formControl]="formControl" class="form-field__input" [(ngModel)]="telefone"  name="telefone">
-      <mat-error *ngIf="formControl.hasError('required')">
+      <input matInput type="tel" [formControlName]="telefone" class="form-field__input" [(ngModel)]="telefone"  name="telefone">
+      <mat-error *ngIf="usuarioForm.get('telefone').hasError('required')>
         É necessário inserir um telefone
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
       <mat-label class="form-field__label">E-mail</mat-label>
-      <input type="email" matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="email" name="email" >
-      <mat-error *ngIf="formControl.hasError('required')">
+      <input type="email" matInput [formControlName]="email" class="form-field__input" [(ngModel)]="email" name="email" >
+      <mat-error *ngIf="email.hasError('required')">
         É necessário inserir um e-mail
       </mat-error>
     </mat-form-field>
@@ -60,8 +60,8 @@
 
     <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
       <mat-label class="form-field__label">Senha</mat-label>
-      <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" name="password">
-      <mat-error *ngIf="formControl.hasError('required')">
+      <input matInput [formControlName]="password" class="form-field__input" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" name="password">
+      <mat-error *ngIf="password.hasError('required')">
         É necessário inserir uma senha
       </mat-error>
       <button mat-icon-button matSuffix (click)="hide = !hide">
@@ -71,8 +71,8 @@
 
     <mat-form-field class="form-field" floatLabel="always" color="accent" appearance="outline">
       <mat-label class="form-field__label">Confirme a senha</mat-label>
-      <input matInput [formControl]="formControl" class="form-field__input" [(ngModel)]="confirmedPassword"  [type]="hide ? 'password' : 'text'" name="confirmedPassword">
-      <mat-error *ngIf="formControl.hasError('required')">
+      <input matInput [formControlName]="confirmedPassword" class="form-field__input" [(ngModel)]="confirmedPassword"  [type]="hide ? 'password' : 'text'" name="confirmedPassword">
+      <mat-error *ngIf="confirmedPassword.hasError('required')">
         É necessário confirmar a senha
       </mat-error>
     </mat-form-field>
