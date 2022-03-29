@@ -1,11 +1,12 @@
 export interface Credential {
   id: number;
   email: string;
-  login: string;
   password: string;
   name: string;
   surname: string;
+  cpf: string;
+  telefone: string;
   endereco: string;
   cep: string;
-  telefone: string;
+  complemento: string;
 }

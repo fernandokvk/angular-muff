@@ -12,7 +12,7 @@ import { ActiveSessionService } from '../active-session.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  login: string = '';
+  email: string = '';
   password: string = '';
 
   hide = true;
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   logMeIn() {
     var credentialsObserver: Observable<Credential[]>;
 
-    credentialsObserver = this.credentialService.searchCredentials(this.login);
+    credentialsObserver = this.credentialService.searchCredentials(this.email);
     credentialsObserver.subscribe(
       (data: Credential[]) => {
         if (data[0].password == this.password) {

@@ -5,42 +5,46 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.form-field {
-  //padding: 5px;
+.new-user-form{
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
 
-  &__label {
-    font-size: 16px;
+  &__form-field{
+
+
+    &__termos{
+      font-size: 12px;
+      height: 80px;
+      resize: none;
+      text-align: justify;
+
+      &__label{
+        font-size: 18px;
+        margin-bottom:1px;
+      }
+    }
   }
 
-  &__termos-label {
-    font-size: 18px;
-    margin-bottom:1px;
-
-  }
-
-  &__termos {
-    font-size: 12px;
-    height: 80px;
-    resize: none;
-    text-align: justify;
-  }
-
-  &__side {
-    flex-direction: row;
+  &__side{
+    flex-wrap: nowrap;
+    display: inline-flex;
     margin-bottom: 10px;
-    &__esq{
 
-      width: 50%;
+      &__l{
+        min-width: 0;
+        flex: 1 1 auto;
+        margin-right: 5px;
+      }
 
-    }
+      &__r{
+        min-width: 0;
+        flex: 1 1 auto;
+        margin-left: 5px;
 
-    &__dir{
-      width: 50%;
-
-    }
+      }
   }
 }
 
@@ -59,11 +63,15 @@
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
-  display: block;
 
 }
 
+.checkboxWrapper{
+  flex: 1 1 auto;
+}
+
 .botao {
+
   flex: 1;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
@@ -71,6 +79,5 @@
 .botao-wrapper{
   display:flex;
   flex: 1;
-  align-self: flex-end;
 
 }

@@ -16,8 +16,12 @@ export class CredentialsService {
   searchCredentials(user: string): Observable<Credential[]> {
     user = user.trim();
 
-    const options = user ? {params: new HttpParams().set('login', user)} : {};
+    const options = user ? {params: new HttpParams().set('email', user)} : {};
 
     return this.httpClient.get<Credential[]>(this.url, options);
+  }
+
+  submit(credential: Credential): Observable<Credential> {
+    return this.httpClient.post<Credential>(this.url, credential);
   }
 }

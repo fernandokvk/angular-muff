@@ -2,171 +2,26 @@
   "credentials": [
     {
       "id": 1,
-      "email": "admin@admin.com",
-      "login": "admin",
+      "email": "admin",
       "password": "123",
       "name": "muff",
-      "surname": "ondor"
+      "surname": "ondor",
+      "cpf": "123456-12",
+      "telefone": "0800",
+      "endereco": "grupo",
+      "cep": "no-have",
+      "complemento": "do zap"
     },
     {
-      "id": 2,
-      "email": "mcintoshcarroll@comtract.com",
-      "login": "Lewis0",
-      "password": "983915",
-      "name": "Rosella",
-      "surname": "Dodson"
-    },
-    {
-      "id": 3,
-      "email": "roselladodson@comtract.com",
-      "login": "Patrica3",
-      "password": "665464",
-      "name": "Deanna",
-      "surname": "Patterson"
-    },
-    {
-      "id": 4,
-      "email": "deannapatterson@comtract.com",
-      "login": "Leonard10",
-      "password": "761048",
-      "name": "Rios",
-      "surname": "Herrera"
-    },
-    {
-      "id": 5,
-      "email": "riosherrera@comtract.com",
-      "login": "Nadine7",
-      "password": "641645",
-      "name": "Curtis",
-      "surname": "Bradshaw"
-    },
-    {
-      "id": 6,
-      "email": "curtisbradshaw@comtract.com",
-      "login": "Lena1",
-      "password": "856603",
-      "name": "Reese",
-      "surname": "Beck"
-    },
-    {
-      "id": 7,
-      "email": "reesebeck@comtract.com",
-      "login": "Ballard4",
-      "password": "582883",
-      "name": "Lavonne",
-      "surname": "Hull"
-    },
-    {
-      "id": 8,
-      "email": "lavonnehull@comtract.com",
-      "login": "Gilbert7",
-      "password": "699895",
-      "name": "Padilla",
-      "surname": "Alvarez"
-    },
-    {
-      "id": 9,
-      "email": "padillaalvarez@comtract.com",
-      "login": "Susanne5",
-      "password": "327191",
-      "name": "Reyes",
-      "surname": "Tyler"
-    },
-    {
-      "email": "iu23h4ri23uher@gmail.com",
-      "login": "iu23h4ri23uher",
-      "password": "123",
-      "name": "iu23h4ri23uher",
-      "surname": "iu23h4ri23uher",
-      "id": 10
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 11
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 12
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 13
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 14
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 15
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 16
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 17
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 18
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 19
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 20
-    },
-    {
-      "email": "",
-      "login": "",
-      "password": "",
-      "name": "",
-      "surname": "",
-      "id": 21
+      "id": 100,
+      "email": "p@oba.com",
+      "name": "primeiro",
+      "surname": "cliente",
+      "cpf": "123321",
+      "endereco": "nao sei",
+      "cep": "0800",
+      "complemento": "",
+      "password": "1"
     }
   ]
 }

@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import {
-  AbstractControl,
-  FormControl,
+  FormBuilder,
   FormGroup,
   ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Credential } from '../../models/credential.model';
+import { CredentialsService } from '../../services/credentials.service';
 
 @Component({
   selector: 'app-new-user',
@@ -16,74 +14,117 @@ import {
   styleUrls: ['./new-user.component.scss'],
 })
 export class NewUserComponent implements OnInit {
+  newUserForm!: FormGroup;
   hide = true;
-  nome = new FormControl('', [Validators.required]);
-  sobrenome = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  endereco = new FormControl('', [Validators.required]);
-  cep = new FormControl('', [Validators.required, Validators.min(8)]);
-  cpf = new FormControl('', [Validators.required]);
-  telefone = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required]);
-  confirmedPassword = new FormControl('', [Validators.required]);
-  checkbox = new FormControl('', Validators.requiredTrue);
+  credential!: Credential;
+  complemento: String = '';
 
-  novoUsuario: object = {};
-  usuarioForm!: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private credentialService: CredentialsService
+  ) {}
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
-
-  ngOnInit(): void {}
-
-  /** A hero's name can't match the given regular expression */
-  passwordValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      let passwordMatch = false;
-      if (this.password.value == this.confirmedPassword.value)
-        passwordMatch = true;
-      return !passwordMatch ? { passwordValidator: true } : null;
-    };
+  ngOnInit(): void {
+    const fb = this.fb;
+    this.newUserForm = fb.group({
+      nome: fb.control('', [Validators.required]),
+      sobrenome: fb.control('', [Validators.required]),
+      email: fb.control('', [Validators.required, Validators.email]),
+      endereco: fb.control('', [Validators.required]),
+      cep: fb.control('', [Validators.required, Validators.min(8)]),
+      cpf: fb.control('', [Validators.required]),
+      telefone: fb.control('', [Validators.required]),
+      password: fb.control('', [Validators.required]),
+      confirmedPassword: fb.control('', [Validators.required]),
+      checkbox: fb.control('', Validators.requiredTrue),
+    });
   }
 
-  cadastrar() {
-    if (!(this.password.value === this.confirmedPassword.value)) {
-      this._snackBar.open('As senhas nao são iguais', 'Fechar');
-    } else if (
-      !(
-        this.nome.errors != null &&
-        this.password.errors != null &&
-        this.email.errors != null &&
-        this.cpf.errors != null &&
-        this.confirmedPassword.errors != null &&
-        this.checkbox.errors != null &&
-        this.sobrenome.errors != null &&
-        this.cep.errors != null &&
-        this.endereco.errors != null &&
-        this.telefone.errors != null
-      )
-    ) {
-      this.novoUsuario = {
-        email: this.email.value,
-        login: this.nome.value,
-        password: this.password.value,
-        name: this.nome.value,
-        surname: this.sobrenome.value,
-      };
-
-      this.http
-        .post('http://localhost:3000/credentials', this.novoUsuario)
+  onSubmit() {
+    this.getFormValidationErrors();
+    if (this.canSubmit()) {
+      this.credentialService
+        .submit({
+          id: 100,
+          email: this.email?.value,
+          name: this.nome?.value,
+          surname: this.sobrenome?.value,
+          cpf: this.cpf?.value,
+          endereco: this.endereco?.value,
+          cep: this.cep?.value,
+          complemento: this.complemento.toString(),
+          password: this.password?.value,
+        } as Credential)
         .subscribe(
-          (val) => {
-            console.log('Valor de retorno', val);
-          },
-          (response) => {
-            console.log('Erro no Cadastro', response);
-          },
-          () => {
-            console.log('Usuário cadastrado com sucesso');
-          }
+          (t) => console.log(t.email),
+          (error) => console.log(error)
         );
     }
+  }
+
+  canSubmit(): boolean {
+    let canSubmit = true;
+    Object.keys(this.newUserForm.controls).forEach((key) => {
+      if (this.newUserForm.get(key)?.errors != null) {
+        canSubmit = false;
+      }
+    });
+    return canSubmit;
+  }
+
+  getFormValidationErrors() {
+    Object.keys(this.newUserForm.controls).forEach((k) => {
+      // @ts-ignore
+      const controlErrors: ValidationErrors = this.newUserForm.get(k)?.errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log(
+            'formControl: ' + k + ' , error: ' + keyError + ', value:',
+            controlErrors[keyError]
+          );
+        });
+      }
+    });
+  }
+
+  get nome() {
+    return this.newUserForm.get('nome');
+  }
+
+  get sobrenome() {
+    return this.newUserForm.get('sobrenome');
+  }
+
+  get email() {
+    return this.newUserForm.get('email');
+  }
+
+  get endereco() {
+    return this.newUserForm.get('endereco');
+  }
+
+  get cep() {
+    return this.newUserForm.get('cep');
+  }
+
+  get cpf() {
+    return this.newUserForm.get('cpf');
+  }
+
+  get telefone() {
+    return this.newUserForm.get('telefone');
+  }
+
+  get password() {
+    return this.newUserForm.get('password');
+  }
+
+  get confirmedPassword() {
+    return this.newUserForm.get('confirmedPassword');
+  }
+
+  get checkbox() {
+    return this.newUserForm.get('checkbox');
   }
 }
 
