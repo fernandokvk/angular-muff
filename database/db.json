@@ -11,17 +11,6 @@
       "endereco": "grupo",
       "cep": "no-have",
       "complemento": "do zap"
-    },
-    {
-      "id": 100,
-      "email": "p@oba.com",
-      "name": "primeiro",
-      "surname": "cliente",
-      "cpf": "123321",
-      "endereco": "nao sei",
-      "cep": "0800",
-      "complemento": "",
-      "password": "1"
     }
   ]
 }

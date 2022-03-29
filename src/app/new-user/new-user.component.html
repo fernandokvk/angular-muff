@@ -58,7 +58,7 @@
 
     <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
       <mat-label>Complemento</mat-label>
-      <input matInput [ngModel]="complemento">
+      <input matInput [ngModel]="complemento" [ngModelOptions]="{standalone: true}" >
     </mat-form-field>
   </div>
 
