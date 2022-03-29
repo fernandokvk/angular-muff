@@ -7,13 +7,12 @@ import { Credential} from "../models/credential.model";
 export class ActiveSessionService {
 
   credential: Credential | undefined;
+  succesfulSignup: boolean = false;
+
 
   constructor() { }
 
   setInfo(){
-
-    console.log(this.credential?.name);
-
 
   }
 }

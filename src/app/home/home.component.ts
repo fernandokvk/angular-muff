@@ -1,23 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import {ActiveSessionService} from "../active-session.service";
-import {RouterLink} from "@angular/router";
+import { ActiveSessionService } from '../../services/active-session.service';
+import { Router } from '@angular/router';
+import { BaseTemplateComponent } from '../base-template/base-template.component';
+import {TemplateRef} from "@angular/core";
+
+
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html' ,
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private activeSession: ActiveSessionService,
-              private router: RouterLink) { }
-
-  ngOnInit(): void {
-
-    if (this.activeSession.credential == undefined){
-
-    }
+  countries: any;
+  constructor(
+    private activeSession: ActiveSessionService,
+    private router: Router
+  ) {
 
   }
 
+  ngOnInit(): void {
+
+    Object.keys(this.activeSession).forEach((t) => {
+      console.log(t);
+    });
+
+
+
+    /*    if (this.activeSession.credential == undefined){
+      this.router.navigateByUrl('login');
+    }*/
+  }
 }

@@ -1,0 +1,14 @@
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid blue;
+}
+
+mat-sidenav-container{
+  height: calc(205vh - 115vh);
+}

@@ -11,6 +11,17 @@
       "endereco": "grupo",
       "cep": "no-have",
       "complemento": "do zap"
+    },
+    {
+      "email": "seg@g.com",
+      "name": "usuario",
+      "surname": "segundo",
+      "cpf": "cepef",
+      "endereco": "rua",
+      "cep": "12345",
+      "complemento": "",
+      "password": "123",
+      "id": 2
     }
   ]
 }

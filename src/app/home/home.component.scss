@@ -1,0 +1,73 @@
+a {
+  text-decoration: none !important;
+}
+
+.lista-estabelecimentos{
+  font-family: Ubuntu;
+}
+
+.title-wrapper{
+  background: rgba(232, 232, 232, 0.5);
+  display: flex;
+  flex: 1 1 auto;
+
+}
+
+.carousel{
+  background: rgba(232, 232, 232, 0.5);
+}
+
+.title{
+  margin: auto;
+  font-family: Roboto;
+  font-size: 20px;
+}
+
+.main{
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.grid{
+  background: rgba(232, 232, 232, 0.5);
+}
+
+.divider{
+
+}
+
+.categoria{
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &__label{
+    font-family: "Roboto";
+    font-size: 12px;
+  }
+
+  &__logo{
+    width: 28%;
+    margin-top: 6px;
+  }
+}
+
+.carousel-cell{
+  align-items: center;
+  flex: 1 1 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+
+
+.tile{
+  background: #ffffff;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 5px;
+}

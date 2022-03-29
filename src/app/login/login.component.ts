@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CredentialsService } from '../../services/credentials.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import { Credential } from '../../models/credential.model';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActiveSessionService } from '../active-session.service';
+import { ActiveSessionService } from '../../services/active-session.service';
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,6 @@ export class LoginComponent implements OnInit {
       (data: Credential[]) => {
         if (data[0].password == this.password) {
           this.activeSession.credential = data.pop();
-          this.activeSession.setInfo();
           this.router.navigateByUrl('home');
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');
@@ -47,5 +47,11 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('newUser');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    if (this.activeSession.succesfulSignup){
+      this._snackBar.open("Cadastro realizado com sucesso", "Fechar");
+    }
+
+  }
 }

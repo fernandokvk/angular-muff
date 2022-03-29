@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { Credential } from '../../models/credential.model';
 import { CredentialsService } from '../../services/credentials.service';
+import {Router, RouterLink} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {ActiveSessionService} from "../../services/active-session.service";
 
 @Component({
   selector: 'app-new-user',
@@ -21,7 +24,9 @@ export class NewUserComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private credentialService: CredentialsService
+    private credentialService: CredentialsService,
+    private router: Router,
+    private activeSessionService: ActiveSessionService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +50,6 @@ export class NewUserComponent implements OnInit {
     if (this.canSubmit()) {
       this.credentialService
         .submit({
-          id: 100,
           email: this.email?.value,
           name: this.nome?.value,
           surname: this.sobrenome?.value,
@@ -59,8 +63,13 @@ export class NewUserComponent implements OnInit {
           (t) => console.log(t.email),
           (error) => console.log(error)
         );
+      this.activeSessionService.succesfulSignup = true;
+      this.router.navigateByUrl('login');
+
+
     }
   }
+
 
   canSubmit(): boolean {
     let canSubmit = true;

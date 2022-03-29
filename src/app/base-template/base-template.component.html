@@ -1,0 +1,29 @@
+<mat-toolbar color="accent">
+  <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+          mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{toolbarName}}</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" opened=false>
+      <mat-list>
+        <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>adsf
+      <router-outlet></router-outlet>
+    qwer</mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+

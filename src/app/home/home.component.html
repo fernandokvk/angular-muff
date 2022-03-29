@@ -1,1 +1,188 @@
-<p>home works!</p>
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Home</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+
+
+    <section class="main">
+
+      <div class="title-wrapper">
+        <h2 class="title"> Promoções </h2>
+      </div>
+
+      <div>
+
+        <carousel class="carousel" autoplay="true" height="120" autoplayInterval="5000">
+          <div class="carousel-cell">
+            <img src="assets/categorias/abacate.png">
+
+          </div>
+          <div class="carousel-cell">
+            <img src="assets/categorias/carnes.png">
+          </div>
+          <div class="carousel-cell">
+            <img src="assets/categorias/abacate.png">
+          </div>
+          <div class="carousel-cell">
+            <img src="assets/categorias/bebidas.png">
+          </div>
+          <div class="carousel-cell">
+            <img src="assets/categorias/padaria.png">
+          </div>
+        </carousel>
+      </div>
+
+      <div class="title-wrapper">
+        <h2 class="title"> Categorias </h2>
+      </div>
+
+      <div>
+
+        <mat-grid-list class="grid" cols="4" rowHeight="2:1" gutterSize="5px">
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/carnes.png">
+              <mat-label for="categoria__label" class="categoria__label">Carnes</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/pet.png">
+              <mat-label for="categoria__label" class="categoria__label">Pet</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/laticinios.png">
+              <mat-label for="categoria__label" class="categoria__label">Laticinios</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/bebidas.png">
+              <mat-label for="categoria__label" class="categoria__label">Bebidas</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/hortifruti.png">
+              <mat-label for="categoria__label" class="categoria__label">Hortifruti</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/ferramentas.png">
+              <mat-label for="categoria__label" class="categoria__label">Ferramentas</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/enlatados.png">
+              <mat-label for="categoria__label" class="categoria__label">Enlatados</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/bomboinere.png">
+              <mat-label for="categoria__label" class="categoria__label">Bomboniere</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/biscoitos.png">
+              <mat-label for="categoria__label" class="categoria__label">Biscoitos</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/limpeza.png">
+              <mat-label for="categoria__label" class="categoria__label">Limpeza</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/esportes.png">
+              <mat-label for="categoria__label" class="categoria__label">Esportes</mat-label>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile class="tile">
+
+            <a href="/home" class="categoria">
+              <img class="categoria__logo" src="assets/categorias/padaria.png">
+              <mat-label for="categoria__label" class="categoria__label">Padaria</mat-label>
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+
+      </div>
+
+
+      <div class="title-wrapper">
+        <h2 class="title"> Estabelecimentos </h2>
+      </div>
+
+      <div>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item>
+
+            <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
+            <div matLine>à 15km</div>
+            <div matLine>Loja do João que fica na esquina</div>
+            <div matLine>⭐⭐⭐⭐⭐</div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
+            <div matLine>à 2km</div>
+            <div matLine>Loja da Maria do bairro</div>
+            <div matLine>⭐⭐⭐⭐⭐</div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+
+          <mat-list-item>
+            <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
+            <div matLine style="color:red">à 1km</div>
+            <div matLine>Loja do Fernando</div>
+            <div matLine>⭐</div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
+            <div matLine>à 20km</div>
+            <div matLine>Loja do Frederico </div>
+            <div matLine>⭐⭐⭐⭐⭐⭐</div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </section>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+

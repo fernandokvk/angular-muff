@@ -22,11 +22,24 @@ import { MatTableModule } from '@angular/material/table';
 import {MatDividerModule} from "@angular/material/divider";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { BaseTemplateComponent } from './base-template/base-template.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {IvyCarouselModule} from "angular-responsive-carousel";
+
+
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NewUserComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    NewUserComponent,
+    BaseTemplateComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,6 +57,10 @@ registerLocaleData(localePt, 'pt');
     MatCheckboxModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    IvyCarouselModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
