@@ -5,7 +5,8 @@ import {Shop} from "./shop.model";
 export interface Order {
   id: number;
   products: Product[];
-  customer: Credential;
-  shop: Shop;
-  date: number;
+  customerId: number;
+  shopId: number;
+  orderDate: number;
+  orderArrival: number; // orderDate + x <segundos/minutos>
 }
