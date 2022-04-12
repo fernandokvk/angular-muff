@@ -28,6 +28,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ActiveSessionService} from "../services/active-session.service";
+import { NewShopComponent } from './new-shop/new-shop.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 
 
@@ -40,6 +42,8 @@ registerLocaleData(localePt, 'pt');
     HomeComponent,
     NewUserComponent,
     BaseTemplateComponent,
+    NewShopComponent,
+    NewProductComponent,
   ],
   imports: [
     BrowserModule,

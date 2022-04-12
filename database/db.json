@@ -10,7 +10,8 @@
       "telefone": "0800",
       "endereco": "grupo",
       "cep": "no-have",
-      "complemento": "do zap"
+      "complemento": "do zap",
+      "shopId": 5
     },
     {
       "email": "seg@g.com",
@@ -22,6 +23,15 @@
       "complemento": "",
       "password": "123",
       "id": 2
+    }
+  ],
+  "shop": [
+    {
+      "name": "cas",
+      "cep": "sdfsdf",
+      "cnpj": "dasd",
+      "endereco": "asfsd",
+      "id": 5
     }
   ]
 }

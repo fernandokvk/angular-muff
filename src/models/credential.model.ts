@@ -1,3 +1,5 @@
+import {Shop} from "./shop.model";
+
 export interface Credential {
   id: number;
   email: string;
@@ -9,4 +11,5 @@ export interface Credential {
   endereco: string;
   cep: string;
   complemento: string;
+  shopId: number;
 }
