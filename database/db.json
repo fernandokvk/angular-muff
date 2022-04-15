@@ -7,18 +7,7 @@
       "name": "muff",
       "surname": "ondor",
       "cpf": "123456-12",
-      "telefone": "0800","email": "seg@g.com",
-      "name": "usuario",
-      "surname": "segundo",
-      "cpf": "cepef",
-      "endereco": "rua",
-      "cep": "12345",
-      "complemento": "",
-      "password": "123",
-      "id": 2
-      "endereco": "grupo",
-      "cep": "no-have",
-      "complemento": "do zap",
+      "telefone": "0800",
       "shopId": 5
     },
     {
