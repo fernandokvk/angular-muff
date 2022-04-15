@@ -4,9 +4,14 @@ import {Shop} from "./shop.model";
 
 export interface Order {
   id: number;
-  products: Product[];
   customerId: number;
   shopId: number;
-  orderDate: number;
-  orderArrival: number; // orderDate + x <segundos/minutos>
+  courierId: number;
+  status: string;
+  pickupLocation: {address: string, lat: number, long: number};
+  deliveryLocation: {address: string, lat: number, long: number};
+  createdAt: string;
+  updatedAt: string;
+  finishedAt: string;
+  products: Product[];
 }

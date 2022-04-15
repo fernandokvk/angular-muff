@@ -31,6 +31,516 @@
       "id": 5
     }
   ],
-  "products": [],
-  "orders": []
+  "products": [
+    {
+      "id": 1,
+      "barcode": 445950719443,
+      "name": "incididunt",
+      "category": "Category 4",
+      "quantity": 8,
+      "price": 5.83,
+      "imageUrl": "adipisicing"
+    },
+    {
+      "id": 2,
+      "barcode": 916267911254,
+      "name": "elit",
+      "category": "Category 1",
+      "quantity": 16,
+      "price": 1.41,
+      "imageUrl": "consectetur"
+    },
+    {
+      "id": 3,
+      "barcode": 491577261240,
+      "name": "magna",
+      "category": "Category 1",
+      "quantity": 7,
+      "price": 16.74,
+      "imageUrl": "elit"
+    },
+    {
+      "id": 4,
+      "barcode": 396956779889,
+      "name": "enim",
+      "category": "Category 6",
+      "quantity": 9,
+      "price": 18.82,
+      "imageUrl": "incididunt"
+    },
+    {
+      "id": 5,
+      "barcode": 618646523025,
+      "name": "consectetur",
+      "category": "Category 10",
+      "quantity": 8,
+      "price": 10.38,
+      "imageUrl": "id"
+    },
+    {
+      "id": 6,
+      "barcode": 270910695198,
+      "name": "do",
+      "category": "Category 2",
+      "quantity": 18,
+      "price": 19.59,
+      "imageUrl": "reprehenderit"
+    },
+    {
+      "id": 7,
+      "barcode": 681140707729,
+      "name": "quis",
+      "category": "Category 6",
+      "quantity": 12,
+      "price": 6.37,
+      "imageUrl": "voluptate"
+    },
+    {
+      "id": 8,
+      "barcode": 819781213029,
+      "name": "magna",
+      "category": "Category 7",
+      "quantity": 15,
+      "price": 4.45,
+      "imageUrl": "magna"
+    },
+    {
+      "id": 9,
+      "barcode": 121349697663,
+      "name": "ipsum",
+      "category": "Category 8",
+      "quantity": 11,
+      "price": 14.62,
+      "imageUrl": "eiusmod"
+    },
+    {
+      "id": 10,
+      "barcode": 520577994712,
+      "name": "dolor",
+      "category": "Category 10",
+      "quantity": 10,
+      "price": 7.08,
+      "imageUrl": "reprehenderit"
+    },
+    {
+      "id": 11,
+      "barcode": 653768049442,
+      "name": "ad",
+      "category": "Category 10",
+      "quantity": 18,
+      "price": 3.55,
+      "imageUrl": "anim"
+    },
+    {
+      "id": 12,
+      "barcode": 275115550225,
+      "name": "sit",
+      "category": "Category 7",
+      "quantity": 7,
+      "price": 19.43,
+      "imageUrl": "culpa"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "customerId": "1",
+      "shopId": "2",
+      "courierId": "3",
+      "status": "PREPARING",
+      "pickupLocation": {
+        "address": "Av. Brasil 1247",
+        "lat": -23.405548369343425,
+        "long": -51.928657837643264
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1457",
+        "lat": -23.424910598755204,
+        "long": -51.943256569628566
+      },
+      "createdAt": "2013-03-07T18:21:04.217Z",
+      "updatedAt": "2013-03-07T18:31:04.217Z",
+      "finishedAt": "2013-03-07T18:35:04.217Z",
+      "products": [
+        {
+          "id": 1,
+          "barcode": 445950719443,
+          "name": "incididunt",
+          "category": "Category 4",
+          "quantity": 8,
+          "price": 5.83,
+          "imageUrl": "adipisicing"
+        },
+        {
+          "id": 2,
+          "barcode": 916267911254,
+          "name": "elit",
+          "category": "Category 1",
+          "quantity": 16,
+          "price": 1.41,
+          "imageUrl": "consectetur"
+        },
+        {
+          "id": 3,
+          "barcode": 491577261240,
+          "name": "magna",
+          "category": "Category 1",
+          "quantity": 7,
+          "price": 16.74,
+          "imageUrl": "elit"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "customerId": "3",
+      "shopId": "2",
+      "courierId": "1",
+      "status": "ON_THE_WAY",
+      "pickupLocation": {
+        "address": "Av. Brasil 1452",
+        "lat": -23.410669389042326,
+        "long": -51.936883258516495
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 105",
+        "lat": -23.415248738642738,
+        "long": -51.943194719121394
+      },
+      "createdAt": "2013-07-14T12:25:09.979Z",
+      "updatedAt": "2013-07-14T12:27:09.979Z",
+      "finishedAt": "2013-07-14T12:29:09.979Z",
+      "products": [{
+        "id": 4,
+        "barcode": 396956779889,
+        "name": "enim",
+        "category": "Category 6",
+        "quantity": 9,
+        "price": 18.82,
+        "imageUrl": "incididunt"
+      },
+        {
+          "id": 5,
+          "barcode": 618646523025,
+          "name": "consectetur",
+          "category": "Category 10",
+          "quantity": 8,
+          "price": 10.38,
+          "imageUrl": "id"
+        }]
+    },
+    {
+      "id": "3",
+      "customerId": "1",
+      "shopId": "3",
+      "courierId": "6",
+      "status": "PLACED",
+      "pickupLocation": {
+        "address": "Av. Brasil 1809",
+        "lat": -23.419245925657492,
+        "long": -51.927258820496554
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1924",
+        "lat": -23.420056707702507,
+        "long": -51.943269282098065
+      },
+      "createdAt": "2014-06-30T20:40:08.453Z",
+      "updatedAt": "2014-06-30T20:42:08.453Z",
+      "finishedAt": "2014-06-30T20:51:08.453Z",
+      "products": [{
+        "id": 6,
+        "barcode": 270910695198,
+        "name": "do",
+        "category": "Category 2",
+        "quantity": 18,
+        "price": 19.59,
+        "imageUrl": "reprehenderit"
+      },
+        {
+          "id": 7,
+          "barcode": 681140707729,
+          "name": "quis",
+          "category": "Category 6",
+          "quantity": 12,
+          "price": 6.37,
+          "imageUrl": "voluptate"
+        },
+        {
+          "id": 8,
+          "barcode": 819781213029,
+          "name": "magna",
+          "category": "Category 7",
+          "quantity": 15,
+          "price": 4.45,
+          "imageUrl": "magna"
+        },
+        {
+          "id": 9,
+          "barcode": 121349697663,
+          "name": "ipsum",
+          "category": "Category 8",
+          "quantity": 11,
+          "price": 14.62,
+          "imageUrl": "eiusmod"
+        }]
+    },
+    {
+      "id": "4",
+      "customerId": "5",
+      "shopId": "2",
+      "courierId": "3",
+      "status": "PLACED",
+      "pickupLocation": {
+        "address": "Av. Brasil 497",
+        "lat": -23.419770715934867,
+        "long": -51.934149611160024
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1186",
+        "lat": -23.421658504311534,
+        "long": -51.943285651715435
+      },
+      "createdAt": "2014-08-17T06:58:40.088Z",
+      "updatedAt": "2014-08-17T07:00:40.088Z",
+      "finishedAt": "2014-08-17T07:09:40.088Z",
+      "products": [{
+        "id": 10,
+        "barcode": 520577994712,
+        "name": "dolor",
+        "category": "Category 10",
+        "quantity": 10,
+        "price": 7.08,
+        "imageUrl": "reprehenderit"
+      },
+        {
+          "id": 11,
+          "barcode": 653768049442,
+          "name": "ad",
+          "category": "Category 10",
+          "quantity": 18,
+          "price": 3.55,
+          "imageUrl": "anim"
+        }]
+    },
+    {
+      "id": "5",
+      "customerId": "6",
+      "shopId": "7",
+      "courierId": "8",
+      "status": "PREPARING",
+      "pickupLocation": {
+        "address": "Av. Brasil 336",
+        "lat": -23.418655645357216,
+        "long": -51.946236819391785
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1103",
+        "lat": -23.419888617992726,
+        "long": -51.943244948044544
+      },
+      "createdAt": "2010-02-09T01:03:11.766Z",
+      "updatedAt": "2010-02-09T01:08:11.766Z",
+      "finishedAt": "2010-02-09T01:10:11.766Z",
+      "products": [{
+        "id": 10,
+        "barcode": 520577994712,
+        "name": "dolor",
+        "category": "Category 10",
+        "quantity": 10,
+        "price": 7.08,
+        "imageUrl": "reprehenderit"
+      },
+        {
+          "id": 11,
+          "barcode": 653768049442,
+          "name": "ad",
+          "category": "Category 10",
+          "quantity": 18,
+          "price": 3.55,
+          "imageUrl": "anim"
+        }]
+    },
+    {
+      "id": "6",
+      "customerId": "6259ce83d609221dc7664f6b",
+      "shopId": "6259ce838237b01c742f8e9b",
+      "courierId": "6259ce839c045def6ec79d13",
+      "status": "ON_THE_WAY",
+      "pickupLocation": {
+        "address": "Av. Brasil 1720",
+        "lat": -23.425411959404325,
+        "long": -51.930357324658786
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 886",
+        "lat": -23.417084457637646,
+        "long": -51.943345687018464
+      },
+      "createdAt": "2014-07-10T13:22:01.609Z",
+      "updatedAt": "2014-07-10T13:24:01.609Z",
+      "finishedAt": "2014-07-10T13:34:01.609Z",
+      "products": [{
+        "id": 12,
+        "barcode": 275115550225,
+        "name": "sit",
+        "category": "Category 7",
+        "quantity": 7,
+        "price": 19.43,
+        "imageUrl": "culpa"
+      }]
+    },
+    {
+      "id": "7",
+      "customerId": "6",
+      "shopId": "3",
+      "courierId": "2",
+      "status": "PLACED",
+      "pickupLocation": {
+        "address": "Av. Brasil 1680",
+        "lat": -23.410605175484196,
+        "long": -51.941354141777566
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 430",
+        "lat": -23.414502097079296,
+        "long": -51.943284902938935
+      },
+      "createdAt": "2012-01-16T13:11:20.802Z",
+      "updatedAt": "2012-01-16T13:14:20.802Z",
+      "finishedAt": "2012-01-16T13:23:20.802Z",
+      "products": [{
+        "id": 12,
+        "barcode": 275115550225,
+        "name": "sit",
+        "category": "Category 7",
+        "quantity": 10,
+        "price": 19.43,
+        "imageUrl": "culpa"
+      }]
+    },
+    {
+      "id": "8",
+      "customerId": "4",
+      "shopId": "1",
+      "courierId": "3",
+      "status": "PLACED",
+      "pickupLocation": {
+        "address": "Av. Brasil 461",
+        "lat": -23.403166738335518,
+        "long": -51.949367504047395
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 692",
+        "lat": -23.413547652926564,
+        "long": -51.943311002705386
+      },
+      "createdAt": "2010-06-10T06:00:07.444Z",
+      "updatedAt": "2010-06-10T06:08:07.444Z",
+      "finishedAt": "2010-06-10T06:09:07.444Z",
+      "products": [{
+        "id": 6,
+        "barcode": 270910695198,
+        "name": "do",
+        "category": "Category 2",
+        "quantity": 18,
+        "price": 19.59,
+        "imageUrl": "reprehenderit"
+      },
+        {
+          "id": 7,
+          "barcode": 681140707729,
+          "name": "quis",
+          "category": "Category 6",
+          "quantity": 12,
+          "price": 6.37,
+          "imageUrl": "voluptate"
+        },
+        {
+          "id": 8,
+          "barcode": 819781213029,
+          "name": "magna",
+          "category": "Category 7",
+          "quantity": 15,
+          "price": 4.45,
+          "imageUrl": "magna"
+        },
+        {
+          "id": 9,
+          "barcode": 121349697663,
+          "name": "ipsum",
+          "category": "Category 8",
+          "quantity": 11,
+          "price": 14.62,
+          "imageUrl": "eiusmod"
+        }]
+    },
+    {
+      "id": "9",
+      "customerId": "7",
+      "shopId": "1",
+      "courierId": "3",
+      "status": "DELIVERED",
+      "pickupLocation": {
+        "address": "Av. Brasil 790",
+        "lat": -23.423786370337027,
+        "long": -51.948856913167745
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 896",
+        "lat": -23.422814426020484,
+        "long": -51.943232654646145
+      },
+      "createdAt": "2012-12-30T20:12:11.184Z",
+      "updatedAt": "2012-12-30T20:24:11.184Z",
+      "finishedAt": "2012-12-30T20:33:11.184Z",
+      "products": [{
+        "id": 4,
+        "barcode": 396956779889,
+        "name": "enim",
+        "category": "Category 6",
+        "quantity": 9,
+        "price": 18.82,
+        "imageUrl": "incididunt"
+      },
+        {
+          "id": 5,
+          "barcode": 618646523025,
+          "name": "consectetur",
+          "category": "Category 10",
+          "quantity": 8,
+          "price": 10.38,
+          "imageUrl": "id"
+        }]
+    },
+    {
+      "id": "10",
+      "customerId": "2",
+      "shopId": "3",
+      "courierId": "1",
+      "status": "PLACED",
+      "pickupLocation": {
+        "address": "Av. Brasil 561",
+        "lat": -23.411920195190568,
+        "long": -51.932996112811075
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1946",
+        "lat": -23.422188757089106,
+        "long": -51.943204465996445
+      },
+      "createdAt": "2011-07-23T13:40:34.845Z",
+      "updatedAt": "2011-07-23T13:45:34.845Z",
+      "finishedAt": "2011-07-23T14:00:34.845Z",
+      "products": [{
+        "id": 2,
+        "barcode": 916267911254,
+        "name": "elit",
+        "category": "Category 1",
+        "quantity": 16,
+        "price": 1.41,
+        "imageUrl": "consectetur"
+      }]
+    }
+  ]
 }
