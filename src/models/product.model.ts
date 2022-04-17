@@ -6,4 +6,5 @@ export interface Product {
   quantity: number;
   price: number;
   imageUrl: string;
+  observation: string; //Usado no order somente
 }

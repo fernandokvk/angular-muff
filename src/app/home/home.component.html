@@ -3,8 +3,9 @@
   <mat-sidenav #sidenav mode="over" opened=false>
     <mat-toolbar color="accent">Menu</mat-toolbar>
     <mat-list>
-      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
-      <mat-list-item><a routerLink="/new-shop">Shop</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
 
     </mat-list>
 
@@ -19,6 +20,9 @@
       </button>
       <span>Home</span>
       <span class="example-spacer"></span>
+      <button (click)=exit() mat-icon-button>
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
 
     </mat-toolbar>
 

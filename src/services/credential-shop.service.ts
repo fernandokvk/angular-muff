@@ -18,10 +18,13 @@ export class CredentialShopService {
 
   searchCredentials(user: string): Observable<Shop[]> {
     user = user.trim();
-
     const options = user ? {params: new HttpParams().set('email', user)} : {};
-
     return this.httpClient.get<Shop[]>(this.url, options);
+  }
+
+  getShopById(id: number): Observable<Shop[]>{
+    const url = `${this.url}/?id=${id}`;
+    return this.httpClient.get<Shop[]>(url);
   }
 
   submit(shop: Shop): Observable<Shop> {

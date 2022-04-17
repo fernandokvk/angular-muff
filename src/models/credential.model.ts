@@ -1,4 +1,5 @@
 import {Shop} from "./shop.model";
+import {Payment} from "./payment.model";
 
 export interface Credential {
   id: number;
@@ -12,4 +13,5 @@ export interface Credential {
   cep: string;
   complemento: string;
   shopId: number;
+  paymentCards: Payment[];
 }

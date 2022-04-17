@@ -1,0 +1,133 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Detalhes do pedido</span>
+      <span class="example-spacer"></span>
+      <button (click)="goBack()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <section class="main">
+      <div *ngIf="order">
+
+
+        <div class="wrappers">
+
+          <div class="shop-container" *ngIf="shop">
+
+            <div>
+              <img class="shop-container__logo" src="{{shop.image}}" alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+            </div>
+
+            <div>
+              <span style="font-weight: bold">Loja: </span> {{shop.name}}
+              <div>
+                <span style="font-weight: bold">Endereço: </span> {{shop.address}}
+              </div>
+              <div>
+                {{getStars(shop)}}
+              </div>
+            </div>
+
+            <div class="shop-container__button">
+              <button (click)="goToShopPage(shop)" mat-icon-button color="accent">
+                <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+              </button>
+            </div>
+
+
+          </div>
+
+          <mat-divider style="margin: -2px 12px;"></mat-divider>
+
+          <div class="header-container">
+            <div style="align-self: center">
+
+              <span style="font-weight: bold; font-family: Ubuntu; font-size: 24px; align-self: center">Pedido: </span>
+              <span style="font-size: 18px"> {{order.id}}</span>
+
+            </div>
+            <div>
+              <button class="button-chat" color="accent" mat-flat-button>Chat</button>
+            </div>
+          </div>
+
+          <div class="progress-bar-wrapper">
+            <mat-progress-bar class="green-progress" mode="determinate" value="{{getProgressValue(order)}}"></mat-progress-bar>
+
+          </div>
+
+          <div class="status-container">
+            <div>
+              <span style="font-weight: bold">Chega até: </span>
+              {{getEstimatedDelivery(order)}}
+            </div>
+            <div>
+              <span style="font-weight: bold">Status: </span>
+              {{getOrderStatus(order)}}
+            </div>
+          </div>
+
+          <div class="payment-container">
+            <div>
+              <span style="font-weight: bold">Meio de Pagamento: </span>
+              {{getPaymentMethod(order)}}
+            </div>
+
+            <div>
+              <span style="font-weight: bold">Valor: </span>
+              R${{getOrderCost(order)}}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="maps-container">Maps</div>
+
+        <ul class="wrappers">
+          <li *ngFor="let product of order.products">
+            <div class="list-item-wrapper">
+              <div style=" align-self: center">
+                <img style="width: 48px; margin-left: 4px" src="{{product.imageUrl}}">
+              </div>
+              <div style=" flex:1;align-self: center">
+                <span style="font-weight: bold">Nome: </span> {{product.name}}
+                <div *ngIf="product.observation">
+                  <span style="font-weight: bold">Observação: </span> {{product.observation}}
+                </div>
+
+
+
+              </div>
+              <div style="align-self: center">
+                <span style="font-weight: bold">Qtd.:</span> {{product.quantity}}
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
