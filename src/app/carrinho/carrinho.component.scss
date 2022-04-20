@@ -1,0 +1,61 @@
+.cart-container {
+    height: 50%;
+    width:  100%;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+    text-align: center;
+  }
+  
+  tr.mat-footer-row {
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .mat-table-sticky {
+    border-top: 1px solid #e0e0e0;
+  }
+
+.quantidade-container {
+    width: 20%;
+    text-align: center;
+}
+
+.titulo-container {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+p{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.mat-radio-button {
+    margin-left: 10px;
+  }
+
+.botao{
+  &__comprar{
+    @extend .botao;
+    width: 90%;
+    height: 50px;
+  }
+}
+
+.imagem{
+  display: center;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.title-wrapper{
+  background: rgba(232, 232, 232, 0.5);
+  display: flex;
+  flex: 1 1 auto;
+}

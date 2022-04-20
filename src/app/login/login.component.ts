@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActiveSessionService } from '../../services/active-session.service';
 import {Location} from "@angular/common";
+import { MatDialog } from '@angular/material/dialog';
+import { ShopSelectedDialogComponent } from '../list-shops/shop-selected-dialog/shop-selected-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -22,17 +24,21 @@ export class LoginComponent implements OnInit {
     private credentialService: CredentialsService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    private activeSession: ActiveSessionService
+    private activeSession: ActiveSessionService,
+    public dialog: MatDialog,
   ) {}
 
   logMeIn() {
     var credentialsObserver: Observable<Credential[]>;
-
     credentialsObserver = this.credentialService.searchCredentials(this.email);
     credentialsObserver.subscribe(
       (data: Credential[]) => {
         if (data[0].password == this.password) {
           this.activeSession.credential = data.pop();
+          let dialogRef = this.dialog.open(ShopSelectedDialogComponent, {
+            width: 'auto',
+            height: '425px'
+          });
           this.router.navigateByUrl('home');
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');

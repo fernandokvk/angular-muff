@@ -7,6 +7,6 @@ export interface Order {
   products: Product[];
   customerId: number;
   shopId: number;
-  orderDate: number;
-  orderArrival: number; // orderDate + x <segundos/minutos>
+  orderDate: Date;
+  orderArrival: Date; // orderDate + x <segundos/minutos>
 }

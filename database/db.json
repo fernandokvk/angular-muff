@@ -7,19 +7,8 @@
       "name": "muff",
       "surname": "ondor",
       "cpf": "123456-12",
-      "telefone": "0800","email": "seg@g.com",
-      "name": "usuario",
-      "surname": "segundo",
-      "cpf": "cepef",
-      "endereco": "rua",
-      "cep": "12345",
-      "complemento": "",
-      "password": "123",
-      "id": 2
-      "endereco": "grupo",
-      "cep": "no-have",
-      "complemento": "do zap",
-      "shopId": 5
+      "telefone": "0800",
+      "endereco": "rua dos loucos"
     },
     {
       "email": "seg@g.com",
@@ -35,13 +24,46 @@
   ],
   "shop": [
     {
-      "name": "cas",
-      "cep": "sdfsdf",
-      "cnpj": "dasd",
-      "endereco": "asfsd",
-      "id": 5
+      "name": "Doente doido",
+      "cep": "989898989",
+      "cnpj": "805810565086",
+      "endereco": "Rua dos malucos doentes",
+      "id": 1,
+      "avaliacao": "⭐⭐⭐⭐⭐"
+    },
+    {
+      "name": "Loja do João que fica na esquina",
+      "cep": "87877878",
+      "cnpj": "909090926",
+      "endereco": "Rua da esquina",
+      "id": 2,
+      "avaliacao": "⭐⭐"
+    },
+    {
+      "name": "Loja do Fernando",
+      "cep": "999999999",
+      "cnpj": "30303030300",
+      "endereco": "Em algum lugar do mundo",
+      "id": 3,
+      "avaliacao": "⭐"
+    },
+    {
+      "name": "Loja da Maria do bairro",
+      "cep": "5552525252",
+      "cnpj": "030303061",
+      "endereco": "Bairro da Maria",
+      "id": 3,
+      "avaliacao": "⭐⭐⭐"
+    },
+    {
+      "name": "Loja da Yumi",
+      "cep": "979797979",
+      "cnpj": "545654556465",
+      "endereco": "Rua com cheirinho de peidim",
+      "id": 4,
+      "avaliacao": "⭐⭐⭐⭐⭐"
     }
   ],
   "products": [],
-  "orders": []
+  "orders": [ ]
 }

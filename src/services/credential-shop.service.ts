@@ -24,6 +24,10 @@ export class CredentialShopService {
     return this.httpClient.get<Shop[]>(this.url, options);
   }
 
+  getAllShops(){
+    return this.httpClient.get<Shop[]>(this.url);
+  }
+
   submit(shop: Shop): Observable<Shop> {
     return this.httpClient.post<Shop>(this.url, shop);
 

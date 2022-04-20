@@ -1,0 +1,8 @@
+/*mat-action-list{
+    overflow: auto !important;
+    height: 250px;
+}*/
+
+mat-action-list[aria-selected="true"]{
+    background: rgba(180, 9, 9, 0.5);
+}

@@ -30,8 +30,12 @@ import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ActiveSessionService} from "../services/active-session.service";
 import { NewShopComponent } from './new-shop/new-shop.component';
 import { NewProductComponent } from './new-product/new-product.component';
-
-
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatRadioModule} from '@angular/material/radio';
+import { ShopSelectedDialogComponent } from './list-shops/shop-selected-dialog/shop-selected-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ListShopsComponent } from './list-shops/list-shops.component'
 
 registerLocaleData(localePt, 'pt');
 
@@ -44,6 +48,9 @@ registerLocaleData(localePt, 'pt');
     BaseTemplateComponent,
     NewShopComponent,
     NewProductComponent,
+    CarrinhoComponent,
+    ShopSelectedDialogComponent,
+    ListShopsComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +73,9 @@ registerLocaleData(localePt, 'pt');
     MatListModule,
     MatGridListModule,
     IvyCarouselModule,
+    ScrollingModule,
+    MatRadioModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

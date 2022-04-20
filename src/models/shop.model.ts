@@ -7,4 +7,5 @@ export interface Shop {
   endereco: string;
   cep: string;
   products: Product[];
+  avaliacao: string;
 }
