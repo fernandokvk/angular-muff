@@ -48,9 +48,9 @@ export class NewShopComponent implements OnInit {
       this.credentialShopService
         .submit({
           name: this.nome?.value,
-          cep : this.cep?.value,
+          zipCode : this.cep?.value,
           cnpj: this.cnpj?.value,
-          endereco: this.endereco?.value,
+          address: this.endereco?.value,
         } as Shop)
         .subscribe(
           (t) => {

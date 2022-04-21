@@ -1,7 +1,8 @@
 .cart-container {
     height: 50%;
-    width:  100%;
     overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; 
+    margin: 10px;
   }
   
   table {
@@ -29,22 +30,22 @@
     font-size: 16px;
     font-weight: bold;
 }
-p{
+.p_font{
     font-size: 16px;
     font-weight: bold;
     margin-left: 10px;
-    margin-top: 20px;
 }
 
 .mat-radio-button {
-    margin-left: 10px;
-  }
+  margin: 10px;
+}
 
 .botao{
   &__comprar{
     @extend .botao;
     width: 90%;
     height: 50px;
+    margin-bottom: 20px;
   }
 }
 
@@ -58,4 +59,24 @@ p{
   background: rgba(232, 232, 232, 0.5);
   display: flex;
   flex: 1 1 auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.shop-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+
+  &__logo {
+    height: 4em;
+    margin: 0px 5px;
+  }
+}
+
+.wrappers {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
 }

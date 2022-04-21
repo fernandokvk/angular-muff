@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
-import { registerLocaleData } from '@angular/common';
+import {DatePipe, registerLocaleData} from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 //-----
 import localePt from '@angular/common/locales/pt';
@@ -22,7 +22,6 @@ import { MatTableModule } from '@angular/material/table';
 import {MatDividerModule} from "@angular/material/divider";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { BaseTemplateComponent } from './base-template/base-template.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -36,6 +35,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import { ShopSelectedDialogComponent } from './list-shops/shop-selected-dialog/shop-selected-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListShopsComponent } from './list-shops/list-shops.component'
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -45,12 +49,13 @@ registerLocaleData(localePt, 'pt');
     LoginComponent,
     HomeComponent,
     NewUserComponent,
-    BaseTemplateComponent,
     NewShopComponent,
     NewProductComponent,
     CarrinhoComponent,
     ShopSelectedDialogComponent,
     ListShopsComponent,
+    MyOrdersComponent,
+    OrderTrackingComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,10 +81,12 @@ registerLocaleData(localePt, 'pt');
     ScrollingModule,
     MatRadioModule,
     MatDialogModule,
+    MatProgressBarModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })

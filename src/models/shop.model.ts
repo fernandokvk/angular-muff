@@ -4,8 +4,9 @@ export interface Shop {
   id: number,
   name: string;
   cnpj: string;
-  endereco: string;
-  cep: string;
+  address: string;
+  zipCode: string;
   products: Product[];
-  avaliacao: string;
+  image: string;
+  rating: number;
 }

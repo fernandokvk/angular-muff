@@ -24,4 +24,13 @@ export class ListShopsComponent implements OnInit {
     this.activeSessionService.sessionShop = shop;
   }
 
+  getStars(shop: Shop) {
+    let rating = "";
+    for (let i = 0; i < Math.ceil(shop.rating); i++) {
+      rating = rating.concat("⭐")
+    }
+    return rating;
+
+  }
+
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiveSessionService } from '../../services/active-session.service';
 import { Router } from '@angular/router';
-import { BaseTemplateComponent } from '../base-template/base-template.component';
 import { Product } from 'src/models/product.model';
+import {TemplateRef} from "@angular/core";
+
 
 
 @Component({
@@ -33,4 +34,8 @@ export class HomeComponent implements OnInit {
     
   }
 
+  exit() {
+    this.router.navigateByUrl('login');
+
+  }
 }

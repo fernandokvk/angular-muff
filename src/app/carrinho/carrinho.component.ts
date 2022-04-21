@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Order } from 'src/models/order.model';
-import { Product } from 'src/models/product.model';
 import { Shop } from 'src/models/shop.model';
 import { ActiveSessionService } from 'src/services/active-session.service';  
 import { CredentialCarrinhoService } from 'src/services/credential-carrinho.service';
-import { CredentialShopService } from 'src/services/credential-shop.service';
+import { Location } from '@angular/common';
+import { Payment } from 'src/models/payment.model';
 
 @Component({
   selector: 'app-carrinho',
@@ -13,19 +12,20 @@ import { CredentialShopService } from 'src/services/credential-shop.service';
   styleUrls: ['./carrinho.component.scss'],
 })
 export class CarrinhoComponent implements OnInit {
-  taxa_entrega = 50;
-  endereco = "";
   displayedColumns = ['image','name', 'quantity', 'price'];
+  taxa_entrega = 50;
+  endereco = ""; 
   shop: Shop | undefined;
   temShop: boolean = false;
   shops: Shop[] = [];
+  tipo_pagamento: String | Payment = "";
 
   carrinho = this.activeSessionService.sessionProducts;
 
   constructor(
     private activeSessionService: ActiveSessionService,
     private credentialCarrinhoService: CredentialCarrinhoService,
-    
+    private location: Location
     ) {    
     }
 
@@ -47,20 +47,54 @@ export class CarrinhoComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.carrinho.length > 0){
+    /**To do - Colocar como task
+     * Entregador
+     * Cadastrar pagamento por cartão
+     * Definir lat e long
+     * Definir lat e long (To do)
+    **/
+    if(this.carrinho.length > 0 && this.tipo_pagamento !==  ""){
       var dataCompra = new Date();
+      var dataEstimado = new Date(dataCompra);
+      dataEstimado.setDate(dataCompra.getDate() + 3)
+      
       this.credentialCarrinhoService
       .submit({
         products: this.carrinho,
         customerId: this.activeSessionService.credential?.id,
         shopId: this.shop?.id,
-        orderDate: dataCompra,
-        orderArrival: new Date(new Date(dataCompra).getTime() + 1000) // orderDate + x <segundos/minutos>
+        shopName: this.shop?.name,
+        courierId: 1,      
+        courierName: "oi", 
+        status: "PLACED",
+        paymentStatus: "NOT_PAID",
+        paymentMethod: "CASH",   
+        pickupLocation: {address: this.shop?.address, lat: 1, long: 2},
+        deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
+        createdAt: dataCompra,
+        updatedAt: dataCompra,
+        estimatedAt: dataEstimado,
+        finishedAt: null,
       } as Order)
       .subscribe();
   
       this.carrinho = []
     }
+
+  }
+
+  goBack() {
+    return this.location.back();
+  }
+
+  getStars() {
+    if(this.shop != null){
+      let rating = "";
+      for (let i = 0; i < Math.ceil(this.shop.rating); i++) {
+        rating = rating.concat("⭐")
+      }
+      return rating;
+    }else return 0;
 
   }
 

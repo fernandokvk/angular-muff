@@ -2,10 +2,16 @@
 
 <mat-action-list>
   <mat-list-item *ngFor="let shop of shops" (click)="actionShopService(shop)">
-    <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
-    <div matLine>{{shop.name}}</div>
-    <div matLine>{{shop.endereco}}</div>
-    <div matLine>{{shop.avaliacao}}</div>
+    <img src="{{shop.image}}" matListAvatar alt="">
+    <div matLine>
+      <span style="font-weight: bold">Loja:</span>
+      {{shop.name}}
+    </div>
+    <div matLine>
+      <span style="font-weight: bold">Endereço:</span>
+      {{shop.address}}
+    </div>
+    <div matLine>{{getStars(shop)}}</div>
     <mat-divider></mat-divider>
   </mat-list-item>
 

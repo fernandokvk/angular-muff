@@ -1,39 +1,47 @@
 <mat-sidenav-container fullscreen>
 
-    <mat-sidenav #sidenav mode="over" opened=false>
-      <mat-toolbar color="accent">Menu</mat-toolbar>
-      <mat-list>
-        <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
-        <mat-list-item><a routerLink="/new-shop">Shop</a></mat-list-item>
-        <mat-list-item><a routerLink="/carrinho">Carrinho</a></mat-list-item>
-  
-      </mat-list>
-  
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-  
-      <mat-toolbar color="accent">
-        <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
-                mat-icon-button>
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Carrinho</span>
-        <span class="example-spacer"></span>
-  
-      </mat-toolbar>
-<span>
-  <div>
-  <mat-divider></mat-divider>
-        <mat-list>
-          <mat-list-item>
-            <img class="categoria__logo" src="assets/categorias/supermarket.png" matListAvatar alt="">
-            <div matLine>{{shop?.name}}</div>
-            <div matLine>{{shop?.endereco}}</div>
-            <div matLine>{{shop?.avaliacao}}</div>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        </mat-list>
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+
+    </mat-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Carrinho</span>
+      <span class="example-spacer"></span>
+      <button (click)="goBack()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+    </mat-toolbar>
+  <div class="wrappers">
+    <div class="shop-container" *ngIf="shop">
+
+      <div>
+        <img class="shop-container__logo" src="{{shop.image}}" alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+      </div>
+
+      <div>
+        <span style="font-weight: bold">Loja: </span> {{shop.name}}
+        <div>
+          <span style="font-weight: bold">Endereço: </span> {{shop.address}}
+        </div>
+        <div>
+          {{getStars(shop)}}
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="cart-container">
@@ -86,36 +94,27 @@
     </table>
   </div>
 
-  <div >   
-    <div>
-      
-      <mat-radio-group>
-        <p >Forma de Pagamento: </p>
-        <mat-radio-button value="1" >Dinheiro</mat-radio-button>
-        <mat-radio-button value="2">Cartão</mat-radio-button>
+  <div class="wrappers">   
+    <div>  
+      <p class="p_font">Forma de Pagamento: </p> 
+      <mat-radio-group [(ngModel)]="tipo_pagamento"> 
+        <mat-radio-button value="CASH" >Dinheiro</mat-radio-button>
+        <mat-radio-button value="CARD">Cartão</mat-radio-button>
       </mat-radio-group>
     </div>
     
   </div>
 
-  <div>
-    <p>Entregar em: {{endereco}}</p>
-  </div>
-
-  <div align="center">
-    <button (click)="onSubmit()" class="botao__comprar" mat-raised-button color="accent">Finalizar</button>
-  </div>
-</span>
-
-<!-- <ng-template #naotemShop>
-  <div class="title-wrapper">
-    <h2 class="title">Escolha um Estabelecimento</h2>
+  <div class="wrappers"> 
+      <span class="p_font">Entregar em:</span> {{endereco}}
   </div>
 
   <div>
-    <app-list-shops>
-    </app-list-shops>
+
+
+    <div align="center">
+      <button (click)="onSubmit()" class="botao__comprar" mat-raised-button color="accent">Finalizar</button>
+    </div>
   </div>
-</ng-template> -->
 
 
