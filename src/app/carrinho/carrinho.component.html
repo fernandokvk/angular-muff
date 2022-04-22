@@ -98,11 +98,16 @@
     <div>  
       <p class="p_font">Forma de Pagamento: </p> 
       <mat-radio-group [(ngModel)]="tipo_pagamento"> 
-        <mat-radio-button value="CASH" >Dinheiro</mat-radio-button>
-        <mat-radio-button value="CARD">Cartão</mat-radio-button>
+        <mat-radio-button value="CASH">Dinheiro</mat-radio-button>
+        <mat-radio-button (click)="getCardList()" value="CARD">Cartão</mat-radio-button>
       </mat-radio-group>
+  
     </div>
-    
+  </div>
+
+  <div class="wrappers" *ngIf="tipo_pagamento === 'CARD'">
+    <span class="p_font">Cartão Escolhido: </span>{{cartao?.cardType}}
+    <span> {{getLastNumbers(cartao?.cardNumber)}}</span>
   </div>
 
   <div class="wrappers"> 
@@ -110,8 +115,6 @@
   </div>
 
   <div>
-
-
     <div align="center">
       <button (click)="onSubmit()" class="botao__comprar" mat-raised-button color="accent">Finalizar</button>
     </div>

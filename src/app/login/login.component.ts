@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
             width: 'auto',
             height: '425px'
           });
-          this.router.navigateByUrl('home');
+          dialogRef.afterClosed().subscribe(_ => {
+            this.router.navigateByUrl('home');
+          })
+          
+          
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');
         }

@@ -2,7 +2,15 @@ mat-action-list{
     overflow: auto !important;
     height: 250px;
 }
+.selected{
+    background: rgba(194, 194, 194, 0.5) !important;
+}
 
-mat-action-list[aria-selected="true"]{
-    background: rgba(180, 9, 9, 0.5);
+.not-selected{
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.print_escolha{
+    margin: 10px;
+    font-size: 16px;
 }

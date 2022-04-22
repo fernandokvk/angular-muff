@@ -38,6 +38,7 @@ import { ListShopsComponent } from './list-shops/list-shops.component'
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { CartaoSelectedDialogComponent } from './cartao-selected-dialog/cartao-selected-dialog.component';
 
 
 
@@ -56,6 +57,7 @@ registerLocaleData(localePt, 'pt');
     ListShopsComponent,
     MyOrdersComponent,
     OrderTrackingComponent,
+    CartaoSelectedDialogComponent,
   ],
   imports: [
     BrowserModule,
