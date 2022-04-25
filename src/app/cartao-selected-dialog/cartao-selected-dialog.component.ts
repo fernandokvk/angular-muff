@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Payment } from 'src/models/payment.model';
 import { ActiveSessionService } from 'src/services/active-session.service';
+import { NewCardDialogComponent } from '../new-card-dialog/new-card-dialog.component';
 
 @Component({
   selector: 'app-cartao-selected-dialog',
@@ -14,7 +15,8 @@ export class CartaoSelectedDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<CartaoSelectedDialogComponent>,
-    private activeSessionService: ActiveSessionService
+    private activeSessionService: ActiveSessionService,
+    public dialog: MatDialog
   ) {
     dialogRef.disableClose = true;
    }
@@ -50,7 +52,10 @@ export class CartaoSelectedDialogComponent implements OnInit {
   }
 
   addCartao(){
-    console.log('adicionar um cartão')
+    let dialogCard = this.dialog.open(NewCardDialogComponent, {
+      width: '300px',
+      height: '505px'
+    });
   }
 
 }

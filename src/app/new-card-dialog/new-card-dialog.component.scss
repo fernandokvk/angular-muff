@@ -1,0 +1,71 @@
+.botao{
+    flex: 1;
+    font-size: 16px;
+    padding: 2px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.botao:hover,
+.botao:focus,
+.botao:active {
+  transform: scale(1.1);
+}
+
+.new-card-form{
+  display: flex;
+  flex-direction: column;
+
+  &__side{
+    flex-wrap: nowrap;
+    display: inline-flex;
+    //margin-bottom: 10px;
+
+    &__l{
+      min-width: 0;
+      flex: 1 1 auto;
+      margin-right: 5px;
+    }
+
+    &__r{
+      min-width: 0;
+      flex: 1 1 auto;
+      margin-left: 5px;
+
+    }
+  }
+}
+
+.div_image{
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.shop-container {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+
+  &__logo {
+    width: 50px;
+    margin: 0px 3px;
+    vertical-align: middle;
+  }
+}
+
+.mat-radio-button {
+  margin: 10px 30px 20px 0px;
+}
+
+h1{
+  text-align: center;
+}

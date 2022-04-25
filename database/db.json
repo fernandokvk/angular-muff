@@ -51,6 +51,15 @@
           "nameOnCard": "JOAO S",
           "cardNumber": "4242 4242 4242 4242",
           "cvv": "00"
+        },
+        {
+          "type": "CREDIT_CARD",
+          "cardType": "MASTERCARD",
+          "nickname": "Comprar Loja João",
+          "nameOnCard": "Eu to Louco",
+          "cardNumber": "5555 4444 8888 4444",
+          "cvv": "999",
+          "expDate": "08/25"
         }
       ]
     }

@@ -106,8 +106,8 @@
   </div>
 
   <div class="wrappers" *ngIf="tipo_pagamento === 'CARD'">
-    <span class="p_font">Cartão Escolhido: </span>{{cartao?.cardType}}
-    <span> {{getLastNumbers(cartao?.cardNumber)}}</span>
+    <span class="p_font">Cartão Escolhido: </span>
+    <span>{{cartao?.nickname}}</span>
   </div>
 
   <div class="wrappers"> 

@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Novo Cartão</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+
+    <form class="new-card-form" [formGroup]="newCardForm" (ngSubmit)="onSubmit()">
+      <div class="new-card-form__side">
+        <mat-radio-group formControlName="type"> 
+          <mat-radio-button value="CREDIT_CARD">Crédito</mat-radio-button>
+          <mat-radio-button value="DEBIT_CARD">Débito</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="new-card-form__side">
+        <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+          <mat-label>Apelido do cartão</mat-label>
+          <input matInput formControlName="nickname">
+        </mat-form-field>   
+      </div>
+
+        <div class="new-card-form__side">
+          <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="cardNumber">
+          </mat-form-field>  
+          <div class="div_image">
+            <img *ngIf="get_card_logo()" class="shop-container__logo" src={{src_cardType}} alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+          </div>
+        </div>
+
+        <div class="new-card-form__side">
+            <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+                <mat-label>CVV</mat-label>
+                <input matInput formControlName="cvv">
+            </mat-form-field>   
+
+            <mat-form-field class="new-card-form__side__r" appearance="outline" floatLabel="always">
+              <mat-label>Validade</mat-label>
+              <input matInput formControlName="expDate">
+            </mat-form-field>   
+        </div>
+
+        <div class="new-card-form__side">
+            <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+              <mat-label>Nome no Cartão</mat-label>
+              <input matInput formControlName="nameOnCard">
+            </mat-form-field>   
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="accent" class="botao" (click)="close_dialog()">Cancelar</button>
+  <button mat-raised-button color="accent" class="botao" (click)="onSubmit()">Confirmar</button>
+</div>

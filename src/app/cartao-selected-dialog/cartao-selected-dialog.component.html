@@ -1,9 +1,12 @@
 <h1 mat-dialog-title>Escolha um Cartão</h1>
+<mat-divider></mat-divider>
 <div mat-dialog-content>
-    <mat-divider></mat-divider>
-
     <mat-action-list>
     <mat-list-item *ngFor="let cartao of cartoes" class={{getSelectedClass(cartao)}} (click)="actionCardSelected(cartao)">
+        <div matLine>
+        <span style="font-weight: bold">Apelido:</span>
+        {{cartao.nickname}}
+        </div>
         <div matLine>
         <span style="font-weight: bold">Número:</span>
         {{getLastNumbers(cartao.cardNumber)}}

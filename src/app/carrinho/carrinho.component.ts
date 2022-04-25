@@ -52,13 +52,6 @@ export class CarrinhoComponent implements OnInit {
     })
   }
 
-  getLastNumbers(cardNumber: string | undefined): string{
-    if(cardNumber != undefined){
-      return cardNumber.slice(-4);
-    }else return "";
-
-  }
-
   ngOnInit(): void {
     if(this.activeSessionService.credential != null) {
       this.endereco = this.activeSessionService.credential.endereco;
