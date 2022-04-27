@@ -6,7 +6,8 @@
       <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a routerLink="/home">Home</a></mat-list-item>
       <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
       <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
     </mat-list>
 
   </mat-sidenav>
@@ -91,9 +92,21 @@
 <ng-template #temForm>
 
 
-  <app-new-product>
+  <form class="new-user-form">
 
-  </app-new-product>
+    <div class="botao-wrapper">
+      <button type="submit" class="botao" mat-raised-button color="accent" routerLink="/produtos" >Cadastrar Produtos </button>
+    </div>
+
+    <div class="botao-wrapper">
+      <button type="submit" class="botao" mat-raised-button color="accent" >Editar Dados</button>
+    </div>
+
+    <div class="botao-wrapper">
+      <button type="submit" class="botao" mat-raised-button color="accent" >Relatório</button>
+    </div>
+
+  </form>
 
 
 </ng-template>

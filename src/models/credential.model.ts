@@ -13,5 +13,6 @@ export interface Credential {
   cep: string;
   complemento: string;
   shopId: number;
+  courierId: number;
   paymentCards: Payment[];
 }

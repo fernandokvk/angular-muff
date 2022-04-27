@@ -35,6 +35,12 @@ a {
     }
   }
 
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__side{
     flex-wrap: nowrap;
     display: inline-flex;
@@ -54,7 +60,6 @@ a {
     }
   }
 }
-
 
 
 .erro{
@@ -88,5 +93,4 @@ a {
   display:flex;
   flex: 1;
   margin-top: 30px;
-
 }

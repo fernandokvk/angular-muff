@@ -7,6 +7,8 @@ import {NewShopComponent} from "./new-shop/new-shop.component";
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import {MyOrdersComponent} from "./my-orders/my-orders.component";
 import {OrderTrackingComponent} from "./order-tracking/order-tracking.component";
+import {NewCourierComponent} from "./new-courier/new-courier.component";
+import {NewProductComponent} from "./new-product/new-product.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: 'new-shop', component: NewShopComponent},
   {path: 'my-orders', component: MyOrdersComponent},
   {path: 'detail/:id', component: OrderTrackingComponent},
-  {path: 'carrinho', component: CarrinhoComponent}
+  {path: 'carrinho', component: CarrinhoComponent},
+  {path: 'courier', component: NewCourierComponent},
+  {path: 'produtos', component: NewProductComponent}
 ];
 
 @NgModule({

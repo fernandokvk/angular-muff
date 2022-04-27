@@ -48,10 +48,11 @@ export class NewShopComponent implements OnInit {
       this.credentialShopService
         .submit({
           name: this.nome?.value,
-          zipCode : this.cep?.value,
+          zipCode: this.cep?.value,
           cnpj: this.cnpj?.value,
+          products: [],
           address: this.endereco?.value,
-        } as Shop)
+        } as unknown as Shop)
         .subscribe(
           (t) => {
             console.log(t.name + " added as shop")

@@ -38,6 +38,10 @@ import { ListShopsComponent } from './list-shops/list-shops.component'
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { NewCourierComponent } from './new-courier/new-courier.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 
@@ -56,6 +60,8 @@ registerLocaleData(localePt, 'pt');
     ListShopsComponent,
     MyOrdersComponent,
     OrderTrackingComponent,
+    NewCourierComponent,
+    ImageUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +88,8 @@ registerLocaleData(localePt, 'pt');
     MatRadioModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

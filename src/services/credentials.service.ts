@@ -29,6 +29,12 @@ export class CredentialsService {
     return this.httpClient.put<Credential>(url, credential);
   }
 
+  submitNewCourier(credential: Credential | undefined, courierId: number): Observable<Credential> {
+    const url = `${this.url}/${credential?.id}`;
+    credential!.courierId = courierId;
+    return this.httpClient.put<Credential>(url, credential);
+  }
+
   /*  updateHero(hero: Hero): Observable<any> {
       return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
         tap((_) => this.log(`updated hero id= ${hero.id}`)),

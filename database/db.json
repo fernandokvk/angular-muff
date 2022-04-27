@@ -27,7 +27,7 @@
       "name": "joao",
       "surname": "silva",
       "cpf": "2390458",
-      "endereco": "weojkr",
+      "endereco": "rua da vela",
       "cep": "23904823",
       "complemento": "",
       "password": "123",
@@ -53,6 +53,19 @@
           "cvv": "00"
         }
       ]
+    },
+    {
+      "email": "bobo@gmail.com",
+      "name": "Jason",
+      "surname": "Becker",
+      "cpf": "312321313241",
+      "endereco": "rua alo",
+      "cep": "87038021",
+      "complemento": "",
+      "password": "1234",
+      "id": 7,
+      "courierId": 1,
+      "shopId": 6
     }
   ],
   "shop": [
@@ -81,7 +94,27 @@
       "address": "Em algum lugar do mundo",
       "id": 3,
       "image": "assets/shops/shop-5.png",
-      "rating": 1
+      "rating": 1,
+      "products": [
+        {
+          "id": 1,
+          "barcode": 445950719443,
+          "name": "Abacate",
+          "category": "Hortifruti",
+          "quantity": 8,
+          "price": 5.83,
+          "imageUrl": "/assets/categorias/abacate.png"
+        },
+        {
+          "id": 2,
+          "barcode": 916267911254,
+          "name": "Coca-cola 2L",
+          "category": "Bebidas",
+          "quantity": 16,
+          "price": 8,
+          "imageUrl": "/assets/categorias/bebidas.png"
+        }
+      ]
     },
     {
       "name": "Loja da Maria do bairro",
@@ -100,9 +133,40 @@
       "id": 5,
       "image": "assets/shops/shop-5.png",
       "rating": 3.7
+    },
+    {
+      "name": "Mercado",
+      "zipCode": "321321412",
+      "cnpj": "2412352137355",
+      "products": [
+        {
+          "name": "Queijo",
+          "barcode": "2412352137355",
+          "category": "three",
+          "quantity": "5",
+          "price": "8,50",
+          "id": 14
+        },
+        {
+          "name": "Pinga",
+          "barcode": "87028815",
+          "category": "one",
+          "quantity": "12",
+          "price": "15,00",
+          "id": 15
+        }
+      ],
+      "address": "rua asd",
+      "id": 6
     }
   ],
-  "courier": [],
+  "courier": [
+    {
+      "cnh": "12312321312",
+      "vehicleType": "motorcycle",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -211,6 +275,30 @@
       "quantity": 7,
       "price": 4.29,
       "imageUrl": "assets/categorias/bomboinere.png"
+    },
+    {
+      "name": "Bomb",
+      "barcode": "213514236512653",
+      "category": "seven",
+      "quantity": "23",
+      "price": "21",
+      "id": 13
+    },
+    {
+      "name": "Queijo",
+      "barcode": "2412352137355",
+      "category": "three",
+      "quantity": "5",
+      "price": "8,50",
+      "id": 14
+    },
+    {
+      "name": "Pinga",
+      "barcode": "87028815",
+      "category": "one",
+      "quantity": "12",
+      "price": "15,00",
+      "id": 15
     }
   ],
   "orders": [

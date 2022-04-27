@@ -6,11 +6,12 @@
       <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
       <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
       <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
-
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
     </mat-list>
 
   </mat-sidenav>
+
   <mat-sidenav-content>
 
     <mat-toolbar color="accent">
@@ -43,16 +44,16 @@
       </div>
     </div>
   </div>
-  
+
   <div class="cart-container">
     <table mat-table [dataSource]="carrinho">
       <!-- Image Column -->
       <ng-container matColumnDef="image">
         <th mat-header-cell *matHeaderCellDef class="titulo-container"></th>
-        <td mat-cell *matCellDef="let carrinho"> 
+        <td mat-cell *matCellDef="let carrinho">
           <img class="imagem" src="assets/categorias/carnes.png" alt="">
         </td>
-        <td mat-footer-cell *matFooterCellDef> 
+        <td mat-footer-cell *matFooterCellDef>
           <div>
             Entrega:
           </div>
@@ -64,48 +65,48 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef class="titulo-container"> Nome </th>
         <td mat-cell *matCellDef="let carrinho"> {{carrinho.name}} </td>
-        <td mat-footer-cell *matFooterCellDef> 
+        <td mat-footer-cell *matFooterCellDef>
       </ng-container>
 
       <!-- Quantidade Column -->
       <ng-container matColumnDef="quantity">
         <th mat-header-cell *matHeaderCellDef class="titulo-container"> Quantidade </th>
         <td mat-cell *matCellDef="let carrinho">
-              <input mdInput type="number" class="quantidade-container" [(ngModel)]="carrinho.quantity"> 
-          </td>     
+              <input mdInput type="number" class="quantidade-container" [(ngModel)]="carrinho.quantity">
+          </td>
         <td mat-footer-cell *matFooterCellDef> </td>
       </ng-container>
-  
+
       <!-- Price Column -->
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef class="titulo-container"> Custo </th>
         <td mat-cell *matCellDef="let carrinho"> {{carrinho.price * carrinho.quantity | currency}} </td>
-        <td mat-footer-cell *matFooterCellDef> 
+        <td mat-footer-cell *matFooterCellDef>
           <div>
             {{taxa_entrega | currency}}
           </div>
-          {{getTotalCost() | currency}} 
+          {{getTotalCost() | currency}}
         </td>
       </ng-container>
-  
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
     </table>
   </div>
 
-  <div class="wrappers">   
-    <div>  
-      <p class="p_font">Forma de Pagamento: </p> 
-      <mat-radio-group [(ngModel)]="tipo_pagamento"> 
+  <div class="wrappers">
+    <div>
+      <p class="p_font">Forma de Pagamento: </p>
+      <mat-radio-group [(ngModel)]="tipo_pagamento">
         <mat-radio-button value="CASH" >Dinheiro</mat-radio-button>
         <mat-radio-button value="CARD">Cartão</mat-radio-button>
       </mat-radio-group>
     </div>
-    
+
   </div>
 
-  <div class="wrappers"> 
+  <div class="wrappers">
       <span class="p_font">Entregar em:</span> {{endereco}}
   </div>
 

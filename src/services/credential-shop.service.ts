@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, Subscription, tap} from "rxjs";
 import {Credential} from "../models/credential.model";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Shop} from "../models/shop.model";
 import {ActiveSessionService} from "./active-session.service";
+import {Product} from "../models/product.model";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,12 @@ export class CredentialShopService {
     return this.httpClient.get<Shop[]>(url);
   }
 
+  submitNewProduct(shop: Shop, product: Product): Observable<Shop>{
+    const url = `${this.url}/${this.activeSessionService.credential?.shopId}`;
+
+    shop.products.push(product);
+    return this.httpClient.put<Shop>(url,shop);
+  }
   submit(shop: Shop): Observable<Shop> {
     return this.httpClient.post<Shop>(this.url, shop);
 

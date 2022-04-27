@@ -1,1 +1,88 @@
-<p>new-product component</p>
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Produtos</span>
+      <span class="example-spacer"></span>
+
+    </mat-toolbar>
+
+    <div>
+
+      <form class="new-user-form" [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name">
+
+          </mat-form-field>
+
+        </div>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Código de barras</mat-label>
+            <input matInput formControlName="barcode">
+
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="category">
+            <mat-option value="bebidas">Bebidas</mat-option>
+            <mat-option value="biscoitos">Biscoitos</mat-option>
+            <mat-option value="bomboniere">Bomboniere</mat-option>
+            <mat-option value="carnes">Carnes</mat-option>
+            <mat-option value="esportes">Esportes</mat-option>
+            <mat-option value="eslatados">Enlatados</mat-option>
+            <mat-option value="ferramentas">Ferramentas</mat-option>
+            <mat-option value="hortifruti">Hortifruti</mat-option>
+            <mat-option value="laticínios">Laticínios</mat-option>
+            <mat-option value="limpeza-higiene">Limpeza e Higiene</mat-option>
+            <mat-option value="padaria">Padaria</mat-option>
+            <mat-option value="pet">Pet</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Quantidade</mat-label>
+            <input matInput formControlName="quantity">
+
+          </mat-form-field>
+        </div>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Preço</mat-label>
+            <input matInput type="" formControlName="price">
+
+          </mat-form-field>
+        </div>
+
+        <div class="botao-wrapper">
+          <button type="submit" class="botao" mat-raised-button color="accent" >Cadastrar</button>
+        </div>
+
+      </form>
+    </div>
