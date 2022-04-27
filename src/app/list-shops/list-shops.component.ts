@@ -10,6 +10,7 @@ import { ActiveSessionService } from 'src/services/active-session.service';
 })
 export class ListShopsComponent implements OnInit {
   shops: Shop[] = [];
+  shop_selected: string = "";
   
   constructor(
     private shopsService: CredentialShopService,
@@ -18,10 +19,23 @@ export class ListShopsComponent implements OnInit {
 
   ngOnInit(): void {
     this.shopsService.getAllShops().subscribe(shops => this.shops = shops);
+    if(this.activeSessionService.sessionShop != null){
+      this.shop_selected = this.activeSessionService.sessionShop.name;
+    }
   }
 
   actionShopService(shop: Shop): void {
+    this.shop_selected = shop.name;
     this.activeSessionService.sessionShop = shop;
+  }
+
+  getSelectedClass(shop: Shop): string {
+    const isValid = this.activeSessionService.sessionShop == shop;
+    if(isValid) {
+      return "selected"
+    }else{
+      return "not-selected"
+    }
   }
 
   getStars(shop: Shop) {

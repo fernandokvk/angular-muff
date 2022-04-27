@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Escolha um Cartão</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <mat-action-list>
+    <mat-list-item *ngFor="let cartao of cartoes" class={{getSelectedClass(cartao)}} (click)="actionCardSelected(cartao)">
+        <div matLine>
+        <span style="font-weight: bold">Apelido:</span>
+        {{cartao.nickname}}
+        </div>
+        <div matLine>
+        <span style="font-weight: bold">Número:</span>
+        {{getLastNumbers(cartao.cardNumber)}}
+        </div>
+        <div matLine>
+        <span style="font-weight: bold">Tipo:</span>
+        {{cartao.cardType}}
+        </div>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+    </mat-action-list>
+</div>
+<div mat-dialog-actions>
+  <button class="botao" (click)="addCartao()">+ Add Cartão</button>
+</div>
+<div mat-dialog-actions style="margin-top: 10px">
+  <button mat-raised-button color="accent" class="botao" (click)="cancelar_dialog()">Cancelar</button>
+  <button mat-raised-button color="accent" class="botao" (click)="confirmar_dialog()">Confirmar</button>
+</div>

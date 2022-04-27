@@ -1,3 +1,15 @@
+mat-action-list{
+    overflow: auto !important;
+    height: 250px;
+}
+.selected{
+    background: rgba(194, 194, 194, 0.5) !important;
+}
+
+.not-selected{
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
 .botao{
     flex: 1;
     font-size: 16px;
@@ -20,5 +32,5 @@
 }
 
 h1{
-  text-align: center;
-}
+    text-align: center;
+  }

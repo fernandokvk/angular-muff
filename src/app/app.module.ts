@@ -42,6 +42,9 @@ import { NewCourierComponent } from './new-courier/new-courier.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { CartaoSelectedDialogComponent } from './cartao-selected-dialog/cartao-selected-dialog.component';
+import { NewCardDialogComponent } from './new-card-dialog/new-card-dialog.component';
+
 
 
 
@@ -62,6 +65,8 @@ registerLocaleData(localePt, 'pt');
     OrderTrackingComponent,
     NewCourierComponent,
     ImageUploadComponent,
+    CartaoSelectedDialogComponent,
+    NewCardDialogComponent,
   ],
   imports: [
     BrowserModule,

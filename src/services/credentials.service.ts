@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Credential } from '../models/credential.model';
 import { Observable } from 'rxjs';
+import { Payment } from 'src/models/payment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,9 +30,16 @@ export class CredentialsService {
     return this.httpClient.put<Credential>(url, credential);
   }
 
+
   submitNewCourier(credential: Credential | undefined, courierId: number): Observable<Credential> {
     const url = `${this.url}/${credential?.id}`;
     credential!.courierId = courierId;
+    return this.httpClient.put<Credential>(url, credential);
+  }
+
+  submitNewCard(credential: Credential | undefined, card: Payment): Observable<Credential> {
+    const url = `${this.url}/${credential?.id}`;
+    credential!.paymentCards.push(card);
     return this.httpClient.put<Credential>(url, credential);
   }
 
