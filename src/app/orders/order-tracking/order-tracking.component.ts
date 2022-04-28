@@ -48,9 +48,16 @@ export class OrderTrackingComponent implements OnInit {
       width: '300px',
       data: {orderId: order.id},
     });
+
+    dialogRef.backdropClick().subscribe(v=>{
+      dialogRef.close(-2);
+    });
     dialogRef.afterClosed().subscribe(courierId => {
-      this.orderService.readyOrder(order, courierId);
-      this.cancelDisabled = true;
+      if (courierId != -2 ){ // Assign value
+        this.orderService.readyOrder(order, courierId);
+        this.cancelDisabled = true;
+        this.assignCourierDisabled = true;
+      }
     });
   }
 
@@ -62,6 +69,8 @@ export class OrderTrackingComponent implements OnInit {
       if (confirm) {
         this.orderService.cancelOrder(order);
         this.cancelDisabled = true;
+        this.assignCourierDisabled = true;
+
       }
     });
   }

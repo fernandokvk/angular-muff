@@ -32,7 +32,6 @@ export class PendingOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
-    this.activeSession.credential = {shopId: 1, type:"SHOP"};
     this.placedOrders$ = this.fetchOrders('PLACED');
     this.onTheWayOrders$ = this.fetchOrders('AWAITING')
   }

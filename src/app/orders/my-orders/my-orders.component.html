@@ -26,60 +26,70 @@
 
     </mat-toolbar>
 
-    <section class="main">
-      <ul>
-        <li *ngFor="let order of (orders$ | async)">
-          <a routerLink="/detail/{{order.id}}">
-            <div class="order-container">
-              <div class="order-container__header">
-                <span class="order-container__header__title">Pedido: {{order.id}}</span>
-                <mat-progress-bar mode="indeterminate" value="{{getProgressValue(order)}}"></mat-progress-bar>
-                <mat-divider></mat-divider>
-              </div>
-              <mat-divider></mat-divider>
-
-
-              <div class="grid">
-                <div class="grid__left-tile">
-                  <div>
-                    <span style="font-weight: bold">Status: </span>
-                    {{getOrderStatus(order)}}
-                  </div>
-                  <div>
-                    <span style="font-weight: bold">Loja: </span>
-                    {{order.shopName}}
-                  </div>
-                  <div>
-                    <span style="font-weight: bold">Entregar em: </span>
-                    {{order.deliveryLocation.address}}
-                  </div>
-                  <div>
-                    <span style="font-weight: bold">Valor: </span>
-                    R${{getOrderCost(order)}}
-                  </div>
+    <section *ngIf="type == 'CUSTOMER'">
+      <section class="main">
+        <ul>
+          <li *ngFor="let order of (orders$ | async)">
+            <a routerLink="/detail/{{order.id}}">
+              <div class="order-container">
+                <div class="order-container__header">
+                  <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                  <mat-progress-bar mode="indeterminate" value="{{getProgressValue(order)}}"></mat-progress-bar>
+                  <mat-divider></mat-divider>
                 </div>
-                <mat-divider vertical="true"></mat-divider>
-                <div class="grid__right-tile">
+                <mat-divider></mat-divider>
 
-                  <div *ngIf="order.status != 'FINISHED'; else finishedOrder">
-                    <div style="font-weight: bold">Chega em:</div>
-                    <div class="grid__right-tile__estimatedTime">
-                      {{getEstimatedMinutes(order)}} min.
+
+                <div class="grid">
+                  <div class="grid__left-tile">
+                    <div>
+                      <span style="font-weight: bold">Status: </span>
+                      {{getOrderStatus(order)}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Loja: </span>
+                      {{order.shopName}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Entregar em: </span>
+                      {{order.deliveryLocation.address}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Valor: </span>
+                      R${{getOrderCost(order)}}
                     </div>
                   </div>
-                  <ng-template #finishedOrder>
-                    <div style="font-weight: bold">Pedido</div>
-                    <div style="font-weight: bold">entregue</div>
-                  </ng-template>
+                  <mat-divider vertical="true"></mat-divider>
+                  <div class="grid__right-tile">
+
+                    <div *ngIf="order.status != 'FINISHED'; else finishedOrder">
+                      <div style="font-weight: bold">Chega em:</div>
+                      <div class="grid__right-tile__estimatedTime">
+                        {{getEstimatedMinutes(order)}} min.
+                      </div>
+                    </div>
+                    <ng-template #finishedOrder>
+                      <div style="font-weight: bold">Pedido</div>
+                      <div style="font-weight: bold">entregue</div>
+                    </ng-template>
 
 
+                  </div>
                 </div>
-              </div>
 
-            </div>
-          </a>
-        </li>
-      </ul>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <section *ngIf="type == 'SHOP'">
+      <app-pending-orders></app-pending-orders>
+    </section>
+
+    <section *ngIf="type == 'COURIER'">
+      <app-pending-orders-courier></app-pending-orders-courier>
     </section>
 
 

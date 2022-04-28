@@ -15,7 +15,7 @@ import { CartaoSelectedDialogComponent } from '../cartao-selected-dialog/cartao-
 })
 export class CarrinhoComponent implements OnInit {
   displayedColumns = ['image','name', 'quantity', 'price'];
-  taxa_entrega = 50;
+  deliveryFee = 50;
   endereco = "";
   shop: Shop | undefined;
   temShop: boolean = false;
@@ -35,7 +35,7 @@ export class CarrinhoComponent implements OnInit {
 
   /** Gets the total cost of all transactions. */
   getTotalCost(): number{
-    return (this.taxa_entrega + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0));
+    return (this.deliveryFee + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0));
   }
 
   getCardList() : void{
@@ -83,6 +83,7 @@ export class CarrinhoComponent implements OnInit {
         shopId: this.shop?.id,
         shopName: this.shop?.name,
         status: "PLACED",
+        deliveryFee: this.deliveryFee,
         paymentStatus: "NOT_PAID",
         paymentMethod: this.cartao,
         pickupLocation: this.shop?.location,

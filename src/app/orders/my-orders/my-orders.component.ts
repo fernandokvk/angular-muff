@@ -12,6 +12,7 @@ import {map, Observable, Subject, timer} from 'rxjs';
 })
 export class MyOrdersComponent implements OnInit {
   orders$!: Observable<Order[]>;
+  type: any;
 
   constructor(
     private orderService: OrdersService,
@@ -21,10 +22,30 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
-    // this.activeSession.credential = {id: 8};
-    this.orders$ = this.fetchOrders();
-    // console.log(this.activeSession.credential?.id)
+    this.activeSession.credential = {id: 15, courierId: 1, type: "COURIER"};
+    // this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
+    console.log("!!!!!!!");
+    this.typeSwitch();
 
+  }
+
+  typeSwitch(){
+    if (this.activeSession.credential?.type == "CUSTOMER") this.customerType();
+    else if (this.activeSession.credential?.type == "SHOP") this.shopType();
+    else this.courierType();
+  }
+
+  private customerType() {
+    this.type = "CUSTOMER";
+    this.orders$ = this.fetchOrders();
+  }
+
+  private shopType(){
+    this.type = "SHOP";
+  }
+
+  private courierType(){
+    this.type = "COURIER";
   }
 
 
@@ -82,4 +103,5 @@ export class MyOrdersComponent implements OnInit {
       return difference.toFixed(0);
     }
   }
+
 }

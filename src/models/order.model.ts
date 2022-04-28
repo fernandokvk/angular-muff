@@ -16,6 +16,7 @@ export interface Order {
   paymentMethod: "CASH" | Payment;
   pickupLocation: { address: string; lat: number; long: number };
   deliveryLocation: { address: string; lat: number; long: number };
+  deliveryFee: number;
   createdAt: Date;
   updatedAt: Date;
   estimatedAt: Date;

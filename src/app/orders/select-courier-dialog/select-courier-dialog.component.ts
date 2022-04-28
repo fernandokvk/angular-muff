@@ -28,4 +28,8 @@ export class SelectCourierDialogComponent implements OnInit {
   }
 
 
+  close() {
+    this.data.courierId = -2;
+    this.dialogRef.close(this.data.courierId);
+  }
 }

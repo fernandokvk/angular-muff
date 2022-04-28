@@ -1,14 +1,11 @@
-a{
-  text-decoration: none !important;
-  color: black;
-}
-.toolbar-item{
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 2px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
+.status{
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-family: Ubuntu, serif;
+  font-weight: bold;
+  color: #000000;
+  margin: 12px 0px;
 }
 
 .scrollable-container{
@@ -27,33 +24,6 @@ a{
     max-height: 100%;
 
   }
-}
-
-.status{
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-  font-family: Ubuntu, serif;
-  font-weight: bold;
-  color: #000000;
-  margin: 12px 0px;
-}
-
-.conteudo{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 4px;
-
-  &__left{
-  }
-
-  &__right{
-    align-self: center;
-    transform: scale(1.5);
-    margin-right: 18px;
-  }
-
 }
 
 .order-container{
@@ -80,3 +50,19 @@ a{
   }
 }
 
+.conteudo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px;
+
+  &__left{
+  }
+
+  &__right{
+    align-self: center;
+    transform: scale(1.5);
+    margin-right: 18px;
+  }
+
+}

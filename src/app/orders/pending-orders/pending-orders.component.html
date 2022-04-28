@@ -1,41 +1,3 @@
-<mat-sidenav-container fullscreen>
-
-  <mat-sidenav #sidenav mode="over" opened=false>
-    <mat-toolbar color="accent">Menu</mat-toolbar>
-    <mat-list>
-      <mat-list-item class="toolbar-item">
-        <mat-icon color="accent">house</mat-icon>
-        <a class="a" routerLink="/home">Home</a></mat-list-item>
-      <mat-list-item class="toolbar-item">
-        <mat-icon color="accent">reorder</mat-icon>
-        <a routerLink="/my-orders">Pedidos</a></mat-list-item>
-      <mat-list-item class="toolbar-item">
-        <mat-icon color="accent">store</mat-icon>
-        <a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
-      <mat-list-item class="toolbar-item">
-        <mat-icon color="accent">local_grocery_store</mat-icon>
-        <a routerLink="/carrinho">Carrinho</a></mat-list-item>
-      <mat-list-item class="toolbar-item">
-        <mat-icon color="accent">person</mat-icon>
-        <a routerLink="/courier">Entregador</a></mat-list-item>
-    </mat-list>
-
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-
-    <mat-toolbar color="accent">
-      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
-              mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Pedidos ativos</span>
-      <span class="example-spacer"></span>
-      <button (click)="goBack()" mat-icon-button>
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-
-    </mat-toolbar>
 
     <section class="main">
       <div class="status">
@@ -85,9 +47,6 @@
                     </button>
                     </a>
                   </div>
-
-
-
               </div>
             </div>
           </li>
@@ -99,7 +58,7 @@
 
 <!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
       <div class="status">
-        <span>Saiu para entrega</span>
+        <span>Aguardando</span>
       </div>
 <!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
 
@@ -136,7 +95,7 @@
                   </div>
                   <div>
                     <span style="font-weight: bold">Entregador: </span>
-                    {{order.courierName}}
+                    {{order.courier.id}}
                   </div>
                 </div>
 
@@ -154,12 +113,4 @@
         </ul>
 
       </div>
-
-
-
-
-
     </section>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>

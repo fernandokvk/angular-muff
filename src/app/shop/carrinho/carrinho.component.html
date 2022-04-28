@@ -83,7 +83,7 @@
         <td mat-cell *matCellDef="let carrinho"> {{carrinho.price * carrinho.quantity | currency}} </td>
         <td mat-footer-cell *matFooterCellDef>
           <div>
-            {{taxa_entrega | currency}}
+            {{deliveryFee | currency}}
           </div>
           {{getTotalCost() | currency}}
         </td>

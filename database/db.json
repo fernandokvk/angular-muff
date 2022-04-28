@@ -104,7 +104,7 @@
       "shopId": 8
     },
     {
-      "email": "lojinha3@gmail.com",
+      "email": "shop",
       "type": "SHOP",
       "name": "12348907",
       "surname": "123123",
@@ -114,7 +114,20 @@
       "complemento": "",
       "password": "123",
       "id": 10,
-      "shopId": 9
+      "shopId": 1
+    },
+    {
+      "email": "courier",
+      "type": "COURIER",
+      "name": "Entregador",
+      "surname": "Sobrenome Entregador",
+      "cpf": "439284723894",
+      "endereco": "eiorhjweior",
+      "cep": "8903742789340",
+      "complemento": "",
+      "password": "123",
+      "id": 11,
+      "courierId": 3
     }
   ],
   "shop": [
@@ -249,6 +262,16 @@
       "cnh": "23948723",
       "vehicleType": "motorcycle",
       "id": 2,
+      "location": {
+        "address": "Av. Paraná 105",
+        "lat": -23.421421304112158,
+        "long": -51.928071251705965
+      }
+    },
+    {
+      "cnh": "45345345345",
+      "vehicleType": "motorcycle",
+      "id": 3,
       "location": {
         "address": "Av. Paraná 105",
         "lat": -23.421421304112158,
@@ -510,11 +533,12 @@
     {
       "id": 3,
       "customerId": 6,
-      "shopId": 9,
+      "shopId": 1,
       "shopName": "Bar do João",
       "customerName": "joao",
       "courierName:": "Entregador A",
       "status": "ASSIGNED",
+      "deliveryFee": 4.89,
       "pickupLocation": {
         "address": "Av. Brasil 1809",
         "lat": -23.424131675922197,
@@ -552,9 +576,15 @@
         {
           "cnh": "12312321312",
           "vehicleType": "motorcycle",
-          "id": 1
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
         }
-      ]
+      ],
+      "updatedAt": "2022-04-28T10:27:52.810Z"
     },
     {
       "id": 4,
@@ -565,6 +595,7 @@
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
+      "deliveryFee": 50,
       "pickupLocation": {
         "address": "Av. Brasil 497",
         "lat": -23.419770715934867,
@@ -667,8 +698,9 @@
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",
-      "status": "ON_THE_WAY",
+      "status": "ASSIGNED",
       "paymentStatus": "PAY_ON_DELIVERY",
+      "deliveryFee": 2.34,
       "paymentMethod": "CASH",
       "pickupLocation": {
         "address": "Av. Brasil 1720",
@@ -681,7 +713,6 @@
         "long": -51.943345687018464
       },
       "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-17T00:31:05Z",
       "products": [
         {
@@ -722,6 +753,19 @@
           "price": 2.89,
           "imageUrl": "/assets/categorias/biscoitos.png"
         }
+      ],
+      "updatedAt": "2022-04-28T10:27:55.567Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
       ]
     },
     {
@@ -731,6 +775,7 @@
       "shopName": "Bar do João",
       "customerName": "Jason",
       "status": "ASSIGNED",
+      "deliveryFee": 7.89,
       "paymentStatus": "PAID",
       "paymentMethod": {
         "id": 1,
@@ -752,7 +797,6 @@
         "long": -51.943284902938935
       },
       "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-17T01:11:05Z",
       "products": [
         {
@@ -783,16 +827,19 @@
           "imageUrl": "assets/categorias/bomboinere.png"
         }
       ],
-      "courier": {
-        "cnh": "12312321312",
-        "vehicleType": "motorcycle",
-        "id": 1,
-        "location": {
-          "address": "Av. Paraná 105",
-          "lat": -23.415248738642738,
-          "long": -51.943194719121394
+      "updatedAt": "2022-04-28T10:27:58.535Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
         }
-      }
+      ]
     },
     {
       "id": 8,
@@ -802,7 +849,8 @@
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",
-      "status": "PLACED",
+      "status": "ASSIGNED",
+      "deliveryFee": 23.12,
       "paymentMethod": {
         "id": 1,
         "type": "DEBIT_CARD",
@@ -834,6 +882,19 @@
           "quantity": 3,
           "price": 6.59,
           "imageUrl": "/assets/categorias/massas.png"
+        }
+      ],
+      "updatedAt": "2022-04-28T10:28:01.327Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
         }
       ]
     },

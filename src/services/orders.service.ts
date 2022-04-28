@@ -41,6 +41,7 @@ export class OrdersService {
         (t) => {
           order.courier = t;
           order.status = "ASSIGNED";
+          order.updatedAt = new Date();
           this.httpService.put(url, order).subscribe();
         }
       );
@@ -95,4 +96,10 @@ export class OrdersService {
       t => console.log("Canceled order:" + t.id)
     )
   }
+
+  fetchCourierOrders(courierId: number | undefined): Observable<Order[]> {
+    const url = `${this.url}/?courier.courierId=${courierId}`;
+    return this.httpService.get<Order[]>(url);
+  }
+
 }

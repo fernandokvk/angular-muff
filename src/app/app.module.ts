@@ -47,6 +47,7 @@ import { NewCardDialogComponent } from './new-users/new-card-dialog/new-card-dia
 import { PendingOrdersComponent } from './orders/pending-orders/pending-orders.component';
 import { SelectCourierDialogComponent } from './orders/select-courier-dialog/select-courier-dialog.component';
 import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/confirm-cancel-dialog.component';
+import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
 
 
 
@@ -74,6 +75,7 @@ registerLocaleData(localePt, 'pt');
     PendingOrdersComponent,
     SelectCourierDialogComponent,
     ConfirmCancelDialogComponent,
+    PendingOrdersCourierComponent,
   ],
   imports: [
     BrowserModule,
