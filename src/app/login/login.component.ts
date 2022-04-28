@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
             })  
           }else{
               var shop_observable = this.credentialShopService.getShopById(this.activeSession.credential.shopId)
-              shop_observable.subscribe((data: Shop[]) => {
-                this.activeSession.sessionShop = data.pop()
+              shop_observable.subscribe((data: Shop) => {
+                this.activeSession.sessionShop = data
               })
               this.router.navigateByUrl('home');
           }

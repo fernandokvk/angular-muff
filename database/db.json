@@ -135,8 +135,11 @@
       "name": "Doente doido",
       "cep": "989898989",
       "cnpj": "805810565086",
-      "address": "Rua dos malucos doentes",
-      
+      "location":{
+        "address": "Rua dos malucos doentes",
+        "lat": 0,
+        "long": 5
+      },
       "id": 1,
       "image": "assets/shops/shop-5.png",
       "rating": 3.666666666666667
@@ -145,7 +148,11 @@
       "name": "Loja do João que fica na esquina",
       "cep": "87877878",
       "cnpj": "909090926",
-      "address": "Rua da esquina",
+      "location":{
+        "address": "Rua da esquina",
+        "lat": 0,
+        "long": 5
+      }, 
       "id": 2,
       "image": "assets/shops/shop-5.png",
       "rating": 4
@@ -154,7 +161,11 @@
       "name": "Loja do Fernando",
       "cep": "999999999",
       "cnpj": "30303030300",
-      "address": "Em algum lugar do mundo",
+      "location":{
+        "address": "Em algum lugar do mundo",
+        "lat": 0,
+        "long": 5
+      },       
       "id": 3,
       "image": "assets/shops/shop-5.png",
       "rating": 1,
@@ -183,7 +194,11 @@
       "name": "Loja da Maria do bairro",
       "cep": "5552525252",
       "cnpj": "030303061",
-      "address": "Bairro da Maria",
+      "location":{
+        "address": "Bairro da Maria",
+        "lat": 0,
+        "long": 5
+      },      
       "id": 3,
       "image": "assets/shops/shop-5.png",
       "rating": 3
@@ -192,7 +207,11 @@
       "name": "Bar do João",
       "cep": "sdfsdf",
       "cnpj": "dasd",
-      "address": "Avenida Brasil 1054",
+      "location":{
+        "address": "Avenida Brasil 1054",
+        "lat": 0,
+        "long": 5
+      }, 
       "id": 5,
       "image": "assets/shops/shop-5.png",
       "rating": 3.7
@@ -219,7 +238,12 @@
           "id": 15
         }
       ],
-      "address": "rua asd",
+      "location":{
+        "address": "rua asd",
+        "lat": 0,
+        "long": 5
+      }, 
+      
       "id": 6
     },
     {
@@ -227,7 +251,12 @@
       "zipCode": "234234",
       "cnpj": "238904235",
       "products": [],
-      "address": "Rua da Lojinha",
+      "location":{
+        "address": "Rua da Lojinha",
+        "lat": 0,
+        "long": 5
+      }, 
+
       "id": 7
     },
     {
@@ -235,7 +264,12 @@
       "zipCode": "12342345",
       "cnpj": "23148907",
       "products": [],
-      "address": "1329487",
+      "location":{
+        "address": "1329487",
+        "lat": 0,
+        "long": 5
+      }, 
+
       "id": 8
     },
     {
@@ -243,7 +277,12 @@
       "zipCode": "123",
       "cnpj": "3423423",
       "products": [],
-      "address": "12312",
+      "location":{
+        "address": "12312",
+        "lat": 0,
+        "long": 5
+      }, 
+
       "image": "assets/shops/shop-1.png",
       "id": 9
     }

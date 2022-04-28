@@ -51,7 +51,7 @@ export class RateShopComponent implements OnInit {
         //if(can_rateShop(order)){
           this.order = order;
           this.credentialShopService.getShopById(this.order.shopId).subscribe((shop) => {
-            this.shop = shop[0];
+            this.shop = shop;
           });
         /*}else{
           console.log("Permissão negada, pedido não pertence ao usuário atual")
