@@ -1,0 +1,118 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon> <a class="a" routerLink="/profile">Perfil</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Entregador</span>
+      <span class="example-spacer"></span>
+
+    </mat-toolbar>
+
+
+    <div *ngIf="showForm; else temForm">
+      <form class="new-user-form" [formGroup]="newCourierForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Tipo de veículo</mat-label>
+          <mat-select formControlName="vehicleType" [(value)]="selected">
+            <mat-option value="bicycle">Bicicleta</mat-option>
+            <mat-option value="motorcycle">Moto</mat-option>
+            <mat-option value="car">Carro</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="selected != 'bicycle'" class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>CNH</mat-label>
+            <input matInput formControlName="cnh">
+
+          </mat-form-field>
+
+        </div>
+
+
+
+
+
+        <!--<div class="span5">
+          <label><strong>Avatar</strong></label>
+          <div class="avatar dropbox filled ui-droppable" style="width: 95%;">
+            <div class="status">
+            </div>
+            <div class="inner">
+              <img src="https://thispersondoesnotexist.com/image" draggable="false">
+              <div class="remove">
+              <a href="#">Remove</a>
+              </div>
+            </div>
+            </div>
+            <div class="clear">
+          </div>
+       </div>-->
+
+
+
+        <mat-form-field class="new-user-form__form-field" appearance="fill" >
+          <mat-label class="new-user-form__form-field__termos__label">Termos e condições de uso</mat-label>
+          <textarea class="new-user-form__form-field__termos"matInput readonly="readonly">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis urna rutrum dolor euismod, a interdum eros eleifend. Fusce bibendum magna non volutpat molestie. Quisque maximus feugiat nulla, a pharetra massa lobortis sit amet. Cras auctor lectus a felis ultricies fringilla. Donec a metus ultricies, congue risus id, finibus lorem. Nullam vitae massa a leo iaculis gravida. Integer sit amet blandit ex, vitae sollicitudin velit. Aenean tortor eros, bibendum quis ex sed, elementum imperdiet dolor. Nullam at velit fermentum, bibendum turpis quis, commodo ex. Phasellus diam erat, finibus sit amet eleifend ut, fringilla id tellus. Mauris et velit vestibulum, semper arcu vitae, tempus ante. Phasellus imperdiet euismod nibh vel volutpat. Proin consectetur turpis diam, id ullamcorper eros elementum sit amet. Nam convallis, tellus eu gravida dapibus, ex nibh rhoncus leo, sed posuere erat risus at mi. Phasellus tincidunt arcu ac enim congue vulputate. Etiam dictum magna sed gravida commodo.
+      Sed id justo bibendum, venenatis orci sit amet, facilisis metus. Fusce vehicula ut odio vel ornare.
+      Nulla auctor diam quis mauris auctor, sit amet accumsan erat viverra. Duis volutpat sodales lectus vitae dictum.
+      Quisque lobortis orci id tellus semper condimentum. Morbi at magna pulvinar, blandit est molestie, volutpat risus. Curabitur lacinia enim vitae augue fermentum, eu elementum velit fringilla. In gravida ipsum purus, sit amet faucibus justo aliquet eget. Praesent semper massa sit amet nisi tincidunt fringilla.
+      Aliquam nisl erat, sollicitudin id consectetur nec, auctor at augue. Nulla eu malesuada dui.
+      Mauris tristique felis placerat turpis semper, at vehicula libero luctus. Ut ullamcorper massa ut lorem aliquam interdum. Pellentesque fringilla efficitur imperdiet.
+      Nunc pellentesque congue volutpat. Nunc ut tincidunt nibh. Nullam iaculis convallis tellus et scelerisque.
+      Sed ullamcorper ac ante non sagittis. Aenean eu est dictum, facilisis lectus et, tempor ante.
+      Donec venenatis risus mauris.
+      Sed commodo, massa non congue dignissim, ex enim pharetra diam, gravida congue sem elit sit amet velit.
+      Proin vitae ornare mauris, vel feugiat dui. Duis in luctus libero, a tristique quam.
+    </textarea>
+        </mat-form-field>
+
+        <div class="checkboxWrapper">
+          <mat-checkbox class="checkbox" formControlName="checkbox">Li e aceito os termos de uso</mat-checkbox>
+
+        </div>
+
+        <div class="botao-wrapper">
+          <button type="submit" class="botao" mat-raised-button color="accent" >Cadastrar</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <ng-template #temForm>
+
+
+      <form class="new-user-form">
+
+        <div class="botao-wrapper">
+          <button type="submit" class="botao" mat-raised-button color="accent"  >Pedidos Pendentes </button>
+        </div>
+
+        <div class="botao-wrapper">
+          <button type="submit" class="botao" mat-raised-button color="accent" >Editar Dados</button>
+        </div>
+
+
+      </form>
+
+
+    </ng-template>

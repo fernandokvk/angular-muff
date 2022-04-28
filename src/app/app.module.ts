@@ -16,7 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import localePt from '@angular/common/locales/pt';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { NewUserComponent } from './new-user/new-user.component';
+import { NewUserComponent } from './new-users/new-user/new-user.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import {MatDividerModule} from "@angular/material/divider";
@@ -27,24 +27,31 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ActiveSessionService} from "../services/active-session.service";
-import { NewShopComponent } from './new-shop/new-shop.component';
-import { NewProductComponent } from './new-product/new-product.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { NewShopComponent } from './profiles/new-shop/new-shop.component';
+import { NewProductComponent } from './new-users/new-product/new-product.component';
+import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatRadioModule} from '@angular/material/radio';
 import { ShopSelectedDialogComponent } from './list-shops/shop-selected-dialog/shop-selected-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListShopsComponent } from './list-shops/list-shops.component'
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
+import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
+import { OrderTrackingComponent } from './orders/order-tracking/order-tracking.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { NewCourierComponent } from './new-courier/new-courier.component';
+import { NewCourierComponent } from './profiles/new-courier/new-courier.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { ImageUploadComponent } from './image-upload/image-upload.component';
-import { CartaoSelectedDialogComponent } from './cartao-selected-dialog/cartao-selected-dialog.component';
-import { NewCardDialogComponent } from './new-card-dialog/new-card-dialog.component';
 import { RateShopComponent } from './rate-shop/rate-shop.component';
+import { CartaoSelectedDialogComponent } from './shop/cartao-selected-dialog/cartao-selected-dialog.component';
+import { NewCardDialogComponent } from './new-users/new-card-dialog/new-card-dialog.component';
+import { PendingOrdersComponent } from './orders/pending-orders/pending-orders.component';
+import { SelectCourierDialogComponent } from './orders/select-courier-dialog/select-courier-dialog.component';
+import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/confirm-cancel-dialog.component';
+import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
+import { ProfileComponent } from './profiles/profile/profile.component';
+import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
+
 
 
 
@@ -69,6 +76,12 @@ registerLocaleData(localePt, 'pt');
     CartaoSelectedDialogComponent,
     NewCardDialogComponent,
     RateShopComponent,
+    PendingOrdersComponent,
+    SelectCourierDialogComponent,
+    ConfirmCancelDialogComponent,
+    PendingOrdersCourierComponent,
+    ProfileComponent,
+    CustomerProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,111 @@
+<section class="main">
+  <div class="status">
+    <span>Pedidos disponíveis</span>
+  </div>
+
+  <div class="scrollable-container">
+    <ul class="scrollable-container__inner">
+      <li *ngFor="let order of availableOrders$ | async">
+        <div class="order-container">
+          <div class="order-container__header">
+            <span class="order-container__header__title">Pedido: {{order.id}}</span>
+            <span class="order-container__header__time">Atribuído:
+                <span style="font-weight: normal">{{getAssignedAt(order)}}</span>
+            </span>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="conteudo">
+
+            <div class="conteudo__left">
+              <div>
+                <span style="font-weight: bold">Cliente: </span>
+                {{order.customerName}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Entregar em: </span>
+                {{order.deliveryLocation.address}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Taxa de entrega: </span>
+                R${{order.deliveryFee}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Distância: </span>
+                {{getDistanceToDelivery(order).toFixed(2)}}km
+              </div>
+
+            </div>
+
+            <div class="conteudo__right">
+              <a routerLink="/detail/{{order.id}}">
+                <button mat-icon-button color="accent">
+                  <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+<!----------------------------------------------------------------------->
+  <div class="status">
+    <span>Pedidos ativos</span>
+  </div>
+
+  <div class="scrollable-container">
+    <ul class="scrollable-container__inner">
+      <li *ngFor="let order of acceptedOrders$ | async">
+        <div class="order-container">
+          <div class="order-container__header">
+            <span class="order-container__header__title">Pedido: {{order.id}}</span>
+            <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getAssignedAt(order)}}</span>
+            </span>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="conteudo">
+
+            <div class="conteudo__left">
+              <div>
+                <span style="font-weight: bold">Cliente: </span>
+                {{order.customerName}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Entregar em: </span>
+                {{order.deliveryLocation.address}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Taxa de entrega: </span>
+                R${{order.deliveryFee}}
+              </div>
+
+              <div>
+                <span style="font-weight: bold">Distância: </span>
+                {{getDistanceToDelivery(order).toFixed()}}km
+              </div>
+
+            </div>
+
+          </div>
+          <mat-divider></mat-divider>
+          <div class="finish">
+            <button mat-flat-button class="finish__button" (click)="finishOrder(order)">
+              Finalizar
+              <mat-icon style="align-self: center; margin-bottom: 2px">check</mat-icon>
+            </button>
+          </div>
+
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</section>

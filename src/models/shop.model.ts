@@ -4,7 +4,7 @@ export interface Shop {
   id: number,
   name: string;
   cnpj: string;
-  address: string;
+  location: { address: string; lat: number; long: number };
   zipCode: string;
   products: Product[];
   image: string;

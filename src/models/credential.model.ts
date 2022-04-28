@@ -3,6 +3,7 @@ import {Payment} from "./payment.model";
 
 export interface Credential {
   id: number;
+  type: "COURIER" | "CUSTOMER" | "SHOP";
   email: string;
   password: string;
   name: string;

@@ -1,0 +1,42 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__fab{
+    transform: scale(0.5);
+    box-shadow: none !important;
+
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__message{
+    margin: 2px;
+    align-self: center;
+    text-align: center;
+  }
+
+
+  &__buttons {
+    margin: (6px 12px 0px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
+}
+
+.button{
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.input{
+  display: flex;
+  justify-content: center;
+  margin-bottom: -12px;
+}

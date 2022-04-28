@@ -12,11 +12,9 @@ export class ActiveSessionService {
   sessionProducts: Product[]=[];
   sessionShop: Shop | undefined;
   succesfulSignup: boolean = false;
+  currentLocation: {lat: number, long: number} = {lat: -23.413060764874313 , long: -51.93812922195265};
 
 
   constructor() { }
 
-  setInfo(){
-
-  }
 }

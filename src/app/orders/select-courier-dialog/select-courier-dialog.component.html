@@ -1,0 +1,34 @@
+<section class="wrapper">
+  <div class="header">
+<span
+  style="font-family: Ubuntu, serif; font-size: 24px; align-self: center; margin: 8px">Pedido: {{data.orderId}}</span>
+
+    <button class="header__fab" mat-mini-fab color="accent" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </div>
+
+  <mat-divider></mat-divider>
+
+
+  <div>
+    <p class="wrapper__message">Atribuir para um entregador específico?</p>
+
+    <mat-form-field class="input" appearance="outline">
+      <mat-label>Número</mat-label>
+      <input matInput [(ngModel)]="data.courierId">
+      <mat-icon matSuffix color="accent">person</mat-icon>
+    </mat-form-field>
+
+
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="wrapper__buttons">
+
+    <button class="button" mat-flat-button color="accent" (click)="onNoClick()">Não</button>
+    <span style="flex: 1 1 auto"></span>
+    <button class="button" mat-flat-button color="accent" (click)="onNoClick()">Sim</button>
+  </div>
+</section>

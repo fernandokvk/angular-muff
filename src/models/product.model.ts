@@ -5,6 +5,6 @@ export interface Product {
   category: string;
   quantity: number;
   price: number;
-  ///imageUrl: string;
-  ///observation: string; //Usado no order somente
+  imageUrl: string;
+  observation: string; //Usado no order somente - Fernando
 }

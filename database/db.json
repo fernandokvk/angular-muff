@@ -24,6 +24,7 @@
     },
     {
       "email": "admin",
+      "type": "SHOP",
       "name": "joao",
       "surname": "silva",
       "cpf": "2390458",
@@ -61,7 +62,8 @@
           "cvv": "999",
           "expDate": "08/25"
         }
-      ]
+      ],
+      "courierId": 2
     },
     {
       "email": "bobo@gmail.com",
@@ -75,6 +77,57 @@
       "id": 7,
       "courierId": 1,
       "shopId": 6
+    },
+    {
+      "email": "lojinha@gmail.com",
+      "name": "Dono da loja",
+      "surname": "Sobrenome",
+      "cpf": "2309482",
+      "endereco": "rewkoj",
+      "cep": "348234",
+      "complemento": "",
+      "password": "123",
+      "id": 8,
+      "shopId": 7
+    },
+    {
+      "email": "lojinha2@gmail.com",
+      "type": "SHOP",
+      "name": "Dono",
+      "surname": "da lojinha 2",
+      "cpf": "2389042",
+      "endereco": "weriojriojwe",
+      "cep": "23890423",
+      "complemento": "",
+      "password": "123",
+      "id": 9,
+      "shopId": 8
+    },
+    {
+      "email": "shop",
+      "type": "SHOP",
+      "name": "12348907",
+      "surname": "123123",
+      "cpf": "4234234",
+      "endereco": "4234234ewrfwe",
+      "cep": "34234",
+      "complemento": "",
+      "password": "123",
+      "id": 10,
+      "shopId": 1
+    },
+    {
+      "email": "courier",
+      "type": "COURIER",
+      "name": "Entregador",
+      "surname": "Sobrenome Entregador",
+      "cpf": "439284723894",
+      "endereco": "eiorhjweior",
+      "cep": "8903742789340",
+      "complemento": "",
+      "password": "123",
+      "id": 11,
+      "courierId": 3
     }
   ],
   "shop": [
@@ -168,13 +221,63 @@
       ],
       "address": "rua asd",
       "id": 6
+    },
+    {
+      "name": "Lojinha",
+      "zipCode": "234234",
+      "cnpj": "238904235",
+      "products": [],
+      "address": "Rua da Lojinha",
+      "id": 7
+    },
+    {
+      "name": "Lojinha2",
+      "zipCode": "12342345",
+      "cnpj": "23148907",
+      "products": [],
+      "address": "1329487",
+      "id": 8
+    },
+    {
+      "name": "lojinha3",
+      "zipCode": "123",
+      "cnpj": "3423423",
+      "products": [],
+      "address": "12312",
+      "image": "assets/shops/shop-1.png",
+      "id": 9
     }
   ],
   "courier": [
     {
       "cnh": "12312321312",
       "vehicleType": "motorcycle",
-      "id": 1
+      "id": 1,
+      "location": {
+        "address": "Av. Paraná 105",
+        "lat": -23.415248738642738,
+        "long": -51.943194719121394
+      }
+    },
+    {
+      "cnh": "23948723",
+      "vehicleType": "motorcycle",
+      "id": 2,
+      "location": {
+        "address": "Av. Paraná 105",
+        "lat": -23.421421304112158,
+        "long": -51.928071251705965
+      }
+    },
+    {
+      "cnh": "45345345345",
+      "vehicleType": "motorcycle",
+      "id": 3,
+      "location": {
+        "address": "Av. Paraná 105",
+        "lat": -23.421421304112158,
+        "long": -51.928071251705965
+      }
     }
   ],
   "products": [
@@ -284,7 +387,7 @@
       "category": "Bomboniere",
       "quantity": 7,
       "price": 4.29,
-      "imageUrl": "assets/categorias/bomboinere.png"
+      "imageUrl": "assets/categorias/bomboniere.png"
     },
     {
       "name": "Bomb",
@@ -309,6 +412,38 @@
       "quantity": "12",
       "price": "15,00",
       "id": 15
+    },
+    {
+      "name": "Bolachinha",
+      "barcode": "2309482309423890",
+      "category": "biscoitos",
+      "quantity": "1",
+      "price": "15.50",
+      "id": 16
+    },
+    {
+      "name": "weqqwe",
+      "barcode": "1234234",
+      "category": "bebidas",
+      "quantity": "123",
+      "price": "14324",
+      "id": 17
+    },
+    {
+      "name": "Boalchinha",
+      "barcode": "2390482390",
+      "category": "bomboniere",
+      "quantity": "123",
+      "price": "123.45",
+      "id": 18
+    },
+    {
+      "name": "3123wqeqwe",
+      "barcode": "231242423",
+      "category": "bomboniere",
+      "quantity": "213",
+      "price": "23",
+      "id": 19
     }
   ],
   "orders": [
@@ -318,8 +453,17 @@
       "shopId": 1,
       "shopName": "Bar do João",
       "courierId": 1,
-      "courierName": "Entregador A",
-      "status": "PREPARING",
+      "courierName:": "Entregador A",
+      "status": "FINISHED",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "pickupLocation": {
         "address": "Av. Brasil 1247",
         "lat": -23.405548369343425,
@@ -362,7 +506,20 @@
           "imageUrl": "assets/categorias/bomboniere.png"
         }
       ],
-      "rated": false
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
+      ],
+      "updatedAt": "2022-04-28T14:17:45.188Z",
+      "finishedAt": "2022-04-28T14:17:45.188Z"
     },
     {
       "id": 2,
@@ -371,7 +528,7 @@
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",
-      "status": "FINISHED",
+      "status": "PLACED",
       "pickupLocation": {
         "address": "Av. Brasil 1452",
         "lat": -23.410669389042326,
@@ -399,16 +556,21 @@
     },
     {
       "id": 3,
-      "customerId": 1,
+      "customerId": 6,
       "shopId": 1,
       "shopName": "Bar do João",
-      "courierId": 1,
+      "customerName": "joao",
       "courierName:": "Entregador A",
-      "status": "PLACED",
+      "status": "ON_THE_WAY",
+      "deliveryFee": 4.89,
+      "courierRejectedIds": [
+        1,
+        1
+      ],
       "pickupLocation": {
         "address": "Av. Brasil 1809",
-        "lat": -23.419245925657492,
-        "long": -51.927258820496554
+        "lat": -23.424131675922197,
+        "long": -51.920376513492414
       },
       "deliveryLocation": {
         "address": "Av. Paraná 1924",
@@ -418,6 +580,15 @@
       "createdAt": "2022-04-16T23:15:05Z",
       "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-16T23:45:05Z",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "products": [
         {
           "id": 8,
@@ -425,19 +596,33 @@
           "name": "magna",
           "category": "Category 7",
           "quantity": 15,
-          "price": 4.45,
-          "imageUrl": "magna"
+          "price": 4.45
+        }
+      ],
+      "updatedAt": "2022-04-28T13:57:42.995Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
         }
       ]
     },
     {
       "id": 4,
-      "customerId": 5,
-      "shopId": 1,
+      "customerId": 6,
+      "shopId": 9,
       "shopName": "Bar do João",
+      "customerName": "joao",
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
+      "deliveryFee": 50,
       "pickupLocation": {
         "address": "Av. Brasil 497",
         "lat": -23.419770715934867,
@@ -451,6 +636,15 @@
       "createdAt": "2022-04-16T23:15:05Z",
       "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-16T23:53:05Z",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "products": [
         {
           "id": 7,
@@ -466,7 +660,7 @@
     {
       "id": 5,
       "customerId": 6,
-      "shopId": 1,
+      "shopId": 9,
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",
@@ -529,10 +723,13 @@
       "customerId": 6,
       "shopId": 1,
       "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "ON_THE_WAY",
+      "status": "FINISHED",
       "paymentStatus": "PAY_ON_DELIVERY",
+      "courierRejectedIds": [
+        1,
+        1
+      ],
+      "deliveryFee": 2.34,
       "paymentMethod": "CASH",
       "pickupLocation": {
         "address": "Av. Brasil 1720",
@@ -545,7 +742,6 @@
         "long": -51.943345687018464
       },
       "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-17T00:31:05Z",
       "products": [
         {
@@ -586,16 +782,31 @@
           "price": 2.89,
           "imageUrl": "/assets/categorias/biscoitos.png"
         }
-      ]
+      ],
+      "updatedAt": "2022-04-28T14:18:55.811Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
+      ],
+      "finishedAt": "2022-04-28T14:18:55.811Z"
     },
     {
       "id": 7,
-      "customerId": 6,
+      "customerId": 7,
       "shopId": 1,
       "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "PLACED",
+      "customerName": "Jason",
+      "status": "ON_THE_WAY",
+      "deliveryFee": 7.89,
+      "courierRejectedIds": [],
       "paymentStatus": "PAID",
       "paymentMethod": {
         "id": 1,
@@ -617,7 +828,6 @@
         "long": -51.943284902938935
       },
       "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
       "estimatedAt": "2022-04-17T01:11:05Z",
       "products": [
         {
@@ -645,18 +855,44 @@
           "category": "Bomboniere",
           "quantity": 1,
           "price": 4.29,
-          "imageUrl": "assets/categorias/bomboinere.png"
+          "imageUrl": "assets/categorias/bomboniere.png"
+        }
+      ],
+      "updatedAt": "2022-04-28T13:57:54.677Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
         }
       ]
     },
     {
       "id": 8,
-      "customerId": 4,
+      "customerId": 6,
+      "customerName": "joao",
       "shopId": 1,
       "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "PLACED",
+      "status": "ASSIGNED",
+      "courierRejectedIds": [
+        1,
+        1
+      ],
+      "deliveryFee": 23.12,
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "pickupLocation": {
         "address": "Av. Brasil 461",
         "lat": -23.403166738335518,
@@ -680,6 +916,19 @@
           "price": 6.59,
           "imageUrl": "/assets/categorias/massas.png"
         }
+      ],
+      "updatedAt": "2022-04-28T14:06:29.763Z",
+      "courier": [
+        {
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
       ]
     },
     {
@@ -690,6 +939,15 @@
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "DELIVERED",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "pickupLocation": {
         "address": "Av. Brasil 790",
         "lat": -23.423786370337027,
@@ -728,11 +986,21 @@
     {
       "id": 10,
       "customerId": 2,
-      "shopId": 1,
-      "shopName": "Bar do João",
+      "shopId": 7,
+      "customerName": "usuario",
+      "shopName": "Lojinha",
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
       "pickupLocation": {
         "address": "Av. Brasil 561",
         "lat": -23.411920195190568,
@@ -755,6 +1023,66 @@
           "quantity": 2,
           "price": 6.59,
           "imageUrl": "/assets/categorias/massas.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "customerId": 1,
+      "shopId": 8,
+      "shopName": "Bar do João",
+      "courierId": 1,
+      "courierName:": "Entregador A",
+      "status": "PLACED",
+      "paymentMethod": {
+        "id": 1,
+        "type": "DEBIT_CARD",
+        "cardType": "VISA",
+        "nickname": "Inter",
+        "nameOnCard": "JOAO S",
+        "cardNumber": "4242 4242 4242 1234",
+        "cvv": "00"
+      },
+      "pickupLocation": {
+        "address": "Av. Brasil 1247",
+        "lat": -23.405548369343425,
+        "long": -51.928657837643264
+      },
+      "deliveryLocation": {
+        "address": "Av. Paraná 1457",
+        "lat": -23.424910598755204,
+        "long": -51.943256569628566
+      },
+      "createdAt": "2022-04-16T23:15:05Z",
+      "udpatedAt": "2022-04-16T23:20:05Z",
+      "estimatedAt": "2022-04-16T23:25:05Z",
+      "products": [
+        {
+          "id": 10,
+          "barcode": 520577994712,
+          "name": "Limpador Multiuso VEJA Floral 500ml",
+          "category": "Limpeza",
+          "quantity": 10,
+          "price": 7.59,
+          "imageUrl": "/assets/categorias/limpeza.png"
+        },
+        {
+          "id": 11,
+          "barcode": 653768049442,
+          "name": "Macarrão NISSIN yakissoba 500g",
+          "category": "Massas",
+          "quantity": 18,
+          "price": 6.59,
+          "imageUrl": "/assets/categorias/massas.png"
+        },
+        {
+          "id": 12,
+          "barcode": 275115550225,
+          "name": "Chocolate LACTA Oreo 90g",
+          "category": "Bomboniere",
+          "quantity": 7,
+          "price": 4.29,
+          "imageUrl": "/assets/categorias/bomboniere.png"
         }
       ]
     }

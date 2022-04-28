@@ -1,0 +1,116 @@
+
+    <section class="main">
+      <div class="status">
+        <span>Preparando</span>
+      </div>
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+
+      <div class="scrollable-container">
+
+        <ul class="scrollable-container__inner">
+          <li *ngFor="let order of placedOrders$ | async">
+            <div class="order-container">
+              <div class="order-container__header">
+                <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getOrderCreatedAt(order)}}</span>
+                 </span>
+
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <div class="conteudo">
+
+                <div class="conteudo__left">
+                  <div>
+                    <span style="font-weight: bold">Cliente: </span>
+                    {{order.customerName}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Entregar em: </span>
+                    {{order.deliveryLocation.address}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Valor: </span>
+                    R${{getOrderCost(order)}}
+                  </div>
+
+                </div>
+
+                  <div class="conteudo__right">
+                    <a routerLink="/detail/{{order.id}}">
+                    <button mat-icon-button color="accent">
+                      <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                    </button>
+                    </a>
+                  </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+      <div class="status">
+        <span>Aguardando</span>
+      </div>
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+
+      <div class="scrollable-container">
+        <ul class="scrollable-container__inner">
+          <li *ngFor="let order of onTheWayOrders$ | async">
+            <div class="order-container">
+              <div class="order-container__header">
+                <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getOrderCreatedAt(order)}}</span>
+                 </span>
+
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <div class="conteudo">
+
+                <div class="conteudo__left">
+                  <div>
+                    <span style="font-weight: bold">Cliente: </span>
+                    {{order.customerName}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Entregar em: </span>
+                    {{order.deliveryLocation.address}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Valor: </span>
+                    R${{getOrderCost(order)}}
+                  </div>
+                  <div>
+                    <span style="font-weight: bold">Entregador: </span>
+                    {{order.courier.id}}
+                  </div>
+                </div>
+
+                <div class="conteudo__right" >
+                  <a routerLink="/detail/{{order.id}}">
+                    <button mat-icon-button color="accent">
+                      <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                    </button>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </section>

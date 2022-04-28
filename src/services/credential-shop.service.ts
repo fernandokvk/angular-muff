@@ -29,9 +29,9 @@ export class CredentialShopService {
   getAllShops(){
     return this.httpClient.get<Shop[]>(this.url);
   }
-  getShopById(id: number): Observable<Shop[]>{
+  getShopById(id: number): Observable<Shop>{
     const url = `${this.url}/?id=${id}`;
-    return this.httpClient.get<Shop[]>(url);
+    return this.httpClient.get<Shop>(url);
   }
 
   submitNewProduct(shop: Shop, product: Product): Observable<Shop>{

@@ -1,0 +1,159 @@
+.a {
+  text-decoration: none !important;
+}
+
+.main {
+  padding: 6px;
+}
+
+.ico{
+  height: 48px;
+  align-self: center;
+  margin: 0px 12px;
+}
+
+.shop-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px 0px;
+  border-radius: 8px;
+  //box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 8px;
+
+  &__spacer{
+   flex: 1 1 auto;
+  }
+
+  &__cancel{
+    flex: 1 1;
+    font-family: Ubuntu, serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  &__ready{
+    font-family: Ubuntu, serif;
+    font-weight: bold;
+    font-size: 18px;
+    flex: 1 1;
+    background-color: #4e944f;
+    border-radius: 16px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
+.switch-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+
+  &__logo {
+    height: 4em;
+    margin: 0px 5px;
+  }
+
+  &__button {
+    align-self: center;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+}
+
+.switch-container-shop {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+
+  &__logo {
+    height: 4em;
+    margin: 0px 5px;
+  }
+
+  &__button {
+    align-self: center;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+}
+
+.button-chat {
+  border-radius: 12px;
+  height: 32px;
+  //border: 1px solid rgba(0, 0, 0, 0.65);
+  display: inline-flex;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.wrappers {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 2px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+
+.payment-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.status-container {
+  margin: (10px, 4px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.maps-container {
+  outline: 1px solid #c720da;
+  margin: 10px;
+}
+
+.list-item-wrapper {
+  margin: 8px;
+  list-style-type: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px;
+}
+
+.product-img {
+  width: 10%;
+
+}
+
+
+.progress-bar-wrapper {
+  margin: 10px;
+}
+
+.mat-progress-bar {
+  height: 12px;
+  border-radius: 6px;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: rgba(54, 141, 54, 0.68);
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #E4E8EB;
+}
+
+
