@@ -31,6 +31,7 @@ export class CredentialsService {
   submitNewShop(credential: Credential | undefined, shopId: number): Observable<Credential> {
     const url = `${this.url}/${credential?.id}`;
     credential!.shopId = shopId;
+    credential!.type = "SHOP";
     return this.httpClient.put<Credential>(url, credential);
   }
 
@@ -38,6 +39,7 @@ export class CredentialsService {
   submitNewCourier(credential: Credential | undefined, courierId: number): Observable<Credential> {
     const url = `${this.url}/${credential?.id}`;
     credential!.courierId = courierId;
+    credential!.type = "COURIER"
     return this.httpClient.put<Credential>(url, credential);
   }
 

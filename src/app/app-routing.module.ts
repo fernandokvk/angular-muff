@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
-import {NewUserComponent} from "./new-user/new-user.component";
-import {NewShopComponent} from "./new-shop/new-shop.component";
-import { CarrinhoComponent } from './carrinho/carrinho.component';
-import {MyOrdersComponent} from "./my-orders/my-orders.component";
-import {OrderTrackingComponent} from "./order-tracking/order-tracking.component";
-import {NewCourierComponent} from "./new-courier/new-courier.component";
-import {NewProductComponent} from "./new-product/new-product.component";
-import {PendingOrdersComponent} from "./pending-orders/pending-orders.component";
+import {NewUserComponent} from "./new-users/new-user/new-user.component";
+import {NewShopComponent} from "./new-users/new-shop/new-shop.component";
+import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
+import {MyOrdersComponent} from "./orders/my-orders/my-orders.component";
+import {OrderTrackingComponent} from "./orders/order-tracking/order-tracking.component";
+import {NewCourierComponent} from "./new-users/new-courier/new-courier.component";
+import {NewProductComponent} from "./new-users/new-product/new-product.component";
+import {PendingOrdersComponent} from "./orders/pending-orders/pending-orders.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},

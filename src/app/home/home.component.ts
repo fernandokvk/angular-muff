@@ -14,15 +14,15 @@ import {TemplateRef} from "@angular/core";
 export class HomeComponent implements OnInit {
   constructor(
     private activeSessionService: ActiveSessionService,
-    private router: Router,  
+    private router: Router,
   ) {}
-  
+
 
   ngOnInit(): void {
 
-    Object.keys(this.activeSessionService).forEach((t) => {
-      console.log(t);
-    });
+    // Object.keys(this.activeSessionService).forEach((t) => {
+    //   console.log(t);
+    // });
 
     /*    if (this.activeSession.credential == undefined){
       this.router.navigateByUrl('login');
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   addProduct(): void{
     this.activeSessionService.sessionProducts?.push({name:"Carne",quantity:5,price:12} as Product);
-    
+
   }
 
   exit() {

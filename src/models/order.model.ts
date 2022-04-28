@@ -2,6 +2,7 @@ import {Product} from "./product.model";
 import {Credential} from "./credential.model";
 import {Shop} from "./shop.model";
 import {Payment} from "./payment.model";
+import {Courier} from "./courier.model";
 
 export interface Order {
   id: number;
@@ -9,8 +10,7 @@ export interface Order {
   shopId: number;
   shopName: string;
   customerName: string;
-  courierId: number;
-  courierName: string;
+  courier: Courier;
   status: string;
   paymentStatus:  "NOT_PAID" | "PAID" | "PAY_ON_DELIVERY" ;
   paymentMethod: "CASH" | Payment;

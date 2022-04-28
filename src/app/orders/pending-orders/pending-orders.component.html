@@ -1,0 +1,165 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">house</mat-icon>
+        <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">reorder</mat-icon>
+        <a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">store</mat-icon>
+        <a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">local_grocery_store</mat-icon>
+        <a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">person</mat-icon>
+        <a routerLink="/courier">Entregador</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
+              mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Pedidos ativos</span>
+      <span class="example-spacer"></span>
+      <button (click)="goBack()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <section class="main">
+      <div class="status">
+        <span>Preparando</span>
+      </div>
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+
+      <div class="scrollable-container">
+
+        <ul class="scrollable-container__inner">
+          <li *ngFor="let order of placedOrders$ | async">
+            <div class="order-container">
+              <div class="order-container__header">
+                <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getOrderCreatedAt(order)}}</span>
+                 </span>
+
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <div class="conteudo">
+
+                <div class="conteudo__left">
+                  <div>
+                    <span style="font-weight: bold">Cliente: </span>
+                    {{order.customerName}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Entregar em: </span>
+                    {{order.deliveryLocation.address}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Valor: </span>
+                    R${{getOrderCost(order)}}
+                  </div>
+
+                </div>
+
+                  <div class="conteudo__right">
+                    <a routerLink="/detail/{{order.id}}">
+                    <button mat-icon-button color="accent">
+                      <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                    </button>
+                    </a>
+                  </div>
+
+
+
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+      <div class="status">
+        <span>Saiu para entrega</span>
+      </div>
+<!--      <mat-divider style="margin: 0px 20px"></mat-divider>-->
+
+      <div class="scrollable-container">
+        <ul class="scrollable-container__inner">
+          <li *ngFor="let order of onTheWayOrders$ | async">
+            <div class="order-container">
+              <div class="order-container__header">
+                <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getOrderCreatedAt(order)}}</span>
+                 </span>
+
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <div class="conteudo">
+
+                <div class="conteudo__left">
+                  <div>
+                    <span style="font-weight: bold">Cliente: </span>
+                    {{order.customerName}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Entregar em: </span>
+                    {{order.deliveryLocation.address}}
+                  </div>
+
+                  <div>
+                    <span style="font-weight: bold">Valor: </span>
+                    R${{getOrderCost(order)}}
+                  </div>
+                  <div>
+                    <span style="font-weight: bold">Entregador: </span>
+                    {{order.courierName}}
+                  </div>
+                </div>
+
+                <div class="conteudo__right" >
+                  <a routerLink="/detail/{{order.id}}">
+                    <button mat-icon-button color="accent">
+                      <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                    </button>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+
+
+    </section>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

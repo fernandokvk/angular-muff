@@ -24,9 +24,9 @@ export class CredentialCourierService {
   getAllCouriers(){
     return this.httpClient.get<Courier[]>(this.url);
   }
-  getCourierById(id: number): Observable<Courier[]>{
+  getCourierById(id: number): Observable<Courier>{
     const url = `${this.url}/?id=${id}`;
-    return this.httpClient.get<Courier[]>(url);
+    return this.httpClient.get<Courier>(url);
   }
 
   submit(courier: Courier): Observable<Courier> {
