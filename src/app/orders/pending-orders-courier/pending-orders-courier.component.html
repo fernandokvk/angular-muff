@@ -55,7 +55,7 @@
 
 <!----------------------------------------------------------------------->
   <div class="status">
-    <span>Pedidos aceitos</span>
+    <span>Pedidos ativos</span>
   </div>
 
   <div class="scrollable-container">
@@ -94,14 +94,15 @@
 
             </div>
 
-            <div class="conteudo__right">
-              <a routerLink="/detail/{{order.id}}">
-                <button mat-icon-button color="accent">
-                  <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
-                </button>
-              </a>
-            </div>
           </div>
+          <mat-divider></mat-divider>
+          <div class="finish">
+            <button mat-flat-button class="finish__button" (click)="finishOrder(order)">
+              Finalizar
+              <mat-icon style="align-self: center; margin-bottom: 2px">check</mat-icon>
+            </button>
+          </div>
+
         </div>
 
       </li>

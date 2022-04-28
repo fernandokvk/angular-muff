@@ -75,15 +75,17 @@ export class CarrinhoComponent implements OnInit {
       var dataCompra = new Date();
       var dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
-
+      let emptyArray: any[] = [];
       this.credentialCarrinhoService
       .submit({
         products: this.carrinho,
         customerId: this.activeSessionService.credential?.id,
+        customerName: this.activeSessionService.credential?.name,
         shopId: this.shop?.id,
         shopName: this.shop?.name,
         status: "PLACED",
         deliveryFee: this.deliveryFee,
+        courierRejectedIds: emptyArray,
         paymentStatus: "NOT_PAID",
         paymentMethod: this.cartao,
         pickupLocation: this.shop?.location,
@@ -91,7 +93,6 @@ export class CarrinhoComponent implements OnInit {
         createdAt: dataCompra,
         updatedAt: dataCompra,
         estimatedAt: dataEstimado,
-        finishedAt: null,
       } as Order)
       .subscribe();
 

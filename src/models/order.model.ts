@@ -10,7 +10,8 @@ export interface Order {
   shopId: number;
   shopName: string;
   customerName: string;
-  courier: Courier;
+  courier?: Courier;
+  courierRejectedIds: number[];
   status: string;
   paymentStatus:  "NOT_PAID" | "PAID" | "PAY_ON_DELIVERY" ;
   paymentMethod: "CASH" | Payment;

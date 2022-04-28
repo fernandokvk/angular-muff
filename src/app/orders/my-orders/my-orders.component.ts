@@ -23,8 +23,8 @@ export class MyOrdersComponent implements OnInit {
   ngOnInit(): void {
     // @ts-ignore
     this.activeSession.credential = {id: 15, courierId: 1, type: "COURIER"};
+    // this.activeSession.credential = {id: 1, type: "CUSTOMER"};
     // this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
-    console.log("!!!!!!!");
     this.typeSwitch();
 
   }

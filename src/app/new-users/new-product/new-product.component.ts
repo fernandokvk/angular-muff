@@ -58,8 +58,8 @@ export class NewProductComponent implements OnInit {
           (t) => {
             console.log(t.barcode + " added as product")
 
-            this.credentialShopService.getShopById(this.activeSessionService.credential?.shopId!).subscribe((y:Shop[])=>{
-              this.shop = y[0];
+            this.credentialShopService.getShopById(this.activeSessionService.credential?.shopId!).subscribe((y:Shop)=>{
+              this.shop = y;
               this.credentialShopService.submitNewProduct(this.shop, t).subscribe(
                 (u) => console.log(t.id + " added as productId for " + u.id),
                 (error) => console.log(error)

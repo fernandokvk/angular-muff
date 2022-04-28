@@ -49,6 +49,7 @@ export class NewCourierComponent implements OnInit {
       this.credentialCourierService
         .submit({
           cnh: this.cnh?.value,
+          name: this.activeSessionService.credential?.name,
           vehicleType: this.tipoVeiculo?.value,
           location: {lat: -23.413060764874313 , long: -51.93812922195265}, // Ponto de spawn dos couriers, Willie Davids - Fernando
         } as Courier)

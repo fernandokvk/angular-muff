@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {map, Observable} from "rxjs";
+import {filter, map, Observable} from "rxjs";
 import {Order} from "../../../models/order.model";
 import {OrdersService} from "../../../services/orders.service";
 import {ActiveSessionService} from "../../../services/active-session.service";
@@ -33,6 +33,7 @@ export class PendingOrdersCourierComponent implements OnInit {
       .fetchCourierOrders(this.activeSession.credential?.courierId)
       .pipe(map((items) => items.filter(
         (item) => item.status == status)));
+
   }
 
   getAssignedAt(order: Order) {
@@ -44,5 +45,14 @@ export class PendingOrdersCourierComponent implements OnInit {
       this.activeSession.currentLocation.long,
       order.deliveryLocation.lat,
       order.deliveryLocation.long)
+  }
+
+  finishOrder(order: Order) {
+    order.status = "FINISHED"
+    order.updatedAt = new Date();
+    order.finishedAt = new Date();
+    this.orderService.finishOrder(order);
+    location.reload();
+
   }
 }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Order} from "../models/order.model";
 import {HttpClient} from "@angular/common/http";
-import {filter, Observable} from "rxjs";
+import {filter, Observable, tap} from "rxjs";
 import {CredentialCourierService} from "./credential-courier.service";
 import {Courier} from "../models/courier.model";
 
@@ -58,14 +58,15 @@ export class OrdersService {
         allCouriers.forEach(
           courier => {
             let distance = this.calculateDistanceKilometers(order.pickupLocation.lat, order.pickupLocation.long, courier.location.lat, courier.location.long);
-            if (distance < minDistance) {
+            console.log(order.courierRejectedIds);
+            if (distance < minDistance && !order.courierRejectedIds.includes(courier.id)) {
               minDistance = distance;
               closestCourier = courier;
             }
             console.log("courierId: "+courier.id+" | "+distance.toFixed(2)+"km")
           }
         )
-        console.log("closestId: "+closestCourier.id)
+        console.log("assigned: "+closestCourier.id)
         order.courier = closestCourier;
         order.status = "ASSIGNED";
         this.httpService.put(url, order).subscribe();
@@ -98,8 +99,32 @@ export class OrdersService {
   }
 
   fetchCourierOrders(courierId: number | undefined): Observable<Order[]> {
-    const url = `${this.url}/?courier.courierId=${courierId}`;
-    return this.httpService.get<Order[]>(url);
+    const url = `${this.url}/?courier.id=${courierId}`;
+    return this.httpService.get<Order[]>(url)
   }
 
+  courierReject(order: Order, courierId: number) {
+    console.log("courierId: " +courierId+" rejected orderId: "+order.id)
+    const url = `${this.url}/${order.id}`;
+    order.courierRejectedIds.push(courierId);
+    order.status = "PLACED";
+    delete order.courier;
+    this.httpService.put(url, order).subscribe()
+  }
+
+  courierAccept(order: Order, courierId: number) {
+    const url = `${this.url}/${order.id}`;
+    this.credentialCourierService.getCourierById(courierId).subscribe(
+      k => {
+        order.status = "ON_THE_WAY";
+        this.httpService.put(url, order).subscribe();
+      }
+    )
+  }
+
+  finishOrder(order: Order) {
+    const url = `${this.url}/${order.id}`;
+    this.httpService.put(url, order).subscribe();
+
+  }
 }

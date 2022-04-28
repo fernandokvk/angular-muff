@@ -22,6 +22,8 @@ export class OrderTrackingComponent implements OnInit {
   type: "SHOP" | "CUSTOMER" | "COURIER" | undefined;
   cancelDisabled: boolean = false;
   assignCourierDisabled: boolean = false;
+  rejectDisabled: boolean = false;
+  acceptDisabled: boolean = false;
 
   constructor(
     private orderService: OrdersService,
@@ -75,8 +77,7 @@ export class OrderTrackingComponent implements OnInit {
     });
   }
 
-
-  getShop(): Observable<Shop[]> {
+  getShop(): Observable<Shop> {
     const shopId = this.order!.shopId;
     return this.shopService.getShopById(shopId);
   }
@@ -86,8 +87,8 @@ export class OrderTrackingComponent implements OnInit {
     this.orderService.getOrder(id).subscribe((order) => {
       this.order = order;
       this.getShop().subscribe(
-        (shop: Shop[]) => {
-          this.shop = shop[0];
+        (shop) => {
+          this.shop = shop;
         }
       );
 
@@ -169,5 +170,15 @@ export class OrderTrackingComponent implements OnInit {
     }
   }
 
+  courierAccept(order: Order) {
+    this.orderService.courierAccept(order, this.activeSession.credential!.courierId)
+    // this.assignCourierDisabled = true;
+    // this.rejectDisabled = true;
+  }
 
+  courierReject(order: Order) {
+    this.orderService.courierReject(order, this.activeSession.credential!.courierId)
+    // this.assignCourierDisabled = true;
+    // this.rejectDisabled = true;
+  }
 }

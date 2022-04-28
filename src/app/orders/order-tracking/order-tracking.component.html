@@ -39,8 +39,6 @@
 
       <div *ngIf="order">
 
-
-
         <div class="wrappers">
 
           <div *ngIf="type == 'SHOP'">
@@ -70,16 +68,60 @@
             </div>
           </div>
 
+          <div *ngIf="type == 'COURIER'">
+            <div class="shop-buttons">
+              <button mat-flat-button class="shop-buttons__cancel" color="accent" (click)="courierReject(order)" [disabled]="rejectDisabled">
+                Rejeitar
+                <mat-icon>cancel</mat-icon>
+              </button>
+              <img class="ico" src="assets/delivery.png">
+              <button mat-flat-button class="shop-buttons__ready" (click)="courierAccept(order)" [disabled]="acceptDisabled">
+                Aceitar
+                <mat-icon>check</mat-icon>
+              </button>
+            </div>
+            <mat-divider style="margin: 0px 8px"></mat-divider>
+
+            <div class="switch-container" *ngIf="shop">
+              <mat-divider></mat-divider>
+              <div>
+                <img class="ico" src="../../../assets/user.png">
+              </div>
+              <div style="align-self: center">
+                <span style="font-weight: bold">Cliente: </span> {{order.customerName}}
+                <div>
+                  <span style="font-weight: bold">Endereço: </span> {{order.deliveryLocation.address}}
+                </div>
+              </div>
+            </div>
+
+            <mat-divider style="margin: 0px 12px"></mat-divider>
+
+            <div class="switch-container-shop">
+              <div style="alignment: center">
+                <img class="ico" src="assets/shops/shop-1.png">
+              </div>
+              <div>
+                <span style="font-weight: bold">Loja: </span> {{order.shopName}}
+                <div>
+                  <span style="font-weight: bold">Endereço: </span> {{order.pickupLocation.address}}
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
           <div *ngIf="type == 'CUSTOMER'">
             <div class="switch-container" *ngIf="shop">
               <div>
-                <img class="ico" src="{{shop.image}}"
-                     alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+                <img class="ico" src="assets/shops/shop-1.png">
               </div>
               <div>
-                <span style="font-weight: bold">Loja: </span> {{shop.name}}
+                <span style="font-weight: bold">Loja: </span> {{order.shopName}}
                 <div>
-                  <span style="font-weight: bold">Endereço: </span> {{shop.location}}
+                  <span style="font-weight: bold">Endereço: </span> {{order.pickupLocation.address}}
                 </div>
                 <div>
                   {{getStars(shop)}}
@@ -115,7 +157,7 @@
           </div>
           <div class="status-container">
             <div>
-              <span style="font-weight: bold">Chega até: </span>
+              <span style="font-weight: bold">Entrega até: </span>
               {{getEstimatedDelivery(order)}}
             </div>
             <div>

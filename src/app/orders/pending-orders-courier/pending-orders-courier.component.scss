@@ -8,9 +8,24 @@
   margin: 12px 0px;
 }
 
+.finish{
+  display: flex;
+  flex: 1 1;
+  margin: 6px 4px;
+
+  &__button{
+    flex: 1 1;
+    font-size: 16px;
+    background-color: #4e944f;
+    border-radius: 8px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
 .scrollable-container{
   width: auto;
-  height: 420px;
+  height: 240px;
   overflow: hidden;
   margin: 8px 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -61,8 +76,7 @@
 
   &__right{
     align-self: center;
-    transform: scale(1.5);
-    margin-right: 18px;
+    transform: scale(1);
   }
 
 }
