@@ -9,4 +9,5 @@ export interface Shop {
   products: Product[];
   image: string;
   rating: number;
+  comments: string[];
 }

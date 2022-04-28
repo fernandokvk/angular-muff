@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable, Subscription, tap} from "rxjs";
+import {map, Observable, Subscription, tap} from "rxjs";
 import {Credential} from "../models/credential.model";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Shop} from "../models/shop.model";
 import {ActiveSessionService} from "./active-session.service";
 import {Product} from "../models/product.model";
@@ -10,7 +10,10 @@ import {Product} from "../models/product.model";
   providedIn: 'root'
 })
 export class CredentialShopService {
-
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
+  httpOptions = {
+    headers: this.headers
+  }
   session: Shop | undefined;
   private url = 'http://localhost:3000/shop';
 
@@ -40,6 +43,13 @@ export class CredentialShopService {
   submit(shop: Shop): Observable<Shop> {
     return this.httpClient.post<Shop>(this.url, shop);
 
+  }
+
+  updateShop(shop: Shop): Observable<Shop>{
+    const url = `${this.url}/${shop.id}`;
+    return this.httpClient.put<Shop>(url, shop, this.httpOptions).pipe(
+      map(() => shop)
+    )
   }
 
 }

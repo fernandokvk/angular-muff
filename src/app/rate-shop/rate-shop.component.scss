@@ -1,0 +1,74 @@
+.wrappers {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-size: 16px;
+    padding: 2px;
+  }
+
+.main {
+    padding: 6px;
+  }
+
+.shop-container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .rating-list li {
+    float: right;
+    color: #ddd;
+    padding: 10px 5px;
+  
+  }
+  
+  .rating-list li:hover,
+  .rating-list li:hover ~ li, .rating-list li.selected {
+    color: #ffd700;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .stars{
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .form_field_comment{
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .botao {
+    flex: 1;
+    font-size: 16px;
+    padding: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    width: 100%;
+  }
+
+  .shop-container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+  
+    &__logo {
+      height: 4em;
+      margin: 0px 5px;
+    }
+  
+    &__button {
+      align-self: center;
+      margin-left: auto;
+      margin-right: 12px;
+    }
+  }

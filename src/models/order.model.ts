@@ -20,4 +20,5 @@ export interface Order {
   estimatedAt: Date;
   finishedAt: Date | null;
   products: Product[];
+  rated: boolean;
 }

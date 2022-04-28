@@ -8,6 +8,8 @@ import { ActiveSessionService } from '../../services/active-session.service';
 import {Location} from "@angular/common";
 import { MatDialog } from '@angular/material/dialog';
 import { ShopSelectedDialogComponent } from '../list-shops/shop-selected-dialog/shop-selected-dialog.component';
+import { CredentialShopService } from 'src/services/credential-shop.service';
+import { Shop } from 'src/models/shop.model';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private activeSession: ActiveSessionService,
     public dialog: MatDialog,
+    private credentialShopService: CredentialShopService,
   ) {}
 
   logMeIn() {
@@ -35,14 +38,22 @@ export class LoginComponent implements OnInit {
       (data: Credential[]) => {
         if (data[0].password == this.password) {
           this.activeSession.credential = data.pop();
-          let dialogRef = this.dialog.open(ShopSelectedDialogComponent, {
-            width: 'auto',
-            height: '425px'
-          });
-          dialogRef.afterClosed().subscribe(_ => {
-            this.router.navigateByUrl('home');
-          })
-          
+          if(this.activeSession.credential?.shopId == undefined) {
+            let dialogRef = this.dialog.open(ShopSelectedDialogComponent, {
+              width: 'auto',
+              height: '475px'
+            });
+            dialogRef.afterClosed().subscribe(_ => {
+              this.router.navigateByUrl('home');
+            })  
+          }else{
+              var shop_observable = this.credentialShopService.getShopById(this.activeSession.credential.shopId)
+              shop_observable.subscribe((data: Shop[]) => {
+                this.activeSession.sessionShop = data.pop()
+              })
+              this.router.navigateByUrl('home');
+          }
+
           
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');
