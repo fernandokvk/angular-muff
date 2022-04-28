@@ -61,7 +61,8 @@
           "cvv": "999",
           "expDate": "08/25"
         }
-      ]
+      ],
+      "courierId": 2
     },
     {
       "email": "bobo@gmail.com",
@@ -174,6 +175,11 @@
       "cnh": "12312321312",
       "vehicleType": "motorcycle",
       "id": 1
+    },
+    {
+      "cnh": "23948723",
+      "vehicleType": "motorcycle",
+      "id": 2
     }
   ],
   "products": [
@@ -308,6 +314,38 @@
       "quantity": "12",
       "price": "15,00",
       "id": 15
+    },
+    {
+      "name": "Bolachinha",
+      "barcode": "2309482309423890",
+      "category": "biscoitos",
+      "quantity": "1",
+      "price": "15.50",
+      "id": 16
+    },
+    {
+      "name": "weqqwe",
+      "barcode": "1234234",
+      "category": "bebidas",
+      "quantity": "123",
+      "price": "14324",
+      "id": 17
+    },
+    {
+      "name": "Boalchinha",
+      "barcode": "2390482390",
+      "category": "bomboniere",
+      "quantity": "123",
+      "price": "123.45",
+      "id": 18
+    },
+    {
+      "name": "3123wqeqwe",
+      "barcode": "231242423",
+      "category": "bomboniere",
+      "quantity": "213",
+      "price": "23",
+      "id": 19
     }
   ],
   "orders": [
@@ -397,9 +435,10 @@
     },
     {
       "id": 3,
-      "customerId": 1,
+      "customerId": 6,
       "shopId": 1,
       "shopName": "Bar do João",
+      "customerName": "joao",
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
@@ -430,9 +469,10 @@
     },
     {
       "id": 4,
-      "customerId": 5,
+      "customerId": 6,
       "shopId": 1,
       "shopName": "Bar do João",
+      "customerName": "joao",
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
@@ -588,9 +628,10 @@
     },
     {
       "id": 7,
-      "customerId": 6,
+      "customerId": 7,
       "shopId": 1,
       "shopName": "Bar do João",
+      "customerName": "Jason",
       "courierId": 1,
       "courierName:": "Entregador A",
       "status": "PLACED",
@@ -649,7 +690,8 @@
     },
     {
       "id": 8,
-      "customerId": 4,
+      "customerId": 6,
+      "customerName": "joao",
       "shopId": 1,
       "shopName": "Bar do João",
       "courierId": 1,
@@ -727,6 +769,7 @@
       "id": 10,
       "customerId": 2,
       "shopId": 1,
+      "customerName": "usuario",
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",

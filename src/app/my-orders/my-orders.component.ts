@@ -21,7 +21,9 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
+    this.activeSession.credential = {id: 6};
     this.orders$ = this.fetchOrders();
+    console.log(this.activeSession.credential?.id)
     /*setInterval(() =>
       this.orders$ = this.fetchOrders(), 1000);*/
   }

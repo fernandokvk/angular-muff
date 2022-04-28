@@ -16,11 +16,15 @@ export class CredentialsService {
 
   constructor(private httpClient: HttpClient) {}
 
+
+  searchById(id: number): Observable<Credential>{
+    const url = `${this.url}/?id=${id}`;
+    return this.httpClient.get<Credential>(url);
+  }
+
   searchCredentials(user: string): Observable<Credential[]> {
     user = user.trim();
-
     const options = user ? { params: new HttpParams().set('email', user) } : {};
-
     return this.httpClient.get<Credential[]>(this.url, options);
   }
 

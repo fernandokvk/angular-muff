@@ -16,6 +16,11 @@ export class OrdersService {
     return this.httpService.get<Order[]>(url);
   }
 
+  fetchShopOrders(shopId: number | undefined): Observable<Order[]> {
+    const url = `${this.url}/?shopId=${shopId}`;
+    return this.httpService.get<Order[]>(url);
+  }
+
 
   getOrder(id: number): Observable<Order> {
     const url = `${this.url}/${id}`;

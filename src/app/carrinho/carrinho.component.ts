@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/models/order.model';
 import { Shop } from 'src/models/shop.model';
-import { ActiveSessionService } from 'src/services/active-session.service';  
+import { ActiveSessionService } from 'src/services/active-session.service';
 import { CredentialCarrinhoService } from 'src/services/credential-carrinho.service';
 import { Location } from '@angular/common';
 import { Payment } from 'src/models/payment.model';
@@ -16,7 +16,7 @@ import { CartaoSelectedDialogComponent } from '../cartao-selected-dialog/cartao-
 export class CarrinhoComponent implements OnInit {
   displayedColumns = ['image','name', 'quantity', 'price'];
   taxa_entrega = 50;
-  endereco = ""; 
+  endereco = "";
   shop: Shop | undefined;
   temShop: boolean = false;
   shops: Shop[] = [];
@@ -30,12 +30,12 @@ export class CarrinhoComponent implements OnInit {
     private credentialCarrinhoService: CredentialCarrinhoService,
     private location: Location,
     public dialog: MatDialog,
-    ) {    
+    ) {
     }
 
   /** Gets the total cost of all transactions. */
   getTotalCost(): number{
-    return (this.taxa_entrega + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0)); 
+    return (this.taxa_entrega + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0));
   }
 
   getCardList() : void{
@@ -56,7 +56,7 @@ export class CarrinhoComponent implements OnInit {
     if(this.activeSessionService.credential != null) {
       this.endereco = this.activeSessionService.credential.endereco;
     }
-    this.shop = this.activeSessionService.sessionShop; 
+    this.shop = this.activeSessionService.sessionShop;
     if(this.shop == null) {
       this.temShop = false;
     }else{
@@ -75,18 +75,19 @@ export class CarrinhoComponent implements OnInit {
       var dataCompra = new Date();
       var dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
-      
+
       this.credentialCarrinhoService
       .submit({
         products: this.carrinho,
         customerId: this.activeSessionService.credential?.id,
         shopId: this.shop?.id,
         shopName: this.shop?.name,
-        courierId: 1,      
-        courierName: "oi", 
+        courierId: 1,
+        customerName: this.activeSessionService.credential?.name,
+        courierName: "oi",
         status: "PLACED",
         paymentStatus: "NOT_PAID",
-        paymentMethod: this.cartao,   
+        paymentMethod: this.cartao,
         pickupLocation: {address: this.shop?.address, lat: 1, long: 2},
         deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
         createdAt: dataCompra,
@@ -95,7 +96,7 @@ export class CarrinhoComponent implements OnInit {
         finishedAt: null,
       } as Order)
       .subscribe();
-  
+
       this.carrinho = []
     }
 

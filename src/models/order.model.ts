@@ -8,6 +8,7 @@ export interface Order {
   customerId: number;
   shopId: number;
   shopName: string;
+  customerName: string;
   courierId: number;
   courierName: string;
   status: string;

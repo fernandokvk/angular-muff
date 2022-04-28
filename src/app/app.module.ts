@@ -44,6 +44,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { CartaoSelectedDialogComponent } from './cartao-selected-dialog/cartao-selected-dialog.component';
 import { NewCardDialogComponent } from './new-card-dialog/new-card-dialog.component';
+import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
 
 
 
@@ -67,6 +68,7 @@ registerLocaleData(localePt, 'pt');
     ImageUploadComponent,
     CartaoSelectedDialogComponent,
     NewCardDialogComponent,
+    PendingOrdersComponent,
   ],
   imports: [
     BrowserModule,

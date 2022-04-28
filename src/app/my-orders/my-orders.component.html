@@ -15,8 +15,7 @@
   <mat-sidenav-content>
 
     <mat-toolbar color="accent">
-      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
-              mat-icon-button>
+      <button (click)="sidenav.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
       <span>Pedidos</span>
@@ -34,7 +33,7 @@
             <div class="order-container">
               <div class="order-container__header">
                 <span class="order-container__header__title">Pedido: {{order.id}}</span>
-                <mat-progress-bar mode="determinate" value="{{getProgressValue(order)}}"></mat-progress-bar>
+                <mat-progress-bar mode="indeterminate" value="{{getProgressValue(order)}}"></mat-progress-bar>
                 <mat-divider></mat-divider>
               </div>
               <mat-divider></mat-divider>
