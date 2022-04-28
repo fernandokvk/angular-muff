@@ -27,7 +27,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ActiveSessionService} from "../services/active-session.service";
-import { NewShopComponent } from './new-users/new-shop/new-shop.component';
+import { NewShopComponent } from './profiles/new-shop/new-shop.component';
 import { NewProductComponent } from './new-users/new-product/new-product.component';
 import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -38,7 +38,7 @@ import { ListShopsComponent } from './list-shops/list-shops.component'
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { OrderTrackingComponent } from './orders/order-tracking/order-tracking.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { NewCourierComponent } from './new-users/new-courier/new-courier.component';
+import { NewCourierComponent } from './profiles/new-courier/new-courier.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { ImageUploadComponent } from './image-upload/image-upload.component';
@@ -48,6 +48,8 @@ import { PendingOrdersComponent } from './orders/pending-orders/pending-orders.c
 import { SelectCourierDialogComponent } from './orders/select-courier-dialog/select-courier-dialog.component';
 import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/confirm-cancel-dialog.component';
 import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
+import { ProfileComponent } from './profiles/profile/profile.component';
+import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
 
 
 
@@ -76,6 +78,8 @@ registerLocaleData(localePt, 'pt');
     SelectCourierDialogComponent,
     ConfirmCancelDialogComponent,
     PendingOrdersCourierComponent,
+    ProfileComponent,
+    CustomerProfileComponent,
   ],
   imports: [
     BrowserModule,

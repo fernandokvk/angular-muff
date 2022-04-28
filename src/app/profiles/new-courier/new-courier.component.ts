@@ -13,6 +13,7 @@ import {CredentialCourierService} from "../../../services/credential-courier.ser
   styleUrls: ['./new-courier.component.scss']
 })
 export class NewCourierComponent implements OnInit {
+  profileType: any = "CUSTOMER";
 
   newCourierForm!: FormGroup;
   courier!: Courier;
@@ -29,6 +30,8 @@ export class NewCourierComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.profileType = this.activeSessionService.credential?.type;
+
 
     if (this.activeSessionService.credential?.courierId != null) this.showForm = false;
     if (this.showForm)

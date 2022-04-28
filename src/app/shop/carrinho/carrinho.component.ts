@@ -14,6 +14,8 @@ import { CartaoSelectedDialogComponent } from '../cartao-selected-dialog/cartao-
   styleUrls: ['./carrinho.component.scss'],
 })
 export class CarrinhoComponent implements OnInit {
+  profileType: any = "CUSTOMER";
+
   displayedColumns = ['image','name', 'quantity', 'price'];
   deliveryFee = 50;
   endereco = "";
@@ -53,6 +55,8 @@ export class CarrinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.profileType = this.activeSessionService.credential?.type;
+
     if(this.activeSessionService.credential != null) {
       this.endereco = this.activeSessionService.credential.endereco;
     }

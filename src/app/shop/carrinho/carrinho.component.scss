@@ -1,20 +1,26 @@
+
+a{
+  text-decoration: none !important;
+  color: black;
+}
+
 .cart-container {
     height: 50%;
     overflow: auto;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin: 10px;
   }
-  
+
   table {
     width: 100%;
     text-align: center;
   }
-  
+
   tr.mat-footer-row {
     font-weight: bold;
     text-align: right;
   }
-  
+
   .mat-table-sticky {
     border-top: 1px solid #e0e0e0;
   }

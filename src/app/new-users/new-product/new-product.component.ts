@@ -21,6 +21,8 @@ export class NewProductComponent implements OnInit {
   credential!: Credential;
   shop!: Shop;
   complemento: String = '';
+  profileType: any = "CUSTOMER";
+
 
   constructor(
     private fb: FormBuilder,
@@ -32,6 +34,8 @@ export class NewProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.profileType = this.activeSessionService.credential?.type;
+
     const fb = this.fb;
     this.newProductForm = fb.group({
       name: fb.control('', [Validators.required]),

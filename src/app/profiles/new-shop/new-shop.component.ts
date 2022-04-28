@@ -5,6 +5,7 @@ import {ActiveSessionService} from "../../../services/active-session.service";
 import {Shop} from "../../../models/shop.model";
 import {CredentialShopService} from "../../../services/credential-shop.service";
 import {CredentialsService} from "../../../services/credentials.service";
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class NewShopComponent implements OnInit {
   newShopForm!: FormGroup;
   shop!: Shop;
   showForm: boolean = true;
+  profileType: any = "CUSTOMER";
 
   constructor(
     private fb: FormBuilder,
@@ -23,9 +25,12 @@ export class NewShopComponent implements OnInit {
     private credentialShopService: CredentialShopService,
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
+    this.profileType = this.activeSessionService.credential?.type;
+
 
     if (this.activeSessionService.credential?.shopId != null) this.showForm = false;
     if (this.showForm)
@@ -118,4 +123,8 @@ export class NewShopComponent implements OnInit {
   }
 
 
+  goBack() {
+    return this.location.back();
+
+  }
 }
