@@ -32,7 +32,6 @@ import { NewProductComponent } from './new-users/new-product/new-product.compone
 import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatRadioModule} from '@angular/material/radio';
-import { ShopSelectedDialogComponent } from './list-shops/shop-selected-dialog/shop-selected-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListShopsComponent } from './list-shops/list-shops.component'
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
@@ -51,6 +50,8 @@ import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/con
 import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
 import { ProfileComponent } from './profiles/profile/profile.component';
 import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
+import { CompareProductDialogComponent } from './compare-product-dialog/compare-product-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -67,7 +68,6 @@ registerLocaleData(localePt, 'pt');
     NewShopComponent,
     NewProductComponent,
     CarrinhoComponent,
-    ShopSelectedDialogComponent,
     ListShopsComponent,
     MyOrdersComponent,
     OrderTrackingComponent,
@@ -82,6 +82,7 @@ registerLocaleData(localePt, 'pt');
     PendingOrdersCourierComponent,
     ProfileComponent,
     CustomerProfileComponent,
+    CompareProductDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +111,7 @@ registerLocaleData(localePt, 'pt');
     MatProgressBarModule,
     MatOptionModule,
     MatSelectModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

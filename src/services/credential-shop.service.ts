@@ -30,7 +30,7 @@ export class CredentialShopService {
     return this.httpClient.get<Shop[]>(this.url);
   }
   getShopById(id: number): Observable<Shop>{
-    const url = `${this.url}/?id=${id}`;
+    const url = `${this.url}/${id}`;
     return this.httpClient.get<Shop>(url);
   }
 

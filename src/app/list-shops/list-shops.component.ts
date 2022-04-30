@@ -24,20 +24,6 @@ export class ListShopsComponent implements OnInit {
     }
   }
 
-  actionShopService(shop: Shop): void {
-    this.shop_selected = shop.name;
-    this.activeSessionService.sessionShop = shop;
-  }
-
-  getSelectedClass(shop: Shop): string {
-    const isValid = this.activeSessionService.sessionShop == shop;
-    if(isValid) {
-      return "selected"
-    }else{
-      return "not-selected"
-    }
-  }
-
   getStars(shop: Shop) {
     let rating = "";
     for (let i = 0; i < Math.ceil(shop.rating); i++) {

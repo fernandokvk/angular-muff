@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActiveSessionService } from '../../services/active-session.service';
 import {Location} from "@angular/common";
 import { MatDialog } from '@angular/material/dialog';
-import { ShopSelectedDialogComponent } from '../list-shops/shop-selected-dialog/shop-selected-dialog.component';
 import { CredentialShopService } from 'src/services/credential-shop.service';
 import { Shop } from 'src/models/shop.model';
 
@@ -38,23 +37,7 @@ export class LoginComponent implements OnInit {
       (data: Credential[]) => {
         if (data[0].password == this.password) {
           this.activeSession.credential = data.pop();
-          if(this.activeSession.credential?.shopId == undefined) {
-            let dialogRef = this.dialog.open(ShopSelectedDialogComponent, {
-              width: 'auto',
-              height: '475px'
-            });
-            dialogRef.afterClosed().subscribe(_ => {
-              this.router.navigateByUrl('home');
-            })  
-          }else{
-              var shop_observable = this.credentialShopService.getShopById(this.activeSession.credential.shopId)
-              shop_observable.subscribe((data: Shop) => {
-                this.activeSession.sessionShop = data
-              })
-              this.router.navigateByUrl('home');
-          }
-
-          
+          this.router.navigateByUrl('home');
         } else {
           this._snackBar.open('Informações incorretas', 'Fechar');
         }

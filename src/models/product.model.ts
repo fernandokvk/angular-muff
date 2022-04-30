@@ -6,5 +6,7 @@ export interface Product {
   quantity: number;
   price: number;
   imageUrl: string;
+  sold_units?: number,
+  price_discount?: number,
   observation: string; //Usado no order somente - Fernando
 }

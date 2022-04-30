@@ -15,6 +15,7 @@ a {
 }
 
 .carousel{
+  align-items: center;
   background: rgba(232, 232, 232, 0.5);
 }
 
@@ -59,11 +60,27 @@ a {
   align-items: center;
   flex: 1 1 auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #ffffff;
 }
 
+.botao-comprar{
+  border-radius: 16px;
+  background-color: forestgreen;
+  color: whitesmoke;
+}
 
+.botao-comparar{
+  border-radius: 16px;
+  margin-right: 10px;
+  background-color: accent;
+  color: whitesmoke;
+}
+
+.image-item{
+  margin: 10px;
+  height: 60px;
+}
 
 .tile{
   background: #ffffff;
@@ -71,4 +88,11 @@ a {
   margin-bottom: -10px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 5px;
+}
+
+.product-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
 }
