@@ -33,4 +33,10 @@ export class CredentialCourierService {
     return this.httpClient.post<Courier>(this.url, courier);
 
   }
+
+  updateCourier(courier: Courier): Observable<Courier>{
+    const url = `${this.url}/${courier.id}`;
+    return  this.httpClient.put<Courier>(url,courier);
+
+  }
 }

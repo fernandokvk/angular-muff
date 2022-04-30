@@ -16,6 +16,7 @@ export class CredentialShopService {
   }
   session: Shop | undefined;
   private url = 'http://localhost:3000/shop';
+  productEdit: boolean = false;
 
   constructor(private httpClient: HttpClient, private activeSessionService: ActiveSessionService) {
   }
@@ -45,11 +46,17 @@ export class CredentialShopService {
 
   }
 
-  updateShop(shop: Shop): Observable<Shop>{
+  updateShop(shop: Shop) : Observable<any>{
     const url = `${this.url}/${shop.id}`;
-    return this.httpClient.put<Shop>(url, shop, this.httpOptions).pipe(
-      map(() => shop)
-    )
+    return this.httpClient.put<Shop>(url,shop);
+  }
+
+  enableProductUpdate(){
+    this.productEdit = true;
+  }
+
+  disableProductUpdate(){
+    this.productEdit = false;
   }
 
 }

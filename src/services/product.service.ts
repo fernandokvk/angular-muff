@@ -18,13 +18,17 @@ export class ProductService {
   getAllProducts(){
     return this.httpClient.get<Product[]>(this.url);
   }
-  getProductById(id: number): Observable<Product[]>{
-    const url = `${this.url}/?id=${id}`;
-    return this.httpClient.get<Product[]>(url);
+  getProductById(id: number): Observable<Product>{
+    const url = `${this.url}/${id}`;
+    return this.httpClient.get<Product>(url);
   }
 
   submit(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.url, product);
 
+  }
+  updateProduct(product: Product){
+    const url = `${this.url}/${product.id}`;
+    return this.httpClient.put<Product>(url,product);
   }
 }
