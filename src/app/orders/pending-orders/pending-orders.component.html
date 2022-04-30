@@ -61,6 +61,64 @@
 
         <mat-tab>
           <ng-template mat-tab-label>
+            Agendado
+            <div class="mat-tab-badge" matBadge="{{scheduledOrdersSize}}" matBadgeColor="accent"></div>
+          </ng-template>
+          <div class="scrollable-container">
+            <ul class="scrollable-container__inner">
+              <li *ngFor="let order of scheduledOrders$ | async">
+                <div class="order-container">
+                  <div class="order-container__header">
+                    <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                    <span class="order-container__header__time">Feito:
+                <span style="font-weight: normal">{{getOrderCreatedAt(order)}}</span>
+                 </span>
+                  </div>
+
+                  <mat-divider></mat-divider>
+
+                  <div class="conteudo">
+
+                    <div class="conteudo__left">
+                      <div>
+                        <span style="font-weight: bold">Cliente: </span>
+                        {{order.customerName}}
+                      </div>
+
+                      <div>
+                        <span style="font-weight: bold">Entregar em: </span>
+                        {{order.deliveryLocation.address}}
+                      </div>
+
+                      <div>
+                        <span style="font-weight: bold">Valor: </span>
+                        R${{getOrderCost(order)}}
+                      </div>
+                      <div>
+                        <span style="font-weight: bold">Agendado para: </span>
+                        {{getOrderScheduleDate(order)}}
+                      </div>
+                    </div>
+
+                    <div class="conteudo__right" >
+                      <a routerLink="/detail/{{order.id}}">
+                        <button mat-icon-button color="accent">
+                          <mat-icon style="transform: scale(2)">keyboard_arrow_right</mat-icon>
+                        </button>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
             Aguardando
             <div class="mat-tab-badge" matBadge="{{awaitingPickupSize}}" matBadgeColor="accent"></div>
           </ng-template>

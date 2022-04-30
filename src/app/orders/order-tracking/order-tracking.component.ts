@@ -120,6 +120,8 @@ export class OrderTrackingComponent implements OnInit {
         return 'Cancelado';
       case 'ASSIGNED':
         return "Aguardando entregador";
+      case 'SCHEDULED':
+        return "Agendado";
     }
     return 'undefined';
   }

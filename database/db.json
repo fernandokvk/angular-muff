@@ -1145,6 +1145,75 @@
           "imageUrl": "/assets/categorias/bomboniere.png"
         }
       ]
+    },
+    {
+      "products": [
+        {
+          "id": 1,
+          "barcode": 445950719443,
+          "name": "Abacate",
+          "category": "Hortifruti",
+          "quantity": 8,
+          "price": 5.83,
+          "imageUrl": "/assets/categorias/abacate.png"
+        }
+      ],
+      "customerId": 1,
+      "shopId": 1,
+      "shopName": "Shop1",
+      "status": "SCHEDULED",
+      "deliveryFee": 50,
+      "courierRejectedIds": [],
+      "paymentStatus": "NOT_PAID",
+      "deliveryLocation": {
+        "lat": 1,
+        "long": 2
+      },
+      "createdAt": "2022-04-30T15:06:25.017Z",
+      "updatedAt": "2022-04-30T15:06:25.017Z",
+      "estimatedAt": "2022-05-07T03:05:00.000Z",
+      "id": 12
+    },
+    {
+      "products": [
+        {
+          "id": 1,
+          "barcode": 445950719443,
+          "name": "Abacate",
+          "category": "Hortifruti",
+          "quantity": 8,
+          "price": 5.83,
+          "imageUrl": "/assets/categorias/abacate.png"
+        }
+      ],
+      "shopId": 1,
+      "shopName": "Shop1",
+      "status": "CANCELLED",
+      "deliveryFee": 50,
+      "courierRejectedIds": [],
+      "paymentStatus": "NOT_PAID",
+      "paymentMethod": "CASH",
+      "deliveryLocation": {
+        "lat": 1,
+        "long": 2
+      },
+      "createdAt": "2022-04-30T15:18:07.332Z",
+      "updatedAt": "2022-04-30T15:19:17.689Z",
+      "estimatedAt": "2022-05-06T21:00:00.000Z",
+      "id": 13,
+      "courier": [
+        {
+          "name": "Entegador",
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
+      ]
     }
   ]
 }

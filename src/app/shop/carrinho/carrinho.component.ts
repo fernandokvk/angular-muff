@@ -25,6 +25,9 @@ export class CarrinhoComponent implements OnInit {
   tipo_pagamento: String = "CASH";
   cartao: Payment | undefined;
 
+  scheduleDay: any;
+  scheduleTime: any;
+
   carrinho = this.activeSessionService.sessionProducts;
 
   constructor(
@@ -66,9 +69,28 @@ export class CarrinhoComponent implements OnInit {
     }else{
       this.temShop = true;
     }
+
+    this.activeSessionService.sessionProducts = [{
+      "id": 1,
+      "barcode": 445950719443,
+      "name": "Abacate",
+      "category": "Hortifruti",
+      "quantity": 8,
+      "price": 5.83,
+      "imageUrl": "/assets/categorias/abacate.png"
+    }]
+  }
+
+  private scheduleHandler(): Date{
+    const scheduleDay = new Date(this.scheduleDay);
+    const scheduleTime = new Date(this.scheduleTime);
+    scheduleDay.setHours(scheduleTime.getHours());
+    scheduleDay.setMinutes(scheduleTime.getMinutes());
+    return scheduleDay;
   }
 
   onSubmit() {
+
     /**To do - Colocar como task
      * Entregador
      * Cadastrar pagamento por cartão
@@ -76,29 +98,42 @@ export class CarrinhoComponent implements OnInit {
      * Definir lat e long (To do)
     **/
     if(this.carrinho.length > 0 && this.tipo_pagamento !==  ""){
-      var dataCompra = new Date();
-      var dataEstimado = new Date(dataCompra);
+      const dataCompra = new Date();
+      let dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
       let emptyArray: any[] = [];
+
+      let orderStatus = "PLACED";
+      const scheduleDate = this.scheduleHandler();
+      if (!(isNaN(scheduleDate.getTime()))){
+        //Agendado
+        orderStatus = "SCHEDULED";
+        dataEstimado = scheduleDate;
+      }
+
       this.credentialCarrinhoService
       .submit({
         products: this.carrinho,
         customerId: this.activeSessionService.credential?.id,
         customerName: this.activeSessionService.credential?.name,
-        shopId: this.shop?.id,
-        shopName: this.shop?.name,
-        status: "PLACED",
+        // shopId: this.shop?.id,
+        // shopName: this.shop?.name,
+        shopId: 1,
+        shopName: "Shop1",
+        status: orderStatus,
         deliveryFee: this.deliveryFee,
         courierRejectedIds: emptyArray,
         paymentStatus: "NOT_PAID",
-        paymentMethod: this.cartao,
+        paymentMethod: this.tipo_pagamento,
         pickupLocation: this.shop?.location,
         deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
         createdAt: dataCompra,
         updatedAt: dataCompra,
         estimatedAt: dataEstimado,
       } as Order)
-      .subscribe();
+      .subscribe(
+        t => console.log(t)
+      );
 
       this.carrinho = []
     }

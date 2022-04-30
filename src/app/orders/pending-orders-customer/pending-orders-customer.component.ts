@@ -3,6 +3,7 @@ import {map, Observable} from "rxjs";
 import {Order} from "../../../models/order.model";
 import {OrdersService} from "../../../services/orders.service";
 import {ActiveSessionService} from "../../../services/active-session.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-pending-orders-customer',
@@ -12,26 +13,42 @@ import {ActiveSessionService} from "../../../services/active-session.service";
 export class PendingOrdersCustomerComponent implements OnInit {
   activeOrders$!: Observable<Order[]>;
   activeOrdersSize: number = 0;
+  scheduledOrders$!: Observable<Order[]>;
+  scheduledOrdersSize: number = 0;
+
 
 
 
   constructor(
     private orderService: OrdersService,
     private activeSession: ActiveSessionService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
-    this.activeOrders$ = this.fetchOrders();
-    this.activeOrders$.forEach(order => this.activeOrdersSize = order.length)
+    this.activeOrders$ = this.fetchActiveOrders();
+    this.activeOrders$.forEach(order => this.activeOrdersSize = order.length);
+
+    this.scheduledOrders$ = this.fetchScheduledOrders();
+    this.scheduledOrders$.forEach(order => this.scheduledOrdersSize = order.length);
+
 
 
   }
 
-  fetchOrders(): Observable<Order[]> {
+  fetchActiveOrders(): Observable<Order[]> {
     return this.orderService
       .fetchOrders(this.activeSession.credential?.id)
-      .pipe(map((items) => items.filter((item) => item.status != 'FINISHED')));
+      .pipe(map((items) => items.filter((item) => item.status != 'FINISHED' && item.status != 'SCHEDULED')));
   }
+
+  fetchScheduledOrders(): Observable<Order[]> {
+    return this.orderService
+      .fetchOrders(this.activeSession.credential?.id)
+      .pipe(map((items) => items.filter((item) => item.status == 'SCHEDULED')));
+  }
+
+
 
   getOrderStatus(order: Order): string {
     switch (order.status) {
@@ -43,6 +60,8 @@ export class PendingOrdersCustomerComponent implements OnInit {
         return 'Saiu para entrega';
       case 'FINISHED':
         return 'Concluído';
+      case 'SCHEDULED':
+        return 'Agendado';
     }
     return 'undefined';
   }
@@ -75,5 +94,9 @@ export class PendingOrdersCustomerComponent implements OnInit {
     } else {
       return difference.toFixed(0);
     }
+  }
+
+  getScheduledDate(order: Order) {
+    return this.datePipe.transform(order.estimatedAt, "dd/MM - HH:mm")
   }
 }
