@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
-import { RateShopComponent } from './rate-shop/rate-shop.component';
+import { RateShopComponent } from './shop/rate-shop/rate-shop.component';
 import {NewUserComponent} from "./new-users/new-user/new-user.component";
 import {NewShopComponent} from "./profiles/new-shop/new-shop.component";
 import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
@@ -12,6 +12,7 @@ import {NewCourierComponent} from "./profiles/new-courier/new-courier.component"
 import {NewProductComponent} from "./new-users/new-product/new-product.component";
 import {PendingOrdersComponent} from "./orders/pending-orders/pending-orders.component";
 import {ProfileComponent} from "./profiles/profile/profile.component";
+import {ShopComponent} from "./shop/shop/shop.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,6 +27,8 @@ const routes: Routes = [
   {path: 'produtos', component: NewProductComponent},
   {path: 'avaliacao/:id', component: RateShopComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'shop/:id', component: ShopComponent}
+
 ];
 
 @NgModule({

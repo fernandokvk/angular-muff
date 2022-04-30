@@ -15,6 +15,8 @@ export class PendingOrdersCourierComponent implements OnInit {
 
   availableOrders$!: Observable<Order[]>;
   acceptedOrders$!: Observable<Order[]>;
+  availableOrdersSize: number = 0;
+  activeOrdersSize: number = 0;
 
   constructor(
     private orderService: OrdersService,
@@ -25,7 +27,10 @@ export class PendingOrdersCourierComponent implements OnInit {
 
   ngOnInit(): void {
     this.availableOrders$ = this.fetchOrders('ASSIGNED');
+    this.availableOrders$.forEach(order => this.availableOrdersSize = order.length)
     this.acceptedOrders$ = this.fetchOrders('ON_THE_WAY');
+    this.acceptedOrders$.forEach(order => this.activeOrdersSize = order.length)
+
   }
 
   fetchOrders(status: string): Observable<Order[]> {

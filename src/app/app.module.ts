@@ -38,10 +38,10 @@ import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { OrderTrackingComponent } from './orders/order-tracking/order-tracking.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { NewCourierComponent } from './profiles/new-courier/new-courier.component';
-import {MatOptionModule} from "@angular/material/core";
+import {MatNativeDateModule, MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { ImageUploadComponent } from './image-upload/image-upload.component';
-import { RateShopComponent } from './rate-shop/rate-shop.component';
+import { RateShopComponent } from './shop/rate-shop/rate-shop.component';
 import { CartaoSelectedDialogComponent } from './shop/cartao-selected-dialog/cartao-selected-dialog.component';
 import { NewCardDialogComponent } from './new-users/new-card-dialog/new-card-dialog.component';
 import { PendingOrdersComponent } from './orders/pending-orders/pending-orders.component';
@@ -52,6 +52,13 @@ import { ProfileComponent } from './profiles/profile/profile.component';
 import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
 import { CompareProductDialogComponent } from './compare-product-dialog/compare-product-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatBadgeModule} from "@angular/material/badge";
+import { PendingOrdersCustomerComponent } from './orders/pending-orders-customer/pending-orders-customer.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatTimepickerModule} from "mat-timepicker";
+import { ShopComponent } from './shop/shop/shop.component';
 
 
 
@@ -83,6 +90,8 @@ registerLocaleData(localePt, 'pt');
     ProfileComponent,
     CustomerProfileComponent,
     CompareProductDialogComponent,
+    PendingOrdersCustomerComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +121,12 @@ registerLocaleData(localePt, 'pt');
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
+    MatTabsModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTimepickerModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

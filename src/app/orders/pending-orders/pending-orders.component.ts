@@ -19,6 +19,12 @@ export class PendingOrdersComponent implements OnInit {
 
   placedOrders$!: Observable<Order[]>;
   onTheWayOrders$!: Observable<Order[]>;
+  awaitingPickup$!: Observable<Order[]>;
+  scheduledOrders$!: Observable<Order[]>;
+  placedOrdersSize: number = 0;
+  awaitingPickupSize: number = 0;
+  onTheWaySize: number = 0;
+  scheduledOrdersSize: number = 0;
 
 
   constructor(
@@ -33,15 +39,20 @@ export class PendingOrdersComponent implements OnInit {
   ngOnInit(): void {
     // @ts-ignore
     this.placedOrders$ = this.fetchOrders('PLACED');
-    this.onTheWayOrders$ = this.fetchOrders('AWAITING')
+    this.placedOrders$.forEach(order => this.placedOrdersSize = order.length);
+
+    this.scheduledOrders$ = this.fetchOrders('SCHEDULED');
+    this.scheduledOrders$.forEach(order => this.scheduledOrdersSize = order.length);
+
+    this.awaitingPickup$ = this.fetchOrders('ASSIGNED')
+    this.awaitingPickup$.forEach(order => this.awaitingPickupSize = order.length);
+
+    this.onTheWayOrders$ = this.fetchOrders('ON_THE_WAY')
+    this.onTheWayOrders$.forEach(order => this.onTheWaySize = order.length);
+
   }
 
   fetchOrders(status: string): Observable<Order[]> {
-    if (status == "AWAITING"){
-      return this.orderService
-        .fetchShopOrders(this.activeSession.credential?.shopId)
-        .pipe(map((items) => items.filter((item) => item.status == "ASSIGNED" || item.status == "ON_THE_WAY")));
-    }
     return this.orderService
       .fetchShopOrders(this.activeSession.credential?.shopId)
       .pipe(map((items) => items.filter((item) => item.status == status)));
@@ -62,4 +73,8 @@ export class PendingOrdersComponent implements OnInit {
     return this.datePipe.transform(order.createdAt, "HH:mm")
   }
 
+  getOrderScheduleDate(order: Order) {
+    return this.datePipe.transform(order.estimatedAt, "dd/MM - HH:mm")
+
+  }
 }

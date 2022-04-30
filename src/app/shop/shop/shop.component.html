@@ -19,7 +19,7 @@
       <button (click)="sidenav.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Pedidos</span>
+      <span>Loja</span>
       <span class="example-spacer"></span>
       <button (click)="goBack()" mat-icon-button>
         <mat-icon>arrow_back</mat-icon>
@@ -27,17 +27,23 @@
 
     </mat-toolbar>
 
-    <section *ngIf="profileType == 'CUSTOMER'">
-      <app-pending-orders-customer></app-pending-orders-customer>
-    </section>
 
-    <section *ngIf="profileType == 'SHOP'">
-      <app-pending-orders></app-pending-orders>
-    </section>
+    <div *ngIf="currentShop">
 
-    <section *ngIf="profileType == 'COURIER'">
-      <app-pending-orders-courier></app-pending-orders-courier>
-    </section>
+      <div class="banner-wrapper">
+        <img class="banner-wrapper__img" src="assets/banner.png">
+      </div>
+
+      <div class="header">
+        <div class="header__name">{{currentShop.name}}</div>
+        <mat-divider vertical="true" class="header__divider"></mat-divider>
+        <div>
+          <img class="header__img" src="{{currentShop.image}}">
+        </div>
+      </div>
+    </div>
+
+
 
 
   </mat-sidenav-content>

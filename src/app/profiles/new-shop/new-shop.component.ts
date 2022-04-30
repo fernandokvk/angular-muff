@@ -6,6 +6,7 @@ import {Shop} from "../../../models/shop.model";
 import {CredentialShopService} from "../../../services/credential-shop.service";
 import {CredentialsService} from "../../../services/credentials.service";
 import {Location} from "@angular/common";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class NewShopComponent implements OnInit {
   shop!: Shop;
   showForm: boolean = true;
   profileType: any = "CUSTOMER";
+  edit: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,15 +27,23 @@ export class NewShopComponent implements OnInit {
     private credentialShopService: CredentialShopService,
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
-    private location: Location
+    private location: Location,
+  private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.profileType = this.activeSessionService.credential?.type;
 
 
-    if (this.activeSessionService.credential?.shopId != null) this.showForm = false;
-    if (this.showForm)
+    if ((this.activeSessionService.credential?.shopId != null) && !this.edit)
+    {
+      this.showForm = false;
+      this.getShop();
+    } else if((this.activeSessionService.credential?.shopId != null) && this.edit){
+      this.showForm = true;
+      this.getShop();
+    }
+    if(this.showForm)
     {
       const fb = this.fb;
       this.newShopForm = fb.group({
@@ -56,7 +66,7 @@ export class NewShopComponent implements OnInit {
           zipCode: this.cep?.value,
           cnpj: this.cnpj?.value,
           products: [],
-          address: this.endereco?.value,
+          location:{address: this.endereco?.value},
           image: "assets/shops/shop-1.png"
         } as unknown as Shop)
         .subscribe(
@@ -69,7 +79,8 @@ export class NewShopComponent implements OnInit {
           },
           (error) => console.log(error)
         );
-      // this.router.navigateByUrl('login');
+      this.router.navigateByUrl('home');
+      this._snackBar.open('Shop cadastrado com sucesso', 'Fechar');
 
     }
   }
@@ -98,6 +109,51 @@ export class NewShopComponent implements OnInit {
         });
       }
     });
+  }
+
+  getShop(){
+    this.credentialShopService.getShopById(this.activeSessionService.credential?.shopId!).subscribe((y:Shop)=> {
+      this.shop = y;
+    })
+  }
+
+  getStars(shop: Shop) {
+    let rating = "";
+    for (let i = 0; i < Math.ceil(shop.rating); i++) {
+      rating = rating.concat("⭐")
+    }
+    return rating;
+
+  }
+
+  onEdit(){
+    this.edit=true;
+    this.ngOnInit();
+    this.newShopForm.controls['nome'].setValue(this.shop.name);
+    this.newShopForm.controls['endereco'].setValue(this.shop.location.address);
+    this.newShopForm.controls['cep'].setValue(this.shop.zipCode);
+    this.newShopForm.controls['cnpj'].setValue(this.shop.cnpj);
+    this.newShopForm.controls['checkbox'].setValue(true);
+  }
+
+  updateShop(){
+    this.getFormValidationErrors();
+    if (this.canSubmit()) {
+      this.shop.name = this.nome?.value;
+      this.shop.location.address = this.endereco?.value;
+      this.shop.zipCode = this.cep?.value;
+      this.shop.cnpj = this.cnpj?.value;
+      this.credentialShopService.updateShop(this.shop).subscribe((x: Shop) => {
+        this.edit = false;
+        this.ngOnInit();
+        this._snackBar.open('Atualização realizada com sucesso', 'Fechar');
+      });
+    }
+  }
+
+  updateProduct(){
+    this.credentialShopService.enableProductUpdate();
+    this.router.navigateByUrl('produtos');
   }
 
 

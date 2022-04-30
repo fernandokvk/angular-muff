@@ -25,8 +25,39 @@
       <button (click)="goBack()" mat-icon-button>
         <mat-icon>arrow_back</mat-icon>
       </button>
-
     </mat-toolbar>
+
+    <div class="schedule">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-panel-description>
+              Agendar Entrega
+              <span class="example-spacer"></span>
+              <mat-icon>date_range</mat-icon>
+            </mat-panel-description>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="schedule__inputs-wrapper">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Dia</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="scheduleDay"
+                   placeholder="Escolha o horário de entrega..." readonly>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matSuffix (click)="picker.open()">calendar_today</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Horário</mat-label>
+            <input matTimepicker #t="matTimepicker" [strict]="false" mode="24h" [(ngModel)]="scheduleTime"
+                   placeholder="Escolha o horário de entrega..." readonly>
+            <mat-icon matSuffix (click)="t.showDialog()">access_time</mat-icon>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </div>
+
   <div class="wrappers">
     <div class="shop-container" *ngIf="shop">
 
@@ -40,7 +71,7 @@
           <span style="font-weight: bold">Endereço: </span> {{shop.location.address}}
         </div>
         <div>
-          {{getStars(shop)}}
+          {{getStars()}}
         </div>
       </div>
     </div>
@@ -114,14 +145,16 @@
     <span>{{cartao?.nickname}}</span>
   </div>
 
+
+
   <div class="wrappers">
       <span class="p_font">Entregar em:</span> {{endereco}}
   </div>
 
-  <div>
-    <div align="center">
-      <button (click)="onSubmit()" class="botao__comprar" mat-raised-button color="accent">Finalizar</button>
-    </div>
+  <div class="wrappers">
+      <button (click)="onSubmit()" class="botao" mat-raised-button color="accent">Finalizar</button>
   </div>
 
 
+</mat-sidenav-content>
+</mat-sidenav-container>

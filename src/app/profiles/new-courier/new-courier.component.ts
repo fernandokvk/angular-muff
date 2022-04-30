@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {ActiveSessionService} from "../../../services/active-session.service";
 import {CredentialsService} from "../../../services/credentials.service";
 import {CredentialCourierService} from "../../../services/credential-courier.service";
-
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-new-courier',
@@ -19,6 +19,8 @@ export class NewCourierComponent implements OnInit {
   courier!: Courier;
   showForm: boolean = true;
   selected!: string;
+  edit: boolean = false;
+
 
 
   constructor(
@@ -27,13 +29,20 @@ export class NewCourierComponent implements OnInit {
     private credentialCourierService: CredentialCourierService,
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.profileType = this.activeSessionService.credential?.type;
 
 
-    if (this.activeSessionService.credential?.courierId != null) this.showForm = false;
+    if (this.activeSessionService.credential?.courierId != null && !this.edit){
+      this.showForm = false;
+      this.getCourier();
+    }else if((this.activeSessionService.credential?.courierId != null) && this.edit){
+      this.showForm = true;
+      this.getCourier();
+    }
     if (this.showForm)
     {
       const fb = this.fb;
@@ -42,7 +51,21 @@ export class NewCourierComponent implements OnInit {
         vehicleType: fb.control('', [Validators.required]),
         checkbox: fb.control('', Validators.requiredTrue),
       });
+
+      this.newCourierForm.get("vehicleType")!.valueChanges.subscribe(data => {this.changeValidators()})
     }
+  }
+
+  changeValidators(){
+    console.log(this.newCourierForm.get("vehicleType")?.value)
+
+    if (this.newCourierForm.get("vehicleType")?.value == "bicycle"){
+      this.newCourierForm.controls["cnh"].clearValidators();
+
+    } else{
+      this.newCourierForm.controls["cnh"].setValidators([Validators.required]);
+    }
+    this.newCourierForm.get("cnh")?.updateValueAndValidity();
 
   }
 
@@ -66,8 +89,8 @@ export class NewCourierComponent implements OnInit {
           },
           (error) => console.log(error)
         );
-       this.router.navigateByUrl('home');
-
+      this.router.navigateByUrl('home');
+      this._snackBar.open('Cadastro realizado com sucesso', 'Fechar');
     }
   }
 
@@ -94,6 +117,35 @@ export class NewCourierComponent implements OnInit {
         });
       }
     });
+  }
+
+  getCourier(){
+    this.credentialCourierService.getCourierById(this.activeSessionService.credential?.courierId!).subscribe((y:Courier)=>{
+      this.courier = y;
+    })
+  }
+
+  onEdit(){
+    this.edit=true;
+    this.ngOnInit();
+    this.newCourierForm.controls['cnh'].setValue(this.courier.cnh);
+    this.newCourierForm.controls['vehicleType'].setValue(this.courier.vehicleType);
+    this.newCourierForm.controls['checkbox'].setValue(true);
+    this.credentialCourierService.getCourierById(this.activeSessionService.credential?.courierId!).subscribe((y:Courier)=>{
+      this.courier = y;})
+  }
+
+  updateCourier(){
+    this.getFormValidationErrors();
+    if (this.canSubmit()) {
+      this.courier.cnh = this.cnh?.value;
+      this.courier.vehicleType = this.tipoVeiculo?.value;
+      this.credentialCourierService.updateCourier(this.courier).subscribe((x: Courier) => {
+        this.edit = false;
+        this.ngOnInit();
+        this._snackBar.open('Atualização realizada com sucesso', 'Fechar');
+      });
+    }
   }
 
   get cnh() {

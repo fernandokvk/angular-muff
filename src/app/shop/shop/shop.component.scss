@@ -1,0 +1,37 @@
+.banner-wrapper{
+  display: flex;
+  height: 80px;
+  width: 100vw;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  &__img{
+    flex: 1 1 auto;
+    object-fit: cover;
+  }
+}
+
+.header{
+  margin: 8px;
+  display: flex;
+  flex-direction: row;
+  //outline: 1px solid red;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  border-radius: 6px;
+  padding: 4px;
+
+
+  &__divider{
+    margin: 8px 12px;
+  }
+
+  &__name{
+    flex: 1 1 auto;
+    align-self: center;
+  }
+
+  &__img{
+    height: 48px;
+    margin-right: 8px;
+
+  }
+
+}

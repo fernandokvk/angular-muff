@@ -8,5 +8,5 @@ export interface Product {
   imageUrl: string;
   sold_units?: number,
   price_discount?: number,
-  observation: string; //Usado no order somente - Fernando
+  observation?: string; //Usado no order somente - Fernando
 }
