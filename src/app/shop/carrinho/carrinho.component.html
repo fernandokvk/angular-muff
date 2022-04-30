@@ -61,20 +61,28 @@
   <div class="wrappers">
     <div class="shop-container" *ngIf="shop">
 
-      <div>
-        <img class="shop-container__logo" src="{{shop.image}}" alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
-      </div>
+        <div>
+          <img class="shop-container__logo" src="{{shop.image}}" alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+        </div>
+      <a routerLink="/shop/{{shop.id}}">
 
-      <div>
-        <span style="font-weight: bold">Loja: </span> {{shop.name}}
+
+
         <div>
-          <span style="font-weight: bold">Endereço: </span> {{shop.location.address}}
+          <span style="font-weight: bold">Loja: </span> {{shop.name}}
+          <div>
+            <span style="font-weight: bold">Endereço: </span> {{shop.location.address}}
+          </div>
+          <div>
+            {{getStars()}}
+          </div>
         </div>
-        <div>
-          {{getStars()}}
-        </div>
-      </div>
+      </a>
+
+
+
     </div>
+
   </div>
 
   <div class="cart-container">

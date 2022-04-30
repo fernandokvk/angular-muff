@@ -65,9 +65,14 @@ export class ShopComponent implements OnInit {
   }
 
   removeFromCart(product: Product) {
+    console.log("removeFromCart")
     if (this.activeSession.sessionProducts.includes(product)) {
+      console.log("removeFromCart 1")
+
       let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
       if (this.activeSession.sessionProducts[index].quantity > 1) {
+        console.log("removeFromCart 2")
+
         this.activeSession.sessionProducts[index].quantity -= 1;
       } else {
         console.log("delete")
