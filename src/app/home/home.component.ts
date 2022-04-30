@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
       console.log("Esvazie o carrinho")
     }else{
       this.shopsService.getShopById(shopId).subscribe((shop) => {
-        this.activeSessionService.sessionShop = shop;index_product_cart
-      });  
+        this.activeSessionService.sessionShop = shop;
+      });
       let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name == product.name)
       console.log(index_product_cart)
       if(index_product_cart < 0){
@@ -74,8 +74,8 @@ export class HomeComponent implements OnInit {
       }else{
         this.activeSessionService.sessionProducts[index_product_cart].quantity += 1;
       }
-      
-      
+
+
     }
 
   }

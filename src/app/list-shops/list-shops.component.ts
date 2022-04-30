@@ -35,4 +35,7 @@ export class ListShopsComponent implements OnInit {
 
   }
 
+  goToShop(shop: Shop) {
+    this.router.navigateByUrl(`shop/${shop.id}`)
+  }
 }

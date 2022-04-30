@@ -59,19 +59,25 @@
 
       <app-shop-search [shopId]="currentShop.id"></app-shop-search>
 
-      <div class="all-products">
-              <carousel class="carousel"  [height]="128" [cellWidth]="150">
+      <div class="carousel-wrapper">
+              <carousel class="carousel" [height]="200" [cellWidth]="166">
                 <div class="carousel-cell" *ngFor="let product of products$ | async">
-
-                    <div class="carousel-cell__img-wrapper">
-                      <img  class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
+                    <div matTooltip="{{product.name}}" class="carousel-cell__img-wrapper">
+                      <img class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
                     </div>
-                     <div matTooltip="{{product.name}}">
-                       <span class="product-text"> {{product.name}}</span>
-
-                      </div>
-                     <div class="product-price">{{product.price | currency}}</div>
-
+                    <div>
+                       <span class="product-name"> {{product.name}}</span>
+                    </div>
+                  <mat-divider style="margin: 0px 4px;"></mat-divider>
+                  <div class="carousel-cell__button-row">
+                    <button (click)="removeFromCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                      <mat-icon>remove</mat-icon>
+                    </button>
+                    <div class="product-price">{{product.price | currency}}</div>
+                    <button (click)="addToCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
                 </div>
               </carousel>
       </div>

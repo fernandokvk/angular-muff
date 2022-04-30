@@ -51,7 +51,6 @@ import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/p
 import { ProfileComponent } from './profiles/profile/profile.component';
 import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
 import { CompareProductDialogComponent } from './compare-product-dialog/compare-product-dialog.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatBadgeModule} from "@angular/material/badge";
 import { PendingOrdersCustomerComponent } from './orders/pending-orders-customer/pending-orders-customer.component';
@@ -61,6 +60,7 @@ import {MatTimepickerModule} from "mat-timepicker";
 import { ShopComponent } from './shop/shop/shop.component';
 import { ShopSearchComponent } from './shop/shop-search/shop-search.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { EmptyShoppingCartDialogComponent } from './empty-shopping-cart-dialog/empty-shopping-cart-dialog.component';
 
 
 
@@ -95,6 +95,7 @@ registerLocaleData(localePt, 'pt');
     PendingOrdersCustomerComponent,
     ShopComponent,
     ShopSearchComponent,
+    EmptyShoppingCartDialogComponent,
   ],
   imports: [
     BrowserModule,

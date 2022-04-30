@@ -70,15 +70,6 @@ export class CarrinhoComponent implements OnInit {
       this.temShop = true;
     }
 
-    this.activeSessionService.sessionProducts = [{
-      "id": 1,
-      "barcode": 445950719443,
-      "name": "Abacate",
-      "category": "Hortifruti",
-      "quantity": 8,
-      "price": 5.83,
-      "imageUrl": "/assets/categorias/abacate.png"
-    }]
   }
 
   private scheduleHandler(): Date{

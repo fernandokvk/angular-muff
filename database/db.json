@@ -148,7 +148,7 @@
           "category": "biscoitos",
           "quantity": "233",
           "price": "50",
-          "imageUrl": "assets/products/product-icon.png",
+          "imageUrl": "assets/categorias/laticinios.png",
           "id": 20
         },
         {
@@ -582,7 +582,7 @@
       "category": "biscoitos",
       "quantity": "233",
       "price": "50",
-      "imageUrl": "assets/products/product-icon.png",
+      "imageUrl": "assets/categorias/laticinios.png",
       "id": 20
     },
     {
@@ -591,7 +591,7 @@
       "category": "frios-laticínios",
       "quantity": "5",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": "8,50",
+      "price": 8.50,
       "id": 21
     },
     {
@@ -600,7 +600,7 @@
       "category": "frios-laticínios",
       "quantity": "50",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": "8,50",
+      "price": 8.50,
       "id": 22
     },
     {
@@ -618,7 +618,7 @@
       "category": "carnes",
       "quantity": "50",
       "imageUrl": "assets/categorias/carnes.png",
-      "price": "28,00",
+      "price": 28.00,
       "id": 24
     }
   ],
