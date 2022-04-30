@@ -58,6 +58,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatTimepickerModule} from "mat-timepicker";
 import { ShopComponent } from './shop/shop/shop.component';
+import { ShopSearchComponent } from './shop/shop-search/shop-search.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 
@@ -91,6 +93,7 @@ registerLocaleData(localePt, 'pt');
     CustomerProfileComponent,
     PendingOrdersCustomerComponent,
     ShopComponent,
+    ShopSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,7 +127,8 @@ registerLocaleData(localePt, 'pt');
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

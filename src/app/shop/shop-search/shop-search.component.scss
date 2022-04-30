@@ -1,0 +1,20 @@
+.wrapper{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  margin: 8px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.search-wrapper{
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  margin: 8px;
+  padding: 4px;
+  border-radius: 6px;
+
+  &__field{
+    margin: (0px 4px -18px);
+    flex: 1 1 auto;
+  }
+}
+

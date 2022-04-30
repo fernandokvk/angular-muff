@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ActiveSessionService} from "./active-session.service";
 import {Product} from "../models/product.model";
@@ -12,6 +12,7 @@ export class ProductService {
 
   session: Product | undefined;
   private url = 'http://localhost:3000/products';
+  private shopUrl = 'http://localhost:3000/shop';
 
   constructor(private httpClient: HttpClient, private activeSessionService: ActiveSessionService) { }
 
@@ -26,5 +27,12 @@ export class ProductService {
   submit(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.url, product);
 
+  }
+
+  searchProducts(shopId: number, term: string): Observable<Product[]> {
+    if (!term.trim()){
+      return of([]);
+    }
+    return this.httpClient.get<Product[]>(`${this.shopUrl}/${shopId}/products?name_like=${term}`)
   }
 }

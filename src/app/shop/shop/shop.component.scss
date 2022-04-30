@@ -13,25 +13,67 @@
   margin: 8px;
   display: flex;
   flex-direction: row;
-  //outline: 1px solid red;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
   border-radius: 6px;
   padding: 4px;
-
 
   &__divider{
     margin: 8px 12px;
   }
 
-  &__name{
+  &__info{
     flex: 1 1 auto;
     align-self: center;
+    margin-left: 8px;
   }
 
   &__img{
-    height: 48px;
+    height: 64px;
     margin-right: 8px;
-
+    margin-top: 8px
   }
 
+  &__small {
+    font-weight: bold;
+    font-size: 12px;
+
+    &__free {
+      color: #4e944f;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.carousel{
+}
+
+.carousel-cell{
+  padding: 8px;
+  outline: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__img-wrapper{
+    width: 64px;
+    height: 64px;
+    outline: 1px solid blue;
+    align-self: center;
+
+    &__img{
+
+    }
+  }
+}
+
+.product-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75ch;
+}
+
+.product-price{
+  font-weight: bold;
 }
