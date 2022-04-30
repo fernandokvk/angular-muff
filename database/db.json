@@ -915,19 +915,16 @@
       ],
       "updatedAt": "2022-04-30T13:32:45.179Z",
       "finishedAt": "2022-04-30T12:41:18.852Z",
-      "courier": [
-        {
-          "name": "Entegador",
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
+      "courier": {
+        "cnh": "23948723",
+        "vehicleType": "motorcycle",
+        "id": 2,
+        "location": {
+          "address": "Av. Paraná 105",
+          "lat": -23.421421304112158,
+          "long": -51.928071251705965
         }
-      ]
+      }
     },
     {
       "id": 8,
@@ -976,7 +973,7 @@
           "imageUrl": "/assets/categorias/massas.png"
         }
       ],
-      "updatedAt": "2022-04-30T13:32:48.029Z",
+      "updatedAt": "2022-04-30T16:10:33.570Z",
       "courier": [
         {
           "name": "Entegador",

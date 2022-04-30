@@ -69,7 +69,7 @@ export class OrdersService {
         allCouriers.forEach(
           courier => {
             let distance = this.calculateDistanceKilometers(order.pickupLocation.lat, order.pickupLocation.long, courier.location.lat, courier.location.long);
-            console.log(order.courierRejectedIds);
+            // console.log(order.courierRejectedIds);
             if (distance < minDistance && !order.courierRejectedIds.includes(courier.id)) {
               minDistance = distance;
               closestCourier = courier;
