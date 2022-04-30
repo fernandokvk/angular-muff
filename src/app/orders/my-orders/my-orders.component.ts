@@ -23,11 +23,12 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileType = this.activeSession.credential?.type;
+
     console.log(this.profileType)
     // @ts-ignore
     // this.activeSession.credential = {id: 15, courierId: 1, type: "COURIER"};
     // this.activeSession.credential = {id: 1, type: "CUSTOMER"};
-    // this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
+    this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
     this.typeSwitch();
 
   }
@@ -40,7 +41,6 @@ export class MyOrdersComponent implements OnInit {
 
   private customerType() {
     this.profileType = "CUSTOMER";
-    this.orders$ = this.fetchOrders();
   }
 
   private shopType(){
@@ -51,60 +51,8 @@ export class MyOrdersComponent implements OnInit {
     this.profileType = "COURIER";
   }
 
-
-  fetchOrders(): Observable<Order[]> {
-    return this.orderService
-      .fetchOrders(this.activeSession.credential?.id)
-      .pipe(map((items) => items.filter((item) => item.status != 'FINISHED')));
-  }
-
-
   goBack() {
     return this.location.back();
-  }
-
-  getOrderStatus(order: Order): string {
-    switch (order.status) {
-      case 'PLACED':
-        return 'Aguardando';
-      case 'PREPARING':
-        return 'Preparando';
-      case 'ON_THE_WAY':
-        return 'Saiu para entrega';
-      case 'FINISHED':
-        return 'Concluído';
-    }
-    return 'undefined';
-  }
-
-  getOrderCost(order: Order): string {
-    let value: number = 0;
-    order.products.forEach((t) => (value += t.price));
-    return value.toFixed(2);
-  }
-
-  getProgressValue(order: Order): number {
-    if (order.status != 'FINISHED') {
-      const totalEstimate: number =
-        new Date(order.estimatedAt).getTime() -
-        new Date(order.createdAt).getTime();
-      const current: number = Date.now() - new Date(order.createdAt).getTime();
-
-      return Math.round((current / totalEstimate) * 100);
-    } else {
-      return 100;
-    }
-  }
-
-  getEstimatedMinutes(order: Order): any {
-    const difference: number =
-      (new Date(order.estimatedAt).getTime() - Date.now()) / (1000 * 60);
-
-    if (difference < 0) {
-      return -1;
-    } else {
-      return difference.toFixed(0);
-    }
   }
 
 }

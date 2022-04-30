@@ -51,6 +51,9 @@ import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/con
 import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
 import { ProfileComponent } from './profiles/profile/profile.component';
 import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatBadgeModule} from "@angular/material/badge";
+import { PendingOrdersCustomerComponent } from './orders/pending-orders-customer/pending-orders-customer.component';
 
 
 
@@ -82,6 +85,7 @@ registerLocaleData(localePt, 'pt');
     PendingOrdersCourierComponent,
     ProfileComponent,
     CustomerProfileComponent,
+    PendingOrdersCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +114,8 @@ registerLocaleData(localePt, 'pt');
     MatProgressBarModule,
     MatOptionModule,
     MatSelectModule,
+    MatTabsModule,
+    MatBadgeModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

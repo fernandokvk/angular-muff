@@ -1,0 +1,80 @@
+<section class="main">
+
+
+  <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Pedidos Ativos
+        <div class="mat-tab-badge" matBadge="{{activeOrdersSize}}" matBadgeColor="accent"></div>
+      </ng-template>
+      <div class="scrollable-container">
+        <ul class="scrollable-container__inner">
+          <li *ngFor="let order of (activeOrders$ | async)">
+            <a routerLink="/detail/{{order.id}}">
+              <div class="order-container">
+                <div class="order-container__header">
+                  <span class="order-container__header__title">Pedido: {{order.id}}</span>
+                  <mat-progress-bar mode="indeterminate" value="{{getProgressValue(order)}}"></mat-progress-bar>
+                  <mat-divider></mat-divider>
+                </div>
+                <mat-divider></mat-divider>
+
+
+                <div class="grid">
+                  <div class="grid__left-tile">
+                    <div>
+                      <span style="font-weight: bold">Status: </span>
+                      {{getOrderStatus(order)}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Loja: </span>
+                      {{order.shopName}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Entregar em: </span>
+                      {{order.deliveryLocation.address}}
+                    </div>
+                    <div>
+                      <span style="font-weight: bold">Valor: </span>
+                      R${{getOrderCost(order)}}
+                    </div>
+                  </div>
+                  <mat-divider vertical="true"></mat-divider>
+                  <div class="grid__right-tile">
+
+                    <div *ngIf="order.status != 'FINISHED'; else finishedOrder">
+                      <div style="font-weight: bold">Chega em:</div>
+                      <div class="grid__right-tile__estimatedTime">
+                        {{getEstimatedMinutes(order)}} min.
+                      </div>
+                    </div>
+                    <ng-template #finishedOrder>
+                      <div style="font-weight: bold">Pedido</div>
+                      <div style="font-weight: bold">entregue</div>
+                    </ng-template>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Pedidos Agendados
+        <div class="mat-tab-badge" matBadge="-1" matBadgeColor="accent"></div>
+      </ng-template>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+
+
+
+</section>

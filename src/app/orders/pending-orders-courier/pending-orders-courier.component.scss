@@ -8,6 +8,10 @@
   margin: 12px 0px;
 }
 
+.mat-tab-badge{
+  margin-left: 18px;
+}
+
 .finish{
   display: flex;
   flex: 1 1;
@@ -25,7 +29,7 @@
 
 .scrollable-container{
   width: auto;
-  height: 240px;
+  height: 80vh;
   overflow: hidden;
   margin: 8px 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);

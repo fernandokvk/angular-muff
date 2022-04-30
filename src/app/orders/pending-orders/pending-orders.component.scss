@@ -2,10 +2,12 @@ a{
   text-decoration: none !important;
   color: black;
 }
-
+.mat-tab-badge{
+  margin-left: 18px;
+}
 .scrollable-container{
   width: auto;
-  height: 420px;
+  height: 80vh;
   overflow: hidden;
   margin: 8px 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
