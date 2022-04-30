@@ -10,4 +10,6 @@ export interface Shop {
   image: string;
   rating: number;
   comments?: string[];
+  estimatedDeliveryTime?: number;
+  deliveryFee?: number;
 }

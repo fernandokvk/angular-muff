@@ -1,0 +1,16 @@
+<div class="search-wrapper">
+  <mat-form-field class="search-wrapper__field" appearance="outline">
+    <mat-label>Pesquisar</mat-label>
+    <input #searchBox matInput placeholder="Pesquisar..." (input)="search(searchBox.value)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="wrapper">
+  <ul class="search-result">
+    <li *ngFor="let product of products$ | async">
+      <div>{{product.name}}</div>
+      <div>{{product.category}}</div>
+    </li>
+  </ul>
+</div>

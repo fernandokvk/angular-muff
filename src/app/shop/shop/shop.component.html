@@ -29,19 +29,54 @@
 
 
     <div *ngIf="currentShop">
-
       <div class="banner-wrapper">
         <img class="banner-wrapper__img" src="assets/banner.png">
       </div>
 
       <div class="header">
-        <div class="header__name">{{currentShop.name}}</div>
+        <div class="header__info">
+          <div style="font-size: 18px">{{currentShop.name}}</div>
+          <div>
+            <span class="header__small"> {{currentShop.rating.toFixed(2)}} </span>
+            <span style="font-size: 12px">{{getStars()}}</span>
+          </div>
+          <div>
+            <span class="header__small">Tempo de entrega: </span> {{currentShop.estimatedDeliveryTime}}min
+          </div>
+          <div>
+            <span class="header__small">Taxa de entrega: </span>
+            <span *ngIf="!currentShop.deliveryFee || currentShop.deliveryFee == 0;else deliveryFee" class="header__small__free">Grátis</span>
+            <ng-template #deliveryFee>
+               R${{currentShop.deliveryFee}}
+            </ng-template>
+          </div>
+        </div>
         <mat-divider vertical="true" class="header__divider"></mat-divider>
         <div>
           <img class="header__img" src="{{currentShop.image}}">
         </div>
       </div>
+
+      <app-shop-search [shopId]="currentShop.id"></app-shop-search>
+
+      <div class="all-products">
+              <carousel class="carousel"  [height]="128" [cellWidth]="150">
+                <div class="carousel-cell" *ngFor="let product of products$ | async">
+
+                    <div class="carousel-cell__img-wrapper">
+                      <img  class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
+                    </div>
+                     <div matTooltip="{{product.name}}">
+                       <span class="product-text"> {{product.name}}</span>
+
+                      </div>
+                     <div class="product-price">{{product.price | currency}}</div>
+
+                </div>
+              </carousel>
+      </div>
     </div>
+
 
 
 
