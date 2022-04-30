@@ -1,6 +1,7 @@
 <mat-divider></mat-divider>
 
 <mat-action-list>
+
   <mat-list-item *ngFor="let shop of shops" class={{getSelectedClass(shop)}} (click)="actionShopService(shop)">
     <img src="{{shop.image}}" matListAvatar alt="">
     <div matLine>

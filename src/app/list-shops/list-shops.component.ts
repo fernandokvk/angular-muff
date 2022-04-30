@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/models/shop.model';
 import { CredentialShopService } from 'src/services/credential-shop.service';
 import { ActiveSessionService } from 'src/services/active-session.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-shops',
@@ -11,10 +12,11 @@ import { ActiveSessionService } from 'src/services/active-session.service';
 export class ListShopsComponent implements OnInit {
   shops: Shop[] = [];
   shop_selected: string = "";
-  
+
   constructor(
     private shopsService: CredentialShopService,
     private activeSessionService: ActiveSessionService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,8 @@ export class ListShopsComponent implements OnInit {
   actionShopService(shop: Shop): void {
     this.shop_selected = shop.name;
     this.activeSessionService.sessionShop = shop;
+    // routerLink="/detail/{{order.id}}
+    this.router.navigateByUrl(`shop/${shop.id}`)
   }
 
   getSelectedClass(shop: Shop): string {

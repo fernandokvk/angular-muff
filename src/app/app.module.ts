@@ -57,6 +57,7 @@ import { PendingOrdersCustomerComponent } from './orders/pending-orders-customer
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatTimepickerModule} from "mat-timepicker";
+import { ShopComponent } from './shop/shop/shop.component';
 
 
 
@@ -89,6 +90,7 @@ registerLocaleData(localePt, 'pt');
     ProfileComponent,
     CustomerProfileComponent,
     PendingOrdersCustomerComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
