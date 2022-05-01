@@ -23,6 +23,7 @@ export class ShopComponent implements OnInit {
   products$!: Observable<Product[]>;
   bestSellingProducts!: Product[];
   onSaleProducts?: Product[] = [];
+  categoryProductsMap = new Map<string, Product[]>(); // (Categoria, Produto[]);
 
 
   constructor(
@@ -48,22 +49,29 @@ export class ShopComponent implements OnInit {
       this.currentShop = shop;
       this.products$ = this.productService.getAllProducts()
 
-      if (shop.products.filter(product => product.price_discount).length > 0){
-        this.onSaleProducts= (shop.products.filter(product => product.price_discount))     //Arrumar
+      if (shop.products.filter(product => product.price_discount).length > 0) {
+        this.onSaleProducts = (shop.products.filter(product => product.price_discount))     //Arrumar
       }
 
       this.bestSellingProducts = shop.products.sort((a, b) => {
         if (a.sold_units > b.sold_units) return 1;
         if (a.sold_units < b.sold_units) return -1;
         return 0;
-      }).slice(0, 5)
+      }).slice(0, 9)
 
+      shop.products.forEach(product => {
 
+          if (this.categoryProductsMap.has(product.category)) {
+            this.categoryProductsMap.get(product.category)!.push(product)
+          } else {
+            this.categoryProductsMap.set(product.category, [product]);
+          }
+        }
+      )
+      console.log(this.categoryProductsMap)
 
-      // this.onSaleProducts$ = this.shopService.onSaleProducts(id);
     });
   }
-
 
 
   goBack() {
@@ -84,11 +92,11 @@ export class ShopComponent implements OnInit {
 
   removeFromCart(product: Product) {
     // console.log("Removing: "+product.id)
-    if (this.activeSession.sessionProducts.includes(product)){
+    if (this.activeSession.sessionProducts.includes(product)) {
       let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
       // console.log("Cart has: "+product.name)
 
-      if ( this.activeSession.sessionProducts[index].quantity > 1){
+      if (this.activeSession.sessionProducts[index].quantity > 1) {
         // console.log("Quantity of "+product.name+" is > 1: "+ this.activeSession.sessionProducts[index].quantity)
 
         this.activeSession.sessionProducts[index].quantity--;
@@ -114,7 +122,7 @@ export class ShopComponent implements OnInit {
       let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
       this.activeSession.sessionProducts[index].quantity += 1;
     } else {
-      if (!willPush){
+      if (!willPush) {
         this.activeSession.sessionProducts.push(product);
         let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
         this.activeSession.sessionProducts[index].quantity = 1;

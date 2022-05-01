@@ -126,5 +126,23 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 8px;
+  margin: 12px 8px;
+}
+
+.sale-price-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: space-between;
+
+  &__price{
+    align-self: center;
+    text-decoration: line-through;
+  }
+
+  &__discounted-price{
+    font-weight: bold;
+    align-self: center;
+    color: #4e944f;
+  }
 }

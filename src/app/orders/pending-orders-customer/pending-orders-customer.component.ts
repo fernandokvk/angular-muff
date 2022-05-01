@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {Order} from "../../../models/order.model";
 import {OrdersService} from "../../../services/orders.service";
@@ -15,15 +15,15 @@ export class PendingOrdersCustomerComponent implements OnInit {
   activeOrdersSize: number = 0;
   scheduledOrders$!: Observable<Order[]>;
   scheduledOrdersSize: number = 0;
-
-
+  finishedOrders$!: Observable<Order[]>
 
 
   constructor(
     private orderService: OrdersService,
     private activeSession: ActiveSessionService,
     private datePipe: DatePipe
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.activeOrders$ = this.fetchActiveOrders();
@@ -32,6 +32,7 @@ export class PendingOrdersCustomerComponent implements OnInit {
     this.scheduledOrders$ = this.fetchScheduledOrders();
     this.scheduledOrders$.forEach(order => this.scheduledOrdersSize = order.length);
 
+    this.finishedOrders$ = this.fetchFinishedOrders();
 
 
   }
@@ -48,6 +49,11 @@ export class PendingOrdersCustomerComponent implements OnInit {
       .pipe(map((items) => items.filter((item) => item.status == 'SCHEDULED')));
   }
 
+  private fetchFinishedOrders(): Observable<Order[]> {
+    return this.orderService
+      .fetchOrders(this.activeSession.credential?.id)
+      .pipe(map((items) => items.filter((item) => item.status == 'FINISHED')));
+  }
 
 
   getOrderStatus(order: Order): string {
@@ -98,5 +104,10 @@ export class PendingOrdersCustomerComponent implements OnInit {
 
   getScheduledDate(order: Order) {
     return this.datePipe.transform(order.estimatedAt, "dd/MM - HH:mm")
+  }
+
+
+  rateOrder(order: Order) {
+
   }
 }

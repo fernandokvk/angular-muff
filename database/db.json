@@ -1331,7 +1331,7 @@
       "shopName": "Bar do João",
       "courierId": 1,
       "courierName:": "Entregador A",
-      "status": "PLACED",
+      "status": "FINISHED",
       "paymentMethod": {
         "id": 1,
         "type": "DEBIT_CARD",
