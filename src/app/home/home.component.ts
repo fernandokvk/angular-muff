@@ -7,6 +7,8 @@ import { CompareProductDialogComponent } from '../compare-product-dialog/compare
 import { MatDialog } from '@angular/material/dialog';
 import { CredentialShopService } from 'src/services/credential-shop.service';
 import { Shop } from 'src/models/shop.model';
+import { ProductService } from 'src/services/product.service';
+import {debounceTime, distinctUntilChanged, Observable, Subject, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -15,25 +17,42 @@ import { Shop } from 'src/models/shop.model';
 })
 export class HomeComponent implements OnInit {
   profileType: any = "CUSTOMER";
-  products: any = [];
+  products_discount: any = [];
+  view_home = true;
+
 
   constructor(
     private activeSessionService: ActiveSessionService,
     private router: Router,
     public dialog: MatDialog,
     private shopsService: CredentialShopService,
+    private productService: ProductService
   ) {
   }
 
+  setViewHome(hasTerm: boolean) {
+    this.view_home = !hasTerm;
+  }
 
   ngOnInit(): void {
     this.profileType = this.activeSessionService.credential?.type;
+    this.getDiscountProducts()
+    // Object.keys(this.activeSessionService).forEach((t) => {
+    //   console.log(t);
+    // });
+
+    /*    if (this.activeSession.credential == undefined){
+      this.router.navigateByUrl('login');
+    }*/
+  }
+
+  getDiscountProducts(){
     this.shopsService.getAllShops().subscribe(shops => {
       shops.forEach(shop => {
         if(shop.products != undefined && shop.products.length > 0){
           shop.products.forEach(product => {
             if(product.price_discount != undefined && product.price_discount < product.price){
-              this.products.push([
+              this.products_discount.push([
                 product,
                 shop.id
               ])
@@ -42,14 +61,6 @@ export class HomeComponent implements OnInit {
         }
       });
     });
-    // Object.keys(this.activeSessionService).forEach((t) => {
-    //   console.log(t);
-    // });
-
-    /*    if (this.activeSession.credential == undefined){
-      this.router.navigateByUrl('login');
-    }*/
-    console.log(this.products)
   }
 
   compareProduct(product: Product): void {
@@ -60,22 +71,22 @@ export class HomeComponent implements OnInit {
   }
 
   addCart(shopId: number, product: Product){
-    if(this.activeSessionService.sessionProducts.length > 0 && this.activeSessionService.sessionShop?.id != shopId){
-      console.log("Esvazie o carrinho")
-    }else{
+    if(this.activeSessionService.sessionShop?.id == shopId || this.activeSessionService.sessionShop == undefined){
       this.shopsService.getShopById(shopId).subscribe((shop) => {
         this.activeSessionService.sessionShop = shop;
-      });
-      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name == product.name)
-      console.log(index_product_cart)
+      });  
+      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name === product.name)
       if(index_product_cart < 0){
         product.quantity = 1;
         this.activeSessionService.sessionProducts.push(product);
       }else{
-        this.activeSessionService.sessionProducts[index_product_cart].quantity += 1;
+        console.log( this.activeSessionService.sessionProducts[index_product_cart].quantity)
+        this.activeSessionService.updateCartProduct(index_product_cart);
       }
-
-
+    }else{
+      
+      console.log("Esvazie o carrinho")
+      
     }
 
   }

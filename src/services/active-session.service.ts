@@ -18,6 +18,10 @@ export class ActiveSessionService {
 
   constructor() { }
 
+  updateCartProduct(index: number){
+    this.sessionProducts[index].quantity += 1;
+  }
+
   removeProduct(product: Product): Observable<Product[]> {
     this.sessionProducts = this.sessionProducts.filter(p => p != product);
     return of (this.sessionProducts);

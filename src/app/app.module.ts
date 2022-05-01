@@ -57,6 +57,7 @@ import {PendingOrdersCustomerComponent} from './orders/pending-orders-customer/p
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatTimepickerModule} from "mat-timepicker";
+import { SearchHomeComponent } from './search-home/search-home.component';
 import {ShopComponent} from './shop/shop/shop.component';
 import {ReportComponent} from './profiles/report/report.component';
 import {ShopSearchComponent} from './shop/shop-search/shop-search.component';
@@ -95,6 +96,7 @@ registerLocaleData(localePt, 'pt');
     ShopComponent,
     ReportComponent,
     ShopSearchComponent,
+    SearchHomeComponent,
     EmptyShoppingCartDialogComponent,
     CartDetailDialogComponent,
 

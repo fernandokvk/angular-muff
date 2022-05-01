@@ -68,6 +68,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.profileType = this.activeSessionService.credential?.type;
     this.fetchCarrinho();
 
@@ -80,7 +81,6 @@ export class CarrinhoComponent implements OnInit {
     } else {
       this.temShop = true;
     }
-
   }
 
   private fetchCarrinho() {
@@ -179,8 +179,6 @@ export class CarrinhoComponent implements OnInit {
         "imageUrl": "/assets/categorias/enlatados.png"
       }
     ]*/
-
-
     this.carrinho$ = of(this.activeSessionService.sessionProducts)
   }
 
@@ -214,7 +212,8 @@ export class CarrinhoComponent implements OnInit {
         dataEstimado = scheduleDate;
       }
 
-      this.credentialCarrinhoService.submit({
+      this.credentialCarrinhoService
+      .submit({
         products: this.activeSessionService.sessionProducts,
         customerId: this.activeSessionService.credential?.id,
         customerName: this.activeSessionService.credential?.name,

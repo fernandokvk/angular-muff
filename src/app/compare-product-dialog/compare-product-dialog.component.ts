@@ -12,9 +12,7 @@ import { CredentialShopService } from 'src/services/credential-shop.service';
 })
 export class CompareProductDialogComponent implements OnInit {
   displayedColumns = ['shop', 'price'];
-  shops: Shop[] = [];
-  shop: Shop | undefined;
-
+  shops: any = [];
   constructor(
     public dialogRef: MatDialogRef<CompareProductDialogComponent>,
     private shopsService: CredentialShopService,
@@ -25,14 +23,15 @@ export class CompareProductDialogComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.shop = this.activeSessionService.sessionShop;
-    console.log(this.shop)
     this.shopsService.getAllShops().subscribe(shops => {
       shops.forEach(shop => {
         if(shop.products != undefined) {
           shop.products.forEach(product => {
-            if(product.name === this.data.name){
-              this.shops.push(shop)
+            if(product.name.toLowerCase().includes(this.data.name.toLowerCase())){
+              this.shops.push([
+                shop,
+                product
+              ])
             }
           })
         }   
@@ -40,17 +39,12 @@ export class CompareProductDialogComponent implements OnInit {
     });
   }
 
-  getProductValue(shop: Shop): number{
-    var price: number = 0;
-    if(shop.products != undefined){
-      shop.products.forEach(product => {
-        if(product.name === this.data.name){
-          price = product.price;
-        }
-      });
+  getProductPrice(product: Product): number{
+    if(product.price_discount == undefined){
+      return product.price;
+    }else{
+      return product.price_discount;
     }
-    return price;
-
   }
 
   close_dialog(): void {

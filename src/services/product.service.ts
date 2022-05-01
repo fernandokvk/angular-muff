@@ -39,8 +39,7 @@ export class ProductService {
     if (!term.trim()){
       return of([]);
     }
-    return this.httpClient.get<Product[]>(`${this.shopUrl}/${shopId}/products?name_like=${term}`)
-
+    return this.httpClient.get<Product[]>(`${this.shopUrl}/${shopId}/products?name_like=${term}`);
   }
 
 }

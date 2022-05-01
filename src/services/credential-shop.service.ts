@@ -11,10 +11,6 @@ import {Order} from "../models/order.model";
   providedIn: 'root'
 })
 export class CredentialShopService {
-  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
-  httpOptions = {
-    headers: this.headers
-  }
   session: Shop | undefined;
   private url = 'http://localhost:3000/shop';
   productEdit: boolean = false;
