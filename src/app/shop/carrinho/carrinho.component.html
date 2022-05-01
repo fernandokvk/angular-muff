@@ -125,6 +125,20 @@
 
 
 
+    <div class="customer-info-wrapper">
+      <div>
+        <span class="p_font">Entregar em:</span> {{endereco}}
+      </div>
+
+      <div *ngIf="shop">
+        <span class="p_font">Taxa de entrega: </span>{{shop.deliveryFee | currency}}
+
+      </div>
+
+      <div>
+        <span class="p_font">Total: </span>{{getTotalCost() | currency}}
+      </div>
+    </div>
 
 
   <div class="wrappers">
@@ -144,12 +158,10 @@
 
 
 
-  <div class="wrappers">
-      <span class="p_font">Entregar em:</span> {{endereco}}
-  </div>
+
 
   <div class="wrappers">
-      <button (click)="onSubmit()" class="botao" mat-raised-button color="accent">Finalizar</button>
+      <button (click)="onSubmit()" class="botao" mat-raised-button color="accent" disabled="{{finishOrderDisabled}}">Finalizar</button>
   </div>
 
 

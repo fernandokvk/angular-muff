@@ -67,6 +67,7 @@ export class NewProductComponent implements OnInit {
           imageUrl: this.changeImage(),
           price: this.preco?.value,
           price_discount: this.precoDesconto?.value,
+          sold_units: 0,
         } as Product)
         .subscribe(
           (t) => {

@@ -3,25 +3,60 @@
   justify-content: center;
   &__product-name{
     font-size: 20px;
+    text-align: center;
   }
   margin: 8px 0px;
 }
 
 .buttons-wrapper{
-  outline: 1px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  &__field{
-    align-self: center;
-    outline: 1px solid red;
+  &__field-wrapp{
+
+    width: 64px;
+    display: flex;
+    justify-content: center;
+
+
+    &__field{
+      width: 64px;
+      text-align: center;
+      margin-top: 8px;
+    }
   }
 
-  &__buttons{
-    outline: 1px solid grey;
-    align-self: center;
-    align-content: center;
+  &__wrapp{
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    &__buttons{
+      align-self: center;
+      align-content: center;
+    }
+  }
+
+}
+
+.observation-wrapper {
+  display: flex;
+  justify-content: center;
+
+  &__field{
+    flex: 1 1 auto;
+    margin: 8px 0px;
   }
 }
 
+.buttons-wrapper-bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -18px;
+  &__button{
+    border-radius: 14px;
+    width: 100%;
+  }
+}

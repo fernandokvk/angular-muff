@@ -6,7 +6,7 @@ import {CredentialShopService} from "../../../services/credential-shop.service";
 import {ActivatedRoute} from "@angular/router";
 import {OrdersService} from "../../../services/orders.service";
 import {Product} from "../../../models/product.model";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {ProductService} from "../../../services/product.service";
 import {ConfirmCancelDialogComponent} from "../../orders/confirm-cancel-dialog/confirm-cancel-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -21,6 +21,8 @@ export class ShopComponent implements OnInit {
   profileType: any = "CUSTOMER";
   currentShop?: Shop;
   products$!: Observable<Product[]>;
+  bestSellingProducts!: Product[];
+  onSaleProducts?: Product[] = [];
 
 
   constructor(
@@ -45,8 +47,24 @@ export class ShopComponent implements OnInit {
     this.shopService.getShopById(id).subscribe(shop => {
       this.currentShop = shop;
       this.products$ = this.productService.getAllProducts()
+
+      if (shop.products.filter(product => product.price_discount).length > 0){
+        this.onSaleProducts= (shop.products.filter(product => product.price_discount))     //Arrumar
+      }
+
+      this.bestSellingProducts = shop.products.sort((a, b) => {
+        if (a.sold_units > b.sold_units) return 1;
+        if (a.sold_units < b.sold_units) return -1;
+        return 0;
+      }).slice(0, 5)
+
+
+
+      // this.onSaleProducts$ = this.shopService.onSaleProducts(id);
     });
   }
+
+
 
   goBack() {
     return this.location.back();
@@ -65,23 +83,20 @@ export class ShopComponent implements OnInit {
   }
 
   removeFromCart(product: Product) {
-    console.log("removeFromCart")
-    if (this.activeSession.sessionProducts.includes(product)) {
-      console.log("removeFromCart 1")
-
+    // console.log("Removing: "+product.id)
+    if (this.activeSession.sessionProducts.includes(product)){
       let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
-      if (this.activeSession.sessionProducts[index].quantity > 1) {
-        console.log("removeFromCart 2")
+      // console.log("Cart has: "+product.name)
 
-        this.activeSession.sessionProducts[index].quantity -= 1;
+      if ( this.activeSession.sessionProducts[index].quantity > 1){
+        // console.log("Quantity of "+product.name+" is > 1: "+ this.activeSession.sessionProducts[index].quantity)
+
+        this.activeSession.sessionProducts[index].quantity--;
       } else {
-        console.log("delete")
-        this.activeSession.sessionProducts[index].quantity -= 1;
-        delete this.activeSession.sessionProducts[index];
+        this.activeSession.sessionProducts = this.activeSession.sessionProducts.filter(p => p != product);
       }
     }
-    console.log(this.activeSession.sessionProducts)
-
+    // console.log(this.activeSession.sessionProducts)
   }
 
   addToCart(product: Product) {
@@ -105,7 +120,6 @@ export class ShopComponent implements OnInit {
         this.activeSession.sessionProducts[index].quantity = 1;
       }
     }
-    console.log(this.activeSession.sessionProducts)
   }
 
   private emptyShoppingCart(product: Product): void {

@@ -148,6 +148,7 @@
       "name": "Doente doido",
       "cep": "989898989",
       "cnpj": "805810565086",
+      "deliveryFee": 12,
       "location": {
         "address": "Rua dos malucos doentes",
         "lat": 0,
@@ -156,13 +157,15 @@
       "id": 1,
       "products": [
         {
-          "name": "Lixo",
+          "name": "UEBAAA",
           "barcode": "13123123123",
           "category": "biscoitos",
           "quantity": 233,
           "price": 50,
           "imageUrl": "assets/products/product-icon.png",
-          "id": 20
+          "id": 20,
+          "price_discount": 25.00,
+          "sold_units": 100
         },
         {
           "name": "Queijo",
@@ -171,7 +174,9 @@
           "quantity": 5,
           "imageUrl": "assets/categorias/laticinios.png",
           "price": 8.5,
-          "id": 21
+          "id": 21,
+          "price_discount": 4,
+          "sold_units": 5
         },
         {
           "name": "Queijo",
@@ -180,7 +185,9 @@
           "quantity": 50,
           "imageUrl": "assets/categorias/laticinios.png",
           "price": 8.5,
-          "id": 22
+          "id": 22,
+          "price_discount": 10.00,
+          "sold_units": 3
         },
         {
           "name": "Bomba",
@@ -189,7 +196,8 @@
           "quantity": 233,
           "imageUrl": "assets/categorias/bazar.png",
           "price": 12,
-          "id": 23
+          "id": 23,
+          "price_discount": 3.00
         },
         {
           "name": "Lixo",
@@ -234,7 +242,9 @@
           "category": "Bomboniere",
           "quantity": 7,
           "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png"
+          "imageUrl": "assets/categorias/bomboniere.png",
+          "sold_units": 4
+
         },
         {
           "id": 12,
@@ -250,16 +260,17 @@
           "barcode": "31232131",
           "category": "carnes",
           "quantity": "20",
-          "imageUrl": "assets/categorias/carnes.png",
           "price": "10",
-          "price_discount": "",
-          "id": 25
+          "id": 25,
+
+          "imageUrl": "assets/categorias/bomboniere.png",
+          "price_discount": 2.30
+
         }
       ],
       "image": "assets/shops/shop-5.png",
       "rating": 3.666666666666667,
       "zipCode": "231231",
-      "deliveryFee": "28",
       "estimatedDeliveryTime": "50"
     },
     {

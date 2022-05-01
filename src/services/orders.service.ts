@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {filter, map, Observable} from "rxjs";
 import {CredentialCourierService} from "./credential-courier.service";
 import {Courier} from "../models/courier.model";
+import {CredentialShopService} from "./credential-shop.service";
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,8 @@ export class OrdersService {
   }
 
   constructor(private httpService: HttpClient,
-              private credentialCourierService: CredentialCourierService) {
+              private credentialCourierService: CredentialCourierService,
+              private shopService: CredentialShopService) {
   }
 
   fetchOrders(customerId: number | undefined): Observable<Order[]> {
@@ -139,6 +141,7 @@ export class OrdersService {
 
   finishOrder(order: Order) {
     const url = `${this.url}/${order.id}`;
+    this.shopService.orderFinished(order);
     this.httpService.put(url, order).subscribe();
 
   }
