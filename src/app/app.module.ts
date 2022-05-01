@@ -64,7 +64,7 @@ import {ShopSearchComponent} from './shop/shop-search/shop-search.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {EmptyShoppingCartDialogComponent} from './shop/empty-shopping-cart-dialog/empty-shopping-cart-dialog.component';
 import { CartDetailDialogComponent } from './shop/cart-detail-dialog/cart-detail-dialog.component';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(localePt, 'pt');
 
@@ -99,6 +99,7 @@ registerLocaleData(localePt, 'pt');
     SearchHomeComponent,
     EmptyShoppingCartDialogComponent,
     CartDetailDialogComponent,
+    
 
   ],
   imports: [
@@ -135,7 +136,8 @@ registerLocaleData(localePt, 'pt');
     MatDatepickerModule,
     MatNativeDateModule,
     MatTimepickerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},

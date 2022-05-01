@@ -16,12 +16,14 @@
   <mat-sidenav-content>
 
     <mat-toolbar color="accent">
-      <button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon" class="example-icon"
-              mat-icon-button>
+      <button (click)="sidenav.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
       <span>Entregador</span>
       <span class="example-spacer"></span>
+      <button (click)="goBack()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
 
     </mat-toolbar>
 
@@ -43,7 +45,7 @@
           <div *ngIf="selected != 'bicycle'" class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CNH</mat-label>
-              <input matInput formControlName="cnh">
+              <input matInput [mask]="getMask('cnh')" formControlName="cnh">
 
             </mat-form-field>
 
@@ -117,9 +119,6 @@
 
       <form class="new-user-form">
 
-        <div class="botao-wrapper">
-          <button type="button" class="botao" mat-raised-button color="accent"  >Pedidos Pendentes </button>
-        </div>
 
         <div class="botao-wrapper">
           <button type="button" class="botao" (click)="onEdit()" mat-raised-button color="accent" >Editar Dados</button>

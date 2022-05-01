@@ -22,6 +22,12 @@ export class NewUserComponent implements OnInit {
   credential!: Credential;
   complemento: String = '';
 
+  masks = new Map([
+    ["cep", "00000-000"],
+    ["cpf", "000.000.000-00"],
+    ["telefone", "(00) 00000-0000"]
+  ]);
+
   constructor(
     private fb: FormBuilder,
     private credentialService: CredentialsService,
@@ -43,6 +49,10 @@ export class NewUserComponent implements OnInit {
       confirmedPassword: fb.control('', [Validators.required]),
       checkbox: fb.control('', Validators.requiredTrue),
     });
+  }
+
+  getMask(field: string){
+    return this.masks.get(field);
   }
 
   onSubmit() {

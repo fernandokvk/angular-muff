@@ -14,6 +14,12 @@ export class NewCardDialogComponent implements OnInit {
   newCardForm!: FormGroup;
   cardType: string = "";
   src_cardType: string = "";
+  masks = new Map([
+    ["cardNumber", "0000 0000 0000 0000"],
+    ["expDate", "00/00"],
+    ["cvv", "000"]
+  ]);
+
 
   constructor(
     public dialogRef: MatDialogRef<NewCardDialogComponent>,
@@ -34,6 +40,10 @@ export class NewCardDialogComponent implements OnInit {
       nickname: fb.control('', [Validators.required]),
       type: fb.control('', [Validators.required]),
     });
+  }
+
+  getMask(field: string){
+    return this.masks.get(field);
   }
 
   close_dialog(): void{

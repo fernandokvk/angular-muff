@@ -9,6 +9,7 @@ import {ProductService} from "../../../services/product.service";
 import {CredentialShopService} from "../../../services/credential-shop.service";
 import {Shop} from "../../../models/shop.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-new-product',
@@ -26,12 +27,18 @@ export class NewProductComponent implements OnInit {
   edit: boolean = true;
   productSelected: boolean = false;
 
+  masks = new Map([
+    ["barcode", "000000 00000"],
+    ["price", "separator.2"],
+  ]);
+
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
+    private location: Location,
     private productService: ProductService,
     private credentialShopService: CredentialShopService,
     private _snackBar: MatSnackBar
@@ -48,11 +55,15 @@ export class NewProductComponent implements OnInit {
       name: fb.control('', [Validators.required]),
       barcode: fb.control('', [Validators.required]),
       category: fb.control('', [Validators.required]),
-      quantity: fb.control('', [Validators.required]),
+      quantity: fb.control('', [Validators.required,  Validators.pattern("^[0-9]*$")]),
       price: fb.control('', [Validators.required]),
       priceDiscount:fb.control(''),
 
     });
+  }
+
+  getMask(field: string){
+    return this.masks.get(field);
   }
 
   onSubmit() {
@@ -61,12 +72,12 @@ export class NewProductComponent implements OnInit {
       this.productService
         .submit({
           name: this.nome?.value,
-          barcode: this.barcode?.value,
+          barcode: Number(this.barcode?.value),
           category: this.categoria?.value,
-          quantity: this.quantidade?.value,
+          quantity: Number(this.quantidade?.value),
           imageUrl: this.changeImage(),
-          price: this.preco?.value,
-          price_discount: this.precoDesconto?.value,
+          price: Number(this.preco?.value),
+          price_discount: Number(this.precoDesconto?.value),
           sold_units: 0,
         } as Product)
         .subscribe(
@@ -93,62 +104,62 @@ export class NewProductComponent implements OnInit {
 
   changeImage(): string{
     switch (this.categoria?.value){
-      case "bebidas":{
+      case "Bebidas":{
         return "assets/categorias/bebidas.png";
         break;
       }
-      case "carnes":{
+      case "Carnes":{
         return "assets/categorias/carnes.png";
         break;
       }
-      case "esportes":{
+      case "Esportes":{
         return "assets/categorias/esportes.png";
         break;
       }
-      case "ferramentas":{
+      case "Ferramentas":{
         return "assets/categorias/ferramentas.png";
         break;
       }
-      case "hortifruti":{
+      case "Hortifruti":{
         return "assets/categorias/hortifruti.png";
         break;
       }
-      case "frios-laticínios":{
+      case "Frios":{
         return "assets/categorias/laticinios.png";
         break;
       }
-      case "limpeza":{
+      case "Limpeza":{
         return "assets/categorias/limpeza.png";
         break;
-      }case "higiene":{
+      }case "Higiene":{
         return "assets/categorias/higiene.png";
         break;
       }
-      case "padaria":{
+      case "Padaria":{
         return "assets/categorias/padaria.png";
         break;
       }
-      case "pet":{
+      case "Pet":{
         return "assets/categorias/pet.png";
         break;
       }
-      case "mercearia":{
+      case "Mercearia":{
         return "assets/categorias/mercearia.png";
         break;
       }
-      case "bazar":{
+      case "Bazar":{
         return "assets/categorias/bazar.png";
         break;
       }
-      case "congelados":{
+      case "Cngelados":{
         return "assets/categorias/congelados.png";
         break;
       }
-      case "enlatados":{
+      case "Enlatados":{
         return "assets/categorias/enlatados.png";
         break;
       }
-      case "bomboniere":{
+      case "Bomboniere":{
         return "assets/categorias/bomboniere.png";
         break;
       }
@@ -300,4 +311,7 @@ export class NewProductComponent implements OnInit {
   }
 
 
+  goBackArrow() {
+    return this.location.back();
+  }
 }

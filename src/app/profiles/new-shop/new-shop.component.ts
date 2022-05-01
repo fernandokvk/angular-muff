@@ -20,6 +20,10 @@ export class NewShopComponent implements OnInit {
   showForm: boolean = true;
   profileType: any = "CUSTOMER";
   edit: boolean = false;
+  masks = new Map([
+    ["cep", "00000-000"],
+    ["cnpj", "00.000.000/0000-00"],
+  ]);
 
   constructor(
     private fb: FormBuilder,
@@ -58,6 +62,9 @@ export class NewShopComponent implements OnInit {
     }
 
   }
+  getMask(field: string){
+    return this.masks.get(field);
+  }
 
   onSubmit() {
     this.getFormValidationErrors();
@@ -70,8 +77,9 @@ export class NewShopComponent implements OnInit {
           products: [],
           location:{address: this.endereco?.value},
           image: "assets/shops/shop-1.png",
-          deliveryFee: this.taxaEntrega?.value,
-          estimatedDeliveryTime: this.tempoEntrega?.value
+          rating: 0,
+          deliveryFee: Number(this.taxaEntrega?.value),
+          estimatedDeliveryTime: Number(this.tempoEntrega?.value)
         } as unknown as Shop)
         .subscribe(
           (t) => {

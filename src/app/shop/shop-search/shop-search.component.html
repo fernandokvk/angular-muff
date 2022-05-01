@@ -2,13 +2,13 @@
   <mat-form-field class="search-wrapper__field" appearance="outline">
     <mat-label>Pesquisar</mat-label>
     <input #searchBox matInput placeholder="Pesquisar..." (input)="search(searchBox.value)">
-    <mat-icon matSuffix>search</mat-icon>
+    <mat-icon matSuffix (click)="getSearchProducts()">search</mat-icon>
   </mat-form-field>
 </div>
 
 <div class="wrapper">
   <ul class="search-result">
-    <li *ngFor="let product of products$ | async">
+    <li *ngFor="let product of search_products">
       <div class="list-item-wrapper">
 
         <div class="list-item-wrapper__logo">

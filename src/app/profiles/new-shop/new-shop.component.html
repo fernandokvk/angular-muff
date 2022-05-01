@@ -3,12 +3,24 @@
   <mat-sidenav #sidenav mode="over" opened=false>
     <mat-toolbar color="accent">Menu</mat-toolbar>
     <mat-list>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon> <a class="a" routerLink="/profile">Perfil</a></mat-list-item>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
-      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">house</mat-icon>
+        <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">person</mat-icon>
+        <a class="a" routerLink="/profile">Perfil</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">reorder</mat-icon>
+        <a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item">
+        <mat-icon color="accent">local_grocery_store</mat-icon>
+        <a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'" class="toolbar-item">
+        <mat-icon color="accent">store</mat-icon>
+        <a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'" class="toolbar-item">
+        <mat-icon color="accent">person</mat-icon>
+        <a routerLink="/courier">Entregador</a></mat-list-item>
     </mat-list>
 
   </mat-sidenav>
@@ -44,7 +56,7 @@
           <div class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CNPJ</mat-label>
-              <input matInput formControlName="cnpj">
+              <input matInput [mask]="getMask('cnpj')" showMaskTyped="True" formControlName="cnpj">
 
             </mat-form-field>
           </div>
@@ -58,7 +70,7 @@
           <div class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CEP</mat-label>
-              <input matInput formControlName="cep">
+              <input matInput [mask]="getMask('cep')" showMaskTyped="True" formControlName="cep">
 
             </mat-form-field>
 
@@ -82,7 +94,7 @@
 
 
           <div class="botao-wrapper">
-            <button type="submit" class="botao" mat-raised-button color="accent" >Atualizar</button>
+            <button type="submit" class="botao" mat-raised-button color="accent">Atualizar</button>
           </div>
 
         </form>
@@ -139,9 +151,9 @@
             </mat-form-field>
           </div>
 
-          <mat-form-field class="new-user-form__form-field" appearance="fill" >
+          <mat-form-field class="new-user-form__form-field" appearance="fill">
             <mat-label class="new-user-form__form-field__termos__label">Termos e condições de uso</mat-label>
-            <textarea class="new-user-form__form-field__termos"matInput readonly="readonly">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis urna rutrum dolor euismod, a interdum eros eleifend. Fusce bibendum magna non volutpat molestie. Quisque maximus feugiat nulla, a pharetra massa lobortis sit amet. Cras auctor lectus a felis ultricies fringilla. Donec a metus ultricies, congue risus id, finibus lorem. Nullam vitae massa a leo iaculis gravida. Integer sit amet blandit ex, vitae sollicitudin velit. Aenean tortor eros, bibendum quis ex sed, elementum imperdiet dolor. Nullam at velit fermentum, bibendum turpis quis, commodo ex. Phasellus diam erat, finibus sit amet eleifend ut, fringilla id tellus. Mauris et velit vestibulum, semper arcu vitae, tempus ante. Phasellus imperdiet euismod nibh vel volutpat. Proin consectetur turpis diam, id ullamcorper eros elementum sit amet. Nam convallis, tellus eu gravida dapibus, ex nibh rhoncus leo, sed posuere erat risus at mi. Phasellus tincidunt arcu ac enim congue vulputate. Etiam dictum magna sed gravida commodo.
+            <textarea class="new-user-form__form-field__termos" matInput readonly="readonly">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis urna rutrum dolor euismod, a interdum eros eleifend. Fusce bibendum magna non volutpat molestie. Quisque maximus feugiat nulla, a pharetra massa lobortis sit amet. Cras auctor lectus a felis ultricies fringilla. Donec a metus ultricies, congue risus id, finibus lorem. Nullam vitae massa a leo iaculis gravida. Integer sit amet blandit ex, vitae sollicitudin velit. Aenean tortor eros, bibendum quis ex sed, elementum imperdiet dolor. Nullam at velit fermentum, bibendum turpis quis, commodo ex. Phasellus diam erat, finibus sit amet eleifend ut, fringilla id tellus. Mauris et velit vestibulum, semper arcu vitae, tempus ante. Phasellus imperdiet euismod nibh vel volutpat. Proin consectetur turpis diam, id ullamcorper eros elementum sit amet. Nam convallis, tellus eu gravida dapibus, ex nibh rhoncus leo, sed posuere erat risus at mi. Phasellus tincidunt arcu ac enim congue vulputate. Etiam dictum magna sed gravida commodo.
       Sed id justo bibendum, venenatis orci sit amet, facilisis metus. Fusce vehicula ut odio vel ornare.
       Nulla auctor diam quis mauris auctor, sit amet accumsan erat viverra. Duis volutpat sodales lectus vitae dictum.
       Quisque lobortis orci id tellus semper condimentum. Morbi at magna pulvinar, blandit est molestie, volutpat risus. Curabitur lacinia enim vitae augue fermentum, eu elementum velit fringilla. In gravida ipsum purus, sit amet faucibus justo aliquet eget. Praesent semper massa sit amet nisi tincidunt fringilla.
@@ -161,12 +173,11 @@
           </div>
 
           <div class="botao-wrapper">
-            <button type="submit" class="botao" mat-raised-button color="accent" >Cadastrar</button>
+            <button type="submit" class="botao" mat-raised-button color="accent">Cadastrar</button>
           </div>
 
         </form>
       </ng-template>
-
 
 
     </div>
@@ -174,37 +185,70 @@
     <ng-template #temForm>
 
 
-      <form class="new-user-form">
-        <mat-card>
-          <mat-card-header>
-            <img src='{{shop.image}}' mat-card-avatar alt="">
-            <mat-card-title>{{shop.name}}</mat-card-title>
-            <mat-card-subtitle>{{shop.location.address}}</mat-card-subtitle>
-            <mat-card-content>{{getStars(shop)}}</mat-card-content>
-          </mat-card-header>
-        </mat-card>
-
-        <div class="botao-wrapper">
-          <button type="button" class="botao" mat-raised-button color="accent"  ><mat-icon>house</mat-icon>Pedidos Pendentes </button>
+      <div *ngIf="shop">
+        <div class="banner-wrapper">
+          <img class="banner-wrapper__img" src="assets/banner.png">
         </div>
 
-        <div class="botao-wrapper">
-          <button type="button" class="botao" mat-raised-button color="accent" routerLink="/produtos" ><mat-icon>add_circle_outline</mat-icon>Cadastrar Produtos </button>
+        <div class="header">
+          <div class="header__info">
+            <div style="font-size: 18px">{{shop.name}}</div>
+            <div>
+              <span class="header__small"> {{shop.rating.toFixed(2)}} </span>
+              <span style="font-size: 12px">{{getStars(shop)}}</span>
+            </div>
+            <div>
+              <span class="header__small">Tempo de entrega: </span> {{shop.estimatedDeliveryTime}}min
+            </div>
+            <div>
+              <span class="header__small">Taxa de entrega: </span>
+              <span *ngIf="!shop.deliveryFee || shop.deliveryFee == 0;else deliveryFee" class="header__small__free">Grátis</span>
+              <ng-template #deliveryFee>
+                {{shop.deliveryFee | currency}}
+              </ng-template>
+            </div>
+          </div>
+          <mat-divider vertical="true" class="header__divider"></mat-divider>
+          <div>
+            <img class="header__img" src="{{shop.image}}">
+          </div>
+        </div>
+      </div>
+
+      <div class="button-groups">
+
+        <div class="button-groups__wrapper">
+          <button matSuffix class="button-groups__wrapper__btn" mat-raised-button color="accent" routerLink="/produtos">
+              Cadastrar Produtos
+              <mat-icon>add</mat-icon>
+          </button>
         </div>
 
-        <div class="botao-wrapper">
-          <button type="button" class="botao"  mat-raised-button color="accent" (click)="updateProduct()" ><mat-icon>edit</mat-icon>Editar Produtos</button>
+        <div class="button-groups__wrapper">
+          <button class="button-groups__wrapper__btn" mat-raised-button color="accent" (click)="updateProduct()">
+            <span>Editar Produtos</span>
+            <mat-icon class="button-groups__wrapper__btn__ico">edit</mat-icon>
+          </button>
         </div>
 
-        <div class="botao-wrapper">
-          <button type="button" class="botao" (click)="onEdit()" mat-raised-button color="accent" ><mat-icon>edit</mat-icon>Editar Dados do Estabelecimento</button>
+        <div class="button-groups__wrapper">
+          <button class="button-groups__wrapper__btn" (click)="onEdit()" mat-raised-button color="accent">
+            Editar Dados do Estabelecimento
+            <mat-icon class="button-groups__wrapper__btn__ico">edit</mat-icon>
+          </button>
         </div>
 
-        <div class="botao-wrapper">
-          <button type="button" class="botao" mat-raised-button color="accent" routerLink="/report"><mat-icon>report</mat-icon>Relatório</button>
+        <div class="button-groups__wrapper">
+          <button class="button-groups__wrapper__btn" mat-raised-button color="accent" routerLink="/report">
+            Relatório
+            <mat-icon class="button-groups__wrapper__btn__ico">insert_chart</mat-icon>
+          </button>
         </div>
 
-      </form>
+      </div>
 
 
     </ng-template>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
