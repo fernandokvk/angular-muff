@@ -92,7 +92,7 @@ export class ShopComponent implements OnInit {
 
   removeFromCart(product: Product) {
     // console.log("Removing: "+product.id)
-    if (this.activeSession.sessionProducts.includes(product)) {
+    if (this.activeSession.sessionProducts.findIndex(p => p.name === product.name) >= 0) {
       let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
       // console.log("Cart has: "+product.name)
 
@@ -108,25 +108,22 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    let willPush: boolean = false;
-    if (this.activeSession.sessionProducts.length > 0 && this.activeSession.sessionShop?.id != this.currentShop?.id) {
-      //Itens no carrinho de outro shop
-      willPush = true;
-      this.emptyShoppingCart(product);
-      this.shopService.getShopById(this.currentShop!.id).subscribe(shop => this.activeSession.sessionShop = shop);
-    } else {
-      this.shopService.getShopById(this.currentShop!.id).subscribe(shop => this.activeSession.sessionShop = shop);
-    }
-
-    if (this.activeSession.sessionProducts.includes(product)) {
-      let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
-      this.activeSession.sessionProducts[index].quantity += 1;
-    } else {
-      if (!willPush) {
+    this.currentShop!.id
+    if(this.activeSession.sessionShop?.id == this.currentShop!.id || this.activeSession.sessionShop == undefined){
+      this.shopService.getShopById(this.currentShop!.id).subscribe((shop) => {
+        this.activeSession.sessionShop = shop;
+      });
+      let index_product_cart = this.activeSession.sessionProducts.findIndex(p => p.name === product.name)
+      if(index_product_cart < 0){
+        product.quantity = 1;
         this.activeSession.sessionProducts.push(product);
-        let index = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
-        this.activeSession.sessionProducts[index].quantity = 1;
+      }else{
+        console.log( this.activeSession.sessionProducts[index_product_cart].quantity)
+        this.activeSession.updateCartProduct(index_product_cart);
       }
+    }else{
+      this.emptyShoppingCart(product);
+      
     }
   }
 

@@ -77,8 +77,7 @@ export class SearchHomeComponent implements OnInit {
       }
     }else{
       let dialogCard = this.dialog.open(EmptyShoppingCartDialogComponent, {
-        width: '300px',
-        height: '505px'
+        width: '350px'
       });
       
     }
