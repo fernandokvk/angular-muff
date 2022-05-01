@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Credential } from '../models/credential.model';
 import { Observable } from 'rxjs';
 import { Payment } from 'src/models/payment.model';
+import {Shop} from "../models/shop.model";
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class CredentialsService {
 
 
   searchById(id: number): Observable<Credential>{
-    const url = `${this.url}/?id=${id}`;
+    const url = `${this.url}/${id}`;
     return this.httpClient.get<Credential>(url);
   }
 
@@ -49,7 +50,9 @@ export class CredentialsService {
     return this.httpClient.put<Credential>(url, credential);
   }
 
-  updateCard(){
+  updateCredential(credential:Credential):Observable<Credential>{
+    const url = `${this.url}/${credential.id}`;
+    return this.httpClient.put<Credential>(url,credential);
 
   }
 

@@ -28,7 +28,7 @@
     </mat-toolbar>
 
     <div *ngIf="profileEdit; else normal">
-      <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="onProfileEdit()">
+      <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="updateProfile()">
 
         <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
           <mat-label>Email</mat-label>
@@ -81,7 +81,7 @@
 
           <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
             <mat-label>Complemento</mat-label>
-            <input matInput [ngModel]="complemento" [ngModelOptions]="{standalone: true}" >
+            <input matInput formControlName="complemento" >
           </mat-form-field>
         </div>
 
@@ -113,7 +113,7 @@
       <div *ngIf="paymentEdit; else normal2">
         <div *ngIf="cardSelected;else cardSelecionado">
 
-          <form class="new-card-form" [formGroup]="newEditForm" (ngSubmit)="onPaymentEdit()">
+          <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="updatePayment()">
 
             <div class="new-card-form__side">
               <mat-radio-group formControlName="type">
@@ -168,25 +168,22 @@
 
            <form class="new-user-form" >
              <mat-divider></mat-divider>
-             <mat-action-list *ngIf="credential">
+             <mat-action-list >
                <mat-list-item *ngFor="let card of credential.paymentCards"  (click)="selectCard(card)">
-                 <img src="{{card.imageUrl}}" matListAvatar alt="">
+                 <img src="{{cardImageType(card)}}" matListAvatar alt="">
                  <div matLine>
-                   <span style="font-weight: bold">Produto:</span>
-                   {{card.name}}
+                   <span style="font-weight: bold">Apelido:</span>
+                   {{card.nickname}}
                  </div>
                  <div matLine>
-                   <span style="font-weight: bold">Código de Barras:</span>
-                   {{card.barcode}}
+                   <span style="font-weight: bold">Número do Cartão:</span>
+                   {{card.cardNumber}}
                  </div>
                  <div matLine>
-                   <span style="font-weight: bold">Quantidade:</span>
-                   {{card.quantity}}
+                   <span style="font-weight: bold">Tipo:</span>
+                   {{cardTypeString(card)}}
                  </div>
-                 <div matLine>
-                   <span style="font-weight: bold">Preço:</span>
-                   {{card.price}}
-                 </div>
+
                  <mat-divider></mat-divider>
                </mat-list-item>
              </mat-action-list>

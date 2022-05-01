@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from "@angular/common";
 import {ActiveSessionService} from "../../../services/active-session.service";
 import {CredentialShopService} from "../../../services/credential-shop.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {Credential} from "../../../models/credential.model";
 import {Product} from "../../../models/product.model";
 import {Payment} from "../../../models/payment.model";
 import {CredentialsService} from "../../../services/credentials.service";
 import {Shop} from "../../../models/shop.model";
-import {createWebpackLoggingCallback} from "@angular-devkit/build-angular/src/webpack/utils/stats";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'app-customer-profile',
@@ -22,7 +23,6 @@ export class CustomerProfileComponent implements OnInit {
   paymentEdit: boolean = false;
   newEditForm!: FormGroup;
   hide = true;
-  complemento: String = '';
   src_cardType: string = "";
   cardType: string = "";
   cardSelected: boolean = false;
@@ -35,43 +35,96 @@ export class CustomerProfileComponent implements OnInit {
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
     private fb: FormBuilder,
+    private _snackBar: MatSnackBar
 
   ) { }
 
   ngOnInit(): void {
     this.profileType = this.activeSessionService.credential?.type;
-    if(this.profileEdit){
-      const fb = this.fb;
-      this.newEditForm = fb.group({
-        nome: fb.control('', [Validators.required]),
-        sobrenome: fb.control('', [Validators.required]),
-        email: fb.control('', [Validators.required, Validators.email]),
-        endereco: fb.control('', [Validators.required]),
-        cep: fb.control('', [Validators.required, Validators.min(8)]),
-        cpf: fb.control('', [Validators.required]),
-        telefone: fb.control('', [Validators.required]),
-        password: fb.control('', [Validators.required]),
-        confirmedPassword: fb.control('', [Validators.required]),
-        checkbox: fb.control('', Validators.requiredTrue),
-      });
-    }
-    else if(this.paymentEdit){
-      if( (this.credentialService.session) && (this.credentialService.session.paymentCards)){
-        this.credential = this.credentialService.session;
-        console.log(this.credential);
-        console.log(this.credentialService.session);
+    if( this.activeSessionService.credential?.id != null){
+      this.getCredential();
+      if(this.profileEdit){
+        const fb = this.fb;
+        this.newEditForm = fb.group({
+          nome: fb.control('', [Validators.required]),
+          sobrenome: fb.control('', [Validators.required]),
+          email: fb.control('', [Validators.required, Validators.email]),
+          endereco: fb.control('', [Validators.required]),
+          cep: fb.control('', [Validators.required, Validators.min(8)]),
+          cpf: fb.control('', [Validators.required]),
+          telefone: fb.control('', [Validators.required]),
+          password: fb.control('', [Validators.required]),
+          confirmedPassword: fb.control('', [Validators.required]),
+          checkbox: fb.control('', Validators.requiredTrue),
+          complemento: fb.control('')
+        });
       }
+      else if(this.paymentEdit){
 
-      const fb = this.fb;
-      this.newEditForm = fb.group({
-        cardNumber: fb.control('', [Validators.required]),
-        nameOnCard: fb.control('', [Validators.required]),
-        expDate: fb.control('', [Validators.required]),
-        cvv: fb.control('', [Validators.required]),
-        nickname: fb.control('', [Validators.required]),
-        type: fb.control('', [Validators.required]),
-      });
+        const fb = this.fb;
+        this.newEditForm = fb.group({
+          cardNumber: fb.control('', [Validators.required]),
+          nameOnCard: fb.control('', [Validators.required]),
+          expDate: fb.control('', [Validators.required]),
+          cvv: fb.control('', [Validators.required]),
+          nickname: fb.control('', [Validators.required]),
+          type: fb.control('', [Validators.required]),
+        });
+      }
     }
+
+  }
+
+  cardTypeString(card:Payment):string{
+    switch (card.type) {
+      case "CREDIT_CARD":{
+        return "Crédito";
+        break;
+      }
+      case "DEBIT_CARD":{
+        return "Débito";
+        break;
+      }
+    }
+
+  }
+
+  cardImageType(card:Payment):string{
+    switch (card.cardType){
+      case "MASTERCARD":{
+        return "/assets/card_logo/mastercard_logo.png";
+        break;
+      }
+      case "VISA":{
+        return "/assets/card_logo/visa_logo.png";
+        break;
+      }
+    }
+  }
+
+  canSubmit(): boolean {
+    let canSubmit = true;
+    Object.keys(this.newEditForm.controls).forEach((key) => {
+      if (this.newEditForm.get(key)?.errors != null) {
+        canSubmit = false;
+      }
+    });
+    return canSubmit;
+  }
+
+  getFormValidationErrors() {
+    Object.keys(this.newEditForm.controls).forEach((k) => {
+      // @ts-ignore
+      const controlErrors: ValidationErrors = this.newEditForm.get(k)?.errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log(
+            'formControl: ' + k + ' , error: ' + keyError + ', value:',
+            controlErrors[keyError]
+          );
+        });
+      }
+    });
   }
 
   get_card_logo(): boolean {
@@ -100,13 +153,69 @@ export class CustomerProfileComponent implements OnInit {
   enableProfileEdit(){
     this.profileEdit = true;
     this.ngOnInit();
+    this.newEditForm.controls['nome'].setValue(this.credential.name);
+    this.newEditForm.controls['sobrenome'].setValue(this.credential.surname);
+    this.newEditForm.controls['email'].setValue(this.credential.email);
+    this.newEditForm.controls['endereco'].setValue(this.credential.endereco);
+    this.newEditForm.controls['cep'].setValue(this.credential.cep);
+    this.newEditForm.controls['cpf'].setValue(this.credential.cpf);
+    this.newEditForm.controls['telefone'].setValue(this.credential.telefone);
+    this.newEditForm.controls['complemento'].setValue(this.credential.complemento);
+    this.newEditForm.controls['password'].setValue(this.credential.password);
+    this.newEditForm.controls['confirmedPassword'].setValue(this.credential.password);
+    this.newEditForm.controls['checkbox'].setValue(true);
   }
 
   enablePaymentEdit(){
     this.paymentEdit = true;
     this.ngOnInit();
+
   }
 
+  updatePayment() {
+    this.getFormValidationErrors();
+    if (this.canSubmit()) {
+      this.card.cardNumber = this.cardNumber?.value;
+      this.card.nameOnCard = this.nameOnCard?.value;
+      this.card.nickname = this.nickname?.value;
+      this.card.expDate = this.expDate?.value;
+      this.card.cvv = this.cvv?.value;
+      this.card.type = this.type?.value;
+      for (let i = 0; i < this.credential.paymentCards.length; i++) {
+        if (this.card.id == this.credential.paymentCards[i].id) {
+          this.credential.paymentCards[i] = this.card;
+        }
+      }
+      this.credentialService.updateCredential(this.credential).subscribe();
+      this.paymentEdit = false;
+      this.cardSelected= false;
+      this.ngOnInit();
+      this._snackBar.open('Atualização realizada com sucesso', 'Fechar');
+    }
+  }
+
+
+
+  updateProfile(){
+    this.getFormValidationErrors();
+    if (this.canSubmit()) {
+      this.credential.name = this.nome?.value;
+      this.credential.surname = this.sobrenome?.value;
+      this.credential.cep= this.cep?.value;
+      this.credential.endereco = this.endereco?.value;
+      this.credential.email = this.email?.value;
+      this.credential.cpf = this.cpf?.value;
+      this.credential.telefone = this.telefone?.value;
+      this.credential.password = this.password?.value;
+      this.credential.complemento = this.complemento?.value;
+      this.credentialService.updateCredential(this.credential).subscribe((x: Credential) => {
+        this.profileEdit = false;
+        this.ngOnInit();
+        this._snackBar.open('Atualização realizada com sucesso', 'Fechar');
+      });
+    }
+
+  }
 
 
   selectCard( card: Payment){
@@ -121,6 +230,13 @@ export class CustomerProfileComponent implements OnInit {
     this.newEditForm.controls['type'].setValue(this.card.type);
   }
 
+  getCredential(){
+    this.credentialService.searchById(this.activeSessionService.credential?.id!).subscribe((x:Credential)=>
+    {
+      this.credential = x;
+      console.log(x);
+    });
+  }
 
 
   goBack() {
@@ -189,6 +305,10 @@ export class CustomerProfileComponent implements OnInit {
 
   get type() {
     return this.newEditForm.get('type');
+  }
+
+  get complemento() {
+    return this.newEditForm.get('complemento');
   }
 
 }

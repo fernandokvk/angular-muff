@@ -69,6 +69,7 @@ export class NewUserComponent implements OnInit {
           cep: this.cep?.value,
           complemento: this.complemento.toString(),
           password: this.password?.value,
+          telefone: this.telefone?.value,
         } as Credential)
         .subscribe(
           (t) => console.log(t.email),

@@ -138,38 +138,39 @@
       "cpf": "12345678910",
       "endereco": "Rydsaa ",
       "cep": "1431412",
-      "complemento": "",
+      "complemento": "casa2",
       "password": "12",
       "id": 12,
       "paymentCards": [
-      {
-        "id": 1,
-        "type": "CREDIT_CARD",
-        "cardType": "MASTERCARD",
-        "nickname": "Nubank",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "5431 1111 1111 1111",
-        "cvv": "00"
-      },
-      {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 4242",
-        "cvv": "00"
-      },
-      {
-        "type": "CREDIT_CARD",
-        "cardType": "MASTERCARD",
-        "nickname": "Comprar Loja João",
-        "nameOnCard": "Eu to Louco",
-        "cardNumber": "5555 4444 8888 4444",
-        "cvv": "999",
-        "expDate": "08/25"
-      }
-    ]
+        {
+          "id": 1,
+          "type": "CREDIT_CARD",
+          "cardType": "MASTERCARD",
+          "nickname": "Nubank",
+          "nameOnCard": "JOAO S",
+          "cardNumber": "5431 1111 1111 1111",
+          "cvv": "00"
+        },
+        {
+          "id": 1,
+          "type": "DEBIT_CARD",
+          "cardType": "VISA",
+          "nickname": "Inter",
+          "nameOnCard": "JOAO S",
+          "cardNumber": "4242 4242 4242 4242",
+          "cvv": "00"
+        },
+        {
+          "type": "CREDIT_CARD",
+          "cardType": "MASTERCARD",
+          "nickname": "Comprar Loja João",
+          "nameOnCard": "Eu to Louco",
+          "cardNumber": "5555 4444 8888 4444",
+          "cvv": "900",
+          "expDate": "08/23"
+        }
+      ],
+      "telefone": "213213"
     }
   ],
   "shop": [
