@@ -1,36 +1,45 @@
 <section class="wrapper">
   <div class="header">
     <span class="header__product-name">{{data.productName}}</span>
-
-
   </div>
-  <mat-divider></mat-divider>
-
+  <mat-divider style="margin: 4px 16px"></mat-divider>
 
   <div class="buttons-wrapper">
-    <button mat-icon-button color="accent" class="buttons-wrapper__buttons">
-      <mat-icon>remove</mat-icon>
-    </button>
 
-    <mat-form-field appearance="outline" class="buttons-wrapper__field">
-      <mat-label>Quantidade</mat-label>
-      <input matInput>
-    </mat-form-field>
+    <div class="buttons-wrapper__wrapp">
+      <button mat-icon-button color="accent" class="buttons-wrapper__wrapp__buttons" (click)="removeOne()">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
 
-    <button mat-icon-button color="accent" class="buttons-wrapper__buttons">
-      <mat-icon>add</mat-icon>
-    </button>
+
+    <div class="buttons-wrapper__field-wrapp">
+      <mat-form-field appearance="outline" class="buttons-wrapper__field-wrapp__field">
+        <input matInput [(ngModel)]="data.productQuantity">
+      </mat-form-field>
+    </div>
+
+
+    <div class="buttons-wrapper__wrapp">
+      <button mat-icon-button color="accent" class="buttons-wrapper__wrapp__buttons"
+              (click)="data.productQuantity = data.productQuantity + 1;">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
   </div>
 
-  <mat-divider></mat-divider>
+  <mat-divider style="margin: 4px 32px"></mat-divider>
+
+  <div class="observation-wrapper">
+    <mat-form-field appearance="outline" class="observation-wrapper__field">
+      <mat-label>Observação</mat-label>
+      <textarea matInput [(ngModel)]="data.productObservation"></textarea>
+    </mat-form-field>
+  </div>
 
   <div class="buttons-wrapper-bottom">
-    <button mat-raised-button color="accent">Cancelar</button>
-
-    <button mat-raised-button color="accent">Ok</button>
-
+    <button class="buttons-wrapper-bottom__button" mat-raised-button color="accent" (click)="confirm()">OK</button>
   </div>
-
-
 
 </section>

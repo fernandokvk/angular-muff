@@ -65,6 +65,7 @@ export class NewProductComponent implements OnInit {
           quantity: this.quantidade?.value,
           imageUrl: this.changeImage(),
           price: this.preco?.value,
+          sold_units: 0,
         } as Product)
         .subscribe(
           (t) => {

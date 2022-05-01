@@ -31,8 +31,8 @@ export class CarrinhoComponent implements OnInit {
 
   scheduleDay: any;
   scheduleTime: any;
+  finishOrderDisabled: boolean = false;
 
-  carrinho = this.activeSessionService.sessionProducts;
 
 
   carrinho$!: Observable<Product[]>;
@@ -47,8 +47,10 @@ export class CarrinhoComponent implements OnInit {
 
   /** Gets the total cost of all transactions. */
   getTotalCost(): number {
-    // return (this.deliveryFee + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0));
-    return 0;
+    let totalCost = 0;
+    if (this.shop?.deliveryFee) totalCost += this.shop.deliveryFee;
+    this.carrinho$.subscribe(t => t.forEach(product => totalCost += (product.price * product.quantity)))
+    return totalCost;
   }
 
   getCardList(): void {
@@ -82,7 +84,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   private fetchCarrinho() {
-    this.activeSessionService.sessionProducts = [
+    /*this.activeSessionService.sessionProducts = [
       {
         "id": 1,
         "barcode": 445950719443,
@@ -176,7 +178,7 @@ export class CarrinhoComponent implements OnInit {
         "price": 12.5,
         "imageUrl": "/assets/categorias/enlatados.png"
       }
-    ]
+    ]*/
 
 
     this.carrinho$ = of(this.activeSessionService.sessionProducts)
@@ -198,7 +200,7 @@ export class CarrinhoComponent implements OnInit {
      * Definir lat e long
      * Definir lat e long (To do)
      **/
-    if (this.carrinho.length > 0 && this.tipo_pagamento !== "") {
+    if (this.activeSessionService.sessionProducts.length > 0 && this.tipo_pagamento !== ""){
       const dataCompra = new Date();
       let dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
@@ -212,33 +214,31 @@ export class CarrinhoComponent implements OnInit {
         dataEstimado = scheduleDate;
       }
 
-      this.credentialCarrinhoService
-        .submit({
-          products: this.carrinho,
-          customerId: this.activeSessionService.credential?.id,
-          customerName: this.activeSessionService.credential?.name,
-          // shopId: this.shop?.id,
-          // shopName: this.shop?.name,
-          shopId: 1,
-          shopName: "Shop1",
-          status: orderStatus,
-          deliveryFee: this.deliveryFee,
-          courierRejectedIds: emptyArray,
-          paymentStatus: "NOT_PAID",
-          paymentMethod: this.tipo_pagamento,
-          pickupLocation: this.shop?.location,
-          deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
-          createdAt: dataCompra,
-          updatedAt: dataCompra,
-          estimatedAt: dataEstimado,
-        } as Order)
-        .subscribe(
-          t => console.log(t)
-        );
+      this.credentialCarrinhoService.submit({
+        products: this.activeSessionService.sessionProducts,
+        customerId: this.activeSessionService.credential?.id,
+        customerName: this.activeSessionService.credential?.name,
+        shopId: this.shop?.id,
+        shopName: this.shop?.name,
+        status: orderStatus,
+        deliveryFee: this.shop?.deliveryFee,
+        courierRejectedIds: emptyArray,
+        paymentStatus: "NOT_PAID",
+        paymentMethod: this.tipo_pagamento,
+        pickupLocation: this.shop?.location,
+        deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
+        createdAt: dataCompra,
+        updatedAt: dataCompra,
+        estimatedAt: dataEstimado
+      } as Order).subscribe(
+        t => {
+          console.log(t)
+          this.activeSessionService.sessionProducts = [];
+          this.finishOrderDisabled = true;
+        }
 
-      this.carrinho = []
+      )
     }
-
   }
 
   goBack() {
@@ -269,15 +269,18 @@ export class CarrinhoComponent implements OnInit {
         {
           productName: product.name,
           productQuantity: product.quantity,
-          productImageUrl: product.imageUrl,
-          productPrice: product.price
-        }
+          productObservation: product.observation
+        },
     });
     dialogRef.backdropClick().subscribe(v => {
-      dialogRef.close(0);
+      dialogRef.close()
     });
-    dialogRef.afterClosed().subscribe(value => {
-        console.log(value)
+    dialogRef.afterClosed().subscribe(data => {
+        product.quantity = data.productQuantity;
+        product.observation = data.productObservation;
+        if (product.quantity == 0){
+          this.removeFromCart(product);
+        }
       }
     );
   }

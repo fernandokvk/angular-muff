@@ -42,4 +42,5 @@ export class ProductService {
     return this.httpClient.get<Product[]>(`${this.shopUrl}/${shopId}/products?name_like=${term}`)
 
   }
+
 }

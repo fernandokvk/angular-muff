@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Shop} from "../models/shop.model";
 import {ActiveSessionService} from "./active-session.service";
 import {Product} from "../models/product.model";
+import {Order} from "../models/order.model";
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +60,12 @@ export class CredentialShopService {
     this.productEdit = false;
   }
 
+  orderFinished(order: Order) {                                       //testar
+    order.products.forEach(product => {
+      product.sold_units += product.quantity;
+      const url = `${this.url}/${product.id}`;
+      this.httpClient.put<Product>(url, product);
+    })
+
+  }
 }

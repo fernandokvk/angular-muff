@@ -46,7 +46,6 @@
 }
 
 .carousel-wrapper{
-  margin: 8px;
 }
 
 .carousel{
@@ -101,8 +100,6 @@
   margin-bottom: -2px;
 }
 
-
-
 .product-name{
   align-self: center;
   font-size: 12px;
@@ -111,4 +108,23 @@
 .product-price{
   font-weight: bold;
   align-self: center;
+}
+
+.category-header-wrapper{
+  padding: 2px;
+
+  &__text{
+    flex: 1 1 auto;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    //outline: 1px solid black;
+  }
+}
+
+.category-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px;
 }

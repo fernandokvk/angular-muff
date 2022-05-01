@@ -49,13 +49,11 @@ a {
   padding: 4px;
 
   &__trash-wrapper{
-    pointer-events: none;
 
     display: flex;
     justify-content: center;
     flex-direction: column;
     &__button{
-      pointer-events: none;
 
     }
   }
@@ -152,6 +150,15 @@ a {
 
 .wrappers {
   display: flex;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.customer-info-wrapper {
+  display: flex;
+  flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin: 10px;
   padding: 4px;
