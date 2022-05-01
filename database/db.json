@@ -1,1456 +1,918 @@
 {
   "credentials": [
     {
-      "id": 1,
-      "email": "teste",
-      "password": "123",
-      "name": "muff",
-      "surname": "ondor",
-      "cpf": "123456-12",
-      "telefone": "0800",
-      "endereco": "rua dos loucos",
-      "shopId": 5
-    },
-    {
-      "email": "seg@g.com",
-      "name": "usuario",
-      "surname": "segundo",
-      "cpf": "cepef",
-      "endereco": "rua",
-      "cep": "12345",
-      "complemento": "",
-      "password": "123",
-      "id": 2,
-      "type": "CUSTOMER"
-    },
-    {
       "email": "admin",
       "type": "SHOP",
-      "name": "joao",
-      "surname": "silva",
-      "cpf": "2390458",
-      "endereco": "rua da vela",
-      "cep": "23904823",
+      "name": "Administração",
+      "surname": "Da Silva",
+      "cpf": "94234923492",
+      "endereco": "Avenida Paraná",
+      "cep": "82348234",
       "complemento": "",
       "password": "123",
-      "id": 6,
-      "shopId": 1,
-      "paymentCards": [
-        {
-          "id": 1,
-          "type": "CREDIT_CARD",
-          "cardType": "MASTERCARD",
-          "nickname": "Nubank",
-          "nameOnCard": "JOAO S",
-          "cardNumber": "5431 1111 1111 1111",
-          "cvv": "00"
-        },
-        {
-          "id": 1,
-          "type": "DEBIT_CARD",
-          "cardType": "VISA",
-          "nickname": "Inter",
-          "nameOnCard": "JOAO S",
-          "cardNumber": "4242 4242 4242 4242",
-          "cvv": "00"
-        },
-        {
-          "type": "CREDIT_CARD",
-          "cardType": "MASTERCARD",
-          "nickname": "Comprar Loja João",
-          "nameOnCard": "Eu to Louco",
-          "cardNumber": "5555 4444 8888 4444",
-          "cvv": "999",
-          "expDate": "08/25"
-        }
-      ],
-      "courierId": 2
-    },
-    {
-      "email": "bobo@gmail.com",
-      "name": "Jason",
-      "surname": "Becker",
-      "cpf": "312321313241",
-      "endereco": "rua alo",
-      "cep": "87038021",
-      "complemento": "",
-      "password": "1234",
-      "id": 7,
-      "courierId": 1,
-      "shopId": 6
-    },
-    {
-      "email": "lojinha@gmail.com",
-      "name": "Dono da loja",
-      "surname": "Sobrenome",
-      "cpf": "2309482",
-      "endereco": "rewkoj",
-      "cep": "348234",
-      "complemento": "",
-      "password": "123",
-      "id": 8,
-      "shopId": 7
-    },
-    {
-      "email": "lojinha2@gmail.com",
-      "type": "SHOP",
-      "name": "Dono",
-      "surname": "da lojinha 2",
-      "cpf": "2389042",
-      "endereco": "weriojriojwe",
-      "cep": "23890423",
-      "complemento": "",
-      "password": "123",
-      "id": 9,
-      "shopId": 8
-    },
-    {
-      "email": "shop",
-      "type": "SHOP",
-      "name": "12348907",
-      "surname": "123123",
-      "cpf": "4234234",
-      "endereco": "4234234ewrfwe",
-      "cep": "34234",
-      "complemento": "",
-      "password": "123",
-      "id": 10,
+      "id": 1,
       "shopId": 1
     },
     {
-      "email": "courier",
-      "type": "COURIER",
-      "name": "Entregador",
-      "surname": "Sobrenome Entregador",
-      "cpf": "439284723894",
-      "endereco": "eiorhjweior",
-      "cep": "8903742789340",
+      "email": "loja2@gmail.com",
+      "type": "SHOP",
+      "name": "Alfredo",
+      "surname": "Barroso",
+      "cpf": "23478294234",
+      "endereco": "Avenida Colombo",
+      "cep": "23423784",
       "complemento": "",
       "password": "123",
-      "id": 11,
-      "courierId": 3
+      "id": 2,
+      "shopId": 2
     },
     {
-      "email": "lobo@gmail.com",
+      "email": "angeloni@gmail.com",
+      "type": "SHOP",
+      "name": "Dono do Angeloni",
+      "surname": "Silva",
+      "cpf": "12931283128",
+      "endereco": "Avenida Brasil",
+      "cep": "23984238",
+      "complemento": "",
+      "password": "123",
+      "id": 3,
+      "shopId": 3
+    },
+    {
+      "email": "muffato@gmail.com",
+      "type": "SHOP",
+      "name": "Muffato dono",
+      "surname": "Da Silva",
+      "cpf": "42384239042",
+      "endereco": "Avenida Paraná",
+      "cep": "23489234",
+      "complemento": "",
+      "password": "123",
+      "id": 4,
+      "shopId": 4
+    },
+    {
+      "email": "comprador@gmail.com",
       "type": "CUSTOMER",
-      "name": "Menino",
-      "surname": "João",
-      "cpf": "12345678910",
-      "endereco": "Rydsaa ",
-      "cep": "1431412",
-      "complemento": "casa2",
-      "password": "12",
-      "id": 12,
-      "paymentCards": [
-        {
-          "id": 1,
-          "type": "CREDIT_CARD",
-          "cardType": "MASTERCARD",
-          "nickname": "Nubank",
-          "nameOnCard": "JOAO S",
-          "cardNumber": "5431 1111 1111 1111",
-          "cvv": "00"
-        },
-        {
-          "id": 1,
-          "type": "DEBIT_CARD",
-          "cardType": "VISA",
-          "nickname": "Inter",
-          "nameOnCard": "JOAO S",
-          "cardNumber": "4242 4242 4242 4242",
-          "cvv": "00"
-        },
-        {
-          "type": "CREDIT_CARD",
-          "cardType": "MASTERCARD",
-          "nickname": "Comprar Loja João",
-          "nameOnCard": "Eu to Louco",
-          "cardNumber": "5555 4444 8888 4444",
-          "cvv": "900",
-          "expDate": "08/23"
-        }
-      ],
-      "telefone": "213213"
+      "name": "João",
+      "surname": "Da Silva",
+      "cpf": "23894723894",
+      "endereco": "Rua dos Santos",
+      "cep": "89347289",
+      "complemento": "",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "email": "condor@gmail.com",
+      "type": "SHOP",
+      "name": "Condorino",
+      "surname": "Souza",
+      "cpf": "23423498237",
+      "endereco": "Praça dos Pombos",
+      "cep": "34902384",
+      "complemento": "",
+      "password": "123",
+      "id": 6,
+      "shopId": 5
     }
   ],
   "shop": [
     {
-      "name": "Doente doido",
-      "cep": "989898989",
-      "cnpj": "805810565086",
-      "deliveryFee": 12,
-      "location": {
-        "address": "Rua dos malucos doentes",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 1,
+      "name": "Loja da Esquina",
+      "zipCode": "3842748237",
+      "cnpj": "1238912381279",
       "products": [
         {
-          "name": "UEBAAA",
-          "barcode": "13123123123",
-          "category": "biscoitos",
-          "quantity": 233,
-          "price": 50,
-          "imageUrl": "assets/products/product-icon.png",
-          "id": 20,
-          "price_discount": 25,
-          "sold_units": 100
-        },
-        {
-          "name": "Queijo",
-          "barcode": "412421341234",
-          "category": "frios-laticínios",
-          "quantity": 5,
-          "imageUrl": "assets/categorias/laticinios.png",
-          "price": 8.5,
-          "id": 21,
-          "price_discount": 4,
-          "sold_units": 5
-        },
-        {
-          "name": "Queijo",
-          "barcode": "412421341234",
-          "category": "frios-laticínios",
+          "name": "Banana",
+          "barcode": 21312423423,
+          "category": "Hortifruti",
           "quantity": 50,
-          "imageUrl": "assets/categorias/laticinios.png",
-          "price": 8.5,
-          "id": 22,
-          "price_discount": 10,
-          "sold_units": 3
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 3.5,
+          "sold_units": 0,
+          "id": 1
+        }
+      ],
+      "location": {
+        "address": "Avenida Colombo 1024"
+      },
+      "image": "assets/shops/shop-1.png",
+      "rating": 4,
+      "deliveryFee": 12,
+      "estimatedDeliveryTime": 45,
+      "id": 1
+    },
+    {
+      "name": "Dogão Lanches",
+      "zipCode": "842384237",
+      "cnpj": "1234823489",
+      "products": [
+        {
+          "name": "X-Frango",
+          "barcode": 23948234892,
+          "category": "Carnes",
+          "quantity": 25,
+          "imageUrl": "assets/categorias/carnes.png",
+          "price": 22.5,
+          "sold_units": 0,
+          "id": 2,
+          "price_discount": "12"
         },
         {
-          "name": "Bomba",
-          "barcode": "21312312321",
-          "category": "bazar",
-          "quantity": 233,
-          "imageUrl": "assets/categorias/bazar.png",
-          "price": 12,
-          "id": 23,
-          "price_discount": 3
-        },
-        {
-          "name": "Lixo",
-          "barcode": "32312312",
-          "category": "carnes",
+          "name": "X-Ovo",
+          "barcode": 12323489234,
+          "category": "Carnes",
           "quantity": 50,
           "imageUrl": "assets/categorias/carnes.png",
-          "price": 28,
-          "id": 24
-        },
-        {
-          "id": 4,
-          "barcode": 396956779889,
-          "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-          "category": "Biscoitos",
-          "quantity": 1,
-          "price": 2.89,
-          "imageUrl": "/assets/categorias/biscoitos.png"
-        },
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 18,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 7,
-          "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png"
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 7,
-          "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png",
-          "sold_units": 4
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 7,
-          "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png"
-        },
-        {
-          "name": "Hoka",
-          "barcode": "31232131",
-          "category": "carnes",
-          "quantity": "20",
-          "price": "10",
-          "id": 25,
-          "imageUrl": "assets/categorias/bomboniere.png",
-          "price_discount": 2.3
+          "price": 30,
+          "sold_units": 0,
+          "id": 3
         }
       ],
-      "image": "assets/shops/shop-5.png",
-      "rating": 3.666666666666667,
-      "zipCode": "231231",
-      "estimatedDeliveryTime": "50"
+      "location": {
+        "address": "Avenida Mandacaru 1024"
+      },
+      "image": "assets/shops/shop-3.png",
+      "rating": 2,
+      "deliveryFee": 12,
+      "estimatedDeliveryTime": 45,
+      "id": 2
     },
     {
-      "name": "Loja do João que fica na esquina",
-      "cep": "87877878",
-      "cnpj": "909090926",
-      "location": {
-        "address": "Rua da esquina",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 2,
-      "image": "assets/shops/shop-5.png",
-      "rating": 4
-    },
-    {
-      "name": "Loja do Fernando",
-      "cep": "999999999",
-      "cnpj": "30303030300",
-      "location": {
-        "address": "Em algum lugar do mundo",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 3,
-      "image": "assets/shops/shop-5.png",
-      "rating": 1,
+      "name": "Angeloni",
+      "zipCode": "23482348",
+      "cnpj": "2342342390",
       "products": [
         {
-          "id": 1,
-          "barcode": 445950719443,
-          "name": "Abacate",
-          "category": "Hortifruti",
-          "quantity": 8,
-          "price": 5.83,
-          "price_discount": 4.83,
-          "imageUrl": "/assets/categorias/abacate.png"
-        },
-        {
-          "id": 2,
-          "barcode": 916267911254,
-          "name": "Coca-cola 2L",
-          "category": "Bebidas",
-          "quantity": 16,
-          "price": 8,
-          "price_discount": 6,
-          "imageUrl": "/assets/categorias/bebidas.png"
-        },
-        {
-          "id": 3,
-          "barcode": 491577261240,
-          "name": "Patinho Bov Moído Montana KG",
-          "category": "Carnes",
-          "quantity": 7,
-          "price": 35.9,
-          "imageUrl": "/assets/categorias/carnes.png"
-        },
-        {
-          "id": 4,
-          "barcode": 396956779889,
-          "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-          "category": "Biscoitos",
-          "quantity": 9,
-          "price": 2.89,
-          "imageUrl": "/assets/categorias/biscoitos.png"
-        },
-        {
-          "id": 5,
-          "barcode": 618646523025,
-          "name": "Café Arábica ORFEU Clássico 250g",
-          "category": "Café",
-          "quantity": 8,
-          "price": 17.89,
-          "imageUrl": "/assets/categorias/cafe.png"
-        },
-        {
-          "id": 6,
-          "barcode": 270910695198,
-          "name": "VAPZA Grão de Bico",
-          "category": "Enlatados",
-          "quantity": 18,
-          "price": 12.5,
-          "imageUrl": "/assets/categorias/enlatados.png"
-        },
-        {
-          "id": 7,
-          "barcode": 681140707729,
-          "name": "Bola BESTWAY Color 51cm",
+          "name": "Hoverboard Big Foot X 10 Pol 500W 4AH 36V",
+          "barcode": 34234234234,
           "category": "Esportes",
-          "quantity": 12,
-          "price": 45,
-          "imageUrl": "/assets/categorias/esportes.png"
+          "quantity": 15,
+          "imageUrl": "assets/categorias/esportes.png",
+          "price": 2248.9,
+          "sold_units": 0,
+          "id": 4
+        },
+        {
+          "name": "Bicicleta Mormaii Jaws Grafite e Verde com 21 Velocidades Aro 29",
+          "barcode": 32423435345,
+          "category": "Esportes",
+          "quantity": 15,
+          "imageUrl": "assets/categorias/esportes.png",
+          "price": 1299,
+          "sold_units": 0,
+          "id": 5,
+          "price_discount": "899"
+        },
+        {
+          "name": "Luvas Ciclismo Dedo Curto - Preto - G - BI214",
+          "barcode": 42342342342,
+          "category": "Esportes",
+          "quantity": 15,
+          "imageUrl": "assets/categorias/esportes.png",
+          "price": 54.9,
+          "sold_units": 0,
+          "id": 6
+        },
+        {
+          "name": "Camisa de Ciclismo Chumbo Masculina Tam GG Atrio - VB009",
+          "barcode": 23423442342,
+          "category": "Esportes",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/esportes.png",
+          "price": 70.9,
+          "sold_units": 0,
+          "id": 7
+        },
+        {
+          "name": "Macarrão Espaguete Todeschini Sêmola Embalagem 500g",
+          "barcode": 12342342342,
+          "category": "Padaria",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/padaria.png",
+          "price": 3.29,
+          "sold_units": 0,
+          "id": 8
+        },
+        {
+          "name": "Sabão em Pó Lavagem Perfeita Omo 1.6kg",
+          "barcode": 43245353453,
+          "category": "Limpeza",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/limpeza.png",
+          "price": 30.7,
+          "sold_units": 0,
+          "id": 9
+        },
+        {
+          "name": "Água Sanitária Qboa 2l",
+          "barcode": 23442342342,
+          "category": "Limpeza",
+          "quantity": 1000,
+          "imageUrl": "assets/categorias/limpeza.png",
+          "price": 7.94,
+          "sold_units": 0,
+          "id": 10
+        },
+        {
+          "name": "Banana Nanica",
+          "barcode": 31231231231,
+          "category": "Hortifruti",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 5.3,
+          "sold_units": 0,
+          "id": 11
+        },
+        {
+          "name": "Abóbora Itália",
+          "barcode": 23497823462,
+          "category": "Hortifruti",
+          "quantity": 150,
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 2,
+          "sold_units": 0,
+          "id": 12
+        },
+        {
+          "name": "Coca-Cola Original 200ml",
+          "barcode": 23342342342,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 1.44,
+          "sold_units": 0,
+          "id": 13
+        },
+        {
+          "name": "Bebida Ice Vodka Smirnoff 275ml",
+          "barcode": 32890423894,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 9.75,
+          "sold_units": 0,
+          "id": 14
+        },
+        {
+          "name": "Pão de Forma Tradicional Pullman 480g",
+          "barcode": 23423423423,
+          "category": "Padaria",
+          "quantity": 200,
+          "imageUrl": "assets/categorias/padaria.png",
+          "price": 7.96,
+          "sold_units": 0,
+          "id": 15,
+          "price_discount": "4.00"
+        },
+        {
+          "name": "Biscoito Recheado de Chocolate Passatempo 130g",
+          "barcode": 12348723423,
+          "category": "Biscoitos",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/biscoitos.png",
+          "price": 3.1,
+          "sold_units": 0,
+          "id": 16
+        },
+        {
+          "name": "Margarina Cremosa com Sal Qmix Qualy 500g",
+          "barcode": 34908234908,
+          "category": "Frios",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/laticinios.png",
+          "price": 12.23,
+          "sold_units": 0,
+          "id": 17,
+          "price_discount": "8.99"
+        },
+        {
+          "name": "Leite Condensado Semidesnatado Moça 395g",
+          "barcode": 32478946237,
+          "category": "Bomboniere",
+          "quantity": 500,
+          "imageUrl": "assets/categorias/bomboniere.png",
+          "price": 5.5,
+          "sold_units": 0,
+          "id": 18
+        },
+        {
+          "name": "Salsicha Hot Dog Perdigão",
+          "barcode": 23442342342,
+          "category": "Congelados",
+          "quantity": 250,
+          "imageUrl": "assets/products/product-icon.png",
+          "price": 6.34,
+          "sold_units": 0,
+          "id": 19
+        },
+        {
+          "name": "Abridor Pratic Embalagem 1 Un",
+          "barcode": 23987423984,
+          "category": "Ferramentas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/ferramentas.png",
+          "price": 7.78,
+          "sold_units": 0,
+          "id": 20,
+          "price_discount": "3.50"
+        },
+        {
+          "name": "Ração para Cães Adultos Dog Chow Carne Ao Molho 100g",
+          "barcode": 34290482390,
+          "category": "Pet",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/pet.png",
+          "price": 55.9,
+          "sold_units": 0,
+          "id": 21
         }
-      ]
-    },
-    {
-      "name": "Bar do João",
-      "cep": "sdfsdf",
-      "cnpj": "dasd",
+      ],
       "location": {
-        "address": "Avenida Brasil 1054",
-        "lat": 0,
-        "long": 5
+        "address": "Avenida Tiradentes"
       },
-      "id": 5,
-      "image": "assets/shops/shop-5.png",
-      "rating": 3.7
-    }
-  ],
-  "courier": [
-    {
-      "name": "Entegador",
-      "cnh": "12312321312",
-      "vehicleType": "motorcycle",
-      "id": 1,
-      "location": {
-        "address": "Av. Paraná 105",
-        "lat": -23.415248738642738,
-        "long": -51.943194719121394
-      }
+      "image": "assets/shops/shop-2.png",
+      "rating": 3,
+      "deliveryFee": 15,
+      "estimatedDeliveryTime": 80,
+      "id": 3
     },
     {
-      "cnh": "23948723",
-      "vehicleType": "motorcycle",
-      "id": 2,
+      "name": "Muffato",
+      "zipCode": "489237423894",
+      "cnpj": "2348972348972",
+      "products": [
+        {
+          "name": "Alimento Ração Pedigree Equilíbrio Natural para Cães Adultos de Raças Pequenas e Minis 1kg",
+          "barcode": 32409482390,
+          "category": "Pet",
+          "quantity": 50,
+          "imageUrl": "assets/categorias/pet.png",
+          "price": 33.95,
+          "sold_units": 0,
+          "id": 22
+        },
+        {
+          "name": "Alimento Ração Pedigree para Cães Filhotes Raças Médias e Grandes 1kg",
+          "barcode": 34248923478,
+          "category": "Pet",
+          "quantity": 150,
+          "imageUrl": "assets/categorias/pet.png",
+          "price": 27.71,
+          "sold_units": 0,
+          "id": 23
+        },
+        {
+          "name": "Creme Hidratante Nivea Embalagem 56g",
+          "barcode": 23423498234,
+          "category": "Higiene",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/higiene.png",
+          "price": 27.26,
+          "sold_units": 0,
+          "id": 24,
+          "price_discount": "10"
+        },
+        {
+          "name": "Chin Ipanema Anatomica Masc Sur Par",
+          "barcode": 23490823490,
+          "category": "Bazar",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bazar.png",
+          "price": 22.81,
+          "sold_units": 0,
+          "id": 25
+        },
+        {
+          "name": "Abóbora Moranga",
+          "barcode": 23423423423,
+          "category": "Hortifruti",
+          "quantity": 324,
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 15.44,
+          "sold_units": 0,
+          "id": 26
+        },
+        {
+          "name": "Filezinho Copacol Sassami Congelado 1kg",
+          "barcode": 34923847238,
+          "category": "Carnes",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/carnes.png",
+          "price": "18.99",
+          "sold_units": 0,
+          "id": 27
+        }
+      ],
       "location": {
-        "address": "Av. Paraná 105",
-        "lat": -23.421421304112158,
-        "long": -51.928071251705965
-      }
-    },
-    {
-      "cnh": "45345345345",
-      "vehicleType": "motorcycle",
-      "id": 3,
-      "location": {
-        "address": "Av. Paraná 105",
-        "lat": -23.421421304112158,
-        "long": -51.928071251705965
-      }
-    },
-    {
-      "cnh": "",
-      "name": "Menino",
-      "vehicleType": "bicycle",
-      "location": {
-        "lat": -23.413060764874313,
-        "long": -51.93812922195265
+        "address": "Avenida Laguna 302"
       },
+      "image": "assets/shops/shop-1.png",
+      "rating": 0,
+      "deliveryFee": 6.99,
+      "estimatedDeliveryTime": 90,
       "id": 4
+    },
+    {
+      "name": "Condor",
+      "zipCode": "23894723789",
+      "cnpj": "239847238947238974",
+      "products": [
+        {
+          "name": "Requeijão Cremoso Vigor Tradicional 200g",
+          "barcode": 42389472348,
+          "category": "Frios",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/laticinios.png",
+          "price": 7.96,
+          "sold_units": 0,
+          "id": 28,
+          "price_discount": "4.50"
+        },
+        {
+          "name": "Cachaça Velho Barreiro 910ml",
+          "barcode": 12312312312,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 14.21,
+          "sold_units": 0,
+          "id": 29
+        },
+        {
+          "name": "Salamitos Sadia Embalagem 36g",
+          "barcode": 23231231231,
+          "category": "Mercearia",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/mercearia.png",
+          "price": 4.66,
+          "sold_units": 0,
+          "id": 30
+        },
+        {
+          "name": "Whisky Escocês Passport Scotch 1l",
+          "barcode": 23423423487,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 53.32,
+          "sold_units": 0,
+          "id": 31
+        },
+        {
+          "name": "Atum Ralado Ao Natural Gomes da Costa 170g",
+          "barcode": 42342323423,
+          "category": "Enlatados",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/enlatados.png",
+          "price": 8.73,
+          "sold_units": 0,
+          "id": 32
+        },
+        {
+          "name": "Maçã Fuji",
+          "barcode": 23423423423,
+          "category": "Hortifruti",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 1.73,
+          "sold_units": 0,
+          "id": 33
+        },
+        {
+          "name": "Laranja",
+          "barcode": 23232323234,
+          "category": "Hortifruti",
+          "quantity": 200,
+          "imageUrl": "assets/categorias/hortifruti.png",
+          "price": 1.2,
+          "sold_units": 0,
+          "id": 34
+        },
+        {
+          "name": "Vinho Somm Tinto Cabernet Franc+Syrah Lt 269ml",
+          "barcode": 23423423423,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 14.42,
+          "sold_units": 0,
+          "id": 35,
+          "price_discount": "9.98"
+        },
+        {
+          "name": "Pipoca de Microondas Popcorn Manteiga de Cinema Yoki 100g",
+          "barcode": 23498723489,
+          "category": "Mercearia",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/mercearia.png",
+          "price": 4.98,
+          "sold_units": 0,
+          "id": 36
+        },
+        {
+          "name": "Coca-Cola sem Açúcar 2l",
+          "barcode": 23423423322,
+          "category": "Bebidas",
+          "quantity": 100,
+          "imageUrl": "assets/categorias/bebidas.png",
+          "price": 8.97,
+          "sold_units": 0,
+          "id": 37
+        }
+      ],
+      "location": {
+        "address": "Avenida Paraná 1024"
+      },
+      "image": "assets/shops/shop-1.png",
+      "rating": 0,
+      "deliveryFee": 0,
+      "estimatedDeliveryTime": 30,
+      "id": 5
     }
   ],
+  "courier": [],
   "products": [
     {
-      "id": 1,
-      "barcode": 445950719443,
-      "name": "Abacate",
+      "name": "Banana",
+      "barcode": 21312423423,
       "category": "Hortifruti",
-      "quantity": 8,
-      "price": 5.83,
-      "imageUrl": "/assets/categorias/abacate.png"
+      "quantity": 50,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 3.5,
+      "sold_units": 0,
+      "id": 1
     },
     {
-      "id": 2,
-      "barcode": 916267911254,
-      "name": "Coca-cola 2L",
-      "category": "Bebidas",
-      "quantity": 16,
-      "price": 8,
-      "imageUrl": "/assets/categorias/bebidas.png"
-    },
-    {
-      "id": 3,
-      "barcode": 491577261240,
-      "name": "Patinho Bov Moído Montana KG",
+      "name": "X-Frango",
+      "barcode": 23948234892,
       "category": "Carnes",
-      "quantity": 7,
-      "price": 35.9,
-      "imageUrl": "/assets/categorias/carnes.png"
-    },
-    {
-      "id": 4,
-      "barcode": 396956779889,
-      "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-      "category": "Biscoitos",
-      "quantity": 9,
-      "price": 2.89,
-      "imageUrl": "/assets/categorias/biscoitos.png"
-    },
-    {
-      "id": 5,
-      "barcode": 618646523025,
-      "name": "Café Arábica ORFEU Clássico 250g",
-      "category": "Café",
-      "quantity": 8,
-      "price": 17.89,
-      "imageUrl": "/assets/categorias/cafe.png"
-    },
-    {
-      "id": 6,
-      "barcode": 270910695198,
-      "name": "VAPZA Grão de Bico",
-      "category": "Enlatados",
-      "quantity": 18,
-      "price": 12.5,
-      "imageUrl": "/assets/categorias/enlatados.png"
-    },
-    {
-      "id": 7,
-      "barcode": 681140707729,
-      "name": "Bola BESTWAY Color 51cm",
-      "category": "Esportes",
-      "quantity": 12,
-      "price": 45,
-      "imageUrl": "/assets/categorias/esportes.png"
-    },
-    {
-      "id": 8,
-      "barcode": 819781213029,
-      "name": "magna",
-      "category": "Category 7",
-      "quantity": 15,
-      "price": 4.45,
-      "imageUrl": "magna"
-    },
-    {
-      "id": 9,
-      "barcode": 121349697663,
-      "name": "Martelo TRAMONTINA 20mm",
-      "category": "Ferramentas",
-      "quantity": 11,
-      "price": 24,
-      "imageUrl": "/assets/categorias/ferramentas.png"
-    },
-    {
-      "id": 10,
-      "barcode": 520577994712,
-      "name": "Limpador Multiuso VEJA Floral 500ml",
-      "category": "Limpeza",
-      "quantity": 10,
-      "price": 7.59,
-      "imageUrl": "/assets/categorias/limpeza.png"
-    },
-    {
-      "id": 11,
-      "barcode": 653768049442,
-      "name": "Macarrão NISSIN yakissoba 500g",
-      "category": "Massas",
-      "quantity": 18,
-      "price": 6.59,
-      "imageUrl": "/assets/categorias/massas.png"
-    },
-    {
-      "id": 12,
-      "barcode": 275115550225,
-      "name": "Chocolate LACTA Oreo 90g",
-      "category": "Bomboniere",
-      "quantity": 7,
-      "price": 4.29,
-      "imageUrl": "assets/categorias/bomboniere.png"
-    },
-    {
-      "name": "Bomb",
-      "barcode": "213514236512653",
-      "category": "seven",
-      "quantity": "23",
-      "price": 21,
-      "id": 13
-    },
-    {
-      "name": "Queijo",
-      "barcode": "2412352137355",
-      "category": "three",
-      "quantity": "5",
-      "price": 8.5,
-      "id": 14
-    },
-    {
-      "name": "Pinga",
-      "barcode": "87028815",
-      "category": "one",
-      "quantity": "12",
-      "price": 15,
-      "id": 15
-    },
-    {
-      "name": "Bolachinha",
-      "barcode": "2309482309423890",
-      "category": "biscoitos",
-      "quantity": "1",
-      "price": 15.5,
-      "id": 16
-    },
-    {
-      "name": "weqqwe",
-      "barcode": "1234234",
-      "category": "bebidas",
-      "quantity": "123",
-      "price": 14324,
-      "id": 17
-    },
-    {
-      "name": "Boalchinha",
-      "barcode": "2390482390",
-      "category": "bomboniere",
-      "quantity": "123",
-      "price": 123.45,
-      "id": 18
-    },
-    {
-      "name": "3123wqeqwe",
-      "barcode": "231242423",
-      "category": "bomboniere",
-      "quantity": "213",
-      "price": 23,
-      "id": 19
-    },
-    {
-      "name": "Lixo",
-      "barcode": "13123123123",
-      "category": "biscoitos",
-      "quantity": "233",
-      "price": "50",
-      "imageUrl": "assets/categorias/laticinios.png",
-      "id": 20
-    },
-    {
-      "name": "Queijo",
-      "barcode": "412421341234",
-      "category": "frios-laticínios",
-      "quantity": "5",
-      "imageUrl": "assets/categorias/laticinios.png",
-      "price": 8.5,
-      "id": 21
-    },
-    {
-      "name": "Queijo",
-      "barcode": "412421341234",
-      "category": "frios-laticínios",
-      "quantity": "50",
-      "imageUrl": "assets/categorias/laticinios.png",
-      "price": 8.5,
-      "id": 22
-    },
-    {
-      "name": "Bomba",
-      "barcode": "21312312321",
-      "category": "bazar",
-      "quantity": "233",
-      "imageUrl": "assets/categorias/bazar.png",
-      "price": "12",
-      "id": 23
-    },
-    {
-      "name": "Lixo",
-      "barcode": "32312312",
-      "category": "carnes",
-      "quantity": "50",
+      "quantity": 25,
       "imageUrl": "assets/categorias/carnes.png",
-      "price": 28,
-      "id": 24
-    },
-    {
-      "name": "Hoka",
-      "barcode": "31232131",
-      "category": "carnes",
-      "quantity": "20",
-      "imageUrl": "assets/categorias/carnes.png",
-      "price": "10",
-      "price_discount": "",
-      "id": 25
-    }
-  ],
-  "orders": [
-    {
-      "id": 1,
-      "customerId": 1,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "FINISHED",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 1247",
-        "lat": -23.405548369343425,
-        "long": -51.928657837643264
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1457",
-        "lat": -23.424910598755204,
-        "long": -51.943256569628566
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:25:05Z",
-      "products": [
-        {
-          "id": 10,
-          "barcode": 520577994712,
-          "name": "Limpador Multiuso VEJA Floral 500ml",
-          "category": "Limpeza",
-          "quantity": 10,
-          "price": 7.59,
-          "imageUrl": "/assets/categorias/limpeza.png"
-        },
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 18,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 7,
-          "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png"
-        }
-      ],
-      "courier": [
-        {
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ],
-      "updatedAt": "2022-04-30T13:03:21.330Z",
-      "finishedAt": "2022-04-30T13:03:21.330Z"
-    },
-    {
+      "price": 22.5,
+      "sold_units": 0,
       "id": 2,
-      "customerId": 6,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "PLACED",
-      "pickupLocation": {
-        "address": "Av. Brasil 1452",
-        "lat": -23.410669389042326,
-        "long": -51.936883258516495
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 105",
-        "lat": -23.415248738642738,
-        "long": -51.943194719121394
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:35:05Z",
-      "products": [
-        {
-          "id": 9,
-          "barcode": 121349697663,
-          "name": "Martelo TRAMONTINA 20mm",
-          "category": "Ferramentas",
-          "quantity": 11,
-          "price": 24,
-          "imageUrl": "/assets/categorias/ferramentas.png"
-        }
-      ]
+      "price_discount": "12"
     },
     {
-      "id": 3,
-      "customerId": 6,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "customerName": "joao",
-      "courierName:": "Entregador A",
-      "status": "FINISHED",
-      "deliveryFee": 4.89,
-      "courierRejectedIds": [
-        1,
-        1
-      ],
-      "pickupLocation": {
-        "address": "Av. Brasil 1809",
-        "lat": -23.424131675922197,
-        "long": -51.920376513492414
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1924",
-        "lat": -23.420056707702507,
-        "long": -51.943269282098065
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:45:05Z",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "products": [
-        {
-          "id": 8,
-          "barcode": 819781213029,
-          "name": "magna",
-          "category": "Category 7",
-          "quantity": 15,
-          "price": 4.45
-        }
-      ],
-      "updatedAt": "2022-04-30T13:03:41.854Z",
-      "courier": [
-        {
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ],
-      "finishedAt": "2022-04-30T13:03:41.854Z"
+      "name": "X-Ovo",
+      "barcode": 12323489234,
+      "category": "Carnes",
+      "quantity": 50,
+      "imageUrl": "assets/categorias/carnes.png",
+      "price": 30,
+      "sold_units": 0,
+      "id": 3
     },
     {
-      "id": 4,
-      "customerId": 6,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "customerName": "joao",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "FINISHED",
-      "deliveryFee": 50,
-      "pickupLocation": {
-        "address": "Av. Brasil 497",
-        "lat": -23.419770715934867,
-        "long": -51.934149611160024
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1186",
-        "lat": -23.421658504311534,
-        "long": -51.943285651715435
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:53:05Z",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "products": [
-        {
-          "id": 7,
-          "barcode": 681140707729,
-          "name": "Bola BESTWAY Color 51cm",
-          "category": "Esportes",
-          "quantity": 12,
-          "price": 45,
-          "imageUrl": "/assets/categorias/esportes.png"
-        }
-      ],
-      "courier": [
-        {
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ],
-      "updatedAt": "2022-04-30T13:03:44.410Z",
-      "finishedAt": "2022-04-30T13:03:44.410Z"
+      "name": "Hoverboard Big Foot X 10 Pol 500W 4AH 36V",
+      "barcode": 34234234234,
+      "category": "Esportes",
+      "quantity": 15,
+      "imageUrl": "assets/categorias/esportes.png",
+      "price": 2248.9,
+      "sold_units": 0,
+      "id": 4
     },
     {
+      "name": "Bicicleta Mormaii Jaws Grafite e Verde com 21 Velocidades Aro 29",
+      "barcode": 32423435345,
+      "category": "Esportes",
+      "quantity": 15,
+      "imageUrl": "assets/categorias/esportes.png",
+      "price": 1299,
+      "sold_units": 0,
       "id": 5,
-      "customerId": 6,
-      "shopId": 9,
-      "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "PLACED",
-      "paymentStatus": "PAID",
-      "paymentMethod": {
-        "id": 1,
-        "type": "CREDIT_CARD",
-        "cardType": "MASTERCARD",
-        "nickname": "Nubank",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "5431 1111 1111 1111",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 336",
-        "lat": -23.418655645357216,
-        "long": -51.946236819391785
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1103",
-        "lat": -23.419888617992726,
-        "long": -51.943244948044544
-      },
-      "createdAt": "2022-04-17T01:55:49Z",
-      "udpatedAt": "2022-04-17T01:55:49Z",
-      "estimatedAt": "2022-04-17T03:31:49Z",
-      "products": [
-        {
-          "id": 4,
-          "barcode": 396956779889,
-          "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-          "category": "Biscoitos",
-          "quantity": 1,
-          "price": 2.89,
-          "imageUrl": "/assets/categorias/biscoitos.png"
-        },
-        {
-          "id": 5,
-          "barcode": 618646523025,
-          "name": "Café Arábica ORFEU Clássico 250g",
-          "category": "Café",
-          "quantity": 1,
-          "price": 17.89,
-          "imageUrl": "/assets/categorias/cafe.png"
-        },
-        {
-          "id": 6,
-          "barcode": 270910695198,
-          "name": "VAPZA Grão de Bico",
-          "category": "Enlatados",
-          "quantity": 1,
-          "price": 12.5,
-          "imageUrl": "/assets/categorias/enlatados.png"
-        }
-      ]
+      "price_discount": "899"
     },
     {
-      "id": 6,
-      "customerId": 6,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "status": "FINISHED",
-      "paymentStatus": "PAY_ON_DELIVERY",
-      "courierRejectedIds": [
-        1,
-        1,
-        1
-      ],
-      "deliveryFee": 2.34,
-      "paymentMethod": "CASH",
-      "pickupLocation": {
-        "address": "Av. Brasil 1720",
-        "lat": -23.425411959404325,
-        "long": -51.930357324658786
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 886",
-        "lat": -23.417084457637646,
-        "long": -51.943345687018464
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "estimatedAt": "2022-04-17T00:31:05Z",
-      "products": [
-        {
-          "id": 1,
-          "barcode": 445950719443,
-          "name": "Abacate",
-          "category": "Hortifruti",
-          "quantity": 1,
-          "price": 5.83,
-          "imageUrl": "/assets/categorias/abacate.png",
-          "observation": "2 abacates"
-        },
-        {
-          "id": 2,
-          "barcode": 916267911254,
-          "name": "Coca-cola 2L",
-          "category": "Bebidas",
-          "quantity": 2,
-          "price": 8,
-          "imageUrl": "/assets/categorias/bebidas.png"
-        },
-        {
-          "id": 3,
-          "barcode": 491577261240,
-          "name": "Patinho Bov Moído Montana KG",
-          "category": "Carnes",
-          "quantity": 1,
-          "price": 35.9,
-          "imageUrl": "/assets/categorias/carnes.png",
-          "observation": "3.5kg"
-        },
-        {
-          "id": 4,
-          "barcode": 396956779889,
-          "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-          "category": "Biscoitos",
-          "quantity": 3,
-          "price": 2.89,
-          "imageUrl": "/assets/categorias/biscoitos.png"
-        }
-      ],
-      "updatedAt": "2022-04-30T13:35:16.808Z",
-      "finishedAt": "2022-04-30T13:35:16.808Z",
-      "courier": [
-        {
-          "name": "Entegador",
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ]
+      "name": "Luvas Ciclismo Dedo Curto - Preto - G - BI214",
+      "barcode": 42342342342,
+      "category": "Esportes",
+      "quantity": 15,
+      "imageUrl": "assets/categorias/esportes.png",
+      "price": 54.9,
+      "sold_units": 0,
+      "id": 6
     },
     {
-      "id": 7,
-      "customerId": 7,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "customerName": "Jason",
-      "status": "ASSIGNED",
-      "deliveryFee": 7.89,
-      "courierRejectedIds": [
-        1
-      ],
-      "paymentStatus": "PAID",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 1680",
-        "lat": -23.410605175484196,
-        "long": -51.941354141777566
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 430",
-        "lat": -23.414502097079296,
-        "long": -51.943284902938935
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "estimatedAt": "2022-04-17T01:11:05Z",
-      "products": [
-        {
-          "id": 10,
-          "barcode": 520577994712,
-          "name": "Limpador Multiuso VEJA Floral 500ml",
-          "category": "Limpeza",
-          "quantity": 1,
-          "price": 7.59,
-          "imageUrl": "/assets/categorias/limpeza.png"
-        },
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 1,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 1,
-          "price": 4.29,
-          "imageUrl": "assets/categorias/bomboniere.png"
-        }
-      ],
-      "updatedAt": "2022-04-30T13:32:45.179Z",
-      "finishedAt": "2022-04-30T12:41:18.852Z",
-      "courier": {
-        "cnh": "23948723",
-        "vehicleType": "motorcycle",
-        "id": 2,
-        "location": {
-          "address": "Av. Paraná 105",
-          "lat": -23.421421304112158,
-          "long": -51.928071251705965
-        }
-      }
+      "name": "Camisa de Ciclismo Chumbo Masculina Tam GG Atrio - VB009",
+      "barcode": 23423442342,
+      "category": "Esportes",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/esportes.png",
+      "price": 70.9,
+      "sold_units": 0,
+      "id": 7
     },
     {
-      "id": 8,
-      "customerId": 6,
-      "customerName": "joao",
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "status": "ASSIGNED",
-      "courierRejectedIds": [
-        1,
-        1,
-        3,
-        1
-      ],
-      "deliveryFee": 23.12,
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 461",
-        "lat": -23.403166738335518,
-        "long": -51.949367504047395
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 692",
-        "lat": -23.413547652926564,
-        "long": -51.943311002705386
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-17T00:02:05Z",
-      "products": [
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 3,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        }
-      ],
-      "updatedAt": "2022-04-30T16:10:33.570Z",
-      "courier": [
-        {
-          "name": "Entegador",
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ]
+      "name": "Macarrão Espaguete Todeschini Sêmola Embalagem 500g",
+      "barcode": 12342342342,
+      "category": "Padaria",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/padaria.png",
+      "price": 3.29,
+      "sold_units": 0,
+      "id": 8
     },
     {
-      "id": 9,
-      "customerId": 7,
-      "shopId": 1,
-      "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "DELIVERED",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 790",
-        "lat": -23.423786370337027,
-        "long": -51.948856913167745
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 896",
-        "lat": -23.422814426020484,
-        "long": -51.943232654646145
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:25:05Z",
-      "finishedAt": "2022-04-16T23:21:05Z",
-      "products": [
-        {
-          "id": 10,
-          "barcode": 520577994712,
-          "name": "Limpador Multiuso VEJA Floral 500ml",
-          "category": "Limpeza",
-          "quantity": 2,
-          "price": 7.59,
-          "imageUrl": "/assets/categorias/limpeza.png"
-        },
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 2,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        }
-      ]
+      "name": "Sabão em Pó Lavagem Perfeita Omo 1.6kg",
+      "barcode": 43245353453,
+      "category": "Limpeza",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/limpeza.png",
+      "price": 30.7,
+      "sold_units": 0,
+      "id": 9
     },
     {
-      "id": 10,
-      "customerId": 2,
-      "shopId": 7,
-      "customerName": "usuario",
-      "shopName": "Lojinha",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "PLACED",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 561",
-        "lat": -23.411920195190568,
-        "long": -51.932996112811075
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1946",
-        "lat": -23.422188757089106,
-        "long": -51.943204465996445
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:37:05Z",
-      "products": [
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 2,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        }
-      ]
+      "name": "Água Sanitária Qboa 2l",
+      "barcode": 23442342342,
+      "category": "Limpeza",
+      "quantity": 1000,
+      "imageUrl": "assets/categorias/limpeza.png",
+      "price": 7.94,
+      "sold_units": 0,
+      "id": 10
     },
     {
-      "id": 11,
-      "customerId": 1,
-      "shopId": 8,
-      "shopName": "Bar do João",
-      "courierId": 1,
-      "courierName:": "Entregador A",
-      "status": "FINISHED",
-      "paymentMethod": {
-        "id": 1,
-        "type": "DEBIT_CARD",
-        "cardType": "VISA",
-        "nickname": "Inter",
-        "nameOnCard": "JOAO S",
-        "cardNumber": "4242 4242 4242 1234",
-        "cvv": "00"
-      },
-      "pickupLocation": {
-        "address": "Av. Brasil 1247",
-        "lat": -23.405548369343425,
-        "long": -51.928657837643264
-      },
-      "deliveryLocation": {
-        "address": "Av. Paraná 1457",
-        "lat": -23.424910598755204,
-        "long": -51.943256569628566
-      },
-      "createdAt": "2022-04-16T23:15:05Z",
-      "udpatedAt": "2022-04-16T23:20:05Z",
-      "estimatedAt": "2022-04-16T23:25:05Z",
-      "products": [
-        {
-          "id": 10,
-          "barcode": 520577994712,
-          "name": "Limpador Multiuso VEJA Floral 500ml",
-          "category": "Limpeza",
-          "quantity": 10,
-          "price": 7.59,
-          "imageUrl": "/assets/categorias/limpeza.png"
-        },
-        {
-          "id": 11,
-          "barcode": 653768049442,
-          "name": "Macarrão NISSIN yakissoba 500g",
-          "category": "Massas",
-          "quantity": 18,
-          "price": 6.59,
-          "imageUrl": "/assets/categorias/massas.png"
-        },
-        {
-          "id": 12,
-          "barcode": 275115550225,
-          "name": "Chocolate LACTA Oreo 90g",
-          "category": "Bomboniere",
-          "quantity": 7,
-          "price": 4.29,
-          "imageUrl": "/assets/categorias/bomboniere.png"
-        }
-      ]
+      "name": "Banana Nanica",
+      "barcode": 31231231231,
+      "category": "Hortifruti",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 5.3,
+      "sold_units": 0,
+      "id": 11
     },
     {
-      "products": [
-        {
-          "id": 1,
-          "barcode": 445950719443,
-          "name": "Abacate",
-          "category": "Hortifruti",
-          "quantity": 8,
-          "price": 5.83,
-          "imageUrl": "/assets/categorias/abacate.png"
-        }
-      ],
-      "customerId": 1,
-      "shopId": 1,
-      "shopName": "Shop1",
-      "status": "SCHEDULED",
-      "deliveryFee": 50,
-      "courierRejectedIds": [],
-      "paymentStatus": "NOT_PAID",
-      "deliveryLocation": {
-        "lat": 1,
-        "long": 2
-      },
-      "createdAt": "2022-04-30T15:06:25.017Z",
-      "updatedAt": "2022-04-30T15:06:25.017Z",
-      "estimatedAt": "2022-05-07T03:05:00.000Z",
+      "name": "Abóbora Itália",
+      "barcode": 23497823462,
+      "category": "Hortifruti",
+      "quantity": 150,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 2,
+      "sold_units": 0,
       "id": 12
     },
     {
-      "products": [
-        {
-          "id": 1,
-          "barcode": 445950719443,
-          "name": "Abacate",
-          "category": "Hortifruti",
-          "quantity": 8,
-          "price": 5.83,
-          "imageUrl": "/assets/categorias/abacate.png"
-        }
-      ],
-      "shopId": 1,
-      "shopName": "Shop1",
-      "status": "CANCELLED",
-      "deliveryFee": 50,
-      "courierRejectedIds": [],
-      "paymentStatus": "NOT_PAID",
-      "paymentMethod": "CASH",
-      "deliveryLocation": {
-        "lat": 1,
-        "long": 2
-      },
-      "createdAt": "2022-04-30T15:18:07.332Z",
-      "updatedAt": "2022-04-30T15:19:17.689Z",
-      "estimatedAt": "2022-05-06T21:00:00.000Z",
-      "id": 13,
-      "courier": [
-        {
-          "name": "Entegador",
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ]
+      "name": "Coca-Cola Original 200ml",
+      "barcode": 23342342342,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 1.44,
+      "sold_units": 0,
+      "id": 13
     },
     {
-      "products": [
-        {
-          "name": "Queijo",
-          "barcode": "412421341234",
-          "category": "frios-laticínios",
-          "quantity": 4,
-          "imageUrl": "assets/categorias/laticinios.png",
-          "price": 8.5,
-          "id": 22,
-          "price_discount": 10,
-          "sold_units": 3
-        }
-      ],
-      "customerId": 11,
-      "customerName": "Entregador",
-      "shopId": 1,
-      "shopName": "Doente doido",
-      "status": "ASSIGNED",
-      "deliveryFee": 12,
-      "courierRejectedIds": [],
-      "paymentStatus": "NOT_PAID",
-      "paymentMethod": "CASH",
-      "pickupLocation": {
-        "address": "Rua dos malucos doentes",
-        "lat": 0,
-        "long": 5
-      },
-      "deliveryLocation": {
-        "address": "eiorhjweior",
-        "lat": 1,
-        "long": 2
-      },
-      "createdAt": "2022-05-01T18:10:21.974Z",
-      "updatedAt": "2022-05-01T18:10:39.959Z",
-      "estimatedAt": "2022-05-04T18:10:21.974Z",
-      "id": 14,
-      "courier": [
-        {
-          "name": "Entegador",
-          "cnh": "12312321312",
-          "vehicleType": "motorcycle",
-          "id": 1,
-          "location": {
-            "address": "Av. Paraná 105",
-            "lat": -23.415248738642738,
-            "long": -51.943194719121394
-          }
-        }
-      ]
+      "name": "Bebida Ice Vodka Smirnoff 275ml",
+      "barcode": 32890423894,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 9.75,
+      "sold_units": 0,
+      "id": 14
+    },
+    {
+      "name": "Pão de Forma Tradicional Pullman 480g",
+      "barcode": 23423423423,
+      "category": "Padaria",
+      "quantity": 200,
+      "imageUrl": "assets/categorias/padaria.png",
+      "price": 7.96,
+      "sold_units": 0,
+      "id": 15,
+      "price_discount": "4.00"
+    },
+    {
+      "name": "Biscoito Recheado de Chocolate Passatempo 130g",
+      "barcode": 12348723423,
+      "category": "Biscoitos",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/biscoitos.png",
+      "price": 3.1,
+      "sold_units": 0,
+      "id": 16
+    },
+    {
+      "name": "Margarina Cremosa com Sal Qmix Qualy 500g",
+      "barcode": 34908234908,
+      "category": "Frios",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/laticinios.png",
+      "price": 12.23,
+      "sold_units": 0,
+      "id": 17,
+      "price_discount": "8.99"
+    },
+    {
+      "name": "Leite Condensado Semidesnatado Moça 395g",
+      "barcode": 32478946237,
+      "category": "Bomboniere",
+      "quantity": 500,
+      "imageUrl": "assets/categorias/bomboniere.png",
+      "price": 5.5,
+      "sold_units": 0,
+      "id": 18
+    },
+    {
+      "name": "Salsicha Hot Dog Perdigão",
+      "barcode": 23442342342,
+      "category": "Congelados",
+      "quantity": 250,
+      "imageUrl": "assets/products/product-icon.png",
+      "price": 6.34,
+      "sold_units": 0,
+      "id": 19
+    },
+    {
+      "name": "Abridor Pratic Embalagem 1 Un",
+      "barcode": 23987423984,
+      "category": "Ferramentas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/ferramentas.png",
+      "price": 7.78,
+      "sold_units": 0,
+      "id": 20,
+      "price_discount": "3.50"
+    },
+    {
+      "name": "Ração para Cães Adultos Dog Chow Carne Ao Molho 100g",
+      "barcode": 34290482390,
+      "category": "Pet",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/pet.png",
+      "price": 55.9,
+      "sold_units": 0,
+      "id": 21
+    },
+    {
+      "name": "Alimento Ração Pedigree Equilíbrio Natural para Cães Adultos de Raças Pequenas e Minis 1kg",
+      "barcode": 32409482390,
+      "category": "Pet",
+      "quantity": 50,
+      "imageUrl": "assets/categorias/pet.png",
+      "price": 33.95,
+      "sold_units": 0,
+      "id": 22
+    },
+    {
+      "name": "Alimento Ração Pedigree para Cães Filhotes Raças Médias e Grandes 1kg",
+      "barcode": 34248923478,
+      "category": "Pet",
+      "quantity": 150,
+      "imageUrl": "assets/categorias/pet.png",
+      "price": 27.71,
+      "sold_units": 0,
+      "id": 23
+    },
+    {
+      "name": "Creme Hidratante Nivea Embalagem 56g",
+      "barcode": 23423498234,
+      "category": "Higiene",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/higiene.png",
+      "price": 27.26,
+      "sold_units": 0,
+      "id": 24,
+      "price_discount": "10"
+    },
+    {
+      "name": "Chin Ipanema Anatomica Masc Sur Par",
+      "barcode": 23490823490,
+      "category": "Bazar",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bazar.png",
+      "price": 22.81,
+      "sold_units": 0,
+      "id": 25
+    },
+    {
+      "name": "Abóbora Moranga",
+      "barcode": 23423423423,
+      "category": "Hortifruti",
+      "quantity": 324,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 15.44,
+      "sold_units": 0,
+      "id": 26
+    },
+    {
+      "name": "Filezinho Copacol Sassami Congelado 1kg",
+      "barcode": 34923847238,
+      "category": "Carnes",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/carnes.png",
+      "price": "18.99",
+      "sold_units": 0,
+      "id": 27
+    },
+    {
+      "name": "Requeijão Cremoso Vigor Tradicional 200g",
+      "barcode": 42389472348,
+      "category": "Frios",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/laticinios.png",
+      "price": 7.96,
+      "sold_units": 0,
+      "id": 28,
+      "price_discount": "4.50"
+    },
+    {
+      "name": "Cachaça Velho Barreiro 910ml",
+      "barcode": 12312312312,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 14.21,
+      "sold_units": 0,
+      "id": 29
+    },
+    {
+      "name": "Salamitos Sadia Embalagem 36g",
+      "barcode": 23231231231,
+      "category": "Mercearia",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/mercearia.png",
+      "price": 4.66,
+      "sold_units": 0,
+      "id": 30
+    },
+    {
+      "name": "Whisky Escocês Passport Scotch 1l",
+      "barcode": 23423423487,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 53.32,
+      "sold_units": 0,
+      "id": 31
+    },
+    {
+      "name": "Atum Ralado Ao Natural Gomes da Costa 170g",
+      "barcode": 42342323423,
+      "category": "Enlatados",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/enlatados.png",
+      "price": 8.73,
+      "sold_units": 0,
+      "id": 32
+    },
+    {
+      "name": "Maçã Fuji",
+      "barcode": 23423423423,
+      "category": "Hortifruti",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 1.73,
+      "sold_units": 0,
+      "id": 33
+    },
+    {
+      "name": "Laranja",
+      "barcode": 23232323234,
+      "category": "Hortifruti",
+      "quantity": 200,
+      "imageUrl": "assets/categorias/hortifruti.png",
+      "price": 1.2,
+      "sold_units": 0,
+      "id": 34
+    },
+    {
+      "name": "Vinho Somm Tinto Cabernet Franc+Syrah Lt 269ml",
+      "barcode": 23423423423,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 14.42,
+      "sold_units": 0,
+      "id": 35,
+      "price_discount": "9.98"
+    },
+    {
+      "name": "Pipoca de Microondas Popcorn Manteiga de Cinema Yoki 100g",
+      "barcode": 23498723489,
+      "category": "Mercearia",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/mercearia.png",
+      "price": 4.98,
+      "sold_units": 0,
+      "id": 36
+    },
+    {
+      "name": "Coca-Cola sem Açúcar 2l",
+      "barcode": 23423423322,
+      "category": "Bebidas",
+      "quantity": 100,
+      "imageUrl": "assets/categorias/bebidas.png",
+      "price": 8.97,
+      "sold_units": 0,
+      "id": 37
     }
-  ]
+  ],
+  "orders": []
 }
