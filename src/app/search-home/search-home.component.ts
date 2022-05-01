@@ -26,7 +26,7 @@ export class SearchHomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   search(term: string): void {
@@ -35,7 +35,7 @@ export class SearchHomeComponent implements OnInit {
 
   getSearchProducts(){
     this.search_products.clear();
-    this.shopsService.getAllShops().subscribe((shops) => {  
+    this.shopsService.getAllShops().subscribe((shops) => {
       shops.forEach((shop) => {
         if(shop.products != undefined && shop.products.length > 0){
           shop.products.forEach((product) => {
@@ -45,7 +45,6 @@ export class SearchHomeComponent implements OnInit {
               }else{
                 this.search_products.set(shop,[product])
               }
-              
             }
           })
         }
@@ -67,7 +66,7 @@ export class SearchHomeComponent implements OnInit {
     if(this.activeSessionService.sessionShop?.id == shopId || this.activeSessionService.sessionShop == undefined){
       this.shopsService.getShopById(shopId).subscribe((shop) => {
         this.activeSessionService.sessionShop = shop;
-      });  
+      });
       let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name === product.name)
       if(index_product_cart < 0){
         product.quantity = 1;

@@ -2,10 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 class DialogData {
-  productName!: number;
+  productName!: string;
   productQuantity!: number;
-  productImageUrl!: number;
-  productPrice!: number;
+  productObservation!: string;
 }
 
 @Component({
@@ -15,21 +14,27 @@ class DialogData {
 })
 export class CartDetailDialogComponent implements OnInit {
 
+
   constructor(
     public dialogRef: MatDialogRef<CartDetailDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+    this.dialogRef.beforeClosed().subscribe(() => this.dialogRef.close(this.data))
   }
 
-  close() {
-    this.dialogRef.close(false);
-
-  }
 
   confirm() {
-    this.dialogRef.close(true);
+    this.dialogRef.close(this.data);
 
   }
+
+  removeOne() {
+    if (this.data.productQuantity >= 1){
+      this.data.productQuantity--;
+    }
+  }
+
 }

@@ -47,7 +47,7 @@
             <span class="header__small">Taxa de entrega: </span>
             <span *ngIf="!currentShop.deliveryFee || currentShop.deliveryFee == 0;else deliveryFee" class="header__small__free">Grátis</span>
             <ng-template #deliveryFee>
-               R${{currentShop.deliveryFee}}
+               {{currentShop.deliveryFee | currency}}
             </ng-template>
           </div>
         </div>
@@ -57,17 +57,85 @@
         </div>
       </div>
 
-      <app-shop-search [shopId]="currentShop.id"></app-shop-search>
+      <app-shop-search [shopId]="currentShop.id" [currentShop]="currentShop" [dialog]="dialog"></app-shop-search>
 
-      <div class="carousel-wrapper">
+
+      <div class="category-wrapper" *ngIf="onSaleProducts.length > 0">
+        <div class="category-header-wrapper">
+            <p class="category-header-wrapper__text">Promoções</p>
+        </div>
+        <div class="carousel-wrapper">
+          <carousel class="carousel" [height]="200" [cellWidth]="166">
+            <div class="carousel-cell" *ngFor="let product of onSaleProducts">
+              <div class="carousel-cell__img-wrapper">
+                <img class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
+              </div>
+              <div class="product-name-wrapper" matTooltip="{{product.name}}">
+                <span class="product-name">{{product.name}}</span>
+              </div>
+              <mat-divider style="margin: 0px 8px;"></mat-divider>
+              <div class="carousel-cell__button-row">
+                <button (click)="removeFromCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <div class="sale-price-wrapper">
+                  <div class="sale-price-wrapper__price">{{product.price | currency}}</div>
+                  <div class="sale-price-wrapper__discounted-price">{{product.price_discount | currency}}</div>
+                </div>
+                <button (click)="addToCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+          </carousel>
+        </div>
+      </div>
+
+      <div class="category-wrapper" *ngIf="bestSellingProducts">
+        <div class="category-header-wrapper">
+          <p matTooltip="10 itens mais vendidos" class="category-header-wrapper__text">Mais Vendidos</p>
+        </div>
+        <div class="carousel-wrapper">
+          <carousel class="carousel" [height]="200" [cellWidth]="166">
+            <div class="carousel-cell" *ngFor="let product of bestSellingProducts">
+              <div class="carousel-cell__img-wrapper">
+                <img class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
+              </div>
+              <div class="product-name-wrapper" matTooltip="{{product.name}}">
+                <span class="product-name">{{product.name}}</span>
+              </div>
+              <mat-divider style="margin: 0px 8px;"></mat-divider>
+              <div class="carousel-cell__button-row">
+                <button (click)="removeFromCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <div class="product-price">{{product.price | currency}}</div>
+                <button (click)="addToCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+          </carousel>
+        </div>
+      </div>
+    </div>
+
+
+
+      <ul>
+        <li class="category-wrapper" *ngFor="let categoria of categoryProductsMap | keyvalue">
+            <div class="category-header-wrapper">
+              <p class="category-header-wrapper__text">{{categoria.key}}</p>
+
+            <div class="carousel-wrapper">
               <carousel class="carousel" [height]="200" [cellWidth]="166">
-                <div class="carousel-cell" *ngFor="let product of products$ | async">
-                    <div class="carousel-cell__img-wrapper">
-                      <img class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
-                    </div>
+                <div class="carousel-cell" *ngFor="let product of categoria.value">
+                  <div class="carousel-cell__img-wrapper">
+                    <img class="carousel-cell__img-wrapper__img" src="{{product.imageUrl}}">
+                  </div>
                   <div class="product-name-wrapper" matTooltip="{{product.name}}">
-                       <span class="product-name">{{product.name}}</span>
-                    </div>
+                    <span class="product-name">{{product.name}}</span>
+                  </div>
                   <mat-divider style="margin: 0px 8px;"></mat-divider>
                   <div class="carousel-cell__button-row">
                     <button (click)="removeFromCart(product)" class="carousel-cell__button" mat-icon-button color="accent">
@@ -80,8 +148,10 @@
                   </div>
                 </div>
               </carousel>
-      </div>
-    </div>
+            </div>
+          </div>
+        </li>
+      </ul>
 
 
 

@@ -38,7 +38,7 @@
           </mat-card-header>
         </mat-card>
 
-        <table *ngIf="tabela.length == shop.products.length" mat-table [dataSource]="tabela" class="mat-elevation-z8">
+        <table *ngIf="tabela.length == shop.products.length"  mat-table [dataSource]="tabela" class="mat-elevation-z8 product-table">
           <ng-container matColumnDef="nome">
             <th mat-header-cell *matHeaderCellDef> Nome do Produto</th>
             <td mat-cell *matCellDef="let element">{{element.nome}}</td>

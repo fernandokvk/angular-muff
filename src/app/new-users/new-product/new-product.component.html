@@ -7,8 +7,8 @@
       <mat-list-item class="toolbar-item" (click)="gotoProfile()"><mat-icon color="accent">person</mat-icon> <a class="a" >Perfil</a></mat-list-item>
       <mat-list-item class="toolbar-item" (click)="goToOrders()"><mat-icon color="accent">reorder</mat-icon><a >Pedidos</a></mat-list-item>
       <mat-list-item class="toolbar-item" (click)="gotoCart()"><mat-icon color="accent">local_grocery_store</mat-icon><a >Carrinho</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item"><mat-icon color="accent">store</mat-icon><a >Estabelecimento</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item"><mat-icon color="accent">person</mat-icon><a>Entregador</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item" (click)="gotoShop()"><mat-icon color="accent">store</mat-icon><a >Estabelecimento</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item" (click)="gotoCourier()"><mat-icon color="accent">person</mat-icon><a>Entregador</a></mat-list-item>
     </mat-list>
 
   </mat-sidenav>
@@ -50,22 +50,22 @@
           <mat-form-field appearance="outline" floatLabel="always">
             <mat-label>Categoria</mat-label>
             <mat-select formControlName="category">
-              <mat-option value="bebidas">Bebidas</mat-option>
-              <mat-option value="carnes">Açougue</mat-option>
-              <mat-option value="esportes">Esportes</mat-option>
-              <mat-option value="ferramentas">Ferramentas</mat-option>
-              <mat-option value="hortifruti">Hortifruti</mat-option>
-              <mat-option value="frios-laticínios">Frios e Laticínios</mat-option>
-              <mat-option value="limpeza">Limpeza</mat-option>
-              <mat-option value="higiene">Higiene</mat-option>
-              <mat-option value="mercearia">Mercearia</mat-option>
-              <mat-option value="padaria">Padaria</mat-option>
-              <mat-option value="pet">Pet</mat-option>
-              <mat-option value="bazar">Bazar</mat-option>
-              <mat-option value="enlatados">Enlatados</mat-option>
-              <mat-option value="bomboniere">Bomboniere</mat-option>
-              <mat-option value="biscoitos">Biscoitos</mat-option>
-              <mat-option value="congelados">Congelados</mat-option>
+              <mat-option value="Bebidas">Bebidas</mat-option>
+              <mat-option value="Carnes">Açougue</mat-option>
+              <mat-option value="Esportes">Esportes</mat-option>
+              <mat-option value="Ferramentas">Ferramentas</mat-option>
+              <mat-option value="Hortifruti">Hortifruti</mat-option>
+              <mat-option value="Frios">Frios e Laticínios</mat-option>
+              <mat-option value="Limpeza">Limpeza</mat-option>
+              <mat-option value="Higiene">Higiene</mat-option>
+              <mat-option value="Mercearia">Mercearia</mat-option>
+              <mat-option value="Padaria">Padaria</mat-option>
+              <mat-option value="Pet">Pet</mat-option>
+              <mat-option value="Bazar">Bazar</mat-option>
+              <mat-option value="Enlatados">Enlatados</mat-option>
+              <mat-option value="Bomboniere">Bomboniere</mat-option>
+              <mat-option value="Biscoitos">Biscoitos</mat-option>
+              <mat-option value="Congelados">Congelados</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -82,6 +82,14 @@
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>Preço</mat-label>
               <input matInput type="" formControlName="price">
+
+            </mat-form-field>
+          </div>
+
+          <div class="new-user-form__side">
+            <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+              <mat-label>Preço com Desconto</mat-label>
+              <input matInput type="" formControlName="priceDiscount">
 
             </mat-form-field>
           </div>
@@ -193,9 +201,19 @@
           </mat-form-field>
         </div>
 
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Preço com Desconto</mat-label>
+            <input matInput type="" formControlName="priceDiscount">
+
+          </mat-form-field>
+        </div>
+
         <div class="botao-wrapper">
           <button type="submit" class="botao" mat-raised-button color="accent" >Cadastrar</button>
         </div>
 
       </form>
     </ng-template>
+  </mat-sidenav-content>
+</mat-sidenav-container>

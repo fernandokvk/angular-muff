@@ -9,8 +9,27 @@
 <div class="wrapper">
   <ul class="search-result">
     <li *ngFor="let product of products$ | async">
-      <div>{{product.name}}</div>
-      <div>{{product.category}}</div>
+      <div class="list-item-wrapper">
+
+        <div class="list-item-wrapper__logo">
+          <img style="width: 48px; margin-left: 4px" src="{{product.imageUrl}}">
+        </div>
+
+        <div class="list-item-wrapper__name">
+          {{product.name}}
+        </div>
+
+        <div class="list-item-wrapper__buttons-wrp">
+          <button (click)="removeFromCart(product)" class="list-item-wrapper__buttons-wrp__btn" mat-icon-button color="accent">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <button (click)="addToCart(product)" class="list-item-wrapper__buttons-wrp__btn" mat-icon-button color="accent">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+
+      </div>
     </li>
   </ul>
 </div>

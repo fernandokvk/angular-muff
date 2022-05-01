@@ -31,8 +31,8 @@ export class CarrinhoComponent implements OnInit {
 
   scheduleDay: any;
   scheduleTime: any;
+  finishOrderDisabled: boolean = false;
 
-  carrinho: Product[] = [];
 
 
   carrinho$!: Observable<Product[]>;
@@ -47,8 +47,10 @@ export class CarrinhoComponent implements OnInit {
 
   /** Gets the total cost of all transactions. */
   getTotalCost(): number {
-    // return (this.deliveryFee + this.carrinho.map(t => (t.price * t.quantity)).reduce((acc, value) => acc + value, 0));
-    return 0;
+    let totalCost = 0;
+    if (this.shop?.deliveryFee) totalCost += this.shop.deliveryFee;
+    this.carrinho$.subscribe(t => t.forEach(product => totalCost += (product.price * product.quantity)))
+    return totalCost;
   }
 
   getCardList(): void {
@@ -68,7 +70,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.carrinho = this.activeSessionService.sessionProducts;
+
     this.profileType = this.activeSessionService.credential?.type;
     this.fetchCarrinho();
 
@@ -84,103 +86,101 @@ export class CarrinhoComponent implements OnInit {
   }
 
   private fetchCarrinho() {
-    // this.activeSessionService.sessionProducts = [
-    //   {
-    //     "id": 1,
-    //     "barcode": 445950719443,
-    //     "name": "Abacate",
-    //     "category": "Hortifruti",
-    //     "quantity": 1,
-    //     "price": 5.83,
-    //     "imageUrl": "/assets/categorias/abacate.png",
-    //     "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-    //   },
-    //   {
-    //     "id": 2,
-    //     "barcode": 916267911254,
-    //     "name": "Coca-cola 2L",
-    //     "category": "Bebidas",
-    //     "quantity": 1,
-    //     "price": 8,
-    //     "imageUrl": "/assets/categorias/bebidas.png"
-    //   },
-    //   {
-    //     "id": 3,
-    //     "barcode": 491577261240,
-    //     "name": "Patinho Bov Moído Montana KG",
-    //     "category": "Carnes",
-    //     "quantity": 1,
-    //     "price": 35.9,
-    //     "imageUrl": "/assets/categorias/carnes.png"
-    //   },
-    //   {
-    //     "id": 4,
-    //     "barcode": 396956779889,
-    //     "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-    //     "category": "Biscoitos",
-    //     "quantity": 5,
-    //     "price": 2.89,
-    //     "imageUrl": "/assets/categorias/biscoitos.png"
-    //   },
-    //   {
-    //     "id": 5,
-    //     "barcode": 618646523025,
-    //     "name": "Café Arábica ORFEU Clássico 250g",
-    //     "category": "Café",
-    //     "quantity": 2,
-    //     "price": 10.00,
-    //     "imageUrl": "/assets/categorias/cafe.png",
-    //     "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-    //   },
-    //   {
-    //     "id": 6,
-    //     "barcode": 270910695198,
-    //     "name": "VAPZA Grão de Bico",
-    //     "category": "Enlatados",
-    //     "quantity": 4,
-    //     "price": 12.5,
-    //     "imageUrl": "/assets/categorias/enlatados.png"
-    //   },
-    //   {
-    //     "id": 3,
-    //     "barcode": 491577261240,
-    //     "name": "Patinho Bov Moído Montana KG",
-    //     "category": "Carnes",
-    //     "quantity": 1,
-    //     "price": 35.9,
-    //     "imageUrl": "/assets/categorias/carnes.png"
-    //   },
-    //   {
-    //     "id": 4,
-    //     "barcode": 396956779889,
-    //     "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-    //     "category": "Biscoitos",
-    //     "quantity": 5,
-    //     "price": 2.89,
-    //     "imageUrl": "/assets/categorias/biscoitos.png"
-    //   },
-    //   {
-    //     "id": 5,
-    //     "barcode": 618646523025,
-    //     "name": "Café Arábica ORFEU Clássico 250g",
-    //     "category": "Café",
-    //     "quantity": 2,
-    //     "price": 10.00,
-    //     "imageUrl": "/assets/categorias/cafe.png",
-    //     "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-    //   },
-    //   {
-    //     "id": 6,
-    //     "barcode": 270910695198,
-    //     "name": "VAPZA Grão de Bico",
-    //     "category": "Enlatados",
-    //     "quantity": 4,
-    //     "price": 12.5,
-    //     "imageUrl": "/assets/categorias/enlatados.png"
-    //   }
-    // ]
-
-
+    /*this.activeSessionService.sessionProducts = [
+      {
+        "id": 1,
+        "barcode": 445950719443,
+        "name": "Abacate",
+        "category": "Hortifruti",
+        "quantity": 1,
+        "price": 5.83,
+        "imageUrl": "/assets/categorias/abacate.png",
+        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
+      },
+      {
+        "id": 2,
+        "barcode": 916267911254,
+        "name": "Coca-cola 2L",
+        "category": "Bebidas",
+        "quantity": 1,
+        "price": 8,
+        "imageUrl": "/assets/categorias/bebidas.png"
+      },
+      {
+        "id": 3,
+        "barcode": 491577261240,
+        "name": "Patinho Bov Moído Montana KG",
+        "category": "Carnes",
+        "quantity": 1,
+        "price": 35.9,
+        "imageUrl": "/assets/categorias/carnes.png"
+      },
+      {
+        "id": 4,
+        "barcode": 396956779889,
+        "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
+        "category": "Biscoitos",
+        "quantity": 5,
+        "price": 2.89,
+        "imageUrl": "/assets/categorias/biscoitos.png"
+      },
+      {
+        "id": 5,
+        "barcode": 618646523025,
+        "name": "Café Arábica ORFEU Clássico 250g",
+        "category": "Café",
+        "quantity": 2,
+        "price": 10.00,
+        "imageUrl": "/assets/categorias/cafe.png",
+        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
+      },
+      {
+        "id": 6,
+        "barcode": 270910695198,
+        "name": "VAPZA Grão de Bico",
+        "category": "Enlatados",
+        "quantity": 4,
+        "price": 12.5,
+        "imageUrl": "/assets/categorias/enlatados.png"
+      },
+      {
+        "id": 3,
+        "barcode": 491577261240,
+        "name": "Patinho Bov Moído Montana KG",
+        "category": "Carnes",
+        "quantity": 1,
+        "price": 35.9,
+        "imageUrl": "/assets/categorias/carnes.png"
+      },
+      {
+        "id": 4,
+        "barcode": 396956779889,
+        "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
+        "category": "Biscoitos",
+        "quantity": 5,
+        "price": 2.89,
+        "imageUrl": "/assets/categorias/biscoitos.png"
+      },
+      {
+        "id": 5,
+        "barcode": 618646523025,
+        "name": "Café Arábica ORFEU Clássico 250g",
+        "category": "Café",
+        "quantity": 2,
+        "price": 10.00,
+        "imageUrl": "/assets/categorias/cafe.png",
+        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
+      },
+      {
+        "id": 6,
+        "barcode": 270910695198,
+        "name": "VAPZA Grão de Bico",
+        "category": "Enlatados",
+        "quantity": 4,
+        "price": 12.5,
+        "imageUrl": "/assets/categorias/enlatados.png"
+      }
+    ]*/
     this.carrinho$ = of(this.activeSessionService.sessionProducts)
   }
 
@@ -200,7 +200,7 @@ export class CarrinhoComponent implements OnInit {
      * Definir lat e long
      * Definir lat e long (To do)
      **/
-    if (this.carrinho.length > 0 && this.tipo_pagamento !== "") {
+    if (this.activeSessionService.sessionProducts.length > 0 && this.tipo_pagamento !== ""){
       const dataCompra = new Date();
       let dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
@@ -216,15 +216,13 @@ export class CarrinhoComponent implements OnInit {
 
       this.credentialCarrinhoService
       .submit({
-        products: this.carrinho,
+        products: this.activeSessionService.sessionProducts,
         customerId: this.activeSessionService.credential?.id,
         customerName: this.activeSessionService.credential?.name,
         shopId: this.shop?.id,
         shopName: this.shop?.name,
-        // shopId: 1,
-        // shopName: "Shop1",
         status: orderStatus,
-        deliveryFee: this.deliveryFee,
+        deliveryFee: this.shop?.deliveryFee,
         courierRejectedIds: emptyArray,
         paymentStatus: "NOT_PAID",
         paymentMethod: this.tipo_pagamento,
@@ -232,15 +230,16 @@ export class CarrinhoComponent implements OnInit {
         deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
         createdAt: dataCompra,
         updatedAt: dataCompra,
-        estimatedAt: dataEstimado,
-      } as Order)
-      .subscribe(
-        t => console.log(t)
-      );
+        estimatedAt: dataEstimado
+      } as Order).subscribe(
+        t => {
+          console.log(t)
+          this.activeSessionService.sessionProducts = [];
+          this.finishOrderDisabled = true;
+        }
 
-      this.carrinho = []
+      )
     }
-
   }
 
   goBack() {
@@ -271,15 +270,18 @@ export class CarrinhoComponent implements OnInit {
         {
           productName: product.name,
           productQuantity: product.quantity,
-          productImageUrl: product.imageUrl,
-          productPrice: product.price
-        }
+          productObservation: product.observation
+        },
     });
     dialogRef.backdropClick().subscribe(v => {
-      dialogRef.close(0);
+      dialogRef.close()
     });
-    dialogRef.afterClosed().subscribe(value => {
-        console.log(value)
+    dialogRef.afterClosed().subscribe(data => {
+        product.quantity = data.productQuantity;
+        product.observation = data.productObservation;
+        if (product.quantity == 0){
+          this.removeFromCart(product);
+        }
       }
     );
   }

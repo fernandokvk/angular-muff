@@ -22,11 +22,26 @@ a{
   margin-left: 18px;
 }
 
+.rate-wrapper{
+  display: flex;
+  padding: 8px;
+  //margin: 0px 72px;
+  justify-content: center;
+
+
+  &__button{
+    width: 128px;
+    border-radius: 18px;
+
+  }
+}
+
 .grid{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 4px;
+
   &__left-tile{
     padding: 4px;
     flex-grow: 1;
@@ -55,7 +70,7 @@ a{
   background: #ffffff;
 
   &__header{
-    margin: 5px;
+    margin: 8px;
     padding: 5px;
     &__title{
       font-size: 18px;
