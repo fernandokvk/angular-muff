@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 import {ProductService} from "../../../services/product.service";
 import {ConfirmCancelDialogComponent} from "../../orders/confirm-cancel-dialog/confirm-cancel-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {EmptyShoppingCartDialogComponent} from "../../empty-shopping-cart-dialog/empty-shopping-cart-dialog.component";
+import {EmptyShoppingCartDialogComponent} from "../empty-shopping-cart-dialog/empty-shopping-cart-dialog.component";
 
 @Component({
   selector: 'app-shop',

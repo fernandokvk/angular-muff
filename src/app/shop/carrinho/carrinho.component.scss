@@ -6,39 +6,100 @@ a {
 
 .schedule {
   margin: 10px;
-
-
   &__inputs-wrapper {
     display: flex;
     flex-direction: column;
+  }
+}
 
-    &__fields {
+.cart-scrollable-wrapper{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.scrollable-container{
+  width: auto;
+  height: 50vh;
+  overflow: hidden;
+  margin: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+
+  &__inner{
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+  }
+}
+
+.list-item-wrapper {
+
+  margin: 8px;
+  list-style-type: none;
+  //box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 4px;
+
+  &__trash-wrapper{
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &__button{
+      pointer-events: none;
 
     }
   }
 
+  &__info{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    &__price{
+    }
+
+  }
+
+  &__quantity{
+    pointer-events: none;
+  }
+
+  &__image{
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
 }
 
-.cart-container {
-  height: 50%;
-  overflow: auto;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  margin: 10px;
+.list-item{
+  :hover{
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+  :active{
+    background-color: rgba(239, 107, 101, 0.11);
+  }
 }
 
-table {
-  width: 100%;
-  text-align: center;
-}
 
-tr.mat-footer-row {
-  font-weight: bold;
-  text-align: right;
-}
 
-.mat-table-sticky {
-  border-top: 1px solid #e0e0e0;
-}
+
+
 
 .quantidade-container {
   width: 20%;
@@ -67,11 +128,6 @@ tr.mat-footer-row {
   height: 50px;
 }
 
-.imagem {
-  display: center;
-  width: 50px;
-  margin-right: 20px;
-}
 
 .title-wrapper {
   background: rgba(232, 232, 232, 0.5);

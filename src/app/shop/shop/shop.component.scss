@@ -82,6 +82,7 @@
     height: 64px;
     //outline: 1px solid blue;
     align-self: center;
+    //outline: solid 1px green;
 
     &__img{
 
@@ -89,14 +90,22 @@
   }
 }
 
-.product-name{
-  white-space: nowrap;
-  overflow: hidden;
+.product-name-wrapper{
+  height: 2em;
   text-overflow: ellipsis;
-  font-size: 12px;
-  max-width: 72ch;
+  overflow: clip;
+  white-space: pre-wrap;
+  margin-top: 12px;
+  line-height: 85%;
+  text-align: center;
+  margin-bottom: -2px;
+}
+
+
+
+.product-name{
   align-self: center;
-  margin: 0px 4px
+  font-size: 12px;
 }
 
 .product-price{

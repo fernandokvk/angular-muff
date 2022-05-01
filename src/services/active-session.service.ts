@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from 'src/models/product.model';
 import { Shop } from 'src/models/shop.model';
 import { Credential} from "../models/credential.model";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +18,8 @@ export class ActiveSessionService {
 
   constructor() { }
 
+  removeProduct(product: Product): Observable<Product[]> {
+    this.sessionProducts = this.sessionProducts.filter(p => p != product);
+    return of (this.sessionProducts);
+  }
 }
