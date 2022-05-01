@@ -4,6 +4,7 @@ import {Order} from "../../../models/order.model";
 import {OrdersService} from "../../../services/orders.service";
 import {ActiveSessionService} from "../../../services/active-session.service";
 import {DatePipe} from "@angular/common";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pending-orders-customer',
@@ -16,12 +17,14 @@ export class PendingOrdersCustomerComponent implements OnInit {
   scheduledOrders$!: Observable<Order[]>;
   scheduledOrdersSize: number = 0;
   finishedOrders$!: Observable<Order[]>
+  finishedOrdersSize: number = 0;
 
 
   constructor(
     private orderService: OrdersService,
     private activeSession: ActiveSessionService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router,
   ) {
   }
 
@@ -33,6 +36,7 @@ export class PendingOrdersCustomerComponent implements OnInit {
     this.scheduledOrders$.forEach(order => this.scheduledOrdersSize = order.length);
 
     this.finishedOrders$ = this.fetchFinishedOrders();
+    this.finishedOrders$.forEach(order => this.finishedOrdersSize = order.length);
 
 
   }
@@ -108,6 +112,8 @@ export class PendingOrdersCustomerComponent implements OnInit {
 
 
   rateOrder(order: Order) {
-
+    if(!order.rated){
+      this.router.navigateByUrl(`rate/${order?.id}`);
+    }
   }
 }

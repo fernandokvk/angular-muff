@@ -51,6 +51,7 @@ export class RateShopComponent implements OnInit {
       this.orderService.getOrder(Number(params.get('id'))).subscribe((order) => {
         //if(can_rateShop(order)){        
           this.order = order;
+          console.log(order.courier?.name)
           this.credentialShopService.getShopById(this.order.shopId).subscribe((shop) => {
             this.shop = shop;
           });

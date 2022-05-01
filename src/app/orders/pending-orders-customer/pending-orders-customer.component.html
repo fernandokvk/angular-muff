@@ -36,7 +36,7 @@
                     </div>
                     <div>
                       <span style="font-weight: bold">Valor: </span>
-                      R${{getOrderCost(order)}}
+                      {{getOrderCost(order)  | currency}}
                     </div>
                   </div>
                   <mat-divider vertical="true"></mat-divider>
@@ -98,7 +98,7 @@
                     </div>
                     <div>
                       <span style="font-weight: bold">Valor: </span>
-                      R${{getOrderCost(order)}}
+                      {{getOrderCost(order) | currency}}
                     </div>
                   </div>
                   <mat-divider vertical="true"></mat-divider>
@@ -129,12 +129,13 @@
     <mat-tab>
       <ng-template mat-tab-label>
         Finalizados
+        <div class="mat-tab-badge" matBadge="{{finishedOrdersSize}}" matBadgeColor="accent"></div>
       </ng-template>
       <div class="scrollable-container">
         <ul class="scrollable-container__inner">
-          <li *ngFor="let order of (finishedOrders$ | async)">
+          <li *ngFor="let order of (finishedOrders$ | async)" class="order-container">
             <a routerLink="/detail/{{order.id}}">
-              <div class="order-container">
+              <div >
                 <div class="order-container__header">
                   <span class="order-container__header__title">Pedido: {{order.id}}</span>
                 </div>
@@ -157,7 +158,7 @@
                     </div>
                     <div>
                       <span style="font-weight: bold">Valor: </span>
-                      R${{getOrderCost(order)}}
+                      {{getOrderCost(order) | currency}}
                     </div>
                   </div>
                   <mat-divider vertical="true"></mat-divider>
@@ -176,13 +177,13 @@
                   </div>
                 </div>
 
-                <mat-divider></mat-divider>
-                <div class="rate-wrapper">
-                  <button class="rate-wrapper__button" mat-raised-button color="accent" (click)="rateOrder(order)">Avaliar</button>
-                </div>
 
               </div>
             </a>
+            <mat-divider></mat-divider>
+            <div class="rate-wrapper">
+              <button class="rate-wrapper__button" mat-raised-button color="accent" (click)="rateOrder(order)">Avaliar</button>
+            </div>
           </li>
         </ul>
       </div>

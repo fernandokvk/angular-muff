@@ -58,7 +58,6 @@ export class NewProductComponent implements OnInit {
       quantity: fb.control('', [Validators.required,  Validators.pattern("^[0-9]*$")]),
       price: fb.control('', [Validators.required]),
       priceDiscount:fb.control(''),
-
     });
   }
 
@@ -77,7 +76,6 @@ export class NewProductComponent implements OnInit {
           quantity: Number(this.quantidade?.value),
           imageUrl: this.changeImage(),
           price: Number(this.preco?.value),
-          price_discount: Number(this.precoDesconto?.value),
           sold_units: 0,
         } as Product)
         .subscribe(
