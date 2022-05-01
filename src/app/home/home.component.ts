@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
       this.shopsService.getShopById(shopId).subscribe((shop) => {
         this.activeSessionService.sessionShop = shop;
       });  
-      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name === product.name)
+      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.id == product.id)
       if(index_product_cart < 0){
         product.quantity = 1;
         this.activeSessionService.sessionProducts.push(product);

@@ -70,7 +70,7 @@ export class ShopSearchComponent implements OnInit {
       this.shopService.getShopById(this.currentShop!.id).subscribe((shop) => {
         this.activeSession.sessionShop = shop;
       });
-      let index_product_cart = this.activeSession.sessionProducts.findIndex(p => p.name === product.name)
+      let index_product_cart = this.activeSession.sessionProducts.findIndex(p => p.id == product.id)
       if(index_product_cart < 0){
         product.quantity = 1;
         this.activeSession.sessionProducts.push(product);
