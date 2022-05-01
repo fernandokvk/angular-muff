@@ -1,0 +1,90 @@
+a {
+    text-decoration: none !important;
+    color: black;
+  }
+  
+  .title-wrapper{
+    background: rgba(232, 232, 232, 0.5);
+    display: flex;
+    flex: 1 1 auto;
+  
+  }
+  
+  .carousel{
+    align-items: center;
+    background: rgba(232, 232, 232, 0.5);
+  }
+  
+  .title{
+    margin: auto;
+    font-family: Roboto;
+    font-size: 20px;
+  }
+  
+  .main{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+  
+  .carousel-cell{
+    align-items: center;
+    flex: 1 1 auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+  
+  .botao-comprar{
+    border-radius: 16px;
+    background-color: forestgreen;
+    color: whitesmoke;
+  }
+  
+  .botao-comparar{
+    border-radius: 16px;
+    margin-right: 10px;
+    background-color: accent;
+    color: whitesmoke;
+  }
+  
+  .image-item{
+    margin: 10px;
+    height: 60px;
+  }
+  
+  .product-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+  
+  .search-wrapper{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 6px;
+  
+    &__field{
+      margin: (0px 4px -18px);
+      flex: 1 1 auto;
+    }
+  }
+  
+  .wrapper{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 6px;
+  }
+  
+  .discount{
+    text-decoration: line-through;
+  }
+  
+  .price{
+    text-decoration: None;
+  }
+  

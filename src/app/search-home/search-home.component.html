@@ -1,0 +1,45 @@
+<div class="search-wrapper">
+  <mat-form-field class="search-wrapper__field" appearance="outline">
+    <mat-label>Pesquisar</mat-label>
+    <input #searchBox matInput placeholder="Pesquisar..." (input)="search(searchBox.value)">
+    <mat-icon matSuffix (click)="getSearchProducts()">search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div *ngFor="let shop of search_products | keyvalue" class="wrapper">
+    <mat-list class="wrapper">
+      <mat-list-item>
+        <img src="{{shop.key.image}}" matListAvatar alt="">
+        <div matLine>
+          <span style="font-weight: bold">Loja:</span>
+          {{shop.key.name}}
+        </div>
+        <div matLine>
+          <span style="font-weight: bold">Endereço:</span>
+          {{shop.key.location.address}}
+        </div>
+        <div matLine>{{getStars(shop.key)}}</div>
+      </mat-list-item>
+    </mat-list>
+    <carousel class="carousel" [autoplay]="true" [height]="170" [cellWidth]="150" [autoplayInterval]="5000">
+      <div class="carousel-cell" *ngFor="let product of shop.value">
+        <div>
+          <div class="image-item">
+            <img src="{{product.imageUrl}}">
+          </div>        
+          <div align="center">
+            <div style="font-weight: bold" >
+              <div matTooltip={{product.name}} matTooltipPosition="below" class="product-name">{{product.name}}</div>
+              <span class={{getStyle(product)}}>{{product.price | currency}}</span> {{product.price_discount | currency}}
+            </div>
+            <button (click)="compareProduct(product)" class="botao-comparar" mat-raised-button color="accent">
+              <mat-icon>compare_arrows</mat-icon>
+            </button>
+            <button (click)="addCart(shop.key.id,product)" class="botao-comprar" mat-raised-button>
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </carousel>
+  </div>

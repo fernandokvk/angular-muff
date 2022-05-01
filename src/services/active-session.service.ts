@@ -17,4 +17,8 @@ export class ActiveSessionService {
 
   constructor() { }
 
+  updateCartProduct(index: number){
+    this.sessionProducts[index].quantity += 1;
+  }
+
 }

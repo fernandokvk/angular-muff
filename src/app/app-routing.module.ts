@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'produtos', component: NewProductComponent},
   {path: 'avaliacao/:id', component: RateShopComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'shop/:id', component: ShopComponent}
+  {path: 'shop/:id', component: ShopComponent},
 
 ];
 

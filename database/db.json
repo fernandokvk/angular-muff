@@ -146,8 +146,8 @@
           "name": "Lixo",
           "barcode": "13123123123",
           "category": "biscoitos",
-          "quantity": "233",
-          "price": "50",
+          "quantity": 233,
+          "price": 50,
           "imageUrl": "assets/products/product-icon.png",
           "id": 20
         },
@@ -155,36 +155,36 @@
           "name": "Queijo",
           "barcode": "412421341234",
           "category": "frios-laticínios",
-          "quantity": "5",
+          "quantity": 5,
           "imageUrl": "assets/categorias/laticinios.png",
-          "price": "8,50",
+          "price": 8.50,
           "id": 21
         },
         {
           "name": "Queijo",
           "barcode": "412421341234",
           "category": "frios-laticínios",
-          "quantity": "50",
+          "quantity": 50,
           "imageUrl": "assets/categorias/laticinios.png",
-          "price": "8,50",
+          "price": 8.50,
           "id": 22
         },
         {
           "name": "Bomba",
           "barcode": "21312312321",
           "category": "bazar",
-          "quantity": "233",
+          "quantity": 233,
           "imageUrl": "assets/categorias/bazar.png",
-          "price": "12",
+          "price": 12,
           "id": 23
         },
         {
           "name": "Lixo",
           "barcode": "32312312",
           "category": "carnes",
-          "quantity": "50",
+          "quantity": 50,
           "imageUrl": "assets/categorias/carnes.png",
-          "price": "28,00",
+          "price": 28.00,
           "id": 24
         }
       ],

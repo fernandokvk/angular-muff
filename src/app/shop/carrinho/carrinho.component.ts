@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { Payment } from 'src/models/payment.model';
 import { MatDialog } from '@angular/material/dialog';
 import { CartaoSelectedDialogComponent } from '../cartao-selected-dialog/cartao-selected-dialog.component';
+import { Product } from 'src/models/product.model';
 
 @Component({
   selector: 'app-carrinho',
@@ -28,7 +29,7 @@ export class CarrinhoComponent implements OnInit {
   scheduleDay: any;
   scheduleTime: any;
 
-  carrinho = this.activeSessionService.sessionProducts;
+  carrinho: Product[] = [];
 
   constructor(
     private activeSessionService: ActiveSessionService,
@@ -58,6 +59,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.carrinho = this.activeSessionService.sessionProducts;
     this.profileType = this.activeSessionService.credential?.type;
 
     if(this.activeSessionService.credential != null) {
@@ -69,16 +71,6 @@ export class CarrinhoComponent implements OnInit {
     }else{
       this.temShop = true;
     }
-
-    this.activeSessionService.sessionProducts = [{
-      "id": 1,
-      "barcode": 445950719443,
-      "name": "Abacate",
-      "category": "Hortifruti",
-      "quantity": 8,
-      "price": 5.83,
-      "imageUrl": "/assets/categorias/abacate.png"
-    }]
   }
 
   private scheduleHandler(): Date{
@@ -116,10 +108,10 @@ export class CarrinhoComponent implements OnInit {
         products: this.carrinho,
         customerId: this.activeSessionService.credential?.id,
         customerName: this.activeSessionService.credential?.name,
-        // shopId: this.shop?.id,
-        // shopName: this.shop?.name,
-        shopId: 1,
-        shopName: "Shop1",
+        shopId: this.shop?.id,
+        shopName: this.shop?.name,
+        // shopId: 1,
+        // shopName: "Shop1",
         status: orderStatus,
         deliveryFee: this.deliveryFee,
         courierRejectedIds: emptyArray,
