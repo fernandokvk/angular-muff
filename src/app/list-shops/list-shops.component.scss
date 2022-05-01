@@ -17,10 +17,14 @@
     margin-left: 8px;
   }
 
-  &__img{
-    height: 64px;
-    margin-right: 8px;
-    margin-top: 8px
+  &__img-wrapper{
+    align-self: center;
+    &__img{
+      height: 64px;
+      margin-right: 8px;
+      margin-top: 8px
+    }
+
   }
 
   &__small {
@@ -37,7 +41,7 @@
 
 .scrollable-container{
   width: auto;
-  height: 80vh;
+  height: 48vh;
   overflow: hidden;
   margin: 8px 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -49,6 +53,5 @@
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
-
   }
 }

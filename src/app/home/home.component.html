@@ -35,11 +35,11 @@
 
     <div *ngIf="view_home" class="main" >
       <div class="title-wrapper">
-        <h2 class="title"> Promoções </h2>
+        <h2 class="title">Promoções</h2>
       </div>
 
-      <div>
 
+      <div class="carousel-wrapper">
         <carousel class="carousel" [autoplay]="true" [height]="170" [cellWidth]="150" [autoplayInterval]="5000">
           <div class="carousel-cell" *ngFor="let product of products_discount">
             <div>
@@ -66,8 +66,9 @@
 
 
 
+
       <div class="title-wrapper">
-        <h2 class="title"> Estabelecimentos </h2>
+        <h2 class="title">Estabelecimentos</h2>
       </div>
 
       <div>

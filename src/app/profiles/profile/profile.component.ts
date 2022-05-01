@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
     // @ts-ignore
     // this.activeSession.credential = {id: 15, courierId: 1, type: "COURIER"};
     // this.activeSession.credential = {id: 1, type: "CUSTOMER"};
-    this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
+    // this.activeSession.credential = {id: 15, shopId: 1, type: "SHOP"};
   }
 
   goBack() {

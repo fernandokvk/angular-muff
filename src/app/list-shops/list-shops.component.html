@@ -4,6 +4,7 @@
       <li class="list-wrapper" *ngFor="let shop of shops$ | async" (click)="goToShop(shop)">
 
         <div class="header">
+
           <div class="header__info">
             <div style="font-size: 18px">{{shop.name}}</div>
             <div>
@@ -21,9 +22,10 @@
               </ng-template>
             </div>
           </div>
+
           <mat-divider vertical="true" class="header__divider"></mat-divider>
-          <div>
-            <img class="header__img" src="{{shop.image}}">
+          <div class="header__img-wrapper">
+            <img class="header__img-wrapper__img" src="{{shop.image}}">
           </div>
         </div>
 
