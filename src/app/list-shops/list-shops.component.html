@@ -2,7 +2,7 @@
 
 <mat-action-list>
 
-  <mat-list-item *ngFor="let shop of shops" class={{getSelectedClass(shop)}} (click)="actionShopService(shop)">
+  <mat-list-item *ngFor="let shop of shops" (click)="goToShop(shop)">
     <img src="{{shop.image}}" matListAvatar alt="">
     <div matLine>
       <span style="font-weight: bold">Loja:</span>
@@ -16,9 +16,5 @@
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-action-list>
-
-<div class="print_escolha">
-  <span style="font-weight: bold">Loja atual: </span>{{shop_selected}}
-</div>
 
 

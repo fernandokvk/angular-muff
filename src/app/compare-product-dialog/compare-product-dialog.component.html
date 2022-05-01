@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Comparador de preços</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+        <div class="product-container" *ngIf="data">
+            <div>
+            <img class="product-container__logo" src="{{data.imageUrl}}" alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+            </div>
+            <div>
+            <span style="font-weight: bold">Nome: </span> {{data.name}}
+            <div>
+                <span style="font-weight: bold">Categoria: </span> {{data.category}}
+            </div>
+            <div>
+                <span style="font-weight: bold">Preço: </span> {{data.price | currency}}
+            </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    <mat-action-list>
+        <mat-list-item *ngFor="let shop of shops">
+            <img src="{{shop.image}}" matListAvatar alt="">
+            <div matLine>
+            <span style="font-weight: bold">Preço: </span>
+            {{getProductValue(shop) | currency}}
+            </div>
+            <div matLine>
+            <span style="font-weight: bold">Loja:</span>
+            {{shop.name}}
+            </div>
+            <div matLine>
+            <span style="font-weight: bold"></span>
+            {{getStars(shop)}}
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-action-list>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-button class="botao" color="accent" (click)="close_dialog()">Fechar</button>
+</div>

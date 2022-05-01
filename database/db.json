@@ -269,6 +269,7 @@
           "category": "Hortifruti",
           "quantity": 8,
           "price": 5.83,
+          "price_discount": 4.83,
           "imageUrl": "/assets/categorias/abacate.png"
         },
         {
@@ -278,22 +279,55 @@
           "category": "Bebidas",
           "quantity": 16,
           "price": 8,
+          "price_discount": 6,
           "imageUrl": "/assets/categorias/bebidas.png"
+        },
+        {
+          "id": 3,
+          "barcode": 491577261240,
+          "name": "Patinho Bov Moído Montana KG",
+          "category": "Carnes",
+          "quantity": 7,
+          "price": 35.9,
+          "imageUrl": "/assets/categorias/carnes.png"
+        },
+        {
+          "id": 4,
+          "barcode": 396956779889,
+          "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
+          "category": "Biscoitos",
+          "quantity": 9,
+          "price": 2.89,
+          "imageUrl": "/assets/categorias/biscoitos.png"
+        },
+        {
+          "id": 5,
+          "barcode": 618646523025,
+          "name": "Café Arábica ORFEU Clássico 250g",
+          "category": "Café",
+          "quantity": 8,
+          "price": 17.89,
+          "imageUrl": "/assets/categorias/cafe.png"
+        },
+        {
+          "id": 6,
+          "barcode": 270910695198,
+          "name": "VAPZA Grão de Bico",
+          "category": "Enlatados",
+          "quantity": 18,
+          "price": 12.5,
+          "imageUrl": "/assets/categorias/enlatados.png"
+        },
+        {
+          "id": 7,
+          "barcode": 681140707729,
+          "name": "Bola BESTWAY Color 51cm",
+          "category": "Esportes",
+          "quantity": 12,
+          "price": 45,
+          "imageUrl": "/assets/categorias/esportes.png"
         }
       ]
-    },
-    {
-      "name": "Loja da Maria do bairro",
-      "cep": "5552525252",
-      "cnpj": "030303061",
-      "location": {
-        "address": "Bairro da Maria",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 3,
-      "image": "assets/shops/shop-5.png",
-      "rating": 3
     },
     {
       "name": "Bar do João",
@@ -314,20 +348,33 @@
       "cnpj": "2412352137355",
       "products": [
         {
-          "name": "Queijo",
+          "name": "Queijoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "barcode": "2412352137355",
           "category": "three",
-          "quantity": "5",
-          "price": "8,50",
-          "id": 14
+          "quantity": 5,
+          "price": 8.50,
+          "price_discount": 5.5,
+          "id": 14,
+          "imageUrl": "/assets/categorias/bebidas.png"
+        },
+        {
+          "name": "Torta Alemã",
+          "barcode": "555555555555555555",
+          "category": "four",
+          "quantity": 9,
+          "price": 50,
+          "id": 16,
+          "imageUrl": "/assets/categorias/bebidas.png"
         },
         {
           "name": "Pinga",
           "barcode": "87028815",
           "category": "one",
-          "quantity": "12",
-          "price": "15,00",
-          "id": 15
+          "quantity": 12,
+          "price": 15.00,
+          "price_discount": 14.99,
+          "id": 15,
+          "imageUrl": "/assets/categorias/bebidas.png"
         }
       ],
       "location": {
@@ -522,7 +569,7 @@
       "barcode": "213514236512653",
       "category": "seven",
       "quantity": "23",
-      "price": "21",
+      "price": 21,
       "id": 13
     },
     {
@@ -530,7 +577,7 @@
       "barcode": "2412352137355",
       "category": "three",
       "quantity": "5",
-      "price": "8,50",
+      "price": 8.50,
       "id": 14
     },
     {
@@ -538,7 +585,8 @@
       "barcode": "87028815",
       "category": "one",
       "quantity": "12",
-      "price": "15,00",
+      "price": 15.00,
+
       "id": 15
     },
     {
@@ -546,7 +594,7 @@
       "barcode": "2309482309423890",
       "category": "biscoitos",
       "quantity": "1",
-      "price": "15.50",
+      "price": 15.50,
       "id": 16
     },
     {
@@ -554,7 +602,7 @@
       "barcode": "1234234",
       "category": "bebidas",
       "quantity": "123",
-      "price": "14324",
+      "price": 14324,
       "id": 17
     },
     {
@@ -562,7 +610,7 @@
       "barcode": "2390482390",
       "category": "bomboniere",
       "quantity": "123",
-      "price": "123.45",
+      "price": 123.45,
       "id": 18
     },
     {
@@ -570,7 +618,7 @@
       "barcode": "231242423",
       "category": "bomboniere",
       "quantity": "213",
-      "price": "23",
+      "price": 23,
       "id": 19
     },
     {
@@ -579,7 +627,7 @@
       "category": "biscoitos",
       "quantity": "233",
       "price": "50",
-      "imageUrl": "assets/products/product-icon.png",
+      "imageUrl": "assets/categorias/laticinios.png",
       "id": 20
     },
     {
@@ -588,7 +636,7 @@
       "category": "frios-laticínios",
       "quantity": "5",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": "8,50",
+      "price": 8.50,
       "id": 21
     },
     {
@@ -597,7 +645,7 @@
       "category": "frios-laticínios",
       "quantity": "50",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": "8,50",
+      "price": 8.50,
       "id": 22
     },
     {
@@ -615,7 +663,7 @@
       "category": "carnes",
       "quantity": "50",
       "imageUrl": "assets/categorias/carnes.png",
-      "price": "28,00",
+      "price": 28.00,
       "id": 24
     }
   ],

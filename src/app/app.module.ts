@@ -32,7 +32,6 @@ import { NewProductComponent } from './new-users/new-product/new-product.compone
 import { CarrinhoComponent } from './shop/carrinho/carrinho.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatRadioModule} from '@angular/material/radio';
-import { ShopSelectedDialogComponent } from './list-shops/shop-selected-dialog/shop-selected-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListShopsComponent } from './list-shops/list-shops.component'
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
@@ -51,6 +50,7 @@ import { ConfirmCancelDialogComponent } from './orders/confirm-cancel-dialog/con
 import { PendingOrdersCourierComponent } from './orders/pending-orders-courier/pending-orders-courier.component';
 import { ProfileComponent } from './profiles/profile/profile.component';
 import { CustomerProfileComponent } from './profiles/customer-profile/customer-profile.component';
+import { CompareProductDialogComponent } from './compare-product-dialog/compare-product-dialog.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatBadgeModule} from "@angular/material/badge";
 import { PendingOrdersCustomerComponent } from './orders/pending-orders-customer/pending-orders-customer.component';
@@ -59,6 +59,10 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatTimepickerModule} from "mat-timepicker";
 import { ShopComponent } from './shop/shop/shop.component';
 import { ReportComponent } from './profiles/report/report.component';
+import { ShopSearchComponent } from './shop/shop-search/shop-search.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { EmptyShoppingCartDialogComponent } from './empty-shopping-cart-dialog/empty-shopping-cart-dialog.component';
+
 
 
 
@@ -75,7 +79,6 @@ registerLocaleData(localePt, 'pt');
     NewShopComponent,
     NewProductComponent,
     CarrinhoComponent,
-    ShopSelectedDialogComponent,
     ListShopsComponent,
     MyOrdersComponent,
     OrderTrackingComponent,
@@ -90,9 +93,13 @@ registerLocaleData(localePt, 'pt');
     PendingOrdersCourierComponent,
     ProfileComponent,
     CustomerProfileComponent,
+    CompareProductDialogComponent,
     PendingOrdersCustomerComponent,
     ShopComponent,
     ReportComponent,
+    ShopSearchComponent,
+    EmptyShoppingCartDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -121,12 +128,14 @@ registerLocaleData(localePt, 'pt');
     MatProgressBarModule,
     MatOptionModule,
     MatSelectModule,
+    MatTooltipModule,
     MatTabsModule,
     MatBadgeModule,
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

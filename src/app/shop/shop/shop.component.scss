@@ -13,25 +13,93 @@
   margin: 8px;
   display: flex;
   flex-direction: row;
-  //outline: 1px solid red;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
   border-radius: 6px;
   padding: 4px;
-
 
   &__divider{
     margin: 8px 12px;
   }
 
-  &__name{
+  &__info{
     flex: 1 1 auto;
     align-self: center;
+    margin-left: 8px;
   }
 
   &__img{
-    height: 48px;
+    height: 64px;
     margin-right: 8px;
-
+    margin-top: 8px
   }
 
+  &__small {
+    font-weight: bold;
+    font-size: 12px;
+
+    &__free {
+      color: #4e944f;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.carousel-wrapper{
+  margin: 8px;
+}
+
+.carousel{
+  border-radius: 12px;
+  //border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.carousel-cell{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+
+  &__button-row{
+    display: flex;
+    flex-direction: row;
+    //outline: solid 1px blue;
+    justify-content: space-between;
+  }
+
+  &__button{
+    //outline: 1px solid red;
+    //transform: scale(0.8);
+  }
+
+  &__img-wrapper{
+    width: 64px;
+    height: 64px;
+    //outline: 1px solid blue;
+    align-self: center;
+
+    &__img{
+
+    }
+  }
+}
+
+.product-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  max-width: 72ch;
+  align-self: center;
+  margin: 0px 4px
+}
+
+.product-price{
+  font-weight: bold;
+  align-self: center;
 }

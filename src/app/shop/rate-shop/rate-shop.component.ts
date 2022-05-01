@@ -39,6 +39,7 @@ export class RateShopComponent implements OnInit {
     this.newCommentForm = fb.group({
       comment: ''
     });
+    
   }
 
   can_rateShop(order: Order){
@@ -48,7 +49,7 @@ export class RateShopComponent implements OnInit {
   getOrder(){
     this.Activatedroute.paramMap.subscribe(params => {
       this.orderService.getOrder(Number(params.get('id'))).subscribe((order) => {
-        //if(can_rateShop(order)){
+        //if(can_rateShop(order)){        
           this.order = order;
           this.credentialShopService.getShopById(this.order.shopId).subscribe((shop) => {
             this.shop = shop;

@@ -38,22 +38,25 @@
 
       <div>
 
-        <carousel class="carousel" autoplay="true" height="120" autoplayInterval="5000">
-          <div class="carousel-cell">
-            <img src="assets/categorias/abacate.png">
-
-          </div>
-          <div class="carousel-cell">
-            <img src="assets/categorias/carnes.png">
-          </div>
-          <div class="carousel-cell">
-            <img src="assets/categorias/abacate.png">
-          </div>
-          <div class="carousel-cell">
-            <img src="assets/categorias/bebidas.png">
-          </div>
-          <div class="carousel-cell">
-            <img src="assets/categorias/padaria.png">
+        <carousel class="carousel" [autoplay]="true" [height]="170" [cellWidth]="150" [autoplayInterval]="5000">
+          <div class="carousel-cell" *ngFor="let product of products">
+            <div>
+              <div class="image-item">
+                <img src="{{product[0].imageUrl}}">
+              </div>        
+              <div align="center">
+                <div style="font-weight: bold" >
+                  <div matTooltip={{product[0].name}} matTooltipPosition="below" class="product-name">{{product[0].name}}</div>
+                  <span style="text-decoration: line-through">{{product[0].price | currency}}</span> {{product[0].price_discount | currency}}
+                </div>
+                <button (click)="compareProduct(product[0])" class="botao-comparar" mat-raised-button color="accent">
+                  <mat-icon>compare_arrows</mat-icon>
+                </button>
+                <button (click)="addCart(product[1],product[0])" class="botao-comprar" mat-raised-button>
+                  <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+              </div>
+            </div>
           </div>
         </carousel>
       </div>
@@ -63,8 +66,6 @@
       </div>
 
       <div>
-        <!-- <button (click)="addProduct()" class="botao__entrar"mat-raised-button color="accent">Entrar</button> -->
-
         <mat-grid-list class="grid" cols="4" rowHeight="2:1" gutterSize="5px">
           <mat-grid-tile class="tile">
             <a href="/home" class="categoria">

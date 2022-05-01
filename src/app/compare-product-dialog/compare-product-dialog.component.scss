@@ -1,4 +1,27 @@
-.botao{
+mat-action-list{
+  overflow: auto !important;
+  height: 250px;
+}
+
+.titulo-container {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+  
+    &__logo {
+      height: 4em;
+      margin: 0px 5px;
+    }
+  }
+
+  .botao{
     flex: 1;
     font-size: 16px;
     padding: 2px;
@@ -22,4 +45,9 @@
 
 h1{
   text-align: center;
+}
+
+.wrappers {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
 }

@@ -26,22 +26,6 @@ export class ListShopsComponent implements OnInit {
     }
   }
 
-  actionShopService(shop: Shop): void {
-    this.shop_selected = shop.name;
-    this.activeSessionService.sessionShop = shop;
-    // routerLink="/detail/{{order.id}}
-    this.router.navigateByUrl(`shop/${shop.id}`)
-  }
-
-  getSelectedClass(shop: Shop): string {
-    const isValid = this.activeSessionService.sessionShop == shop;
-    if(isValid) {
-      return "selected"
-    }else{
-      return "not-selected"
-    }
-  }
-
   getStars(shop: Shop) {
     let rating = "";
     for (let i = 0; i < Math.ceil(shop.rating); i++) {
@@ -51,4 +35,7 @@ export class ListShopsComponent implements OnInit {
 
   }
 
+  goToShop(shop: Shop) {
+    this.router.navigateByUrl(`shop/${shop.id}`)
+  }
 }
