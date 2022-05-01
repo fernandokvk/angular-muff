@@ -3,6 +3,74 @@ a {
   text-decoration: none !important;
 }
 
+.banner-wrapper{
+  display: flex;
+  height: 80px;
+  width: 100vw;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  &__img{
+    flex: 1 1 auto;
+    object-fit: cover;
+  }
+}
+
+.header{
+  margin: 8px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  border-radius: 6px;
+  padding: 4px;
+
+  &__divider{
+    margin: 8px 12px;
+  }
+
+  &__info{
+    flex: 1 1 auto;
+    align-self: center;
+    margin-left: 8px;
+  }
+
+  &__img{
+    height: 64px;
+    margin-right: 8px;
+    margin-top: 8px
+  }
+
+  &__small {
+    font-weight: bold;
+    font-size: 12px;
+
+    &__free {
+      color: #4e944f;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.button-groups{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+
+  &__wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 8px 16px;
+
+    &__btn{
+      flex: 1 1 auto;
+      border-radius: 12px;
+      align-items: center;
+    }
+  }
+}
+
 .formulario {
   padding: 20px;
   border-radius: 4px;
@@ -76,14 +144,9 @@ a {
 }
 
 .botao {
-
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
-.botao-wrapper{
-  display:flex;
-  flex: 1;
-  margin-top: 30px;
 
-}

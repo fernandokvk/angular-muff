@@ -1,3 +1,9 @@
+
+.search-box{
+  margin: 12px;
+  border-radius: 12px;
+}
+
 a {
   text-decoration: none !important;
   color: black;
@@ -9,15 +15,20 @@ a {
 }
 
 .title-wrapper{
-  background: rgba(232, 232, 232, 0.5);
+  margin: 4px 12px;
   display: flex;
   flex: 1 1 auto;
+}
 
+.carousel-wrapper{
+  margin: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 2px;
 }
 
 .carousel{
   align-items: center;
-  background: rgba(232, 232, 232, 0.5);
 }
 
 .title{
@@ -32,9 +43,6 @@ a {
   flex-direction: column;
 }
 
-.grid{
-  background: rgba(232, 232, 232, 0.5);
-}
 
 .divider{
 
@@ -74,7 +82,6 @@ a {
 .botao-comparar{
   border-radius: 16px;
   margin-right: 10px;
-  background-color: accent;
   color: whitesmoke;
 }
 
@@ -134,3 +141,5 @@ a {
 .price{
   text-decoration: None;
 }
+
+

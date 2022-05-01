@@ -3,6 +3,7 @@ import { Shop } from 'src/models/shop.model';
 import { CredentialShopService } from 'src/services/credential-shop.service';
 import { ActiveSessionService } from 'src/services/active-session.service';
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-list-shops',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./list-shops.component.scss']
 })
 export class ListShopsComponent implements OnInit {
-  shops: Shop[] = [];
+  shops$!: Observable<Shop[]>;
   shop_selected: string = "";
 
   constructor(
@@ -20,10 +21,8 @@ export class ListShopsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.shopsService.getAllShops().subscribe(shops => this.shops = shops);
-    if(this.activeSessionService.sessionShop != null){
-      this.shop_selected = this.activeSessionService.sessionShop.name;
-    }
+    this.shops$ = this.shopsService.getAllShops()
+
   }
 
   getStars(shop: Shop) {

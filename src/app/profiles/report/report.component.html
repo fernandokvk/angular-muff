@@ -28,15 +28,45 @@
     </mat-toolbar>
 
     <div>
+
+
+      <div *ngIf="shop">
+        <div class="banner-wrapper">
+          <img class="banner-wrapper__img" src="assets/banner.png">
+        </div>
+
+        <div class="header">
+          <div class="header__info">
+            <div style="font-size: 18px">{{shop.name}}</div>
+            <div>
+              <span class="header__small"> {{shop.rating.toFixed(2)}} </span>
+              <span style="font-size: 12px">{{getStars(shop)}}</span>
+            </div>
+            <div>
+              <span class="header__small">Tempo de entrega: </span> {{shop.estimatedDeliveryTime}}min
+            </div>
+            <div>
+              <span class="header__small">Taxa de entrega: </span>
+              <span *ngIf="!shop.deliveryFee || shop.deliveryFee == 0;else deliveryFee" class="header__small__free">Grátis</span>
+              <ng-template #deliveryFee>
+                {{shop.deliveryFee | currency}}
+              </ng-template>
+            </div>
+          </div>
+          <mat-divider vertical="true" class="header__divider"></mat-divider>
+          <div>
+            <img class="header__img" src="{{shop.image}}">
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <form class="new-user-form">
-        <mat-card>
-          <mat-card-header>
-            <img src='{{shop.image}}' mat-card-avatar alt="">
-            <mat-card-title>{{shop.name}}</mat-card-title>
-            <mat-card-subtitle>{{shop.location.address}}</mat-card-subtitle>
-            <mat-card-content>{{getStars(shop)}}</mat-card-content>
-          </mat-card-header>
-        </mat-card>
+
+
 
         <table *ngIf="tabela.length == shop.products.length"  mat-table [dataSource]="tabela" class="mat-elevation-z8 product-table">
           <ng-container matColumnDef="nome">
@@ -51,14 +81,17 @@
 
           <ng-container matColumnDef="valor">
             <th mat-header-cell *matHeaderCellDef> Valor Vendido</th>
-            <td mat-cell *matCellDef="let element">{{element.valor}}</td>
+            <td mat-cell *matCellDef="let element">{{element.valor | currency}}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
         </table>
 
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 
 

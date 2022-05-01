@@ -1,16 +1,57 @@
-mat-action-list{
-    overflow: auto !important;
-    height: 250px;
-}
-.selected{
-    background: rgba(194, 194, 194, 0.5) !important;
+
+.header{
+  margin: 8px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  border-radius: 6px;
+  padding: 4px;
+
+  &__divider{
+    margin: 8px 12px;
+  }
+
+  &__info{
+    flex: 1 1 auto;
+    align-self: center;
+    margin-left: 8px;
+  }
+
+  &__img-wrapper{
+    align-self: center;
+    &__img{
+      height: 64px;
+      margin-right: 8px;
+      margin-top: 8px
+    }
+
+  }
+
+  &__small {
+    font-weight: bold;
+    font-size: 12px;
+
+    &__free {
+      color: #4e944f;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
 }
 
-.not-selected{
-    background: rgba(255, 255, 255, 0.5) !important;
-}
+.scrollable-container{
+  width: auto;
+  height: 48vh;
+  overflow: hidden;
+  margin: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  //box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-.print_escolha{
-    margin: 10px;
-    font-size: 16px;
+  &__inner{
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+  }
 }

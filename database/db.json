@@ -165,7 +165,7 @@
           "price": 50,
           "imageUrl": "assets/products/product-icon.png",
           "id": 20,
-          "price_discount": 25.00,
+          "price_discount": 25,
           "sold_units": 100
         },
         {
@@ -187,7 +187,7 @@
           "imageUrl": "assets/categorias/laticinios.png",
           "price": 8.5,
           "id": 22,
-          "price_discount": 10.00,
+          "price_discount": 10,
           "sold_units": 3
         },
         {
@@ -198,7 +198,7 @@
           "imageUrl": "assets/categorias/bazar.png",
           "price": 12,
           "id": 23,
-          "price_discount": 3.00
+          "price_discount": 3
         },
         {
           "name": "Lixo",
@@ -245,7 +245,6 @@
           "price": 4.29,
           "imageUrl": "assets/categorias/bomboniere.png",
           "sold_units": 4
-
         },
         {
           "id": 12,
@@ -263,10 +262,8 @@
           "quantity": "20",
           "price": "10",
           "id": 25,
-
           "imageUrl": "assets/categorias/bomboniere.png",
-          "price_discount": 2.30
-
+          "price_discount": 2.3
         }
       ],
       "image": "assets/shops/shop-5.png",
@@ -379,85 +376,6 @@
       "id": 5,
       "image": "assets/shops/shop-5.png",
       "rating": 3.7
-    },
-    {
-      "name": "Mercado",
-      "zipCode": "321321412",
-      "cnpj": "2412352137355",
-      "products": [
-        {
-          "name": "Queijoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-          "barcode": "2412352137355",
-          "category": "three",
-          "quantity": 5,
-          "price": 8.5,
-          "price_discount": 5.5,
-          "id": 14,
-          "imageUrl": "/assets/categorias/bebidas.png"
-        },
-        {
-          "name": "Torta Alemã",
-          "barcode": "555555555555555555",
-          "category": "four",
-          "quantity": 9,
-          "price": 50,
-          "id": 16,
-          "imageUrl": "/assets/categorias/bebidas.png"
-        },
-        {
-          "name": "Pinga",
-          "barcode": "87028815",
-          "category": "one",
-          "quantity": 12,
-          "price": 15,
-          "price_discount": 14.99,
-          "id": 15,
-          "imageUrl": "/assets/categorias/bebidas.png"
-        }
-      ],
-      "location": {
-        "address": "rua asd",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 6
-    },
-    {
-      "name": "Lojinha",
-      "zipCode": "234234",
-      "cnpj": "238904235",
-      "products": [],
-      "location": {
-        "address": "Rua da Lojinha",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 7
-    },
-    {
-      "name": "Lojinha2",
-      "zipCode": "12342345",
-      "cnpj": "23148907",
-      "products": [],
-      "location": {
-        "address": "1329487",
-        "lat": 0,
-        "long": 5
-      },
-      "id": 8
-    },
-    {
-      "name": "lojinha3",
-      "zipCode": "123",
-      "cnpj": "3423423",
-      "products": [],
-      "location": {
-        "address": "12312",
-        "lat": 0,
-        "long": 5
-      },
-      "image": "assets/shops/shop-1.png",
-      "id": 9
     }
   ],
   "courier": [
@@ -1440,6 +1358,57 @@
       "updatedAt": "2022-04-30T15:19:17.689Z",
       "estimatedAt": "2022-05-06T21:00:00.000Z",
       "id": 13,
+      "courier": [
+        {
+          "name": "Entegador",
+          "cnh": "12312321312",
+          "vehicleType": "motorcycle",
+          "id": 1,
+          "location": {
+            "address": "Av. Paraná 105",
+            "lat": -23.415248738642738,
+            "long": -51.943194719121394
+          }
+        }
+      ]
+    },
+    {
+      "products": [
+        {
+          "name": "Queijo",
+          "barcode": "412421341234",
+          "category": "frios-laticínios",
+          "quantity": 4,
+          "imageUrl": "assets/categorias/laticinios.png",
+          "price": 8.5,
+          "id": 22,
+          "price_discount": 10,
+          "sold_units": 3
+        }
+      ],
+      "customerId": 11,
+      "customerName": "Entregador",
+      "shopId": 1,
+      "shopName": "Doente doido",
+      "status": "ASSIGNED",
+      "deliveryFee": 12,
+      "courierRejectedIds": [],
+      "paymentStatus": "NOT_PAID",
+      "paymentMethod": "CASH",
+      "pickupLocation": {
+        "address": "Rua dos malucos doentes",
+        "lat": 0,
+        "long": 5
+      },
+      "deliveryLocation": {
+        "address": "eiorhjweior",
+        "lat": 1,
+        "long": 2
+      },
+      "createdAt": "2022-05-01T18:10:21.974Z",
+      "updatedAt": "2022-05-01T18:10:39.959Z",
+      "estimatedAt": "2022-05-04T18:10:21.974Z",
+      "id": 14,
       "courier": [
         {
           "name": "Entegador",
