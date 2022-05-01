@@ -18,3 +18,49 @@
   }
 }
 
+.search-result{
+  list-style-type: none;
+}
+
+.list-item-wrapper {
+  margin: 8px;
+  list-style-type: none;
+  //box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px;
+
+  &__logo{
+    display: flex;
+    justify-content: center;
+  }
+
+  &__name{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  &__buttons-wrp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2px;
+    &__btn{
+      margin: 0px 4px;
+      align-self: center;
+    }
+  }
+
+
+
+
+
+
+}
