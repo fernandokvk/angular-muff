@@ -1,1 +1,224 @@
-<p>customer-profile works!</p>
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="over" opened=false>
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-list>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">house</mat-icon> <a class="a" routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">person</mat-icon> <a class="a" routerLink="/profile">Perfil</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">reorder</mat-icon><a routerLink="/my-orders">Pedidos</a></mat-list-item>
+      <mat-list-item class="toolbar-item"><mat-icon color="accent">local_grocery_store</mat-icon><a routerLink="/carrinho">Carrinho</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item"><mat-icon color="accent">store</mat-icon><a routerLink="/new-shop">Estabelecimento</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item"><mat-icon color="accent">person</mat-icon><a routerLink="/courier">Entregador</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Perfil</span>
+      <span class="example-spacer"></span>
+      <button (click)="goBack()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <div *ngIf="profileEdit; else normal">
+      <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="onProfileEdit()">
+
+        <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-error class="erro" *ngIf="email?.hasError('required')">É necessário inserir o e-mail</mat-error>
+          <mat-error class="erro" *ngIf="email?.hasError('email')">Insira um e-mail válido</mat-error>
+        </mat-form-field>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+            <mat-error class="erro" *ngIf="nome?.hasError('required')">É necessário inserir o nome</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput formControlName="sobrenome">
+            <mat-error class="erro" *ngIf="sobrenome?.hasError('required')">É necessário inserir o sobrenome</mat-error>
+          </mat-form-field>
+
+        </div>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf">
+            <mat-error class="erro" *ngIf="cpf?.hasError('required')">É necessário inserir o CPF</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="telefone">
+            <mat-error class="erro" *ngIf="telefone?.hasError('required')">É necessário inserir o telefone</mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
+          <mat-label>Endereço</mat-label>
+          <input matInput formControlName="endereco">
+          <mat-error class="erro" *ngIf="endereco?.hasError('required')">É necessário inserir o endereço</mat-error>
+        </mat-form-field>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>CEP</mat-label>
+            <input matInput formControlName="cep">
+            <mat-error class="erro" *ngIf="cep?.hasError('required')">É necessário inserir o CEP</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
+            <mat-label>Complemento</mat-label>
+            <input matInput [ngModel]="complemento" [ngModelOptions]="{standalone: true}" >
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          <mat-error class="erro" *ngIf="password?.hasError('required')">É necessário uma senha</mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
+          <mat-label>Confirmar senha</mat-label>
+          <input matInput formControlName="confirmedPassword" [type]="hide ? 'password' : 'text'">
+          <mat-error class="erro" *ngIf="confirmedPassword?.hasError('required')">Confirme a senha</mat-error>
+        </mat-form-field>
+
+        <div class="botao-wrapper">
+          <button type="submit" class="botao" mat-raised-button color="accent" >Atualizar</button>
+        </div>
+
+      </form>
+
+
+    </div>
+
+    <ng-template #normal>
+      <div *ngIf="paymentEdit; else normal2">
+        <div *ngIf="cardSelected;else cardSelecionado">
+
+          <form class="new-card-form" [formGroup]="newEditForm" (ngSubmit)="onPaymentEdit()">
+
+            <div class="new-card-form__side">
+              <mat-radio-group formControlName="type">
+                <mat-radio-button value="CREDIT_CARD">Crédito</mat-radio-button>
+                <mat-radio-button value="DEBIT_CARD">Débito</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div class="new-card-form__side">
+              <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+                <mat-label>Apelido do cartão</mat-label>
+                <input matInput formControlName="nickname">
+              </mat-form-field>
+            </div>
+
+            <div class="new-card-form__side">
+              <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+                <mat-label>Número</mat-label>
+                <input matInput formControlName="cardNumber">
+              </mat-form-field>
+              <div class="div_image">
+                <img *ngIf="get_card_logo()" class="shop-container__logo" src={{src_cardType}} alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
+              </div>
+            </div>
+
+            <div class="new-card-form__side">
+              <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+                <mat-label>CVV</mat-label>
+                <input matInput formControlName="cvv">
+              </mat-form-field>
+
+              <mat-form-field class="new-card-form__side__r" appearance="outline" floatLabel="always">
+                <mat-label>Validade</mat-label>
+                <input matInput formControlName="expDate">
+              </mat-form-field>
+            </div>
+
+            <div class="new-card-form__side">
+              <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
+                <mat-label>Nome no Cartão</mat-label>
+                <input matInput formControlName="nameOnCard">
+              </mat-form-field>
+            </div>
+
+            <div class="botao-wrapper">
+              <button type="submit" class="botao" mat-raised-button color="accent" >Atualizar</button>
+            </div>
+          </form>
+
+        </div>
+         <ng-template #cardSelecionado>
+
+           <form class="new-user-form" >
+             <mat-divider></mat-divider>
+             <mat-action-list *ngIf="credential">
+               <mat-list-item *ngFor="let card of credential.paymentCards"  (click)="selectCard(card)">
+                 <img src="{{card.imageUrl}}" matListAvatar alt="">
+                 <div matLine>
+                   <span style="font-weight: bold">Produto:</span>
+                   {{card.name}}
+                 </div>
+                 <div matLine>
+                   <span style="font-weight: bold">Código de Barras:</span>
+                   {{card.barcode}}
+                 </div>
+                 <div matLine>
+                   <span style="font-weight: bold">Quantidade:</span>
+                   {{card.quantity}}
+                 </div>
+                 <div matLine>
+                   <span style="font-weight: bold">Preço:</span>
+                   {{card.price}}
+                 </div>
+                 <mat-divider></mat-divider>
+               </mat-list-item>
+             </mat-action-list>
+
+
+
+           </form>
+
+         </ng-template>
+
+
+      </div>
+
+      <ng-template #normal2>
+
+        <form class="new-user-form">
+
+
+          <div class="botao-wrapper">
+            <button type="button" class="botao"(click)="enableProfileEdit()" mat-raised-button color="accent"  >Editar Dados <mat-icon>edit</mat-icon></button>
+          </div>
+
+          <div class="botao-wrapper">
+            <button type="button" class="botao" (click)="enablePaymentEdit()" mat-raised-button color="accent"  >Editar Meio de Pagamento <mat-icon>credit_card</mat-icon> </button>
+          </div>
+
+        </form>
+
+      </ng-template>
+    </ng-template>
+
+
+
+
+
