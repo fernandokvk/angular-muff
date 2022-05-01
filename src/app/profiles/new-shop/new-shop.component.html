@@ -44,7 +44,7 @@
           <div class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CNPJ</mat-label>
-              <input matInput formControlName="cnpj">
+              <input matInput [mask]="getMask('cnpj')" showMaskTyped="True" formControlName="cnpj">
 
             </mat-form-field>
           </div>
@@ -58,7 +58,7 @@
           <div class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CEP</mat-label>
-              <input matInput formControlName="cep">
+              <input matInput [mask]="getMask('cep')" showMaskTyped="True" formControlName="cep">
 
             </mat-form-field>
 

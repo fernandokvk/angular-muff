@@ -9,6 +9,7 @@ import { CredentialShopService } from 'src/services/credential-shop.service';
 import { Shop } from 'src/models/shop.model';
 import { ProductService } from 'src/services/product.service';
 import {debounceTime, distinctUntilChanged, Observable, Subject, switchMap} from "rxjs";
+import { EmptyShoppingCartDialogComponent } from '../shop/empty-shopping-cart-dialog/empty-shopping-cart-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private shopsService: CredentialShopService,
-    private productService: ProductService
+    private productService: ProductService,
   ) {
   }
 
@@ -83,10 +84,11 @@ export class HomeComponent implements OnInit {
         console.log( this.activeSessionService.sessionProducts[index_product_cart].quantity)
         this.activeSessionService.updateCartProduct(index_product_cart);
       }
-    }else{
-      
-      console.log("Esvazie o carrinho")
-      
+    }else{    
+      let dialogCard = this.dialog.open(EmptyShoppingCartDialogComponent, {
+        width: '300px',
+        height: '505px'
+      });
     }
 
   }

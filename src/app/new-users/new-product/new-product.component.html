@@ -149,7 +149,7 @@
         <div class="new-user-form__side">
           <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
             <mat-label>Código de barras</mat-label>
-            <input matInput formControlName="barcode">
+            <input matInput [mask]="getMask('barcode')" formControlName="barcode">
 
           </mat-form-field>
         </div>
@@ -188,7 +188,7 @@
         <div class="new-user-form__side">
           <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
             <mat-label>Preço</mat-label>
-            <input matInput type="" formControlName="price">
+            <input matInput prefix="R$ " [mask]="getMask('price')" type="" formControlName="price">
 
           </mat-form-field>
         </div>

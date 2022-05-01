@@ -20,7 +20,8 @@
       "cep": "12345",
       "complemento": "",
       "password": "123",
-      "id": 2
+      "id": 2,
+      "type": "CUSTOMER"
     },
     {
       "email": "admin",

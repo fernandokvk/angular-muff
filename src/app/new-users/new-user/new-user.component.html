@@ -31,13 +31,13 @@
   <div class="new-user-form__side">
     <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
       <mat-label>CPF</mat-label>
-      <input matInput formControlName="cpf">
+      <input matInput [mask]="getMask('cpf')" showMaskTyped="True" formControlName="cpf">
       <mat-error class="erro" *ngIf="cpf?.hasError('required')">É necessário inserir o CPF</mat-error>
     </mat-form-field>
 
     <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
       <mat-label>Telefone</mat-label>
-      <input matInput formControlName="telefone">
+      <input matInput prefix="+55 " [mask]="getMask('telefone')" showMaskTyped="True" formControlName="telefone">
       <mat-error class="erro" *ngIf="telefone?.hasError('required')">É necessário inserir o telefone</mat-error>
     </mat-form-field>
   </div>
@@ -51,7 +51,7 @@
   <div class="new-user-form__side">
     <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
       <mat-label>CEP</mat-label>
-      <input matInput formControlName="cep">
+      <input matInput [mask]="getMask('cep')" showMaskTyped="True" formControlName="cep">
       <mat-error class="erro" *ngIf="cep?.hasError('required')">É necessário inserir o CEP</mat-error>
     </mat-form-field>
 

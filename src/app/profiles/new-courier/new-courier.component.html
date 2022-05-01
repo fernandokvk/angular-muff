@@ -43,7 +43,7 @@
           <div *ngIf="selected != 'bicycle'" class="new-user-form__side">
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>CNH</mat-label>
-              <input matInput formControlName="cnh">
+              <input matInput [mask]="getMask('cnh')" formControlName="cnh">
 
             </mat-form-field>
 

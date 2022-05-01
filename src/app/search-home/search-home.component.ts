@@ -7,6 +7,7 @@ import { ActiveSessionService } from 'src/services/active-session.service';
 import { CredentialShopService } from 'src/services/credential-shop.service';
 import { ProductService } from 'src/services/product.service';
 import { CompareProductDialogComponent } from '../compare-product-dialog/compare-product-dialog.component';
+import { EmptyShoppingCartDialogComponent } from '../shop/empty-shopping-cart-dialog/empty-shopping-cart-dialog.component';
 
 @Component({
   selector: 'app-search-home',
@@ -20,10 +21,8 @@ export class SearchHomeComponent implements OnInit {
 
   constructor(
     private activeSessionService: ActiveSessionService,
-    private router: Router,
     public dialog: MatDialog,
     private shopsService: CredentialShopService,
-    private productService: ProductService
     ) { }
 
   ngOnInit(): void {
@@ -78,8 +77,10 @@ export class SearchHomeComponent implements OnInit {
         this.activeSessionService.updateCartProduct(index_product_cart);
       }
     }else{
-      
-      console.log("Esvazie o carrinho")
+      let dialogCard = this.dialog.open(EmptyShoppingCartDialogComponent, {
+        width: '300px',
+        height: '505px'
+      });
       
     }
 

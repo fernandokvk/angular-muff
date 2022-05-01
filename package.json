@@ -22,6 +22,7 @@
     "@angular/router": "~13.2.0",
     "angular-responsive-carousel": "^2.1.2",
     "mat-timepicker": "^5.1.5",
+    "ngx-mask": "^13.1.12",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

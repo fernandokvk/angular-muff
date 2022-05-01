@@ -26,6 +26,11 @@ export class NewProductComponent implements OnInit {
   edit: boolean = true;
   productSelected: boolean = false;
 
+  masks = new Map([
+    ["barcode", "000000 00000"],
+    ["price", "separator.2"],
+  ]);
+
 
   constructor(
     private fb: FormBuilder,
@@ -48,10 +53,14 @@ export class NewProductComponent implements OnInit {
       name: fb.control('', [Validators.required]),
       barcode: fb.control('', [Validators.required]),
       category: fb.control('', [Validators.required]),
-      quantity: fb.control('', [Validators.required]),
+      quantity: fb.control('', [Validators.required,  Validators.pattern("^[0-9]*$")]),
       price: fb.control('', [Validators.required]),
 
     });
+  }
+
+  getMask(field: string){
+    return this.masks.get(field);
   }
 
   onSubmit() {
@@ -60,11 +69,11 @@ export class NewProductComponent implements OnInit {
       this.productService
         .submit({
           name: this.nome?.value,
-          barcode: this.barcode?.value,
+          barcode: Number(this.barcode?.value),
           category: this.categoria?.value,
-          quantity: this.quantidade?.value,
+          quantity: Number(this.quantidade?.value),
           imageUrl: this.changeImage(),
-          price: this.preco?.value,
+          price: Number(this.preco?.value),
         } as Product)
         .subscribe(
           (t) => {

@@ -20,7 +20,9 @@ export class NewCourierComponent implements OnInit {
   showForm: boolean = true;
   selected!: string;
   edit: boolean = false;
-
+  masks = new Map([
+    ["cnh", "000000000000"],
+  ]);
 
 
   constructor(
@@ -54,6 +56,10 @@ export class NewCourierComponent implements OnInit {
 
       this.newCourierForm.get("vehicleType")!.valueChanges.subscribe(data => {this.changeValidators()})
     }
+  }
+
+  getMask(field: string){
+    return this.masks.get(field);
   }
 
   changeValidators(){

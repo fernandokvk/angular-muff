@@ -20,7 +20,7 @@
         <div class="new-card-form__side">
           <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
             <mat-label>Número</mat-label>
-            <input matInput formControlName="cardNumber">
+            <input matInput [mask]="getMask('cardNumber')" formControlName="cardNumber">
           </mat-form-field>  
           <div class="div_image">
             <img *ngIf="get_card_logo()" class="shop-container__logo" src={{src_cardType}} alt="https://www.pngplay.com/wp-content/uploads/12/Shrek-PNG-HD-Quality.png">
@@ -30,12 +30,12 @@
         <div class="new-card-form__side">
             <mat-form-field class="new-card-form__side__l" appearance="outline" floatLabel="always">
                 <mat-label>CVV</mat-label>
-                <input matInput formControlName="cvv">
+                <input matInput [mask]="getMask('cvv')" formControlName="cvv">
             </mat-form-field>   
 
             <mat-form-field class="new-card-form__side__r" appearance="outline" floatLabel="always">
               <mat-label>Validade</mat-label>
-              <input matInput formControlName="expDate">
+              <input matInput [mask]="getMask('expDate')" showMaskTyped="True" formControlName="expDate">
             </mat-form-field>   
         </div>
 

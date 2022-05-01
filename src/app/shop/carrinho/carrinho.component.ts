@@ -58,7 +58,9 @@ export class CarrinhoComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result == null) {
-        this.tipo_pagamento = "CASH";
+        if(this.cartao == undefined) {
+          this.tipo_pagamento = "CASH";
+        }
       } else {
         this.cartao = result;
       }
