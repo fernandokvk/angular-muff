@@ -6,6 +6,7 @@ import {ActiveSessionService} from "../../../services/active-session.service";
 import {CredentialsService} from "../../../services/credentials.service";
 import {CredentialCourierService} from "../../../services/credential-courier.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-new-courier',
@@ -28,6 +29,7 @@ export class NewCourierComponent implements OnInit {
     private router: Router,
     private credentialCourierService: CredentialCourierService,
     private activeSessionService: ActiveSessionService,
+    private location: Location,
     private credentialService: CredentialsService,
     private _snackBar: MatSnackBar
   ) { }
@@ -160,4 +162,7 @@ export class NewCourierComponent implements OnInit {
     return this.newCourierForm.get('checkbox');
   }
 
+  goBack() {
+    return this.location.back();
+  }
 }

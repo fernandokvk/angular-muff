@@ -1,3 +1,9 @@
+
+.search-box{
+  margin: 12px;
+  border-radius: 12px;
+}
+
 a {
   text-decoration: none !important;
   color: black;
@@ -9,7 +15,6 @@ a {
 }
 
 .title-wrapper{
-  background: rgba(232, 232, 232, 0.5);
   display: flex;
   flex: 1 1 auto;
 
@@ -17,7 +22,6 @@ a {
 
 .carousel{
   align-items: center;
-  background: rgba(232, 232, 232, 0.5);
 }
 
 .title{
@@ -32,9 +36,6 @@ a {
   flex-direction: column;
 }
 
-.grid{
-  background: rgba(232, 232, 232, 0.5);
-}
 
 .divider{
 
@@ -74,7 +75,6 @@ a {
 .botao-comparar{
   border-radius: 16px;
   margin-right: 10px;
-  background-color: accent;
   color: whitesmoke;
 }
 
@@ -134,3 +134,5 @@ a {
 .price{
   text-decoration: None;
 }
+
+

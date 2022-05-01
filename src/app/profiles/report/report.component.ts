@@ -45,6 +45,11 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileType = this.activeSessionService.credential?.type;
+
+    // @ts-ignore
+    // this.activeSessionService.credential = {id: 15, shopId: 1, type: "SHOP"};
+
+
     if(this.activeSessionService.credential?.shopId != null){
       this.fetchOrders();
       this.getShop();

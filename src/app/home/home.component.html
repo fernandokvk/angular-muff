@@ -29,7 +29,7 @@
 
     </mat-toolbar>
 
-    <div style="margin: 10px">
+    <div class="search-box">
       <app-search-home (search_bool)="setViewHome($event)"></app-search-home>
     </div>
 
@@ -45,7 +45,7 @@
             <div>
               <div class="image-item">
                 <img src="{{product[0].imageUrl}}">
-              </div>        
+              </div>
               <div align="center">
                 <div style="font-weight: bold" >
                   <div matTooltip={{product[0].name}} matTooltipPosition="below" class="product-name">{{product[0].name}}</div>
@@ -63,89 +63,7 @@
         </carousel>
       </div>
 
-      <div class="title-wrapper">
-        <h2 class="title"> Categorias </h2>
-      </div>
 
-      <div>
-        <mat-grid-list class="grid" cols="4" rowHeight="2:1" gutterSize="5px">
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/carnes.png">
-              <mat-label for="categoria__label" class="categoria__label">Carnes</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/pet.png">
-              <mat-label for="categoria__label" class="categoria__label">Pet</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/laticinios.png">
-              <mat-label for="categoria__label" class="categoria__label">Laticínios</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/bebidas.png">
-              <mat-label for="categoria__label" class="categoria__label">Bebidas</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/hortifruti.png">
-              <mat-label for="categoria__label" class="categoria__label">Hortifruti</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/ferramentas.png">
-              <mat-label for="categoria__label" class="categoria__label">Ferramentas</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/enlatados.png">
-              <mat-label for="categoria__label" class="categoria__label">Enlatados</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="../../assets/categorias/bomboniere.png">
-              <mat-label for="categoria__label" class="categoria__label">Bomboniere</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/biscoitos.png">
-              <mat-label for="categoria__label" class="categoria__label">Biscoitos</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/limpeza.png">
-              <mat-label for="categoria__label" class="categoria__label">Limpeza</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/esportes.png">
-              <mat-label for="categoria__label" class="categoria__label">Esportes</mat-label>
-            </a>
-          </mat-grid-tile>
-          <mat-grid-tile class="tile">
-
-            <a href="/home" class="categoria">
-              <img class="categoria__logo" src="assets/categorias/padaria.png">
-              <mat-label for="categoria__label" class="categoria__label">Padaria</mat-label>
-            </a>
-          </mat-grid-tile>
-        </mat-grid-list>
-
-
-      </div>
 
 
       <div class="title-wrapper">

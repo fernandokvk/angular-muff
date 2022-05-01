@@ -1,20 +1,37 @@
-<mat-divider></mat-divider>
+<div class="scrollable-container">
+  <ul class="scrollable-container__inner">
 
-<mat-action-list>
+      <li class="list-wrapper" *ngFor="let shop of shops$ | async" (click)="goToShop(shop)">
 
-  <mat-list-item *ngFor="let shop of shops" (click)="goToShop(shop)">
-    <img src="{{shop.image}}" matListAvatar alt="">
-    <div matLine>
-      <span style="font-weight: bold">Loja:</span>
-      {{shop.name}}
-    </div>
-    <div matLine>
-      <span style="font-weight: bold">Endereço:</span>
-      {{shop.location.address}}
-    </div>
-    <div matLine>{{getStars(shop)}}</div>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-action-list>
+        <div class="header">
+          <div class="header__info">
+            <div style="font-size: 18px">{{shop.name}}</div>
+            <div>
+              <span class="header__small"> {{shop.rating.toFixed(2)}} </span>
+              <span style="font-size: 12px">{{getStars(shop)}}</span>
+            </div>
+            <div>
+              <span class="header__small">Tempo de entrega: </span> {{shop.estimatedDeliveryTime}}min
+            </div>
+            <div>
+              <span class="header__small">Taxa de entrega: </span>
+              <span *ngIf="!shop.deliveryFee || shop.deliveryFee == 0;else deliveryFee" class="header__small__free">Grátis</span>
+              <ng-template #deliveryFee>
+                {{shop.deliveryFee | currency}}
+              </ng-template>
+            </div>
+          </div>
+          <mat-divider vertical="true" class="header__divider"></mat-divider>
+          <div>
+            <img class="header__img" src="{{shop.image}}">
+          </div>
+        </div>
+
+      </li>
+    </ul>
+</div>
+
+
+
 
 

@@ -9,6 +9,7 @@ import {ProductService} from "../../../services/product.service";
 import {CredentialShopService} from "../../../services/credential-shop.service";
 import {Shop} from "../../../models/shop.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-new-product',
@@ -32,6 +33,7 @@ export class NewProductComponent implements OnInit {
     private router: Router,
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
+    private location: Location,
     private productService: ProductService,
     private credentialShopService: CredentialShopService,
     private _snackBar: MatSnackBar
@@ -93,62 +95,62 @@ export class NewProductComponent implements OnInit {
 
   changeImage(): string{
     switch (this.categoria?.value){
-      case "bebidas":{
+      case "Bebidas":{
         return "assets/categorias/bebidas.png";
         break;
       }
-      case "carnes":{
+      case "Carnes":{
         return "assets/categorias/carnes.png";
         break;
       }
-      case "esportes":{
+      case "Esportes":{
         return "assets/categorias/esportes.png";
         break;
       }
-      case "ferramentas":{
+      case "Ferramentas":{
         return "assets/categorias/ferramentas.png";
         break;
       }
-      case "hortifruti":{
+      case "Hortifruti":{
         return "assets/categorias/hortifruti.png";
         break;
       }
-      case "frios-laticínios":{
+      case "Frios":{
         return "assets/categorias/laticinios.png";
         break;
       }
-      case "limpeza":{
+      case "Limpeza":{
         return "assets/categorias/limpeza.png";
         break;
-      }case "higiene":{
+      }case "Higiene":{
         return "assets/categorias/higiene.png";
         break;
       }
-      case "padaria":{
+      case "Padaria":{
         return "assets/categorias/padaria.png";
         break;
       }
-      case "pet":{
+      case "Pet":{
         return "assets/categorias/pet.png";
         break;
       }
-      case "mercearia":{
+      case "Mercearia":{
         return "assets/categorias/mercearia.png";
         break;
       }
-      case "bazar":{
+      case "Bazar":{
         return "assets/categorias/bazar.png";
         break;
       }
-      case "congelados":{
+      case "Cngelados":{
         return "assets/categorias/congelados.png";
         break;
       }
-      case "enlatados":{
+      case "Enlatados":{
         return "assets/categorias/enlatados.png";
         break;
       }
-      case "bomboniere":{
+      case "Bomboniere":{
         return "assets/categorias/bomboniere.png";
         break;
       }
@@ -300,4 +302,7 @@ export class NewProductComponent implements OnInit {
   }
 
 
+  goBackArrow() {
+    return this.location.back();
+  }
 }
