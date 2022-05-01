@@ -8,6 +8,7 @@ import {Product} from "../../../models/product.model";
 import {Payment} from "../../../models/payment.model";
 import {CredentialsService} from "../../../services/credentials.service";
 import {Shop} from "../../../models/shop.model";
+
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 
@@ -35,6 +36,7 @@ export class CustomerProfileComponent implements OnInit {
     private activeSessionService: ActiveSessionService,
     private credentialService: CredentialsService,
     private fb: FormBuilder,
+
     private _snackBar: MatSnackBar
 
   ) { }
@@ -164,6 +166,7 @@ export class CustomerProfileComponent implements OnInit {
     this.newEditForm.controls['password'].setValue(this.credential.password);
     this.newEditForm.controls['confirmedPassword'].setValue(this.credential.password);
     this.newEditForm.controls['checkbox'].setValue(true);
+
   }
 
   enablePaymentEdit(){
@@ -218,6 +221,7 @@ export class CustomerProfileComponent implements OnInit {
   }
 
 
+
   selectCard( card: Payment){
     this.cardSelected = true;
     this.card = card;
@@ -237,6 +241,7 @@ export class CustomerProfileComponent implements OnInit {
       console.log(x);
     });
   }
+
 
 
   goBack() {
@@ -305,10 +310,12 @@ export class CustomerProfileComponent implements OnInit {
 
   get type() {
     return this.newEditForm.get('type');
+
   }
 
   get complemento() {
     return this.newEditForm.get('complemento');
+
   }
 
 }

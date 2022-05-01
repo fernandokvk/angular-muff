@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     credentialsObserver = this.credentialService.searchCredentials(this.email);
     credentialsObserver.subscribe(
       (data: Credential[]) => {
-        if (data[0].password == this.password) {
+        if ((data[0] != undefined) && (data[0].password == this.password)) {
           this.activeSession.credential = data.pop();
           this.router.navigateByUrl('home');
         } else {

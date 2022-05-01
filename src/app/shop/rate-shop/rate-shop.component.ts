@@ -51,6 +51,7 @@ export class RateShopComponent implements OnInit {
       this.orderService.getOrder(Number(params.get('id'))).subscribe((order) => {
         //if(can_rateShop(order)){        
           this.order = order;
+          console.log(order.courier?.name)
           this.credentialShopService.getShopById(this.order.shopId).subscribe((shop) => {
             this.shop = shop;
           });
@@ -79,21 +80,23 @@ export class RateShopComponent implements OnInit {
 
   submit_rate(){
     if(this.shop != undefined && this.order != undefined){
-      let shop_rating = (this.shop.rating + this.stars_media) / 2;
-
+      //let shop_rating = (this.shop.rating + this.stars_media) / 2;
+      let shop_rating: number;
       this.order.rated = true;
-      this.shop.rating = shop_rating;
-
+      
       let new_comments: string[] = [];
 
       if(this.shop.comments == undefined){
         console.log('não existe nenhum comentario')
+        shop_rating = this.stars_media;
         new_comments.push(this.comment?.value);
       }else{
         console.log('existe comentario')
+        shop_rating = (this.shop.rating + this.stars_media) / (this.shop.comments.length + 1);
         new_comments = this.shop.comments;
         new_comments.push(this.comment?.value);
       }
+      this.shop.rating = shop_rating;
       this.shop.comments = new_comments;
   
       this.credentialShopService.updateShop(this.shop).subscribe();

@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
       this.shopsService.getShopById(shopId).subscribe((shop) => {
         this.activeSessionService.sessionShop = shop;
       });  
-      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.name === product.name)
+      let index_product_cart = this.activeSessionService.sessionProducts.findIndex(p => p.id == product.id)
       if(index_product_cart < 0){
         product.quantity = 1;
         this.activeSessionService.sessionProducts.push(product);
@@ -85,12 +85,29 @@ export class HomeComponent implements OnInit {
         this.activeSessionService.updateCartProduct(index_product_cart);
       }
     }else{    
-      let dialogCard = this.dialog.open(EmptyShoppingCartDialogComponent, {
-        width: '300px',
-        height: '505px'
-      });
+      this.emptyShoppingCart(shopId, product)
     }
 
+  }
+
+  private emptyShoppingCart(shopId: number, product: Product): void {
+    const dialogRef = this.dialog.open(EmptyShoppingCartDialogComponent, {
+      width: '350px',
+    });
+    dialogRef.backdropClick().subscribe(v => {
+      dialogRef.close(false);
+    });
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.activeSessionService.sessionProducts = [];
+        this.activeSessionService.sessionProducts.push(product);
+        this.activeSessionService.sessionProducts[0].quantity = 1;
+
+        this.shopsService.getShopById(shopId).subscribe((shop) => {
+          this.activeSessionService.sessionShop = shop;
+        });
+      }
+    });
   }
 
   exit() {

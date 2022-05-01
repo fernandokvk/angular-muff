@@ -30,6 +30,7 @@
     <div *ngIf="profileEdit; else normal">
       <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="updateProfile()">
 
+
         <mat-form-field class="new-user-form__form-field" appearance="outline" floatLabel="always">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email">
@@ -82,6 +83,7 @@
           <mat-form-field class="new-user-form__side__r" appearance="outline" floatLabel="always">
             <mat-label>Complemento</mat-label>
             <input matInput formControlName="complemento" >
+
           </mat-form-field>
         </div>
 
@@ -114,6 +116,7 @@
         <div *ngIf="cardSelected;else cardSelecionado">
 
           <form class="new-user-form" [formGroup]="newEditForm" (ngSubmit)="updatePayment()">
+
 
             <div class="new-card-form__side">
               <mat-radio-group formControlName="type">
@@ -168,6 +171,7 @@
 
            <form class="new-user-form" >
              <mat-divider></mat-divider>
+
              <mat-action-list >
                <mat-list-item *ngFor="let card of credential.paymentCards"  (click)="selectCard(card)">
                  <img src="{{cardImageType(card)}}" matListAvatar alt="">
@@ -183,7 +187,6 @@
                    <span style="font-weight: bold">Tipo:</span>
                    {{cardTypeString(card)}}
                  </div>
-
                  <mat-divider></mat-divider>
                </mat-list-item>
              </mat-action-list>
@@ -215,7 +218,5 @@
       </ng-template>
     </ng-template>
 
-
-
-
-
+  </mat-sidenav-content>
+</mat-sidenav-container>
