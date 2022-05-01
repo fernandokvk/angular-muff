@@ -79,10 +79,10 @@ export class ShopSearchComponent implements OnInit {
         this.activeSession.updateCartProduct(index_product_cart);
       }
     }else{
-      this.emptyShoppingCart(product);     
+      this.emptyShoppingCart(this.currentShop!.id, product);     
     }
   }
-  private emptyShoppingCart(product: Product): void {
+  private emptyShoppingCart(shopId: number, product: Product): void {
     const dialogRef = this.dialog.open(EmptyShoppingCartDialogComponent, {
       width: '350px',
     });
@@ -94,6 +94,10 @@ export class ShopSearchComponent implements OnInit {
         this.activeSession.sessionProducts = [];
         this.activeSession.sessionProducts.push(product);
         this.activeSession.sessionProducts[0].quantity = 1;
+
+        this.shopService.getShopById(shopId).subscribe((shop) => {
+          this.activeSession.sessionShop = shop;
+        });
       }
     });
   }

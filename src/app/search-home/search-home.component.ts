@@ -76,13 +76,31 @@ export class SearchHomeComponent implements OnInit {
         this.activeSessionService.updateCartProduct(index_product_cart);
       }
     }else{
-      let dialogCard = this.dialog.open(EmptyShoppingCartDialogComponent, {
-        width: '350px'
-      });
-      
+      this.emptyShoppingCart(shopId, product)
     }
 
   }
+
+  private emptyShoppingCart(shopId: number, product: Product): void {
+    const dialogRef = this.dialog.open(EmptyShoppingCartDialogComponent, {
+      width: '350px',
+    });
+    dialogRef.backdropClick().subscribe(v => {
+      dialogRef.close(false);
+    });
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.activeSessionService.sessionProducts = [];
+        this.activeSessionService.sessionProducts.push(product);
+        this.activeSessionService.sessionProducts[0].quantity = 1;
+
+        this.shopsService.getShopById(shopId).subscribe((shop) => {
+          this.activeSessionService.sessionShop = shop;
+        });
+      }
+    });
+  }
+
 
   getStyle(product: Product): string{
     if(product.price_discount == undefined || product.price_discount > product.price){

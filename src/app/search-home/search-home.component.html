@@ -28,9 +28,13 @@
             <img src="{{product.imageUrl}}">
           </div>        
           <div align="center">
-            <div style="font-weight: bold" >
-              <div matTooltip={{product.name}} matTooltipPosition="below" class="product-name">{{product.name}}</div>
-              <span class={{getStyle(product)}}>{{product.price | currency}}</span> {{product.price_discount | currency}}
+            <div  >
+              <div style="font-weight: bold" matTooltip={{product.name}} matTooltipPosition="below" class="product-name">{{product.name}}</div>
+              <span class={{getStyle(product)}}>{{product.price | currency}}</span>
+              <span style="font-weight: bold; color: green">
+                {{product.price_discount | currency}}
+              </span>
+              
             </div>
             <button (click)="compareProduct(product)" class="botao-comparar" mat-raised-button color="accent">
               <mat-icon>compare_arrows</mat-icon>

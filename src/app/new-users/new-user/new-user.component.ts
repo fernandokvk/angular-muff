@@ -60,15 +60,16 @@ export class NewUserComponent implements OnInit {
     if (this.canSubmit()) {
       this.credentialService
         .submit({
-          email: this.email?.value,
-          type: "CUSTOMER",
           name: this.nome?.value,
           surname: this.sobrenome?.value,
-          cpf: this.cpf?.value,
+          email: this.email?.value,
           endereco: this.endereco?.value,
           cep: this.cep?.value,
-          complemento: this.complemento.toString(),
+          cpf: this.cpf?.value,
+          telefone: this.telefone?.value,
           password: this.password?.value,
+          type: "CUSTOMER",
+          complemento: this.complemento,
         } as Credential)
         .subscribe(
           (t) => console.log(t.email),

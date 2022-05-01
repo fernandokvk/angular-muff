@@ -234,12 +234,14 @@ export class NewProductComponent implements OnInit {
     this.getFormValidationErrors();
     if(this.canSubmit()){
       this.product.name = this.nome?.value;
-      this.product.barcode= this.barcode?.value;
+      this.product.barcode= Number(this.barcode?.value);
       this.product.category= this.categoria?.value;
-      this.product.quantity= this.quantidade?.value;
-      this.product.price= this.preco?.value;
+      this.product.quantity= Number(this.quantidade?.value);
+      this.product.price= Number(this.preco?.value);
       this.product.imageUrl = this.changeImage();
-      this.product.price_discount = this.precoDesconto?.value;
+      if(Number(this.precoDesconto?.value) > 0){
+        this.product.price_discount = Number(this.precoDesconto?.value);
+      }   
       this.productService.updateProduct(this.product).subscribe((y:Product)=>{
         for (let i = 0; i < this.shop.products.length; i++) {
           if(this.product.id == this.shop.products[i].id){
