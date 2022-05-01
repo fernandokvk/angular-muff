@@ -1,0 +1,27 @@
+.header{
+  display: flex;
+  justify-content: center;
+  &__product-name{
+    font-size: 20px;
+  }
+  margin: 8px 0px;
+}
+
+.buttons-wrapper{
+  outline: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__field{
+    align-self: center;
+    outline: 1px solid red;
+  }
+
+  &__buttons{
+    outline: 1px solid grey;
+    align-self: center;
+    align-content: center;
+  }
+}
+

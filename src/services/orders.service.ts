@@ -25,6 +25,10 @@ export class OrdersService {
     return this.httpService.get<Order[]>(url);
   }
 
+  getAllOrders():Observable<Order[]>{
+    return this.httpService.get<Order[]>(this.url);
+  }
+
   updateOrder(order: Order): Observable<Order>{
     const url = `${this.url}/${order.id}`;
     return this.httpService.put<Order>(url, order, this.httpOptions).pipe(
