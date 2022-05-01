@@ -7,8 +7,8 @@
       <mat-list-item class="toolbar-item" (click)="gotoProfile()"><mat-icon color="accent">person</mat-icon> <a class="a" >Perfil</a></mat-list-item>
       <mat-list-item class="toolbar-item" (click)="goToOrders()"><mat-icon color="accent">reorder</mat-icon><a >Pedidos</a></mat-list-item>
       <mat-list-item class="toolbar-item" (click)="gotoCart()"><mat-icon color="accent">local_grocery_store</mat-icon><a >Carrinho</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item"><mat-icon color="accent">store</mat-icon><a >Estabelecimento</a></mat-list-item>
-      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item"><mat-icon color="accent">person</mat-icon><a>Entregador</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"  class="toolbar-item" (click)="gotoShop()"><mat-icon color="accent">store</mat-icon><a >Estabelecimento</a></mat-list-item>
+      <mat-list-item *ngIf="profileType == 'CUSTOMER'"class="toolbar-item" (click)="gotoCourier()"><mat-icon color="accent">person</mat-icon><a>Entregador</a></mat-list-item>
     </mat-list>
 
   </mat-sidenav>
@@ -82,6 +82,14 @@
             <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
               <mat-label>Preço</mat-label>
               <input matInput type="" formControlName="price">
+
+            </mat-form-field>
+          </div>
+
+          <div class="new-user-form__side">
+            <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+              <mat-label>Preço com Desconto</mat-label>
+              <input matInput type="" formControlName="priceDiscount">
 
             </mat-form-field>
           </div>
@@ -189,6 +197,14 @@
           <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
             <mat-label>Preço</mat-label>
             <input matInput type="" formControlName="price">
+
+          </mat-form-field>
+        </div>
+
+        <div class="new-user-form__side">
+          <mat-form-field class="new-user-form__side__l" appearance="outline" floatLabel="always">
+            <mat-label>Preço com Desconto</mat-label>
+            <input matInput type="" formControlName="priceDiscount">
 
           </mat-form-field>
         </div>

@@ -65,29 +65,26 @@ a {
   }
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-
-}
-
-.checkboxWrapper{
-  flex: 1 1 auto;
-}
-
-.botao {
-
-  flex: 1;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-
-.botao-wrapper{
-  display:flex;
-  flex: 1;
-  margin-top: 30px;
-
-}
-.mat-elevation-z8{
+/*.mat-elevation-z8{
   height: 80vh;
   margin-bottom: 10px;
+}*/
+
+.product-table{
+  width: 100%;
+}
+
+.mat-column-nome{
+  text-align: justify;
+  padding-left: 10px;
+
+}
+.mat-column-quantidade{
+  text-align: center;
+  padding-left: 10px;
+
+}
+.mat-column-valor{
+  text-align: center;
+  padding-left: 10px;
 }

@@ -52,6 +52,8 @@ export class NewShopComponent implements OnInit {
         cep: fb.control('', [Validators.required, Validators.min(8)]),
         cnpj: fb.control('', [Validators.required]),
         checkbox: fb.control('', Validators.requiredTrue),
+        deliveryFee: fb.control('', Validators.required),
+        deliveryTime: fb.control('', Validators.required)
       });
     }
 
@@ -67,7 +69,9 @@ export class NewShopComponent implements OnInit {
           cnpj: this.cnpj?.value,
           products: [],
           location:{address: this.endereco?.value},
-          image: "assets/shops/shop-1.png"
+          image: "assets/shops/shop-1.png",
+          deliveryFee: this.taxaEntrega?.value,
+          estimatedDeliveryTime: this.tempoEntrega?.value
         } as unknown as Shop)
         .subscribe(
           (t) => {
@@ -134,6 +138,8 @@ export class NewShopComponent implements OnInit {
     this.newShopForm.controls['cep'].setValue(this.shop.zipCode);
     this.newShopForm.controls['cnpj'].setValue(this.shop.cnpj);
     this.newShopForm.controls['checkbox'].setValue(true);
+    this.newShopForm.controls['deliveryFee'].setValue(this.shop.deliveryFee);
+    this.newShopForm.controls['deliveryTime'].setValue(this.shop.estimatedDeliveryTime);
   }
 
   updateShop(){
@@ -143,6 +149,8 @@ export class NewShopComponent implements OnInit {
       this.shop.location.address = this.endereco?.value;
       this.shop.zipCode = this.cep?.value;
       this.shop.cnpj = this.cnpj?.value;
+      this.shop.deliveryFee = this.taxaEntrega?.value;
+      this.shop.estimatedDeliveryTime = this.tempoEntrega?.value;
       this.credentialShopService.updateShop(this.shop).subscribe((x: Shop) => {
         this.edit = false;
         this.ngOnInit();
@@ -176,6 +184,13 @@ export class NewShopComponent implements OnInit {
 
   get checkbox() {
     return this.newShopForm.get('checkbox');
+  }
+
+  get taxaEntrega() {
+    return this.newShopForm.get('deliveryFee');
+  }
+  get tempoEntrega() {
+    return this.newShopForm.get('deliveryTime');
   }
 
 

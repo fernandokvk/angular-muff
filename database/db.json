@@ -128,6 +128,19 @@
       "password": "123",
       "id": 11,
       "courierId": 3
+    },
+    {
+      "email": "lobo@gmail.com",
+      "type": "COURIER",
+      "name": "Menino",
+      "surname": "João",
+      "cpf": "12345678910",
+      "endereco": "Rydsaa ",
+      "cep": "1431412",
+      "complemento": "",
+      "password": "12",
+      "id": 12,
+      "courierId": 4
     }
   ],
   "shop": [
@@ -157,7 +170,7 @@
           "category": "frios-laticínios",
           "quantity": 5,
           "imageUrl": "assets/categorias/laticinios.png",
-          "price": 8.50,
+          "price": 8.5,
           "id": 21
         },
         {
@@ -166,7 +179,7 @@
           "category": "frios-laticínios",
           "quantity": 50,
           "imageUrl": "assets/categorias/laticinios.png",
-          "price": 8.50,
+          "price": 8.5,
           "id": 22
         },
         {
@@ -184,7 +197,7 @@
           "category": "carnes",
           "quantity": 50,
           "imageUrl": "assets/categorias/carnes.png",
-          "price": 28.00,
+          "price": 28,
           "id": 24
         },
         {
@@ -231,10 +244,23 @@
           "quantity": 7,
           "price": 4.29,
           "imageUrl": "assets/categorias/bomboniere.png"
+        },
+        {
+          "name": "Hoka",
+          "barcode": "31232131",
+          "category": "carnes",
+          "quantity": "20",
+          "imageUrl": "assets/categorias/carnes.png",
+          "price": "10",
+          "price_discount": "",
+          "id": 25
         }
       ],
       "image": "assets/shops/shop-5.png",
-      "rating": 3.666666666666667
+      "rating": 3.666666666666667,
+      "zipCode": "231231",
+      "deliveryFee": "28",
+      "estimatedDeliveryTime": "50"
     },
     {
       "name": "Loja do João que fica na esquina",
@@ -352,7 +378,7 @@
           "barcode": "2412352137355",
           "category": "three",
           "quantity": 5,
-          "price": 8.50,
+          "price": 8.5,
           "price_discount": 5.5,
           "id": 14,
           "imageUrl": "/assets/categorias/bebidas.png"
@@ -371,7 +397,7 @@
           "barcode": "87028815",
           "category": "one",
           "quantity": 12,
-          "price": 15.00,
+          "price": 15,
           "price_discount": 14.99,
           "id": 15,
           "imageUrl": "/assets/categorias/bebidas.png"
@@ -453,6 +479,16 @@
         "lat": -23.421421304112158,
         "long": -51.928071251705965
       }
+    },
+    {
+      "cnh": "",
+      "name": "Menino",
+      "vehicleType": "bicycle",
+      "location": {
+        "lat": -23.413060764874313,
+        "long": -51.93812922195265
+      },
+      "id": 4
     }
   ],
   "products": [
@@ -577,7 +613,7 @@
       "barcode": "2412352137355",
       "category": "three",
       "quantity": "5",
-      "price": 8.50,
+      "price": 8.5,
       "id": 14
     },
     {
@@ -585,8 +621,7 @@
       "barcode": "87028815",
       "category": "one",
       "quantity": "12",
-      "price": 15.00,
-
+      "price": 15,
       "id": 15
     },
     {
@@ -594,7 +629,7 @@
       "barcode": "2309482309423890",
       "category": "biscoitos",
       "quantity": "1",
-      "price": 15.50,
+      "price": 15.5,
       "id": 16
     },
     {
@@ -636,7 +671,7 @@
       "category": "frios-laticínios",
       "quantity": "5",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": 8.50,
+      "price": 8.5,
       "id": 21
     },
     {
@@ -645,7 +680,7 @@
       "category": "frios-laticínios",
       "quantity": "50",
       "imageUrl": "assets/categorias/laticinios.png",
-      "price": 8.50,
+      "price": 8.5,
       "id": 22
     },
     {
@@ -663,8 +698,18 @@
       "category": "carnes",
       "quantity": "50",
       "imageUrl": "assets/categorias/carnes.png",
-      "price": 28.00,
+      "price": 28,
       "id": 24
+    },
+    {
+      "name": "Hoka",
+      "barcode": "31232131",
+      "category": "carnes",
+      "quantity": "20",
+      "imageUrl": "assets/categorias/carnes.png",
+      "price": "10",
+      "price_discount": "",
+      "id": 25
     }
   ],
   "orders": [

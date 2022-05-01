@@ -50,6 +50,7 @@ export class NewProductComponent implements OnInit {
       category: fb.control('', [Validators.required]),
       quantity: fb.control('', [Validators.required]),
       price: fb.control('', [Validators.required]),
+      priceDiscount:fb.control(''),
 
     });
   }
@@ -65,6 +66,7 @@ export class NewProductComponent implements OnInit {
           quantity: this.quantidade?.value,
           imageUrl: this.changeImage(),
           price: this.preco?.value,
+          price_discount: this.precoDesconto?.value,
         } as Product)
         .subscribe(
           (t) => {
@@ -210,6 +212,7 @@ export class NewProductComponent implements OnInit {
     this.newProductForm.controls['category'].setValue(this.product.category);
     this.newProductForm.controls['quantity'].setValue(this.product.quantity);
     this.newProductForm.controls['price'].setValue(this.product.price);
+    this.newProductForm.controls['priceDiscount'].setValue(this.product.price_discount);
   }
 
   goBack(){
@@ -226,6 +229,7 @@ export class NewProductComponent implements OnInit {
       this.product.quantity= this.quantidade?.value;
       this.product.price= this.preco?.value;
       this.product.imageUrl = this.changeImage();
+      this.product.price_discount = this.precoDesconto?.value;
       this.productService.updateProduct(this.product).subscribe((y:Product)=>{
         for (let i = 0; i < this.shop.products.length; i++) {
           if(this.product.id == this.shop.products[i].id){
@@ -261,6 +265,15 @@ export class NewProductComponent implements OnInit {
     this.router.navigateByUrl('carrinho');
   }
 
+  gotoShop(){
+    this.credentialShopService.disableProductUpdate();
+    this.router.navigateByUrl('new-shop');
+  }
+  gotoCourier(){
+    this.credentialShopService.disableProductUpdate();
+    this.router.navigateByUrl('courier');
+  }
+
 
   get nome() {
     return this.newProductForm.get('name');
@@ -280,6 +293,9 @@ export class NewProductComponent implements OnInit {
 
   get preco() {
     return this.newProductForm.get('price');
+  }
+  get precoDesconto() {
+    return this.newProductForm.get('priceDiscount');
   }
 
 
