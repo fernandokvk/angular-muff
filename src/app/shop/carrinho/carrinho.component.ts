@@ -49,7 +49,14 @@ export class CarrinhoComponent implements OnInit {
   getTotalCost(): number {
     let totalCost = 0;
     if (this.shop?.deliveryFee) totalCost += this.shop.deliveryFee;
-    this.carrinho$.subscribe(t => t.forEach(product => totalCost += (product.price * product.quantity)))
+    this.carrinho$.subscribe(t => t.forEach(product => {
+      if(product.price_discount == undefined){
+        totalCost += (product.price * product.quantity)
+      }else{
+        totalCost += (product.price_discount * product.quantity)
+      }
+      
+    }))
     return totalCost;
   }
 
@@ -86,101 +93,6 @@ export class CarrinhoComponent implements OnInit {
   }
 
   private fetchCarrinho() {
-    /*this.activeSessionService.sessionProducts = [
-      {
-        "id": 1,
-        "barcode": 445950719443,
-        "name": "Abacate",
-        "category": "Hortifruti",
-        "quantity": 1,
-        "price": 5.83,
-        "imageUrl": "/assets/categorias/abacate.png",
-        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-      },
-      {
-        "id": 2,
-        "barcode": 916267911254,
-        "name": "Coca-cola 2L",
-        "category": "Bebidas",
-        "quantity": 1,
-        "price": 8,
-        "imageUrl": "/assets/categorias/bebidas.png"
-      },
-      {
-        "id": 3,
-        "barcode": 491577261240,
-        "name": "Patinho Bov Moído Montana KG",
-        "category": "Carnes",
-        "quantity": 1,
-        "price": 35.9,
-        "imageUrl": "/assets/categorias/carnes.png"
-      },
-      {
-        "id": 4,
-        "barcode": 396956779889,
-        "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-        "category": "Biscoitos",
-        "quantity": 5,
-        "price": 2.89,
-        "imageUrl": "/assets/categorias/biscoitos.png"
-      },
-      {
-        "id": 5,
-        "barcode": 618646523025,
-        "name": "Café Arábica ORFEU Clássico 250g",
-        "category": "Café",
-        "quantity": 2,
-        "price": 10.00,
-        "imageUrl": "/assets/categorias/cafe.png",
-        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-      },
-      {
-        "id": 6,
-        "barcode": 270910695198,
-        "name": "VAPZA Grão de Bico",
-        "category": "Enlatados",
-        "quantity": 4,
-        "price": 12.5,
-        "imageUrl": "/assets/categorias/enlatados.png"
-      },
-      {
-        "id": 3,
-        "barcode": 491577261240,
-        "name": "Patinho Bov Moído Montana KG",
-        "category": "Carnes",
-        "quantity": 1,
-        "price": 35.9,
-        "imageUrl": "/assets/categorias/carnes.png"
-      },
-      {
-        "id": 4,
-        "barcode": 396956779889,
-        "name": "NEGRESCO Biscoito Recheado Chocolate 140g",
-        "category": "Biscoitos",
-        "quantity": 5,
-        "price": 2.89,
-        "imageUrl": "/assets/categorias/biscoitos.png"
-      },
-      {
-        "id": 5,
-        "barcode": 618646523025,
-        "name": "Café Arábica ORFEU Clássico 250g",
-        "category": "Café",
-        "quantity": 2,
-        "price": 10.00,
-        "imageUrl": "/assets/categorias/cafe.png",
-        "observation": "Lorem ipsum balbalblabla m balbalblabl m balbalblabl m balbalblabl"
-      },
-      {
-        "id": 6,
-        "barcode": 270910695198,
-        "name": "VAPZA Grão de Bico",
-        "category": "Enlatados",
-        "quantity": 4,
-        "price": 12.5,
-        "imageUrl": "/assets/categorias/enlatados.png"
-      }
-    ]*/
     this.carrinho$ = of(this.activeSessionService.sessionProducts)
   }
 

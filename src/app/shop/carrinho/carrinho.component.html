@@ -95,8 +95,11 @@
 
               <div class="list-item-wrapper__info">
                 {{product.name}}
-                <div class="list-item-wrapper__info__price">
+                <div *ngIf="product.price_discount == undefined" class="list-item-wrapper__info__price">
                   {{product.quantity * product.price | currency}}
+                </div>
+                <div *ngIf="product.price_discount != undefined" class="list-item-wrapper__info__price">
+                  {{product.quantity * product.price_discount | currency}}
                 </div>
                 <div *ngIf="product.observation">
                   <span style="font-weight: bold">Obs.: </span> {{product.observation}}

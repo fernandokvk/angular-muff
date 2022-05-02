@@ -7,8 +7,8 @@
 </div>
 
 <div *ngFor="let shop of search_products | keyvalue" class="wrapper">
-    <mat-list class="wrapper">
-      <mat-list-item>
+    <mat-action-list class="wrapper">
+      <mat-list-item (click)="goToShop(shop.key)">
         <img src="{{shop.key.image}}" matListAvatar alt="">
         <div matLine>
           <span style="font-weight: bold">Loja:</span>
@@ -20,7 +20,7 @@
         </div>
         <div matLine>{{getStars(shop.key)}}</div>
       </mat-list-item>
-    </mat-list>
+    </mat-action-list>
     <carousel class="carousel" [autoplay]="true" [height]="170" [cellWidth]="150" [autoplayInterval]="5000">
       <div class="carousel-cell" *ngFor="let product of shop.value">
         <div>

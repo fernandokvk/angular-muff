@@ -23,6 +23,7 @@ export class SearchHomeComponent implements OnInit {
     private activeSessionService: ActiveSessionService,
     public dialog: MatDialog,
     private shopsService: CredentialShopService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -60,6 +61,10 @@ export class SearchHomeComponent implements OnInit {
     }
     return rating;
 
+  }
+
+  goToShop(shop: Shop) {
+    this.router.navigateByUrl(`shop/${shop.id}`)
   }
 
   addCart(shopId: number, product: Product){

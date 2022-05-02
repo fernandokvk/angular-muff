@@ -60,10 +60,9 @@
       "cpf": "23894723894",
       "endereco": "Rua dos Santos",
       "cep": "89347289",
-      "complemento": "casa",
+      "complemento": "",
       "password": "123",
-      "id": 5,
-      "telefone": "12312312312"
+      "id": 5
     },
     {
       "email": "condor@gmail.com",
