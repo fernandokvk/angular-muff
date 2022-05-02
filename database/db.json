@@ -934,46 +934,39 @@
     {
       "products": [
         {
-          "name": "Margarina Cremosa com Sal Qmix Qualy 500g",
-          "barcode": 34908234908,
-          "category": "Frios",
+          "name": "X-Frango",
+          "barcode": 23948234892,
+          "category": "Carnes",
           "quantity": 2,
-          "imageUrl": "assets/categorias/laticinios.png",
-          "price": 12.23,
+          "imageUrl": "assets/categorias/carnes.png",
+          "price": 22.5,
           "sold_units": 0,
-          "id": 17,
-          "price_discount": "8.99"
+          "id": 2,
+          "price_discount": "12"
         }
       ],
       "customerId": 5,
       "customerName": "João",
-      "shopId": 3,
-      "shopName": "Angeloni",
-      "status": "PLACED",
-      "deliveryFee": 15,
+      "shopId": 2,
+      "shopName": "Dogão Lanches",
+      "status": "ASSIGNED",
+      "deliveryFee": 12,
       "courierRejectedIds": [],
-      "paymentStatus": "PAID",
-      "paymentMethod": {
-        "type": "CREDIT_CARD",
-        "cardType": "MASTERCARD",
-        "nickname": "Sem limites",
-        "nameOnCard": "Toguro",
-        "cardNumber": "5432423423423423",
-        "cvv": "103",
-        "expDate": "0323"
-      },
+      "paymentStatus": "NOT_PAID",
+      "paymentMethod": "CASH",
       "pickupLocation": {
-        "address": "Avenida Tiradentes"
+        "address": "Avenida Mandacaru 1024"
       },
       "deliveryLocation": {
         "address": "Rua dos Santos",
         "lat": 1,
         "long": 2
       },
-      "createdAt": "2022-05-02T15:26:35.006Z",
-      "updatedAt": "2022-05-02T15:26:35.006Z",
-      "estimatedAt": "2022-05-05T15:26:35.006Z",
-      "id": 1
+      "createdAt": "2022-05-02T16:00:40.023Z",
+      "updatedAt": "2022-05-02T16:01:35.192Z",
+      "estimatedAt": "2022-05-02T16:45:40.023Z",
+      "id": 1,
+      "courier": []
     }
   ]
 }

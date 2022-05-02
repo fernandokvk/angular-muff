@@ -114,8 +114,9 @@ export class CarrinhoComponent implements OnInit {
      **/
     if (this.activeSessionService.sessionProducts.length > 0){
       const dataCompra = new Date();
-      let dataEstimado = new Date(dataCompra);
-      dataEstimado.setDate(dataCompra.getDate() + 3)
+      // @ts-ignore
+      let dataEstimado = new Date(dataCompra.getTime() + this.shop?.estimatedDeliveryTime*60000);
+
       let emptyArray: any[] = [];
 
       let orderStatus = "PLACED";

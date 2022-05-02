@@ -72,6 +72,8 @@ export class PendingOrdersCustomerComponent implements OnInit {
         return 'Concluído';
       case 'SCHEDULED':
         return 'Agendado';
+      case "ASSIGNED":
+        return "Aguardando o entregador";
     }
     return 'undefined';
   }
