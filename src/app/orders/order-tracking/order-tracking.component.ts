@@ -10,6 +10,7 @@ import {ActiveSessionService} from "../../../services/active-session.service";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {SelectCourierDialogComponent} from "../select-courier-dialog/select-courier-dialog.component";
 import {ConfirmCancelDialogComponent} from "../confirm-cancel-dialog/confirm-cancel-dialog.component";
+import {Payment} from "../../../models/payment.model";
 
 @Component({
   selector: 'app-order-tracking',
@@ -131,13 +132,23 @@ export class OrderTrackingComponent implements OnInit {
       case 'CASH':
         return 'Dinheiro';
       default:
-        return (
-          order.paymentMethod.nickname +
-          ' ' +
-          order.paymentMethod.cardNumber.substring(14, 19)
-        );
+        return ("Cartão de "+ OrderTrackingComponent.switchCardType(order.paymentMethod));
     }
   }
+
+  private static switchCardType(paymentMethod: Payment) {
+    let string = "";
+
+    if (paymentMethod.type == "CREDIT_CARD") string = "Crédito";
+    else string = "Débito";
+
+    if (paymentMethod.cardType == "MASTERCARD") string = string.concat(" - Mastercard");
+    else string = string.concat(" - Visa")
+
+    return string;
+  }
+
+
 
   getOrderCost(order: Order) {
     let value: number = 0;
@@ -183,4 +194,7 @@ export class OrderTrackingComponent implements OnInit {
     // this.assignCourierDisabled = true;
     // this.rejectDisabled = true;
   }
+
+
+
 }

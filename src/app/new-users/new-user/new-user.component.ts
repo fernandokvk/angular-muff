@@ -56,6 +56,7 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
+    let emptyArray: any[] = [];
     this.getFormValidationErrors();
     if (this.canSubmit()) {
       this.credentialService
@@ -70,6 +71,7 @@ export class NewUserComponent implements OnInit {
           password: this.password?.value,
           type: "CUSTOMER",
           complemento: this.complemento,
+          paymentCards: emptyArray,
         } as Credential)
         .subscribe(
           (t) => console.log(t.email),

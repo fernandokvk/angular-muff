@@ -154,9 +154,9 @@
     </div>
   </div>
 
-  <div class="wrappers" *ngIf="tipo_pagamento === 'CARD'">
-    <span class="p_font">Cartão Escolhido: </span>
-    <span>{{cartao?.nickname}}</span>
+  <div class="wrappers" *ngIf="tipo_pagamento != 'CASH'">
+    <span class="p_font">Cartão: </span>
+    <span> {{cartao?.nickname}}</span>
   </div>
 
 

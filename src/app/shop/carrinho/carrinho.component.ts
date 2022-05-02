@@ -26,7 +26,7 @@ export class CarrinhoComponent implements OnInit {
   shop: Shop | undefined;
   temShop: boolean = false;
   shops: Shop[] = [];
-  tipo_pagamento: String = "CASH";
+  tipo_pagamento: "CASH" | Payment = "CASH";
   cartao: Payment | undefined;
 
   scheduleDay: any;
@@ -55,7 +55,7 @@ export class CarrinhoComponent implements OnInit {
       }else{
         totalCost += (product.price_discount * product.quantity)
       }
-      
+
     }))
     return totalCost;
   }
@@ -112,7 +112,7 @@ export class CarrinhoComponent implements OnInit {
      * Definir lat e long
      * Definir lat e long (To do)
      **/
-    if (this.activeSessionService.sessionProducts.length > 0 && this.tipo_pagamento !== ""){
+    if (this.activeSessionService.sessionProducts.length > 0){
       const dataCompra = new Date();
       let dataEstimado = new Date(dataCompra);
       dataEstimado.setDate(dataCompra.getDate() + 3)
@@ -126,6 +126,12 @@ export class CarrinhoComponent implements OnInit {
         dataEstimado = scheduleDate;
       }
 
+      let orderPaid = "NOT_PAID";
+      if (this.tipo_pagamento != "CASH") orderPaid = "PAID"; //Se não for dinheiro, é no cartão e está pago
+
+      let payment: any = "CASH";
+      if (this.cartao) payment = this.cartao;
+
       this.credentialCarrinhoService
       .submit({
         products: this.activeSessionService.sessionProducts,
@@ -136,8 +142,8 @@ export class CarrinhoComponent implements OnInit {
         status: orderStatus,
         deliveryFee: this.shop?.deliveryFee,
         courierRejectedIds: emptyArray,
-        paymentStatus: "NOT_PAID",
-        paymentMethod: this.tipo_pagamento,
+        paymentStatus: orderPaid,
+        paymentMethod: payment,
         pickupLocation: this.shop?.location,
         deliveryLocation: {address: this.activeSessionService.credential?.endereco, lat: 1, long: 2},
         createdAt: dataCompra,
